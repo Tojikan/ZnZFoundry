@@ -1,0 +1,19 @@
+{
+    "znz": {
+        "meleeTypes": {
+            "none": "None",
+            "blunt": "Blunt",
+            "sharp": "Sharp",
+            "piercing": "Piercing",
+            "unarmed": "Unarmed"
+        },
+        "rangedTypes": {
+            "none": "None",
+            "pistol": "Pistol",
+            "rifle": "Rifle",
+            "shotgun": "Shotgun",
+            "projectile": "Projectile",
+            "throwing": "Throwing"
+        }
+    }
+}

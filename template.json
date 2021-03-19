@@ -1,0 +1,39 @@
+{
+    "Actor":{
+        "types": ["survivor", "npc", "zombie"]
+    },
+    "Item":{
+        "types": [
+            "weapon",
+            "armor",
+            "grenade",
+            "miscellaneous"
+        ],
+        "templates":{
+            "baseItem":{
+                "description": "",
+                "weight": ""
+            }
+        },
+        "weapon":{
+            "templates":[
+                "baseItem"
+            ]
+        },
+        "armor":{
+            "templates": [
+                "baseItem"
+            ]
+        },
+        "grenade":{
+            "templates": [
+                "baseItem"
+            ]
+        },
+        "miscellaneous":{
+            "templates": [
+                "baseItem"
+            ]
+        }
+    }
+}
