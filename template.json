@@ -1,0 +1,165 @@
+{
+    "Actor":{
+        "types": ["character", "zombie"],
+        "templates": {
+            "luck": {
+                "min": 0,
+                "value": 5
+            },
+            "resources" : {
+                "hp" : {
+                    "min": 0,
+                    "max": 50,
+                    "value": 50,
+                    "label": "Health"
+                },
+                "ap" : {
+                    "min": 0,
+                    "max": 50,
+                    "value": 50,
+                    "label": "Energy"
+                },
+                "mp" : {
+                    "min": 0,
+                    "max": 50,
+                    "value": 50,
+                    "label": "Psych"
+                },
+                "exp" : {
+                    "min": 0,
+                    "value": 50,
+                    "label": "EXP"
+                }
+            },
+            "proficiencies": {
+                "combat": {
+                    "melee_sharp" : {
+                        "value": 1,
+                        "min": 1
+                    },
+                    "melee_blunt" : {
+                        "value": 1,
+                        "min": 1
+                    },
+                    "ranged_firearms" : {
+                        "value": 1,
+                        "min": 1
+                    },
+                    "ranged_projectiles" : {
+                        "value": 1,
+                        "min": 1
+                    },
+                    "throwing" : {
+                        "value": 1,
+                        "min": 1
+                    }
+                },
+                "other": []
+            },
+            "attributes": {
+                "strength": {
+                    "value": 5,
+                    "max": 10,
+                    "min": 1
+                },
+                "dexterity": {
+                    "value": 5,
+                    "max": 10,
+                    "min": 1
+                }
+            }
+        },
+        "character": {
+            "templates": [ "pools", "proficiencies", "attributes"],
+            "skills": []
+        },
+        "zombie": {
+            "templates": [],
+            "hp": {
+                "value": 25
+            },
+            "defense": {
+                "value": 5
+            },
+            "attack": {
+                "value": 3
+            },
+            "defenseroll": {
+                "min": 1,
+                "value": 3
+            },
+            "attackroll": {
+                "min": 1,
+                "value": 3
+            }
+        }
+    },
+    "Item":{
+        "types": [
+            "weapon",
+            "armor",
+            "ability",
+            "item"
+        ],
+        "templates":{
+            "baseObject":{
+                "description": "",
+                "weight": "",
+                "quantity": ""
+            }
+        },
+        "weapon":{
+            "templates":[
+                "baseObject"
+            ],
+            "damage": {
+                "modifier": "1"
+            },
+            "durability": {
+                "min": 0,
+                "max": 25,
+                "value": 25
+            },
+            "type": {
+                "main": "melee",
+                "subtype": "blunt"
+            },
+            "ammo": {
+                "min": 0,
+                "max": 1,
+                "value": 1
+            },
+            "special":{}
+        },
+        "armor":{
+            "templates": [
+                "baseObject"
+            ],
+            "protection": {
+                "min": 0,
+                "max": 10,
+                "value": 10
+            }
+        },
+        "item":{
+            "templates": [
+                "baseObject"
+            ]
+        },
+        "ability": {
+            "description": {
+                "text": "",
+                "level": []
+            },
+            "attributes": {},
+            "groups": {}
+        },
+        "flaw": {
+            "description": {
+                "text": ""
+            },
+            "attributes": {},
+            "groups": {}
+        }
+    }
+}

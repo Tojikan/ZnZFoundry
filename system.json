@@ -1,0 +1,34 @@
+{
+    "name": "znz",
+    "title": "ZnZ",
+    "author": "Tojikan",
+    "description": "",
+    "version": 0.01,
+    "templateVersion": 2,
+    "minimumCoreVersion": "0.8.9",
+    "compatibleCoreVersion": "0.8.9",
+    "esmodules": [
+        "znz.js"
+    ],
+    "styles": [
+        "znz.css"
+    ],
+    "scripts": [
+
+    ],
+    "packs": [
+
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "gridDistance": 5,
+    "gridUnits":"ft",
+    "primaryTokenAttribute": "hp",
+    "secondaryTokenAttribute": "ap",
+    "initiative": "1d20"
+}
