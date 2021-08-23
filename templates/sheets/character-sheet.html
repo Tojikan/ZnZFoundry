@@ -1,23 +1,39 @@
+{{log data}}
+
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="120" width="120"/>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/>
         <div class="charinfo">
             <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
         </div>
     </header>
 
-    {{log data}}
     <div class="resource-list">
         {{#each data.resources as |res key|}}
             <div class="resource">
                 <label for="data.resources.{{key}}.value" class="resource-label">{{res.label}}</label>
-                <input type="text" name="data.resources.{{key}}.value" value="{{res.value}}" data-dtype="Number"/>
-                {{#if res.max}}
-                <span class="separator">/</span>
-                <input type="text" name="data.resources.{{key}}.max" value="{{res.max}}" data-dtype="Number"/>
+                <div class="resource-input">
+                    <input type="text" name="data.resources.{{key}}.value" value="{{res.value}}" data-dtype="Number"/>
+                    {{#if res.max}}
+                    <span class="separator">/</span>
+                    <input type="text" name="data.resources.{{key}}.max" value="{{res.max}}" data-dtype="Number"/>
+                </div>
                 {{/if}}
             </div>
         {{/each}}
     </div>
 
+    <div class="abilities">
+
+
+    </div>
+
+    <div class="equipped">
+        <h2> Equipped Items </h2>
+
+        <div class="equip-slots">
+
+
+        </div>
+    </div>
 </form>

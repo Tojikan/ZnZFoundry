@@ -3,5 +3,23 @@
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </header>
-    <h1>Hello World</h1>
+
+    {{log item}}
+    {{log data}}
+    <section class="content sheet-body">
+        <div class="general">
+            <div class="stat-row">
+                <label for="damage">Weapon Damage</label>
+                <input name="damage" type="text" value="{{data.damage}}" placeholder="3" data-dtype="Number"/>
+            </div>
+            <div class="stat-row">
+                <label for="damage">Ammo</label>
+                <input name="ammo" type="text" value="{{data.ammo.value}}" placeholder="1" data-dtype="Number"/>
+                <span class="separator">/</span>
+                <input type="text" name="ammo-max" value="{{data.ammo.max}}" placeholder="1" data-dtype="Number"/>
+            </div>
+        </div>
+
+        {{editor content=data.description.text target="data.description.text" button=true owner=owner editable=editable}}
+    </section>
 </form>

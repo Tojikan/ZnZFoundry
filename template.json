@@ -70,96 +70,61 @@
             }
         },
         "character": {
-            "templates": [ "pools", "proficiencies", "attributes"],
-            "skills": []
+            "resources" : {
+                "hp" : {
+                    "value": 3,
+                    "label": "Health"
+                },
+                "ap" : {
+                    "max": 40,
+                    "value": 40,
+                    "label": "Stamina"
+                }
+            },
+            "proficiencies": {
+                "melee": {
+                    "value": 3
+                },
+                "ranged": {
+                    "value": 3
+                }
+            }
         },
         "zombie": {
-            "templates": [],
-            "hp": {
-                "value": 25
-            },
-            "defense": {
-                "value": 5
-            },
             "attack": {
-                "value": 3
-            },
-            "defenseroll": {
-                "min": 1,
-                "value": 3
-            },
-            "attackroll": {
-                "min": 1,
-                "value": 3
+                "value": 6
             }
         }
     },
     "Item":{
         "types": [
             "weapon",
-            "armor",
             "ability",
             "item"
         ],
-        "templates":{
-            "baseObject":{
-                "description": "",
-                "weight": "",
-                "quantity": ""
+        "templates": {
+            "base": {
+                "description": {
+                    "text": ""
+                }
             }
         },
         "weapon":{
-            "templates":[
-                "baseObject"
-            ],
+            "templates": ["base"],
             "damage": {
-                "modifier": "1"
-            },
-            "durability": {
-                "min": 0,
-                "max": 25,
-                "value": 25
-            },
-            "type": {
-                "main": "melee",
-                "subtype": "blunt"
+                "value": "3"
             },
             "ammo": {
-                "min": 0,
                 "max": 1,
                 "value": 1
-            },
-            "special":{}
-        },
-        "armor":{
-            "templates": [
-                "baseObject"
-            ],
-            "protection": {
-                "min": 0,
-                "max": 10,
-                "value": 10
             }
         },
+
         "item":{
-            "templates": [
-                "baseObject"
-            ]
+            "templates": ["base"]
         },
         "ability": {
-            "description": {
-                "text": "",
-                "level": []
-            },
-            "attributes": {},
-            "groups": {}
-        },
-        "flaw": {
-            "description": {
-                "text": ""
-            },
-            "attributes": {},
-            "groups": {}
+            "templates": ["base"]
         }
     }
 }

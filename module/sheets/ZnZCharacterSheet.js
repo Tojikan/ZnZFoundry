@@ -42,15 +42,10 @@ export default class ZnZCharacterSheet extends ActorSheet{
 
     _prepareItems(context){
         const inventory = [];
-        const equipment = [];
-        const weapons = [];
+        const equipped = [];
 
         //Assign and return
         context.inventory = inventory;
-        context.equipment = equipment;
-        context.weapons = weapons;
+        context.equipped = equipped;
     }
-    
-    
-    
 }
