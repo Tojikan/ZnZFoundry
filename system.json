@@ -1,0 +1,32 @@
+{
+    "id": "znz4e",
+    "version": "0.1.0",
+    "title": "ZnZ 4th Edition",
+    "description": "A resource-based RPG for a modern survival setting.",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "11"
+    },
+    "authors": [
+      {
+        "name": "Tojikan",
+        "discord": "tojikan.0"
+      }
+    ],
+    "esmodules": ["module/znz4e.mjs"],
+    "styles": ["styles/style.css"],
+    "scripts": [],
+    "packs": [],
+    "languages": [
+      {
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+      }
+    ],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "health",
+    "secondaryTokenAttribute": "energy",
+    "license": "LICENSE.txt"
+  }

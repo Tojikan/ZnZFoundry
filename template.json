@@ -1,0 +1,82 @@
+{
+	"Actor": {
+		"types": ["character", "enemy"],
+		"templates": {
+			"base": {
+				"health": {
+					"value":100,
+					"max": 100,
+					"label": "HP"
+				}
+			}
+		},
+		"character": {
+			"templates": ["base"],
+			"exp": {
+				"value": 0,
+				"max": 0,
+				"label": "EXP"
+			},
+			"abilities": {
+				"str": {
+					"value": 3
+				},
+				"per": {
+					"value": 3
+				},
+				"int": {
+					"value": 3
+				},
+				"dex": {
+					"value": 3
+				},
+				"end": {
+					"value": 3
+				},
+				"riz": {
+					"value": 3
+				}
+			},
+			"description": {
+				"value": "",
+				"label": "ZNZRPG.Description"
+			},
+			"notes": {
+				"value": "",
+				"label": "ZNZRPG.Description"
+			},
+			"initBonus": {
+				"value": 0,
+				"label": "ZNZRPG.InitiativeBonus"
+			}
+		},
+		"enemy": {
+			"templates": ["base"]
+		}
+	},
+	"Item": {
+		"types": ["item"],
+		"templates": {
+			"base": {
+				"weight": 1,
+				"description": ""
+			},
+			"equippable": {
+				"equipped": false,
+				"durability": {
+					"current": 10,
+					"max": 10,
+					"label": "ZNZRPG.Durability"
+				}
+			}
+		},
+		"weapon": {
+			"templates": ["base", "equippable"],
+			"uses": {
+				"current": 10,
+				"max": 10,
+				"label": "ZNZRPG.Uses"
+			}
+		}
+	}
+}
