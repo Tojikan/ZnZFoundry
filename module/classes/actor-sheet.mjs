@@ -1,6 +1,4 @@
-
-
-
+import { CharacterHelper } from "../helpers/character.js";
 
 
 export class ZnZActorSheet extends ActorSheet {
@@ -10,7 +8,7 @@ export class ZnZActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["znz4e", "sheet", "actor"],
             template: "systems/znz4e/templates/actor/actor-sheet.html",
-            width: 600,
+            width: 800,
             height: 600,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "equipment" }]
         });
@@ -35,5 +33,25 @@ export class ZnZActorSheet extends ActorSheet {
         // Add the actor's data to context.data for easier access, as well as flags.
         context.data = actorData.system;
         context.flags = actorData.flags;
+
+        context.enrichedDescription = await TextEditor.enrichHTML(context.data.description, {async: true});
+        
+        if (actorData.type == 'character') {
+            this._prepareCharacterData(context);
+        }
+
+        return context;
     }
+
+
+	/**
+	 * Prepare Character type specific data
+	*/
+	_prepareCharacterData(context) {
+        //Copy from Character
+        context.carriedWeight = context.document.carriedWeight;
+        context.calculatedPenaltyValues = context.document.calculatedPenaltyValues;
+        context.totalRollPenalty = context.document.totalRollPenalty
+        context.actionCost = context.document.actionCost;
+	}
 }

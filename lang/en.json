@@ -1,3 +1,25 @@
 {
-    "ZNZRPG.Description": "Description"
+    "ZNZRPG.namePlaceholder": "Name",
+    "ZNZRPG.hplabel": "Health",
+    "ZNZRPG.explabel": "EXP",
+    "ZNZRPG.satietylabel": "Satiety",
+    "ZNZRPG.energylabel": "Energy",
+    "ZNZRPG.morale": "Morale",
+    "ZNZRPG.carriedWeight": "Carried Weight",
+    "ZNZRPG.carriedWeightHint": "Total weight of all items the character is holding. For every {weightThreshold} weight, increase action cost by 1.",
+    "ZNZRPG.rollPenalty": "Roll Penalty",
+    "ZNZRPG.rollPenaltyHint": "Normally, all rolls use a D10 as the base dice face. This dice face will decrease as a character loses resources (Health, Energy, Satiety, and Morale)",
+    "ZNZRPG.rollPenaltyHealth": "Penalty due to low Health: {loss}",
+    "ZNZRPG.rollPenaltyMorale": "Penalty due to low Morale: {loss}",
+    "ZNZRPG.rollPenaltyEnergy": "Penalty due to low Energy: {loss}",
+    "ZNZRPG.rollPenaltySatiety": "Penalty due to low Satiety: {loss}",
+    "ZNZRPG.actionCost": "Action Cost",
+    "ZNZRPG.actionCostHint": "This value shows how much Satiety and Energy each action will cost. Reduce Carried Weight to decrease this cost.",
+
+    "ZNZRPG.equipmenttab": "Equipment",
+    "ZNZRPG.inventorytab": "Inventory",
+
+
+    "ZNZRPG.weightLabel": "Weight",
+    "ZNZRPG.quantityLabel": "Quantity"
 }

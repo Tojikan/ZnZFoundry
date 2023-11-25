@@ -1,0 +1,25 @@
+{
+  "name": "znz4e",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "style": "gulp styles",
+    "watch": "gulp",
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tojikan/ZnZFoundry.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tojikan/ZnZFoundry/issues"
+  },
+  "homepage": "https://github.com/Tojikan/ZnZFoundry#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^9.0.0"
+  }
+}

@@ -1,0 +1,136 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+	
+	{{!-- Sheet Header --}}
+	<header class="sheet-header">
+		
+		<div class="sheet-header-container">
+			<div class="flexrow">
+				<h1 class="charname">
+					<input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ZNZRPG.namePlaceholder'}}"/>
+				</h1>
+			</div>
+			<div class="flexrow">
+				<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+				<div class="resources-section flexcol">
+					<div class="resource-content">
+						<label for="health-meter">{{localize data.health.label}}</label>
+						<meter id="health-meter" value="{{data.health.value}}" min="0" max="{{data.health.max}}"></meter>
+						<div class="minmax-value-display">
+							<input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+							<span class="divider">&nbsp;/&nbsp;</span>
+							<input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+						</div>
+					</div>
+					<div class="resource-content">
+						<label for="morale-meter">{{localize data.morale.label}}</label>
+						<meter id="morale-meter" value="{{data.morale.value}}" min="0" max="{{data.morale.max}}"></meter>
+						<div class="minmax-value-display">
+							<input type="text" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
+							<span class="divider">&nbsp;/&nbsp;</span>
+							<input type="text" name="data.morale.max" value="{{data.morale.max}}" data-dtype="Number"/>
+						</div>
+					</div>
+					<div class="resource-content">
+						<label for="energy-meter">{{localize data.energy.label}}</label>
+						<meter id="energy-meter" value="{{data.energy.value}}" min="0" max="{{data.energy.max}}"></meter>
+						<div class="minmax-value-display">
+							<input type="text" name="data.energy.value" value="{{data.energy.value}}" data-dtype="Number"/>
+							<span class="divider">&nbsp;/&nbsp;</span>
+							<input type="text" name="data.energy.max" value="{{data.energy.max}}" data-dtype="Number"/>
+						</div>
+					</div>
+					<div class="resource-content">
+						<label for="satiety-meter">{{localize data.satiety.label}}</label>
+						<meter id="satiety-meter" value="{{data.satiety.value}}" min="0" max="{{data.satiety.max}}"></meter>
+						<div class="minmax-value-display">
+							<input type="text" name="data.satiety.value" value="{{data.satiety.value}}" data-dtype="Number"/>
+							<span class="divider">&nbsp;/&nbsp;</span>
+							<input type="text" name="data.satiety.max" value="{{data.satiety.max}}" data-dtype="Number"/>
+						</div>
+					</div>
+				</div>
+				<div class="status-section flexcol">
+					<div class="status-content experience">
+						<div class="minmax-value-display">
+							<label>{{localize data.exp.label}}</label>
+							<input type="text" name="data.exp.value" value="{{data.exp.value}}" data-dtype="Number"/>
+							<span class="divider">&nbsp;/&nbsp;</span>
+							<input type="text" name="data.exp.max" value="{{data.exp.max}}" data-dtype="Number"/>
+						</div>
+					</div>
+					<div class="status-content weight single-value-display">
+						<label>
+							{{localize 'ZNZRPG.carriedWeight'}}
+							<span class="tooltip">
+								<i class="fas fa-question-circle"></i>
+								<div class="tooltip-text">
+									{{localize 'ZNZRPG.carriedWeightHint' weightThreshold=data.config.cost.baseWeightPerActionCost.value}}
+								</div>
+							</span>
+						</label>
+						<input type="text" disabled value={{ carriedWeight }} />
+					</div>
+					<div class="status-content cost single-value-display">
+						<label>
+							{{localize 'ZNZRPG.actionCost'}}
+							<span class="tooltip">
+								<i class="fas fa-question-circle"></i>
+								<div class="tooltip-text">
+									{{localize 'ZNZRPG.actionCostHint'}}
+								</div>
+							</span>
+						</label>
+						<input type="text" disabled value={{ carriedWeight }} />
+					</div>
+					<div class="status-content penalty single-value-display">
+						<label>
+							{{localize 'ZNZRPG.rollPenalty'}}
+							<span class="tooltip">
+								<i class="fas fa-question-circle"></i>
+								<div class="tooltip-text">
+									{{localize 'ZNZRPG.rollPenaltyHint'}}
+								</div>
+							</span>
+						</label>
+
+						<div class="detail-info">
+							<div class="tooltip">
+								<i class="fas fa-info-circle"></i>
+								<div class="tooltip-text">
+									{{localize 'ZNZRPG.rollPenaltyHealth' loss=calculatedPenaltyValues.health}}<br/>
+									{{localize 'ZNZRPG.rollPenaltyMorale' loss=calculatedPenaltyValues.morale}}<br/>
+									{{localize 'ZNZRPG.rollPenaltyEnergy' loss=calculatedPenaltyValues.energy}}<br/>
+									{{localize 'ZNZRPG.rollPenaltySatiety' loss=calculatedPenaltyValues.satiety}}<br/>
+								</div>
+							</div>
+						</div>
+						<input type="text" disabled value={{ totalRollPenalty }} />
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	{{!-- Sheet Tab Navigation --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		{{!-- Default tab is specified in actor-sheet.mjs --}}
+		<a class="item" data-tab="equipment">{{localize 'ZNZRPG.equipmenttab'}}</a>
+		<a class="item" data-tab="inventory">{{localize 'ZNZRPG.inventorytab'}}</a>
+	</nav>
+
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+		
+		{{!-- Combat Tab --}}
+		<div class="tab combat" data-group="primary" data-tab="combat">
+			test1
+		</div>
+		
+		{{!-- Inventory Tab --}}
+		<div class="tab items" data-group="primary" data-tab="items">
+			test231231
+		</div>
+		
+	</section>
+</form>
+

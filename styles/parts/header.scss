@@ -1,0 +1,100 @@
+.znz4e {
+    header.sheet-header {
+        flex: 0 auto;
+        overflow: hidden;
+        display: flex;
+        align-items: start;
+        margin-bottom: 10px;
+        padding: 10px;
+        flex-wrap: nowrap;
+        overflow: visible;
+
+        .sheet-header-container {
+            width: 100%;
+        }
+
+        .profile-img {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100px;
+            flex: 0 0 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+
+        h1 {
+            input {
+                height: 36px;
+                line-height: 36px;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+        .resources-section {
+            width: 60%;
+            margin-right: 25px;
+    
+            .resource-content {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+    
+                label {
+                    text-align: right;
+                    flex-basis: 15%;
+                    margin-right: 8px;
+                }
+    
+                meter {
+                    flex-basis: 40%;
+                    margin-right: 8px;
+                }
+    
+                .minmax-value-display{
+                    flex-basis: 45%;
+                }
+            }
+        }
+
+        .status-section {
+            .status-content {
+                margin-bottom: 5px;
+
+                &.experience {
+                    .minmax-value-display {
+                        label {
+                            flex-basis: 50%;
+                            width: 50%;
+                        }
+
+                        input {
+                            flex-basis: 25%;
+                        }
+                    }
+                }
+
+                &.cost,
+                &.penalty {
+                    input {
+                        color: red;
+                    }
+                }
+
+                .detailed-info {
+                    text-align: right;
+                }
+            }
+        }
+
+
+        meter#energy-meter::-webkit-meter-optimum-value {
+            background: #0763e5;
+        }
+        meter#satiety-meter::-webkit-meter-optimum-value {
+            background: red;
+        }
+        meter#morale-meter::-webkit-meter-optimum-value {
+            background: purple;
+        }
+    } 
+}

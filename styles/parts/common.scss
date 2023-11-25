@@ -1,0 +1,72 @@
+.znz4e {
+    /*** Tool Tip ****/
+    .tooltip {
+        cursor:pointer;
+        position: relative;
+        overflow: visible;
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 250px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 100;
+            top: 100%; /* Position below the element */
+            left: 50%;
+            transform: translateX(-50%); /* Center the tooltip horizontally */
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        &:hover {
+            .tooltip-text {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    /*** Single value display ***/
+    .single-value-display {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            width: 50%;
+            text-align: center;
+        }
+
+
+        &.block {
+            display: block;
+
+            label {
+                display: block;
+                text-align: center;
+            }
+            
+            input {
+                width: 100%;
+            }
+        }
+    }
+    
+    
+    /*** Min-max value display ***/
+    .minmax-value-display{
+        display: flex;
+        align-items: center;
+
+        label {
+            flex-basis: 30%;
+            margin-right: 10px;
+        }
+    }
+
+
+    
+}

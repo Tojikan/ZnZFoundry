@@ -1,3 +1,5 @@
+import { CharacterHelper } from "../helpers/character.js";
+
 /**
 * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
 * @extends {Actor}
@@ -31,19 +33,21 @@ export class ZnZActor extends Actor {
 	prepareDerivedData() {
 		const actorData = this;
 		const data = actorData.system;
+		const flags = actorData.flags.znz4e || {};
 		
 		// Make separate methods for each Actor type (character, monster, etc.) to keep
 		// things organized.
-		this._prepareMonsterData(actorData);
+		this._prepareCharacterData(actorData);
 	}
 	
 	/**
-	* Prepare Character type specific data
+	 * Prepare Character type specific data
 	*/
 	_prepareCharacterData(actorData) {
 		if (actorData.type !== 'character') return;
 		
 		// Make modifications to data here. For example:
-		const data = actorData.system;
+		CharacterHelper.PrepareItems(actorData);
+		CharacterHelper.CalculatePenalty(actorData);
 	}
 }

@@ -1,0 +1,126 @@
+.znz4e {
+  /*** Tool Tip ****/
+  /*** Single value display ***/
+  /*** Min-max value display ***/ }
+  .znz4e .tooltip {
+    cursor: pointer;
+    position: relative;
+    overflow: visible; }
+    .znz4e .tooltip .tooltip-text {
+      visibility: hidden;
+      width: 250px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 100;
+      top: 100%;
+      /* Position below the element */
+      left: 50%;
+      transform: translateX(-50%);
+      /* Center the tooltip horizontally */
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s; }
+    .znz4e .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1; }
+  .znz4e .single-value-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .znz4e .single-value-display input {
+      width: 50%;
+      text-align: center; }
+    .znz4e .single-value-display.block {
+      display: block; }
+      .znz4e .single-value-display.block label {
+        display: block;
+        text-align: center; }
+      .znz4e .single-value-display.block input {
+        width: 100%; }
+  .znz4e .minmax-value-display {
+    display: flex;
+    align-items: center; }
+    .znz4e .minmax-value-display label {
+      flex-basis: 30%;
+      margin-right: 10px; }
+
+.znz4e header.sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  margin-bottom: 10px;
+  padding: 10px;
+  flex-wrap: nowrap;
+  overflow: visible; }
+  .znz4e header.sheet-header .sheet-header-container {
+    width: 100%; }
+  .znz4e header.sheet-header .profile-img {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px;
+    height: 100px;
+    margin-right: 10px; }
+  .znz4e header.sheet-header h1 input {
+    height: 36px;
+    line-height: 36px;
+    margin: 0;
+    margin-bottom: 10px; }
+  .znz4e header.sheet-header .resources-section {
+    width: 60%;
+    margin-right: 25px; }
+    .znz4e header.sheet-header .resources-section .resource-content {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center; }
+      .znz4e header.sheet-header .resources-section .resource-content label {
+        text-align: right;
+        flex-basis: 15%;
+        margin-right: 8px; }
+      .znz4e header.sheet-header .resources-section .resource-content meter {
+        flex-basis: 40%;
+        margin-right: 8px; }
+      .znz4e header.sheet-header .resources-section .resource-content .minmax-value-display {
+        flex-basis: 45%; }
+  .znz4e header.sheet-header .status-section .status-content {
+    margin-bottom: 5px; }
+    .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display label {
+      flex-basis: 50%;
+      width: 50%; }
+    .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display input {
+      flex-basis: 25%; }
+    .znz4e header.sheet-header .status-section .status-content.cost input, .znz4e header.sheet-header .status-section .status-content.penalty input {
+      color: red; }
+    .znz4e header.sheet-header .status-section .status-content .detailed-info {
+      text-align: right; }
+  .znz4e header.sheet-header meter#energy-meter::-webkit-meter-optimum-value {
+    background: #0763e5; }
+  .znz4e header.sheet-header meter#satiety-meter::-webkit-meter-optimum-value {
+    background: red; }
+  .znz4e header.sheet-header meter#morale-meter::-webkit-meter-optimum-value {
+    background: purple; }
+
+.znz4e .znz-item .sheet-body {
+  padding: 10px; }
+  .znz4e .znz-item .sheet-body h2 {
+    font-size: 16px;
+    border: none;
+    margin: 0; }
+  .znz4e .znz-item .sheet-body .description {
+    border: solid 1px black;
+    height: 100px; }
+
+.znz4e .znz-item.inventory-item .sheet-body .description {
+  height: 180px; }
+
+.znz4e .znz-item .item-block-fields {
+  display: flex;
+  justify-content: center; }
+  .znz4e .znz-item .item-block-fields .block {
+    width: 75px;
+    margin-right: 20px; }
+
+.znz4e .description .editor {
+  height: 100%; }

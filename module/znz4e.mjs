@@ -2,6 +2,8 @@ import { ZnZActor } from "./classes/actor.mjs";
 import { ZnZActorSheet } from "./classes/actor-sheet.mjs";
 
 import { preloadHandlebarsTemplates } from "./templates.js";
+import { ZnZItem } from "./classes/item.mjs";
+import { ZnZItemSheet } from "./classes/item-sheet.mjs";
 
 
 /* -------------------------------------------- */
@@ -12,7 +14,7 @@ Hooks.once('init', async function() {
 	
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
-	game.basicfantasyrpg = {
+	game.znz4e = {
 		ZnZActor
 	};
 
@@ -27,13 +29,13 @@ Hooks.once('init', async function() {
 
 	// Define custom Document classes
 	CONFIG.Actor.documentClass = ZnZActor;
+	CONFIG.Item.documentClass = ZnZItem;
 
 	// Register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("worldbuilding", ZnZActorSheet, { makeDefault: true });
-
-
-
+	Actors.registerSheet("znz4e", ZnZActorSheet, { makeDefault: true });
+	Items.unregisterSheet("core", ItemSheet);
+  	Items.registerSheet("znz4e", ZnZItemSheet, { makeDefault: true });
 
 
 
@@ -51,6 +53,34 @@ Hooks.once('init', async function() {
 		}
 		return outStr;
 	});
+
+	Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+
+		switch (operator) {
+			case '==':
+				return (v1 == v2) ? options.fn(this) : options.inverse(this);
+			case '===':
+				return (v1 === v2) ? options.fn(this) : options.inverse(this);
+			case '!=':
+				return (v1 != v2) ? options.fn(this) : options.inverse(this);
+			case '!==':
+				return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+			case '<':
+				return (v1 < v2) ? options.fn(this) : options.inverse(this);
+			case '<=':
+				return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+			case '>':
+				return (v1 > v2) ? options.fn(this) : options.inverse(this);
+			case '>=':
+				return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+			case '&&':
+				return (v1 && v2) ? options.fn(this) : options.inverse(this);
+			case '||':
+				return (v1 || v2) ? options.fn(this) : options.inverse(this);
+			default:
+				return options.inverse(this);
+		}
+	});
 	
 	Handlebars.registerHelper('toLowerCase', function(str) {
 		return str.toLowerCase();
@@ -65,6 +95,10 @@ Hooks.once('init', async function() {
 	 */
 	Handlebars.registerHelper('slugify', function(value) {
 		return value.slugify({strict: true});
+	});
+
+	Handlebars.registerHelper('json', function(context) {
+		return JSON.stringify(context);
 	});
 
 
