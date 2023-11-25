@@ -109,3 +109,20 @@ Hooks.once('init', async function() {
 	// Preload template partials
 	await preloadHandlebarsTemplates();
 });
+
+
+/* -------------------------------------------- */
+/*  Other Hook                                   */
+/* -------------------------------------------- */
+
+Hooks.on("preCreateItem", (itemData) => {
+	if (itemData.type === 'weapon'){
+		itemData.updateSource({img:"icons/svg/sword.svg"});
+	} else if (itemData.type === 'armor'){
+		itemData.updateSource({img:"icons/svg/shield.svg"});
+	} else if (itemData.type === 'skill'){
+		itemData.updateSource({img:"icons/svg/book.svg"});
+	} else if (itemData.type === 'ability'){
+		itemData.updateSource({img:"icons/svg/aura.svg"});
+	}
+});
