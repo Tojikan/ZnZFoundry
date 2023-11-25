@@ -21,6 +21,15 @@
             margin-right: 10px;
         }
 
+        .name-input {
+            flex-basis: 60%;
+        }
+
+        .status-input {
+            flex-basis: 40%;
+        }
+
+        .status-input,
         h1 {
             input {
                 height: 36px;

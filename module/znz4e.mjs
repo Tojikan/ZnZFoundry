@@ -90,6 +90,10 @@ Hooks.once('init', async function() {
 		return game.i18n.localize(str).toLowerCase();
 	});
 
+	Handlebars.registerHelper('capitalize', function(str) {
+		return str.charAt(0).toUpperCase() + str.substring(1);
+	});
+
 	/**
 	 * Slugify a string.
 	 */

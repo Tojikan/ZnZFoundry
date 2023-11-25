@@ -1,3 +1,6 @@
+import { ZNZLISTS } from "../config.js";
+
+
 export class CharacterHelper {
     static CalculatePenalty(context){
         let calculate = function(value, threshold, interval){
@@ -23,7 +26,7 @@ export class CharacterHelper {
     }
 
     
-    static PrepareItems(context){
+    static CalculateWeight(context){
         let carriedWeight = {
             "value": 0,
             _addWeight (moreWeight, quantity) {
@@ -43,10 +46,70 @@ export class CharacterHelper {
 
         for (let i of context.items) {
             i.img = i.img || DEFAULT_TOKEN;
-            carriedWeight._addWeight(i.system.weight.value)
+
+            if (ZNZLISTS.noWeightItems.includes(i.type)){
+                continue;
+            }
+            
+            carriedWeight._addWeight(i.system.weight.value, i.system.quantity.value)
         }
 
         context.carriedWeight = carriedWeight.value;
         context.actionCost = Math.round(carriedWeight.value / context.system.config.cost.baseWeightPerActionCost.value);
+    }
+
+
+    static SheetPrepareItems(context){
+        const inv = {
+            item: [],
+            weapon: [],
+            armor: [],
+        };
+
+        const skills = [];
+        const abilities = [];
+
+        const equipped = {
+            weapon: [],
+            armor: []
+        };
+
+    
+        for (let itm of context.items){
+            itm.img = itm.img || DEFAULT_TOKEN;
+
+            if (itm.type === "item"){
+                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoQuantity") + " " + itm.system.quantity.value;
+                inv.item.push(itm);
+            } 
+            else if (itm.type === "weapon"){
+                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDamage") + itm.system.damage.value;
+                itm.equippable = true;
+
+                if (itm.equipped){
+                    equipped.weapon.push(itm);
+                } else {
+                    inv.weapon.push(itm);
+                }
+            }
+            else if (itm.type === "armor"){
+                itm.equippable = true;
+
+                if (itm.equipped){
+                    equipped.weapon.push(itm);
+                } else {
+                    inv.weapon.push(itm);
+                }
+            }
+            else if (itm.type === "skill"){
+                skills.push(itm);
+            }
+            else if (itm.type === "ability"){
+                abilities.push(itm);
+            }
+        }
+
+        context.inventory = [...inv.item, ...inv.weapon, ...inv.armor];
+        context.equipped = equipped;
     }
 }

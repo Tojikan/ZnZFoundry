@@ -28,7 +28,7 @@ export class ZnZItemSheet extends ItemSheet {
         
         // enrichedDescription - enriches system.description for editor
         context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
-        
+
         // Use a safe clone of the item data for further operations.
         const itemData = context.item;
         

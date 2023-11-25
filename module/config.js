@@ -8,3 +8,9 @@ export const ZNZRPGVALUES = {
     baseEnergyPenaltyThreshold: 10,
     baseSatietyPenaltyThreshold: 10
 };
+
+export const ZNZLISTS = {
+    inventoryItems: ['item', 'weapon', 'armor'],
+    noWeightItems: ['skill', 'ability'],
+    oneQuantityItems: ['weapon', 'armor'],
+};

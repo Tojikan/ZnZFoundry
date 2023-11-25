@@ -45,6 +45,21 @@
     .znz4e .minmax-value-display label {
       flex-basis: 30%;
       margin-right: 10px; }
+  .znz4e .items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    color: #444; }
+    .znz4e .items-list .items-header {
+      height: 28px;
+      margin: 2px 0;
+      padding: 0;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.05);
+      border: 2px groove #eeede0;
+      font-weight: bold; }
 
 .znz4e header.sheet-header {
   flex: 0 auto;
@@ -63,6 +78,11 @@
     flex: 0 0 100px;
     height: 100px;
     margin-right: 10px; }
+  .znz4e header.sheet-header .name-input {
+    flex-basis: 60%; }
+  .znz4e header.sheet-header .status-input {
+    flex-basis: 40%; }
+  .znz4e header.sheet-header .status-input input,
   .znz4e header.sheet-header h1 input {
     height: 36px;
     line-height: 36px;
@@ -122,5 +142,57 @@
     width: 75px;
     margin-right: 20px; }
 
+.znz4e .inventory .items-list {
+  margin-top: 30px; }
+  .znz4e .inventory .items-list .items-header {
+    flex-wrap: nowrap; }
+  .znz4e .inventory .items-list .item-name {
+    flex-basis: 35%; }
+  .znz4e .inventory .items-list .item-type {
+    flex-basis: 10%; }
+  .znz4e .inventory .items-list .item-weight {
+    flex-basis: 10%; }
+  .znz4e .inventory .items-list .item-info {
+    flex-basis: 25%; }
+  .znz4e .inventory .items-list .item-controls {
+    flex-basis: 10%; }
+
+.znz4e .inventory .items-listing {
+  margin: 10px 0;
+  align-items: center; }
+  .znz4e .inventory .items-listing .item-name {
+    display: flex;
+    align-items: center; }
+    .znz4e .inventory .items-listing .item-name h4 {
+      margin: 0; }
+    .znz4e .inventory .items-listing .item-name .item-image {
+      margin-right: 5px; }
+  .znz4e .inventory .items-listing .item-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding-right: 20px; }
+  .znz4e .inventory .items-listing .item-equip {
+    font-size: 24px;
+    margin-right: 15px; }
+  .znz4e .inventory .items-listing .item-edit {
+    margin-right: 5px; }
+
+.znz4e .character-notes .editor,
 .znz4e .description .editor {
   height: 100%; }
+
+.znz4e.sheet nav.sheet-tabs {
+  justify-content: flex-start; }
+  .znz4e.sheet nav.sheet-tabs .item {
+    flex: 1 1 100%;
+    border-right: solid 1px var(--color-border-light-primary); }
+    .znz4e.sheet nav.sheet-tabs .item.small {
+      flex-basis: 10%; }
+
+.znz4e .character-notes {
+  height: 300px; }
+  .znz4e .character-notes .editor {
+    border: solid 1px black;
+    margin: 20px; }

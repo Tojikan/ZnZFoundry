@@ -68,5 +68,22 @@
     }
 
 
-    
+    .items-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        color: #444;
+
+        .items-header {
+            height: 28px;
+            margin: 2px 0;
+            padding: 0;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.05);
+            border: 2px groove #eeede0;
+            font-weight: bold;
+        }
+    }
 }

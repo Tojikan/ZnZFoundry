@@ -47,7 +47,7 @@ export class ZnZActor extends Actor {
 		if (actorData.type !== 'character') return;
 		
 		// Make modifications to data here. For example:
-		CharacterHelper.PrepareItems(actorData);
+		CharacterHelper.CalculateWeight(actorData);
 		CharacterHelper.CalculatePenalty(actorData);
 	}
 }

@@ -1,7 +1,8 @@
 {
-    "ZNZRPG.namePlaceholder": "Name",
-    "ZNZRPG.hplabel": "Health",
-    "ZNZRPG.explabel": "EXP",
+    "ZNZRPG.nameLabel": "Name",
+    "ZNZRPG.statusLabel": "Status",
+    "ZNZRPG.healthLabel": "Health",
+    "ZNZRPG.experienceLabel": "EXP",
     "ZNZRPG.satietylabel": "Satiety",
     "ZNZRPG.energylabel": "Energy",
     "ZNZRPG.morale": "Morale",
@@ -16,10 +17,26 @@
     "ZNZRPG.actionCost": "Action Cost",
     "ZNZRPG.actionCostHint": "This value shows how much Satiety and Energy each action will cost. Reduce Carried Weight to decrease this cost.",
 
-    "ZNZRPG.equipmenttab": "Equipment",
-    "ZNZRPG.inventorytab": "Inventory",
-
-
+    
     "ZNZRPG.weightLabel": "Weight",
-    "ZNZRPG.quantityLabel": "Quantity"
+    "ZNZRPG.quantityLabel": "Quantity",
+
+    "ZNZRPG.inventoryLabelName": "Name",
+    "ZNZRPG.inventoryLabelType": "Type",
+    "ZNZRPG.inventoryLabelWeight": "Weight",
+    "ZNZRPG.inventoryAdd": "Add",
+    "ZNZRPG.inventoryCreate": "Create Item",
+    "ZNZRPG.inventoryEdit": "Edit Item",
+    "ZNZRPG.inventoryDelete": "Delete Item",
+    "ZNZRPG.inventoryEquip": "Equip Item",
+    "ZNZRPG.inventoryUnequip": "Unequip Item",
+
+    "ZNZRPG.inventoryQuickInfoQuantity": "Qty:",
+    "ZNZRPG.inventoryQuickInfoDamage": "Dmg:",
+    
+
+    "ZNZRPG.tabCombat": "Combat",
+    "ZNZRPG.tabInventory": "Inventory",
+    "ZNZRPG.tabAbility": "Abilities",
+    "ZNZRPG.tabNotes": "Notes"
 }

@@ -1,3 +1,5 @@
+import { ZNZLISTS } from "../config.js";
+
 /**
 * Extend the basic Item with some very simple modifications.
 * @extends {Item}
@@ -10,6 +12,15 @@ export class ZnZItem extends Item {
         // As with the actor class, items are documents that can have their data
         // preparation methods overridden (such as prepareBaseData()).
         super.prepareData();
+        const itemData = this;
+
+        if (ZNZLISTS.oneQuantityItems.includes(itemData.type)){
+            itemData.system.quantity.value = 1;
+        }
+
+        if (ZNZLISTS.noWeightItems.includes(itemData.type)){
+            itemData.system.weight.value = 0;
+        }
     }
     
     /**
