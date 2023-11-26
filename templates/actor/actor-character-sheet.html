@@ -87,7 +87,7 @@
 								</div>
 							</span>
 						</label>
-						<input type="text" disabled value={{ carriedWeight }} />
+						<input type="text" disabled value={{ actionCost }} />
 					</div>
 					<div class="status-content penalty single-value-display">
 						<label>
@@ -133,6 +133,7 @@
 		
 		{{!-- Combat Tab --}}
 		<div class="tab combat" data-group="primary" data-tab="combat">
+			{{> "systems/znz4e/templates/actor/parts/actor-combat.html"}}
 		</div>
 		
 		{{!-- Inventory Tab --}}

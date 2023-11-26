@@ -68,6 +68,8 @@
         .status-section {
             .status-content {
                 margin-bottom: 5px;
+                display: flex;
+                flex-wrap: nowrap;
 
                 &.experience {
                     .minmax-value-display {
@@ -89,8 +91,13 @@
                     }
                 }
 
-                .detailed-info {
+                .detail-info {
+                    flex-basis: 15%;
                     text-align: right;
+
+                    .tooltip-text{
+                        text-align: initial;
+                    }
                 }
             }
         }

@@ -4,6 +4,7 @@ import { ZnZActorSheet } from "./classes/actor-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import { ZnZItem } from "./classes/item.mjs";
 import { ZnZItemSheet } from "./classes/item-sheet.mjs";
+import { NumberOrZero } from "./helpers/common.js";
 
 
 /* -------------------------------------------- */
@@ -55,7 +56,6 @@ Hooks.once('init', async function() {
 	});
 
 	Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
-
 		switch (operator) {
 			case '==':
 				return (v1 == v2) ? options.fn(this) : options.inverse(this);
@@ -81,9 +81,16 @@ Hooks.once('init', async function() {
 				return options.inverse(this);
 		}
 	});
+
+	
+	Handlebars.registerHelper('numberOrZero', NumberOrZero);
 	
 	Handlebars.registerHelper('toLowerCase', function(str) {
 		return str.toLowerCase();
+	});
+
+	Handlebars.registerHelper('toUpperCase', function(str) {
+		return str.toUpperCase();
 	});
 	
 	Handlebars.registerHelper('localizeLowerCase', function(str) {

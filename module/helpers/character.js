@@ -1,5 +1,4 @@
-import { ZNZLISTS } from "../config.js";
-
+import { NumberOrZero } from "./common.js";
 
 export class CharacterHelper {
     static CalculatePenalty(context){
@@ -29,43 +28,40 @@ export class CharacterHelper {
     static CalculateWeight(context){
         let carriedWeight = {
             "value": 0,
-            _addWeight (moreWeight, quantity) {
+            _addWeight (weight, quantity) {
+                // check we have a valid weight, and do nothing if we do not
+                if (!weight || weight == '' || Number.isNaN(weight) || weight <= 0){
+                    return;
+                }
+
+                // check we have a valid quantity, and do nothing if we do not
                 if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
-                    return; // check we have a valid quantity, and do nothing if we do not
+                    return; 
                 }
-
-                let q = Math.floor(quantity / 10);
-
-                if (!Number.isNaN(parseFloat(moreWeight))) {
-                    this.value += parseFloat(moreWeight) * quantity;
-                } else if (moreWeight === '*' && q > 0) {
-                    this.value += q;
-                }
+                this.value += weight * quantity;
             }
         };
 
         for (let i of context.items) {
             i.img = i.img || DEFAULT_TOKEN;
 
-            if (ZNZLISTS.noWeightItems.includes(i.type)){
-                continue;
-            }
+
+            let weight = (i.system.weight) ? i.system.weight.value : 0;
+            let quantity = (i.system.quantity) ? i.system.quantity.value : 1;
             
-            carriedWeight._addWeight(i.system.weight.value, i.system.quantity.value)
+            carriedWeight._addWeight(weight, quantity)
         }
 
+        const cost = context.system.config.cost;
+
         context.carriedWeight = carriedWeight.value;
-        context.actionCost = Math.round(carriedWeight.value / context.system.config.cost.baseWeightPerActionCost.value);
+        context.actionCost = NumberOrZero(cost.baseActionCost.value) + Math.round(carriedWeight.value / cost.baseWeightPerActionCost.value);
     }
 
 
     static SheetPrepareItems(context){
-        const inv = {
-            item: [],
-            weapon: [],
-            armor: [],
-        };
-
+        
+        const inventory = [];
         const skills = [];
         const abilities = [];
 
@@ -74,31 +70,31 @@ export class CharacterHelper {
             armor: []
         };
 
-    
         for (let itm of context.items){
             itm.img = itm.img || DEFAULT_TOKEN;
 
             if (itm.type === "item"){
-                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoQuantity") + " " + itm.system.quantity.value;
-                inv.item.push(itm);
+                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoQuantity") + " " + NumberOrZero(itm.system.quantity.value);
+                inventory.push(itm);
             } 
             else if (itm.type === "weapon"){
-                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDamage") + itm.system.damage.value;
+                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDamage") + " " + NumberOrZero(itm.system.damage.value);
                 itm.equippable = true;
 
                 if (itm.equipped){
                     equipped.weapon.push(itm);
                 } else {
-                    inv.weapon.push(itm);
+                    inventory.push(itm);
                 }
             }
             else if (itm.type === "armor"){
+                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDefense") + " " + NumberOrZero(itm.system.defense.value);
                 itm.equippable = true;
 
                 if (itm.equipped){
                     equipped.weapon.push(itm);
                 } else {
-                    inv.weapon.push(itm);
+                    inventory.push(itm);
                 }
             }
             else if (itm.type === "skill"){
@@ -106,10 +102,14 @@ export class CharacterHelper {
             }
             else if (itm.type === "ability"){
                 abilities.push(itm);
+            } else {
+                inventory.push(itm);
             }
         }
 
-        context.inventory = [...inv.item, ...inv.weapon, ...inv.armor];
+        context.skills = skills;
+        context.abilities = abilities;
+        context.inventory = inventory;
         context.equipped = equipped;
     }
 }

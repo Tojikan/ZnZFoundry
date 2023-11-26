@@ -22,6 +22,9 @@
       /* Center the tooltip horizontally */
       opacity: 0;
       transition: opacity 0.3s, visibility 0.3s; }
+    .znz4e .tooltip.right .tooltip-text {
+      left: 100%;
+      transform: none; }
     .znz4e .tooltip:hover .tooltip-text {
       visibility: visible;
       opacity: 1; }
@@ -105,7 +108,9 @@
       .znz4e header.sheet-header .resources-section .resource-content .minmax-value-display {
         flex-basis: 45%; }
   .znz4e header.sheet-header .status-section .status-content {
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: nowrap; }
     .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display label {
       flex-basis: 50%;
       width: 50%; }
@@ -113,8 +118,11 @@
       flex-basis: 25%; }
     .znz4e header.sheet-header .status-section .status-content.cost input, .znz4e header.sheet-header .status-section .status-content.penalty input {
       color: red; }
-    .znz4e header.sheet-header .status-section .status-content .detailed-info {
+    .znz4e header.sheet-header .status-section .status-content .detail-info {
+      flex-basis: 15%;
       text-align: right; }
+      .znz4e header.sheet-header .status-section .status-content .detail-info .tooltip-text {
+        text-align: initial; }
   .znz4e header.sheet-header meter#energy-meter::-webkit-meter-optimum-value {
     background: #0763e5; }
   .znz4e header.sheet-header meter#satiety-meter::-webkit-meter-optimum-value {
@@ -136,11 +144,59 @@
   height: 180px; }
 
 .znz4e .znz-item .item-block-fields {
-  display: flex;
-  justify-content: center; }
+  display: flex; }
   .znz4e .znz-item .item-block-fields .block {
-    width: 75px;
+    width: 100px;
     margin-right: 20px; }
+
+.znz4e .combat-tab {
+  display: flex;
+  margin-top: 15px; }
+  .znz4e .combat-tab .side-bar {
+    flex-basis: 25%;
+    margin-right: 20px; }
+  .znz4e .combat-tab .main-area {
+    flex-basis: 75%; }
+  .znz4e .combat-tab .section-label {
+    font-size: 14px;
+    position: relative; }
+    .znz4e .combat-tab .section-label .section-btn {
+      font-size: 12px;
+      text-align: right;
+      position: absolute;
+      right: 0;
+      bottom: 0; }
+  .znz4e .combat-tab .abilityscore-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px; }
+    .znz4e .combat-tab .abilityscore-row:last-child {
+      margin: 0; }
+    .znz4e .combat-tab .abilityscore-row .attr-label {
+      flex-basis: 70%; }
+      .znz4e .combat-tab .abilityscore-row .attr-label label {
+        font-weight: 700; }
+    .znz4e .combat-tab .abilityscore-row .attr-value {
+      flex-basis: 30%;
+      text-align: center; }
+      .znz4e .combat-tab .abilityscore-row .attr-value input {
+        font-size: 14px; }
+      .znz4e .combat-tab .abilityscore-row .attr-value.prefixed {
+        display: flex;
+        align-items: center;
+        justify-content: end; }
+    .znz4e .combat-tab .abilityscore-row .skill-edit {
+      font-size: 12px;
+      margin-right: 3px; }
+  .znz4e .combat-tab .abilityscore-section {
+    padding: 5px;
+    border: solid 1px black;
+    margin-bottom: 10px; }
+  .znz4e .combat-tab .skills {
+    min-height: 50px; }
+    .znz4e .combat-tab .skills .abilityscore-row {
+      padding: 5px 0;
+      border-bottom: 2px groove #eeede0; }
 
 .znz4e .inventory .items-list {
   margin-top: 30px; }
@@ -196,3 +252,7 @@
   .znz4e .character-notes .editor {
     border: solid 1px black;
     margin: 20px; }
+
+.znz4e .rollable:focus, .znz4e .rollable:hover {
+  text-shadow: 0 0 10px red;
+  cursor: pointer; }

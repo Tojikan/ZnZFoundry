@@ -42,7 +42,9 @@ export class ZnZItemSheet extends ItemSheet {
         // Add the actor's data to context.data for easier access, as well as flags.
         context.data = itemData.system;
         context.flags = itemData.flags;
-        
+
+
+        context.ActorAttributes = game.template.Actor.character.attributes;
         return context;
     }
     

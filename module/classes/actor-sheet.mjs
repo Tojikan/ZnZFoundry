@@ -53,8 +53,8 @@ export class ZnZActorSheet extends ActorSheet {
         
         // Render the item sheet for viewing/editing prior to the editable check.
         html.find('.item-edit').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.items.get(li.data("itemId"));
+            const parent = $(ev.currentTarget).parents(".item");
+            const item = this.actor.items.get(parent.data("itemId"));
             item.sheet.render(true);
         });
         
@@ -62,8 +62,9 @@ export class ZnZActorSheet extends ActorSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.isEditable) return;
         
-        // Add Inventory Item
-        html.find('.item-create').click(this._onCreateClick.bind(this));
+        
+        html.find('.inventory-create').click(this._onCreateClick.bind(this)); // Add Any Inventory Item
+        html.find('.skill-create').click(this._createItem.bind(this, 'skill')); //Add Skill
         
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -157,7 +158,7 @@ export class ZnZActorSheet extends ActorSheet {
         event.preventDefault();
         const element = event.currentTarget;
         const dataset = element.dataset;
-        
+        console.log(event);
         console.log(dataset);
     }
 }

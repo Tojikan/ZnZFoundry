@@ -34,28 +34,70 @@
 				"max": 100,
 				"label": "ZNZRPG.morale"
 			},
-			"abilities": {
+			"attributes": {
 				"str": {
-					"value": 3
+					"value": 3,
+					"label": "ZNZRPG.strLabel",
+					"hint": "ZNZRPG.strHint"
 				},
 				"per": {
-					"value": 3
+					"value": 3,
+					"label": "ZNZRPG.perLabel",
+					"hint": "ZNZRPG.perHint"
 				},
 				"int": {
-					"value": 3
+					"value": 3,
+					"label": "ZNZRPG.intLabel",
+					"hint": "ZNZRPG.intHint"
 				},
 				"dex": {
-					"value": 3
+					"value": 3,
+					"label": "ZNZRPG.dexLabel",
+					"hint": "ZNZRPG.dexHint"
 				},
 				"end": {
-					"value": 3
+					"value": 3,
+					"label": "ZNZRPG.endLabel",
+					"hint": "ZNZRPG.endHint"
 				},
 				"riz": {
-					"value": 3
+					"value": 3,
+					"label": "ZNZRPG.rizLabel",
+					"hint": "ZNZRPG.rizHint"
+				}
+			},
+			"combatskills":{
+				"melee": {
+					"value": 0,
+					"label": "ZNZRPG.meleeSkillLabel",
+					"defaultRoll": "str",
+					"hint": "ZNZRPG.meleeSkillHint"
+				},
+				"range": {
+					"value": 0,
+					"label": "ZNZRPG.rangedSkillLabel",
+					"defaultRoll": "dex",
+					"hint": "ZNZRPG.rangedSkillHint"
+				},
+				"block": {
+					"value": 0,
+					"label": "ZNZRPG.blockSkillLabel",
+					"defaultRoll": "str",
+					"hint": "ZNZRPG.blockSkillHint"
+				},
+				"dodge": {
+					"value": 0,
+					"label": "ZNZRPG.dodgeSkillLabel",
+					"defaultRoll": "dex",
+					"hint": "ZNZRPG.dodgeSkillHint"
 				}
 			},
 			"config": {
 				"cost": {
+					"baseActionCost": {
+						"value": 3,
+						"label": "ZNZRPG.baseActionCost"
+					},
 					"baseWeightPerActionCost": {
 						"value": 5,
 						"label": "ZNZRPG.baseWeightPerActionCost"
@@ -108,15 +150,13 @@
 		"types": ["item", "weapon", "armor", "ability", "skill"],
 		"templates": {
 			"base": {
+				"description": ""
+			},
+			"object": {
 				"weight": {
 					"value": 1,
 					"label": "ZNZRPG.weightLabel"
-				},
-				"quantity": {
-					"value": 1,
-					"label": "ZNZRPG.quantityLabel"
-				},
-				"description": ""
+				}
 			},
 			"equippable": {
 				"equipped": false,
@@ -128,10 +168,14 @@
 			}
 		},
 		"item": {
-			"templates": ["base"]
+			"templates": ["base", "object"],
+			"quantity": {
+				"value": 1,
+				"label": "ZNZRPG.quantityLabel"
+			}
 		},
 		"weapon": {
-			"templates": ["base", "equippable"],
+			"templates": ["base", "object", "equippable"],
 			"uses": {
 				"current": 10,
 				"max": 10,
@@ -147,15 +191,30 @@
 			}
 		},
 		"armor": {
-			"templates": ["base", "equippable"],
-			"protection": {
+			"templates": ["base","object", "equippable"],
+			"defense": {
 				"value": 0,
-				"label": "ZNZRPG.armorProtection"
+				"label": "ZNZRPG.armorDefense"
 			},
 			"warmth": {
 				"value": 1,
 				"label": "ZNZRPG.armorWarmth"
 			}
+		},
+		"skill": {
+			"templates": ["base"],
+			"level": {
+				"value": 0,
+				"label": "ZNZRPG.levelLabel"
+			},
+			"attributeUsed": {
+				"value": "int",
+				"label": "ZNZRPG.attributeUsedLabel"
+			}
+		},
+		"ability": {
+			"templates": ["base"],
+			"level": 0
 		}
 	}
 }

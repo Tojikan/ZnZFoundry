@@ -21,6 +21,13 @@
             transition: opacity 0.3s, visibility 0.3s;
         }
 
+        &.right {
+            .tooltip-text {
+                left: 100%;
+                transform: none;
+            }
+        }
+
         &:hover {
             .tooltip-text {
                 visibility: visible;

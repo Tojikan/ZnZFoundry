@@ -1,0 +1,61 @@
+<section class="combat-tab">
+    <div class="side-bar">
+        <div class="section-label">Attributes</div>
+        <div class="attributes flexcol abilityscore-section">
+            {{#each data.attributes as |attr key|}}
+                <div class="abilityscore-row">
+                    <div class="tooltip right attr-label">
+                        <label for="data.attributes.{{key}}.value" class="rollable" data-roll="{{key}}" data-label="{{localize attr.label}}">{{localize attr.label}}</label>
+                        <div class="tooltip-text">
+                            {{localize attr.hint}}
+                        </div>
+                    </div>
+                    <div class="attr-value">
+                        <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="section-label">Combat Skills</div>
+        <div class="combatskills flexcol abilityscore-section">
+            {{#each data.combatskills as |skill key|}}
+                <div class="abilityscore-row">
+                    <div class="tooltip right attr-label">
+                        <label for="data.combatskills.{{key}}.value" class="rollable" data-roll="{{key}}" data-label="{{localize skill.label}}">{{localize skill.label}}</label>
+                        <div class="tooltip-text">
+                            {{localize skill.hint}}
+                        </div>
+                    </div>
+                    <div class="attr-value prefixed">
+                        <span>{{toUpperCase skill.defaultRoll}}+</span>
+                        <input type="text" name="data.combatskills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="section-label">
+            Survival Skills
+            <span class="section-btn"><a class="item-control skill-create" title="{{localize 'ZNZRPG.inventoryCreate'}}" data-type="item"><i class="fas fa-plus"></i>{{localize 'ZNZRPG.inventoryAdd'}}</a></span>
+        </div>
+        <div class="skills flexcol abilityscore-section">
+            {{#each skills as |skill id|}}
+                <div class="abilityscore-row item" data-item-id="{{skill._id}}">
+                    <div class="skill-edit">
+                        <a class="item-control item-edit" title="{{localize 'ZNZRPG.skillEdit'}}"><i class="fas fa-edit"></i></a>
+                    </div>
+                    <div class="attr-label">
+                        <label class="rollable" for="{{skill._id}} data-roll="{{skill.system.attributeUsed.value}}">{{skill.name}}</label>
+                    </div>
+                    <div class="attr-value">
+                        <input type="text" disabled name="{{skill._id}}" value="{{toUpperCase skill.system.attributeUsed.value}}+{{skill.system.level.value}}" data-dtype="Number"/>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="main-area">
+
+    </div>
+</section>

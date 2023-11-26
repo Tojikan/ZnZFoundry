@@ -1,6 +1,7 @@
 @import 'parts/common.scss';
 @import 'parts/header.scss';
 @import 'parts/item.scss';
+@import 'parts/combat.scss';
 @import 'parts/inventory.scss';
 
 
@@ -33,6 +34,14 @@
         .editor {
             border: solid 1px black;
             margin: 20px;
+        }
+    }
+
+    .rollable {
+        &:focus,
+        &:hover {
+            text-shadow: 0 0 10px red;
+            cursor: pointer;
         }
     }
 }

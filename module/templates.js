@@ -9,6 +9,7 @@ export const preloadHandlebarsTemplates = async function() {
     const templatePaths = [
       "systems/znz4e/templates/actor/actor-sheet.html",
       "systems/znz4e/templates/actor/parts/actor-inventory.html",
+      "systems/znz4e/templates/actor/parts/actor-combat.html",
     ];
   
     // Load the template parts

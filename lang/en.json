@@ -17,9 +17,35 @@
     "ZNZRPG.actionCost": "Action Cost",
     "ZNZRPG.actionCostHint": "This value shows how much Satiety and Energy each action will cost. Reduce Carried Weight to decrease this cost.",
 
+
+
+    "ZNZRPG.strLabel": "Strength",
+    "ZNZRPG.strHint": "Number of dice rolled for melee attacks, blocking, and physical feats of strength",
+    "ZNZRPG.perLabel": "Perception",
+    "ZNZRPG.perHint": "Number of dice rolled for scouting, looting, and general feats of observation",
+    "ZNZRPG.intLabel": "Intelligence",
+    "ZNZRPG.intHint": "Number of dice rolled for most non-combat skill rolls and learning new skills",
+    "ZNZRPG.dexLabel": "Dexterity",
+    "ZNZRPG.dexHint": "Number of dice rolled for ranged attacks, dodging, and movement/acrobatic feats ",
+    "ZNZRPG.endLabel": "Endurance",
+    "ZNZRPG.endHint": "Number of dice rolled when resisting damage, morale loss, environmental conditions, and adverse conditions",
+    "ZNZRPG.rizLabel": "Rizz",
+    "ZNZRPG.rizHint": "Number of dice rolled when interacting with NPCs, party interactions, and buffing party members",
+
+
+    "ZNZRPG.meleeSkillLabel": "Melee Combat",
+    "ZNZRPG.meleeSkillHint": "Add this to your dice face during melee combat",
+    "ZNZRPG.rangedSkillLabel": "Ranged Combat",
+    "ZNZRPG.rangedSkillHint": "Add this to your dice face during ranged combat",
+    "ZNZRPG.blockSkillLabel": "Blocking",
+    "ZNZRPG.blockSkillHint": "Add this to your dice face when blocking attacks. Block actions reduce total damage taken from an attack.",
+    "ZNZRPG.dodgeSkillLabel": "Dodging",
+    "ZNZRPG.dodgeSkillHint": "Add this to your dice face when dodging attacks. Dodge actions avoids an attack altogether, but only if you exceed the base roll.",
     
+    "ZNZRPG.levelLabel": "Level",
     "ZNZRPG.weightLabel": "Weight",
     "ZNZRPG.quantityLabel": "Quantity",
+    "ZNZRPG.attributeUsedLabel": "Attribute Used",
 
     "ZNZRPG.inventoryLabelName": "Name",
     "ZNZRPG.inventoryLabelType": "Type",
@@ -30,9 +56,11 @@
     "ZNZRPG.inventoryDelete": "Delete Item",
     "ZNZRPG.inventoryEquip": "Equip Item",
     "ZNZRPG.inventoryUnequip": "Unequip Item",
+    "ZNZRPG.skillEdit": "Edit Skill",
 
-    "ZNZRPG.inventoryQuickInfoQuantity": "Qty:",
-    "ZNZRPG.inventoryQuickInfoDamage": "Dmg:",
+    "ZNZRPG.inventoryQuickInfoQuantity": "Quantity",
+    "ZNZRPG.inventoryQuickInfoDamage": "Damage",
+    "ZNZRPG.inventoryQuickInfoDefense": "Defense",
     
 
     "ZNZRPG.tabCombat": "Combat",

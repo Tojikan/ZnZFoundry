@@ -7,7 +7,7 @@
             <div class="item-head item-weight">{{localize 'ZNZRPG.inventoryLabelWeight'}}</div>
             <div class="item-head item-info">Info</div>
             <div class="item-controls">
-              <a class="item-control item-create" title="{{localize 'ZNZRPG.inventoryCreate'}}" data-type="item"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.inventoryAdd'}}</a>
+              <a class="item-control inventory-create" title="{{localize 'ZNZRPG.inventoryCreate'}}" data-type="item"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.inventoryAdd'}}</a>
             </div>
         </li>
 
@@ -23,7 +23,7 @@
                     <div class="item-content">{{capitalize item.type}}</div>
                 </div>
                 <div class="item-weight">
-                    <div class="item-content">{{item.system.weight.value}} lbs.</div>
+                    <div class="item-content">{{numberOrZero item.system.weight.value}} lbs.</div>
                 </div>
                 <div class="item-info">
                     <div class="item-content">
