@@ -45,8 +45,11 @@
                     <div class="skill-edit">
                         <a class="item-control item-edit" title="{{localize 'ZNZRPG.skillEdit'}}"><i class="fas fa-edit"></i></a>
                     </div>
-                    <div class="attr-label">
+                    <div class="attr-label tooltip right">
                         <label class="rollable" for="{{skill._id}} data-roll="{{skill.system.attributeUsed.value}}">{{skill.name}}</label>
+                        <div class="tooltip-text">
+                            {{editor skill.system.description target="description" button=false editable=false}}
+                        </div>
                     </div>
                     <div class="attr-value">
                         <input type="text" disabled name="{{skill._id}}" value="{{toUpperCase skill.system.attributeUsed.value}}+{{skill.system.level.value}}" data-dtype="Number"/>
