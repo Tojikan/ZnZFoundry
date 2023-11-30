@@ -1,7 +1,7 @@
 import { ZnZActor } from "./classes/actor.mjs";
 import { ZnZActorSheet } from "./classes/actor-sheet.mjs";
 
-import { preloadHandlebarsTemplates } from "./templates.js";
+import { preloadHandlebarsTemplates } from "./helpers/hbsTemplates.js";
 import { ZnZItem } from "./classes/item.mjs";
 import { ZnZItemSheet } from "./classes/item-sheet.mjs";
 import { NumberOrZero } from "./helpers/common.js";
@@ -98,6 +98,9 @@ Hooks.once('init', async function() {
 	});
 
 	Handlebars.registerHelper('capitalize', function(str) {
+		if (!str.length){
+			return str;
+		}
 		return str.charAt(0).toUpperCase() + str.substring(1);
 	});
 
@@ -131,5 +134,7 @@ Hooks.on("preCreateItem", (itemData) => {
 		itemData.updateSource({img:"icons/svg/book.svg"});
 	} else if (itemData.type === 'ability'){
 		itemData.updateSource({img:"icons/svg/aura.svg"});
+	} else if (itemData.type === 'flaw'){
+		itemData.updateSource({img:"icons/svg/skull.svg"});
 	}
 });

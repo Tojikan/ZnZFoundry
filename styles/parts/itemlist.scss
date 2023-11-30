@@ -1,0 +1,124 @@
+
+.znz4e {
+    .items-list {
+        overflow: visible;
+
+        .items-header {
+            flex-wrap: nowrap;
+        }
+
+        .items-listing {
+            margin: 10px 0;
+            align-items: center;
+
+            .item-name {
+                display: flex;
+                align-items: center;
+                flex-basis: 35%;
+                
+                h4 {
+                    margin: 0;
+                }
+
+                .item-image {
+                    margin-right: 5px;
+                }
+            }
+            
+            .item-controls {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                justify-content: flex-end;
+                padding-right: 20px;
+                flex-basis: 10%;
+
+                
+                .item-edit {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+
+
+    .inventory {
+        .items-list {
+            margin-top: 30px;
+            
+            .item-name {
+                flex-basis: 35%;
+            }
+
+            .item-type {
+                flex-basis: 10%;
+            }
+
+            .item-weight {
+                flex-basis: 10%;
+            }
+
+            .item-info {
+                flex-basis: 25%;
+            }
+
+            .item-controls {
+                flex-basis: 10%;
+            }
+        }
+
+        .items-listing {
+            .item-equip {
+                font-size: 24px;
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .items-list {
+        &.abilities-list {
+            .item-name {
+                flex-basis: 35%;
+            }
+            
+            .item-level {
+                flex-basis: 10%;
+            }
+
+            .item-roll {
+                flex-basis: 20%;
+            }
+
+            .item-description {
+                flex-basis: 25%;
+            }
+
+            .item-controls {
+                flex-basis: 10%;
+            }
+        }
+    }
+
+    .abilities {
+        h2 {
+            margin-top: 30px;
+            border-bottom: none;
+        }
+    }
+
+    .flaws-list {
+        margin-bottom: 50px;
+
+        .item-name {
+            flex-basis: 35%;
+        }
+        
+        .item-description {
+            flex-basis: 55%;
+        }
+
+        .item-controls {
+            flex-basis: 10%;
+        }
+    }
+}

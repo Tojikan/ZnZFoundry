@@ -25,7 +25,7 @@
             }
         }
 
-        .abilityscore-row {
+        .stat-row {
             display: flex;
             align-items: center;
             margin-bottom: 2px;
@@ -56,16 +56,9 @@
                     justify-content: end;
                 }
             }
-
-
-            .skill-edit {
-                font-size: 12px;
-                margin-right: 3px;
-            }
         }
 
-
-        .abilityscore-section {
+        .rollinfo-block {
             padding: 5px;
             border: solid 1px black;
             margin-bottom: 10px;
@@ -74,9 +67,107 @@
         .skills {
             min-height: 50px;
 
-            .abilityscore-row {
+            .stat-row {
                 padding: 5px 0;
                 border-bottom: 2px groove #eeede0;
+            }
+
+            .skill-controls {
+                font-size: 12px;
+                margin-left: 3px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex: 1;
+
+                .item-edit {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+
+
+        .ability-section {
+            margin-bottom: 20px;
+
+            .abilities {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                column-gap: 10px;
+                row-gap: 10px;
+    
+                .ability-block {
+                    flex-basis: 30%;
+                    border: 2px groove #f7f7f7;
+                    display: flex;
+                    align-items: center;
+    
+                    .ability-image {
+                        flex-basis: 30%;
+                        margin-right: 5px;
+                        font-size:0;
+                        line-height:0;
+                        
+                        img {
+                            height: 100%;
+                            width: auto;
+                        }
+                    }
+    
+                    .ability-label {
+                        flex-basis: 60%;
+                    }
+    
+                    .ability-edit {
+                        text-align: right;
+                        align-self: flex-start;
+                    }
+                }
+            }
+        }
+
+
+
+
+        .equipment-section{
+            
+            .equipped-item {
+                display: flex;
+                align-items: center;
+                border: 3px groove #f7f7f7;
+
+                .equip-info {
+                    flex: 1;
+
+                    &.equip-name {
+                        flex-basis: 25%;
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            width: 20%;
+                            margin-right: 10px;
+                            height: auto;
+                        }
+
+                        .name {
+                            flex-basis: 60%;
+                        }
+                    }
+                }
+
+                .equip-actions {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    column-gap: 5px;
+
+                    .fas {
+                        font-size: 28px;
+                    }
+                }
             }
         }
     }

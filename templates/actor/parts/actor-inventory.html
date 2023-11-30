@@ -2,25 +2,34 @@
 
     <ol class="items-list">
         <li class="item flexrow items-header">
-            <div class="item-head item-name">{{localize 'ZNZRPG.inventoryLabelName'}}</div>
+            <div class="item-head item-name">{{localize 'ZNZRPG.nameLabel'}}</div>
             <div class="item-head item-type">{{localize 'ZNZRPG.inventoryLabelType'}}</div>
             <div class="item-head item-weight">{{localize 'ZNZRPG.inventoryLabelWeight'}}</div>
-            <div class="item-head item-info">Info</div>
+            <div class="item-head item-info">{{localize 'ZNZRPG.infoLabel'}}</div>
             <div class="item-controls">
-              <a class="item-control inventory-create" title="{{localize 'ZNZRPG.inventoryCreate'}}" data-type="item"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.inventoryAdd'}}</a>
+              <a class="item-control item-create" title="{{localize 'ZNZRPG.inventoryCreate'}}" data-type="inventory"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
             </div>
         </li>
 
         {{#each inventory as |item id|}}
             <li class="item flexrow items-listing" data-item-id="{{item._id}}">
-                <div class="item-name">
+                <div class="item-name tooltip">
                     <div class="item-image">
-                        <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                     </div>
                     <h4>{{item.name}}</h4>
+                    <div class="tooltip-text">
+                        {{editor item.system.description target="description" button=false editable=false}}
+                    </div>
                 </div>
                 <div class="item-type">
-                    <div class="item-content">{{capitalize item.type}}</div>
+                    <div class="item-content">
+                            {{#ifCond item.type '===' 'weapon'}}
+                                {{capitalize item.system.type.value}}
+                            {{/ifCond}}
+                            {{capitalize item.type}}
+                        </div>
+
                 </div>
                 <div class="item-weight">
                     <div class="item-content">{{numberOrZero item.system.weight.value}} lbs.</div>

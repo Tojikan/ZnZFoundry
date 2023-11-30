@@ -2,7 +2,7 @@
 @import 'parts/header.scss';
 @import 'parts/item.scss';
 @import 'parts/combat.scss';
-@import 'parts/inventory.scss';
+@import 'parts/itemlist.scss';
 
 
 .znz4e {
@@ -43,5 +43,9 @@
             text-shadow: 0 0 10px red;
             cursor: pointer;
         }
+    }
+
+    .bold {
+        font-weight: 700;
     }
 }

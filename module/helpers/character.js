@@ -55,7 +55,7 @@ export class CharacterHelper {
         const cost = context.system.config.cost;
 
         context.carriedWeight = carriedWeight.value;
-        context.actionCost = NumberOrZero(cost.baseActionCost.value) + Math.round(carriedWeight.value / cost.baseWeightPerActionCost.value);
+        context.actionCost = NumberOrZero(cost.baseActionCost.value) + Math.floor(carriedWeight.value / cost.baseWeightPerActionCost.value);
     }
 
 
@@ -64,6 +64,8 @@ export class CharacterHelper {
         const inventory = [];
         const skills = [];
         const abilities = [];
+        const rollAbilities = [];
+        const flaws = [];
 
         const equipped = {
             weapon: [],
@@ -84,6 +86,7 @@ export class CharacterHelper {
                 if (itm.equipped){
                     equipped.weapon.push(itm);
                 } else {
+                    equipped.weapon.push(itm);
                     inventory.push(itm);
                 }
             }
@@ -94,6 +97,7 @@ export class CharacterHelper {
                 if (itm.equipped){
                     equipped.weapon.push(itm);
                 } else {
+                    equipped.weapon.push(itm);
                     inventory.push(itm);
                 }
             }
@@ -102,7 +106,14 @@ export class CharacterHelper {
             }
             else if (itm.type === "ability"){
                 abilities.push(itm);
-            } else {
+                if (itm.system.roll.length > 0){
+                    rollAbilities.push(itm);
+                }
+            }
+            else if (itm.type === "flaw"){
+                flaws.push(itm);
+            } 
+            else {
                 inventory.push(itm);
             }
         }
@@ -111,5 +122,7 @@ export class CharacterHelper {
         context.abilities = abilities;
         context.inventory = inventory;
         context.equipped = equipped;
+        context.rollAbilities = rollAbilities;
+        context.flaws = flaws;
     }
 }

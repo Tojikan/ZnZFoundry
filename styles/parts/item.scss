@@ -29,6 +29,10 @@
             .block {
                 width: 100px;
                 margin-right: 20px;
+
+                &.roll{
+                    width: 200px;
+                }
             }
         }
     }

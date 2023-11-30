@@ -90,6 +90,41 @@
 					"label": "ZNZRPG.dodgeSkillLabel",
 					"defaultRoll": "dex",
 					"hint": "ZNZRPG.dodgeSkillHint"
+				},
+				"stealth": {
+					"value": 0,
+					"label": "ZNZRPG.stealthSkillLabel",
+					"defaultRoll": "dex",
+					"hint": "ZNZRPG.stealthSkillHint"
+				}
+			},
+			"inventory": {
+				"water": {
+					"count": 0,
+					"weight": 1,
+					"label": "ZNZRPG.waterLabel"
+				},
+				"food": {
+					"count": 0,
+					"weight": 1,
+					"label": "ZNZRPG.waterLabel"
+				},
+				"ammo": {
+					"primary": {
+						"count": 0,
+						"weight": 0.1,
+						"label": "ZNZRPG.primaryAmmoLabel"
+					},
+					"special": {
+						"count": 0,
+						"weight": 0.2,
+						"label": "ZNZRPG.specialAmmoLabel"
+					},
+					"heavy": {
+						"count": 0,
+						"weight": 0.5,
+						"label": "ZNZRPG.heavyAmmoLabel"
+					}
 				}
 			},
 			"config": {
@@ -99,7 +134,7 @@
 						"label": "ZNZRPG.baseActionCost"
 					},
 					"baseWeightPerActionCost": {
-						"value": 5,
+						"value": 10,
 						"label": "ZNZRPG.baseWeightPerActionCost"
 					}
 				},
@@ -147,7 +182,7 @@
 		}
 	},
 	"Item": {
-		"types": ["item", "weapon", "armor", "ability", "skill"],
+		"types": ["item", "weapon", "armor", "ability", "skill", "flaw"],
 		"templates": {
 			"base": {
 				"description": ""
@@ -165,6 +200,9 @@
 					"max": 10,
 					"label": "ZNZRPG.Durability"
 				}
+			},
+			"rollable": {
+				"roll": ""
 			}
 		},
 		"item": {
@@ -183,10 +221,10 @@
 			},
 			"type": {
 				"label": "ZNZRPG.weaponType",
-				"value": ""
+				"value": "melee",
+				"options": ["melee", "ranged"]
 			},
 			"damage": {
-				"label": "ZNZRPG.weaponDamage",
 				"value": 0
 			}
 		},
@@ -213,8 +251,18 @@
 			}
 		},
 		"ability": {
+			"templates": ["base", "rollable"],
+			"level": {
+				"value": 0,
+				"label": "ZNZRPG.levelLabel"
+			}
+		},
+		"flaw": {
 			"templates": ["base"],
-			"level": 0
+			"level": {
+				"value": 0,
+				"label": "ZNZRPG.levelLabel"
+			}
 		}
 	}
 }

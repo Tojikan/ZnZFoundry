@@ -41,27 +41,50 @@
     "ZNZRPG.blockSkillHint": "Add this to your dice face when blocking attacks. Block actions reduce total damage taken from an attack.",
     "ZNZRPG.dodgeSkillLabel": "Dodging",
     "ZNZRPG.dodgeSkillHint": "Add this to your dice face when dodging attacks. Dodge actions avoids an attack altogether, but only if you exceed the base roll.",
+    "ZNZRPG.stealthSkillLabel": "Stealth",
+    "ZNZRPG.stealthSkillHint": "Add this to your dice face when performing stealth actions. Stealth reduces chance of detection when performing actions.",
     
     "ZNZRPG.levelLabel": "Level",
     "ZNZRPG.weightLabel": "Weight",
     "ZNZRPG.quantityLabel": "Quantity",
     "ZNZRPG.attributeUsedLabel": "Attribute Used",
+    "ZNZRPG.rollLabel": "Roll",
+    "ZNZRPG.infoLabel": "Info",
+    "ZNZRPG.descriptionLabel": "Description",
+    "ZNZRPG.addLabel": "Add",
 
-    "ZNZRPG.inventoryLabelName": "Name",
     "ZNZRPG.inventoryLabelType": "Type",
     "ZNZRPG.inventoryLabelWeight": "Weight",
-    "ZNZRPG.inventoryAdd": "Add",
+    "ZNZRPG.inventoryLabelQuantity": "Qty",
     "ZNZRPG.inventoryCreate": "Create Item",
     "ZNZRPG.inventoryEdit": "Edit Item",
+    "ZNZRPG.inventoryView": "View Item",
     "ZNZRPG.inventoryDelete": "Delete Item",
     "ZNZRPG.inventoryEquip": "Equip Item",
     "ZNZRPG.inventoryUnequip": "Unequip Item",
     "ZNZRPG.skillEdit": "Edit Skill",
+    "ZNZRPG.skillDelete": "Delete Skill",
+
+    "ZNZRPG.abilityLabel": "Abilities",
+    "ZNZRPG.abilityEdit": "Edit Ability",
+    "ZNZRPG.abilityDelete": "Delete Ability",
+
+    "ZNZRPG.flawLabel": "Flaws",
+    "ZNZRPG.flawEdit": "Edit Flaw",
+    "ZNZRPG.flawDelete": "Delete Flaw",
 
     "ZNZRPG.inventoryQuickInfoQuantity": "Quantity",
     "ZNZRPG.inventoryQuickInfoDamage": "Damage",
     "ZNZRPG.inventoryQuickInfoDefense": "Defense",
+
+    "ZNZRPG.damageLabel": "Damage",
+    "ZNZRPG.weaponLabel": "Weapon",
+    "ZNZRPG.usesLabel": "Uses",
+    "ZNZRPG.durabilityLabel": "Durability",
+    "ZNZRPG.attackLabel": "Attack",
+    "ZNZRPG.reloadLabel": "Reload",
     
+
 
     "ZNZRPG.tabCombat": "Combat",
     "ZNZRPG.tabInventory": "Inventory",

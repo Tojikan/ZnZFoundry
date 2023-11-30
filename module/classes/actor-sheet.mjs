@@ -61,10 +61,16 @@ export class ZnZActorSheet extends ActorSheet {
         // -------------------------------------------------------------
         // Everything below here is only needed if the sheet is editable
         if (!this.isEditable) return;
-        
-        
-        html.find('.inventory-create').click(this._onCreateClick.bind(this)); // Add Any Inventory Item
-        html.find('.skill-create').click(this._createItem.bind(this, 'skill')); //Add Skill
+
+        html.find('.item-create').click(ev => {
+            const type = $(ev.currentTarget).data("type");
+
+            if (type === 'inventory'){
+                this._createInventoryItem(this);
+            } else {
+                this._createItem(type);
+            }
+        });
         
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -106,7 +112,7 @@ export class ZnZActorSheet extends ActorSheet {
     }
     
     
-    _onCreateClick(){
+    _createInventoryItem(){
 
         let d = new Dialog({
             title: "Create New Item",
@@ -137,6 +143,7 @@ export class ZnZActorSheet extends ActorSheet {
     * @private
     */
     async _createItem(type) {
+        
         // Initialize a default name.
         const name = `New ${type.capitalize()}`;
         // Prepare the item object.
@@ -144,6 +151,7 @@ export class ZnZActorSheet extends ActorSheet {
             name: name,
             type: type
         };
+        console.log(itemData);
         
         // Finally, create the item!
         return await Item.create(itemData, {parent: this.actor});

@@ -1,6 +1,7 @@
 <form class="{{cssClass}} znz-item inventory-item" autocomplete="off">
     <header class="sheet-header">
         <div class="sheet-header-container">
+            <div class="pre-header">Ability</div>
 			<div class="flexrow">
                 <h1 class="charname">
                     <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ZNZRPG.nameLabel'}}"/>
@@ -8,6 +9,16 @@
 			</div>
 			<div class="flexrow">
                 <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" width="100" height="100"/>
+                <div class="header-fields item-block-fields">
+                    <div class="level single-value-display block">
+                        <label>{{localize data.level.label}}</label>
+                        <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/>
+                    </div>
+                    <div class="roll single-value-display block">
+                        <label>{{localize 'ZNZRPG.rollLabel'}}</label>
+                        <input type="text" name="data.roll" value="{{data.roll}}"/>
+                    </div>
+                </div>
 			</div>
 		</div>
         

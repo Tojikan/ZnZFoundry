@@ -8,8 +8,10 @@ export const preloadHandlebarsTemplates = async function() {
     // Define template paths to load
     const templatePaths = [
       "systems/znz4e/templates/actor/actor-sheet.html",
-      "systems/znz4e/templates/actor/parts/actor-inventory.html",
       "systems/znz4e/templates/actor/parts/actor-combat.html",
+      "systems/znz4e/templates/actor/parts/actor-inventory.html",
+      "systems/znz4e/templates/actor/parts/actor-abilities.html",
+      "systems/znz4e/templates/actor/parts/actor-settings.html",
     ];
   
     // Load the template parts
