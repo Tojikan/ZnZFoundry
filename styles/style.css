@@ -40,6 +40,7 @@
       .znz4e .single-value-display.block label {
         display: block;
         text-align: center; }
+      .znz4e .single-value-display.block select,
       .znz4e .single-value-display.block input {
         width: 100%; }
   .znz4e .minmax-value-display {
@@ -144,7 +145,8 @@
   height: 180px; }
 
 .znz4e .znz-item .item-block-fields {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .znz4e .znz-item .item-block-fields .block {
     width: 100px;
     margin-right: 20px; }

@@ -45,6 +45,8 @@ export class ZnZItemSheet extends ItemSheet {
 
 
         context.ActorAttributes = game.template.Actor.character.attributes;
+        context.AmmoTypes = game.template.Actor.character.inventory.ammo;
+        context.WeaponTypes = game.template.Item.weapon.weaponType.options;
         return context;
     }
     

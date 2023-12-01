@@ -110,20 +110,26 @@
 					"label": "ZNZRPG.waterLabel"
 				},
 				"ammo": {
+					"none": {
+						"count": 0,
+						"weight": 0,
+						"label": "ZNZRPG.noneLabel",
+						"noList": true
+					},
 					"primary": {
 						"count": 0,
 						"weight": 0.1,
 						"label": "ZNZRPG.primaryAmmoLabel"
 					},
-					"special": {
-						"count": 0,
-						"weight": 0.2,
-						"label": "ZNZRPG.specialAmmoLabel"
-					},
 					"heavy": {
 						"count": 0,
-						"weight": 0.5,
+						"weight": 0.2,
 						"label": "ZNZRPG.heavyAmmoLabel"
+					},
+					"special": {
+						"count": 0,
+						"weight": 0.5,
+						"label": "ZNZRPG.specialAmmoLabel"
 					}
 				}
 			},
@@ -198,7 +204,7 @@
 				"durability": {
 					"current": 10,
 					"max": 10,
-					"label": "ZNZRPG.Durability"
+					"label": "ZNZRPG.durabilityLabel"
 				}
 			},
 			"rollable": {
@@ -217,12 +223,25 @@
 			"uses": {
 				"current": 10,
 				"max": 10,
-				"label": "ZNZRPG.weaponUses"
+				"label": "ZNZRPG.usesLabel"
 			},
-			"type": {
-				"label": "ZNZRPG.weaponType",
+			"weaponType": {
+				"label": "ZNZRPG.weaponTypeLabel",
 				"value": "melee",
-				"options": ["melee", "ranged"]
+				"options": {
+					"melee": {
+						"value":"melee",
+						"label": "ZNZRPG.meleeLabel"
+					},
+					"ranged": {
+						"value":"ranged",
+						"label": "ZNZRPG.rangedLabel"
+					}
+				}
+			},
+			"ammoType": {
+				"label": "ZNZRPG.ammoType",
+				"value": "primary"
 			},
 			"damage": {
 				"value": 0

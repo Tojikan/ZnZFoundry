@@ -77,12 +77,20 @@
     "ZNZRPG.inventoryQuickInfoDamage": "Damage",
     "ZNZRPG.inventoryQuickInfoDefense": "Defense",
 
+    "ZNZRPG.meleeLabel": "Melee",
+    "ZNZRPG.rangedLabel": "Ranged",
+    "ZNZRPG.weaponTypeLabel": "Weapon Type",
+    "ZNZRPG.ammoTypeLabel": "Ammo Type",
     "ZNZRPG.damageLabel": "Damage",
     "ZNZRPG.weaponLabel": "Weapon",
     "ZNZRPG.usesLabel": "Uses",
     "ZNZRPG.durabilityLabel": "Durability",
     "ZNZRPG.attackLabel": "Attack",
     "ZNZRPG.reloadLabel": "Reload",
+    "ZNZRPG.primaryAmmoLabel": "Primary",
+    "ZNZRPG.specialAmmoLabel": "Special",
+    "ZNZRPG.heavyAmmoLabel": "Heavy",
+    "ZNZRPG.noneLabel": "None",
     
 
 

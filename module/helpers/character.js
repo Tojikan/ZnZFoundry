@@ -83,10 +83,9 @@ export class CharacterHelper {
                 itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDamage") + " " + NumberOrZero(itm.system.damage.value);
                 itm.equippable = true;
 
-                if (itm.equipped){
+                if (itm.system.equipped){
                     equipped.weapon.push(itm);
                 } else {
-                    equipped.weapon.push(itm);
                     inventory.push(itm);
                 }
             }
@@ -94,10 +93,9 @@ export class CharacterHelper {
                 itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDefense") + " " + NumberOrZero(itm.system.defense.value);
                 itm.equippable = true;
 
-                if (itm.equipped){
-                    equipped.weapon.push(itm);
+                if (itm.system.equipped){
+                    equipped.armor.push(itm);
                 } else {
-                    equipped.weapon.push(itm);
                     inventory.push(itm);
                 }
             }

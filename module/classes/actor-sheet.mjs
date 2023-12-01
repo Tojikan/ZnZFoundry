@@ -62,6 +62,7 @@ export class ZnZActorSheet extends ActorSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.isEditable) return;
 
+        //Create Inventory Item
         html.find('.item-create').click(ev => {
             const type = $(ev.currentTarget).data("type");
 
@@ -71,6 +72,7 @@ export class ZnZActorSheet extends ActorSheet {
                 this._createItem(type);
             }
         });
+
         
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -79,6 +81,31 @@ export class ZnZActorSheet extends ActorSheet {
             item.delete();
             li.slideUp(200, () => this.render(false));
         });
+
+        // Equip Inventory Item
+        html.find('.item-equip').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.items.get(li.data("itemId"));
+            
+
+            if ('equipped' in item.system){
+                item.system.equipped = true;
+            }
+            li.slideUp(200, () => this.render(false));
+        }); 
+
+        // Equip Inventory Item
+        html.find('.item-unequip').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.items.get(li.data("itemId"));
+
+            if ('equipped' in item.system){
+                item.system.equipped = false;
+            }
+
+            li.slideUp(200, () => this.render(false));
+        }); 
+
         
         // Rollable abilities.
         html.find('.rollable').click(this._onRoll.bind(this));

@@ -25,6 +25,7 @@
         
         .item-block-fields {
             display: flex;
+            flex-wrap: wrap;
 
             .block {
                 width: 100px;
