@@ -140,34 +140,42 @@
                 align-items: center;
                 border: 3px groove #f7f7f7;
                 padding: 3px;
-                width: 200px;
+                width: 225px;
+                position: relative;
 
                 .equip-info {
                     display: flex;
                     margin-bottom: 3px;
                     flex: 1;
 
-                    img {
-                        width: 30%;
+                    .attack-image {
+                        flex-basis: 30%;
                         margin-right: 5px;
-                        height: auto;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
                     }
+
 
                     .equip-text {
                         flex-basis: 70%;
                     }
                 }
+                
+                .equip-description {
+                    margin: 5px 0;
+                }
 
                 .equip-actions {
                     display: flex;
                     align-items: center;
-                    justify-content: start;
+                    justify-content: space-between;
                     flex-wrap: nowrap;
-                    column-gap: 10px;
                     width: 100%;
 
                     .fas {
-                        font-size: 28px;
+                        font-size: 18px;
                     }
                 }
             }

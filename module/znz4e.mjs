@@ -98,7 +98,7 @@ Hooks.once('init', async function() {
 	});
 
 	Handlebars.registerHelper('capitalize', function(str) {
-		if (!str.length){
+		if (!str || !str.length){
 			return str;
 		}
 		return str.charAt(0).toUpperCase() + str.substring(1);
@@ -126,8 +126,11 @@ Hooks.once('init', async function() {
 /* -------------------------------------------- */
 
 Hooks.on("preCreateItem", (itemData) => {
-	if (itemData.type === 'weapon'){
+	if (itemData.type === 'melee_weapon'){
 		itemData.updateSource({img:"icons/svg/sword.svg"});
+		console.log(itemData);
+	} else if (itemData.type === 'ranged_weapon'){
+		itemData.updateSource({img:"systems/znz4e/icons/handgun.svg"});
 	} else if (itemData.type === 'armor'){
 		itemData.updateSource({img:"icons/svg/shield.svg"});
 	} else if (itemData.type === 'skill'){

@@ -68,7 +68,8 @@ export class CharacterHelper {
         const flaws = [];
 
         const equipped = {
-            weapon: [],
+            melee_weapon: [],
+            ranged_weapon: [],
             armor: []
         };
 
@@ -76,21 +77,31 @@ export class CharacterHelper {
             itm.img = itm.img || DEFAULT_TOKEN;
 
             if (itm.type === "item"){
-                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoQuantity") + " " + NumberOrZero(itm.system.quantity.value);
+                itm.info = game.i18n.localize("ZNZRPG.quantityLabel") + " " + NumberOrZero(itm.system.quantity.value);
                 inventory.push(itm);
             } 
-            else if (itm.type === "weapon"){
-                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDamage") + " " + NumberOrZero(itm.system.damage.value);
+            else if (itm.type === "melee_weapon"){
+                itm.info = game.i18n.localize("ZNZRPG.damageLabel") + " " + NumberOrZero(itm.system.damage.value) + "   " + game.i18n.localize("ZNZRPG.durabilityLabel") + " " + NumberOrZero(itm.system.durability.value) + "%";
                 itm.equippable = true;
 
                 if (itm.system.equipped){
-                    equipped.weapon.push(itm);
+                    equipped.melee_weapon.push(itm);
+                } else {
+                    inventory.push(itm);
+                }
+            }
+            else if (itm.type === "ranged_weapon"){
+                itm.info = game.i18n.localize("ZNZRPG.damageLabel") + " " + NumberOrZero(itm.system.damage.value) + "   " + game.i18n.localize("ZNZRPG.durabilityLabel") + " " + NumberOrZero(itm.system.durability.value) + "%";
+                itm.equippable = true;
+
+                if (itm.system.equipped){
+                    equipped.ranged_weapon.push(itm);
                 } else {
                     inventory.push(itm);
                 }
             }
             else if (itm.type === "armor"){
-                itm.info = game.i18n.localize("ZNZRPG.inventoryQuickInfoDefense") + " " + NumberOrZero(itm.system.defense.value);
+                itm.info = game.i18n.localize("ZNZRPG.defenseLabel") + " " + NumberOrZero(itm.system.defense.value) + "   " + game.i18n.localize("ZNZRPG.durabilityLabel") + " " + NumberOrZero(itm.system.durability.value) + "%";
                 itm.equippable = true;
 
                 if (itm.system.equipped){
@@ -115,12 +126,15 @@ export class CharacterHelper {
                 inventory.push(itm);
             }
         }
-
+        
         context.skills = skills;
         context.abilities = abilities;
         context.inventory = inventory;
         context.equipped = equipped;
         context.rollAbilities = rollAbilities;
         context.flaws = flaws;
+
+        context.equippedWeaponCount = equipped.melee_weapon.length + equipped.ranged_weapon.length;
+        console.log(context.equippedWeaponCount);
     }
 }

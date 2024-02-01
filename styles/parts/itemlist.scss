@@ -7,6 +7,12 @@
             flex-wrap: nowrap;
         }
 
+        .item-edit {
+            &:hover {
+                text-shadow: inset 0 0 10px red;
+            }
+        }
+
         .items-listing {
             margin: 10px 0;
             align-items: center;
@@ -24,6 +30,8 @@
                     margin-right: 5px;
                 }
             }
+
+
             
             .item-controls {
                 display: flex;

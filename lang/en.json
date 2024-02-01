@@ -33,9 +33,9 @@
     "ZNZRPG.rizHint": "Number of dice rolled when interacting with NPCs, party interactions, and buffing party members",
 
 
-    "ZNZRPG.meleeSkillLabel": "Melee Combat",
+    "ZNZRPG.meleeSkillLabel": "Melee",
     "ZNZRPG.meleeSkillHint": "Add this to your dice face during melee combat",
-    "ZNZRPG.rangedSkillLabel": "Ranged Combat",
+    "ZNZRPG.rangedSkillLabel": "Ranged",
     "ZNZRPG.rangedSkillHint": "Add this to your dice face during ranged combat",
     "ZNZRPG.blockSkillLabel": "Blocking",
     "ZNZRPG.blockSkillHint": "Add this to your dice face when blocking attacks. Block actions reduce total damage taken from an attack.",
@@ -73,29 +73,43 @@
     "ZNZRPG.flawEdit": "Edit Flaw",
     "ZNZRPG.flawDelete": "Delete Flaw",
 
-    "ZNZRPG.inventoryQuickInfoQuantity": "Quantity",
-    "ZNZRPG.inventoryQuickInfoDamage": "Damage",
-    "ZNZRPG.inventoryQuickInfoDefense": "Defense",
+    "ZNZRPG.defenseLabel": "Defense",
+    "ZNZRPG.damageLabel": "Damage",
+    "ZNZRPG.weaponLabel": "Weapon",
+    "ZNZRPG.durabilityLabel": "Durability",
+    "ZNZRPG.weaponTypeLabel": "Weapon Type",
 
     "ZNZRPG.meleeLabel": "Melee",
     "ZNZRPG.rangedLabel": "Ranged",
-    "ZNZRPG.weaponTypeLabel": "Weapon Type",
-    "ZNZRPG.ammoTypeLabel": "Ammo Type",
-    "ZNZRPG.damageLabel": "Damage",
-    "ZNZRPG.weaponLabel": "Weapon",
     "ZNZRPG.usesLabel": "Uses",
-    "ZNZRPG.durabilityLabel": "Durability",
     "ZNZRPG.attackLabel": "Attack",
     "ZNZRPG.reloadLabel": "Reload",
+    "ZNZRPG.ammoLabel": "Ammo",
+    "ZNZRPG.ammoTypeLabel": "Ammo Type",
     "ZNZRPG.primaryAmmoLabel": "Primary",
     "ZNZRPG.specialAmmoLabel": "Special",
     "ZNZRPG.heavyAmmoLabel": "Heavy",
     "ZNZRPG.noneLabel": "None",
+    
+    "ZNZRPG.equippedWeapons": "Equipped Weapons",
+    "ZNZRPG.equippedArmor": "Equipped Armor",
+    
+    "ZNZRPG.armor": "Armor",
+    "ZNZRPG.item": "Item",
+    "ZNZRPG.meleeWeaponLabel": "Melee Weapon",
+    "ZNZRPG.rangedWeaponLabel": "Ranged Weapon",
     
 
 
     "ZNZRPG.tabCombat": "Combat",
     "ZNZRPG.tabInventory": "Inventory",
     "ZNZRPG.tabAbility": "Abilities",
-    "ZNZRPG.tabNotes": "Notes"
+    "ZNZRPG.tabNotes": "Notes",
+
+
+    "ZNZRPG.baseActionCost":"Cost Per Action",
+    "ZNZRPG.baseWeightPerPenalty":"Weight Penalty",
+    "ZNZRPG.baseMeleeDurabilityUsage":"Melee Durability Per Usage",
+    "ZNZRPG.baseRangedDurabilityUsage":"Ranged Durability Per Usage",
+    "ZNZRPG.baseArmorDurabilityUsage":"Armor Durability Per Usage"
 }

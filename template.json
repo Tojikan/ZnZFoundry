@@ -141,7 +141,19 @@
 					},
 					"baseWeightPerActionCost": {
 						"value": 10,
-						"label": "ZNZRPG.baseWeightPerActionCost"
+						"label": "ZNZRPG.baseWeightPerPenalty"
+					},
+					"baseMeleeDurabilityUsage": {
+						"value": 8,
+						"label": "ZNZRPG.baseMeleeDurabilityUsage"
+					},
+					"baseRangedDurabilityUsage": {
+						"value": 4,
+						"label": "ZNZRPG.baseRangedDurabilityUsage"
+					},
+					"baseArmorDurabilityUsage": {
+						"value": 10,
+						"label": "ZNZRPG.baseArmorDurabilityUsage"
 					}
 				},
 				"penalty": {
@@ -188,7 +200,7 @@
 		}
 	},
 	"Item": {
-		"types": ["item", "weapon", "armor", "ability", "skill", "flaw"],
+		"types": ["item", "melee_weapon", "ranged_weapon", "armor", "ability", "skill", "flaw"],
 		"templates": {
 			"base": {
 				"description": ""
@@ -202,13 +214,17 @@
 			"equippable": {
 				"equipped": false,
 				"durability": {
-					"current": 10,
-					"max": 10,
+					"value": 100,
 					"label": "ZNZRPG.durabilityLabel"
 				}
 			},
 			"rollable": {
 				"roll": ""
+			},
+			"weapon": {
+				"damage": {
+					"value": 0
+				}
 			}
 		},
 		"item": {
@@ -216,6 +232,21 @@
 			"quantity": {
 				"value": 1,
 				"label": "ZNZRPG.quantityLabel"
+			}
+		},
+		"melee_weapon": {
+			"templates": ["base", "object", "equippable", "weapon"]
+		},
+		"ranged_weapon": {
+			"templates": ["base", "object", "equippable", "weapon"],
+			"ammo": {
+				"current": 10,
+				"max": 10,
+				"label": "ZNZRPG.ammoLabel"
+			},
+			"ammoType": {
+				"label": "ZNZRPG.ammoType",
+				"value": "primary"
 			}
 		},
 		"weapon": {

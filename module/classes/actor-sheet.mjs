@@ -89,7 +89,7 @@ export class ZnZActorSheet extends ActorSheet {
             
 
             if ('equipped' in item.system){
-                item.system.equipped = true;
+                item.update({"system.equipped": true});
             }
             li.slideUp(200, () => this.render(false));
         }); 
@@ -100,7 +100,7 @@ export class ZnZActorSheet extends ActorSheet {
             const item = this.actor.items.get(li.data("itemId"));
 
             if ('equipped' in item.system){
-                item.system.equipped = false;
+                item.update({"system.equipped": false});
             }
 
             li.slideUp(200, () => this.render(false));
@@ -134,7 +134,6 @@ export class ZnZActorSheet extends ActorSheet {
         context.totalRollPenalty = context.document.totalRollPenalty
         context.actionCost = context.document.actionCost;
         
-        
         CharacterHelper.SheetPrepareItems(context);
     }
     
@@ -147,15 +146,28 @@ export class ZnZActorSheet extends ActorSheet {
             buttons: {
                 one: {
                     label: "Item",
-                    callback: () => this._createItem("item")
+                    callback: () => {
+                        this._createItem("item");
+                    }
                 },
                 two: {
-                    label: "Weapon",
-                    callback: () => this._createItem("weapon")
+                    label: "Melee",
+                    callback: () => {
+                        this._createItem("melee_weapon");
+                        console.log(this);
+                    }
                 },
                 three: {
+                    label: "Ranged",
+                    callback: () => {
+                        this._createItem("ranged_weapon");
+                    }
+                },
+                four: {
                     label: "Armor",
-                    callback: () => this._createItem("armor")
+                    callback: () => {
+                        this._createItem("armor");
+                    }
                 }
             },
             default: "one",
@@ -170,15 +182,21 @@ export class ZnZActorSheet extends ActorSheet {
     * @private
     */
     async _createItem(type) {
-        
+        let label = type.capitalize();
+
+        if (type === "melee_weapon"){
+            label = "Melee Weapon";
+        } else if (type === "ranged_weapon"){
+            label = "Ranged Weapon";
+        }
+
         // Initialize a default name.
-        const name = `New ${type.capitalize()}`;
+        const name = `New ${label}`;
         // Prepare the item object.
         const itemData = {
             name: name,
             type: type
         };
-        console.log(itemData);
         
         // Finally, create the item!
         return await Item.create(itemData, {parent: this.actor});
