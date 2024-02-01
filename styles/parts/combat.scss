@@ -4,12 +4,12 @@
         margin-top: 15px;
 
         .side-bar {
-            flex-basis: 25%;
-            margin-right: 20px;
+            flex-basis: 30%;
+            margin-right: 10px;
         }
 
         .main-area {
-            flex-basis: 75%;
+            flex-basis: 70%;
         }
 
         .section-label {
@@ -53,7 +53,15 @@
                 &.prefixed {
                     display: flex;
                     align-items: center;
-                    justify-content: end;
+                    justify-content: start;
+
+                    .prefix {
+                        flex-basis: 50%;
+                    }
+
+                    input {
+                        flex-basis: 50%;
+                    }
                 }
             }
         }
@@ -70,19 +78,6 @@
             .stat-row {
                 padding: 5px 0;
                 border-bottom: 2px groove #eeede0;
-            }
-
-            .skill-controls {
-                font-size: 12px;
-                margin-left: 3px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                flex: 1;
-
-                .item-edit {
-                    margin-bottom: 15px;
-                }
             }
         }
 
@@ -132,37 +127,44 @@
 
 
         .equipment-section{
+
+            .equipped {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 3px;
+            }
             
             .equipped-item {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 border: 3px groove #f7f7f7;
+                padding: 3px;
+                width: 200px;
 
                 .equip-info {
+                    display: flex;
+                    margin-bottom: 3px;
                     flex: 1;
 
-                    &.equip-name {
-                        flex-basis: 25%;
-                        display: flex;
-                        align-items: center;
+                    img {
+                        width: 30%;
+                        margin-right: 5px;
+                        height: auto;
+                    }
 
-                        img {
-                            width: 20%;
-                            margin-right: 10px;
-                            height: auto;
-                        }
-
-                        .name {
-                            flex-basis: 60%;
-                        }
+                    .equip-text {
+                        flex-basis: 70%;
                     }
                 }
 
                 .equip-actions {
                     display: flex;
                     align-items: center;
+                    justify-content: start;
                     flex-wrap: nowrap;
-                    column-gap: 5px;
+                    column-gap: 10px;
+                    width: 100%;
 
                     .fas {
                         font-size: 28px;

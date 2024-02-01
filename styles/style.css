@@ -24,7 +24,10 @@
       transition: opacity 0.3s, visibility 0.3s; }
     .znz4e .tooltip.right .tooltip-text {
       left: 100%;
-      transform: none; }
+      transform: none;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 10px; }
     .znz4e .tooltip:hover .tooltip-text {
       visibility: visible;
       opacity: 1; }
@@ -64,6 +67,41 @@
       background: rgba(0, 0, 0, 0.05);
       border: 2px groove #eeede0;
       font-weight: bold; }
+  .znz4e .editable-text {
+    cursor: pointer;
+    padding-right: 10%;
+    position: relative;
+    display: block; }
+    .znz4e .editable-text:hover {
+      text-decoration: underline; }
+      .znz4e .editable-text:hover input {
+        cursor: pointer;
+        box-shadow: inset 0 0 10px red; }
+      .znz4e .editable-text:hover:after {
+        content: '\f044';
+        font-family: 'Font Awesome 6 Pro';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%); }
+  .znz4e .rollable:focus, .znz4e .rollable:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 10px red; }
+    .znz4e .rollable:focus label, .znz4e .rollable:hover label {
+      cursor: pointer; }
+    .znz4e .rollable:focus .tooltip-text, .znz4e .rollable:hover .tooltip-text {
+      text-shadow: initial; }
+  .znz4e .rollable.roll-icon {
+    padding-right: 10px;
+    position: relative;
+    display: block; }
+    .znz4e .rollable.roll-icon:hover:after {
+      content: '\f6cf';
+      font-family: 'Font Awesome 6 Pro';
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute; }
 
 .znz4e header.sheet-header {
   flex: 0 auto;
@@ -112,11 +150,15 @@
     margin-bottom: 5px;
     display: flex;
     flex-wrap: nowrap; }
-    .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display label {
-      flex-basis: 50%;
-      width: 50%; }
-    .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display input {
-      flex-basis: 25%; }
+    .znz4e header.sheet-header .status-section .status-content.experience {
+      justify-content: space-between;
+      width: 100%;
+      display: block; }
+      .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display label {
+        flex-basis: 50%;
+        width: 50%; }
+      .znz4e header.sheet-header .status-section .status-content.experience .minmax-value-display input {
+        flex-basis: 25%; }
     .znz4e header.sheet-header .status-section .status-content.cost input, .znz4e header.sheet-header .status-section .status-content.penalty input {
       color: red; }
     .znz4e header.sheet-header .status-section .status-content .detail-info {
@@ -157,10 +199,10 @@
   display: flex;
   margin-top: 15px; }
   .znz4e .combat-tab .side-bar {
-    flex-basis: 25%;
-    margin-right: 20px; }
+    flex-basis: 30%;
+    margin-right: 10px; }
   .znz4e .combat-tab .main-area {
-    flex-basis: 75%; }
+    flex-basis: 70%; }
   .znz4e .combat-tab .section-label {
     font-size: 14px;
     position: relative; }
@@ -188,7 +230,11 @@
       .znz4e .combat-tab .stat-row .attr-value.prefixed {
         display: flex;
         align-items: center;
-        justify-content: end; }
+        justify-content: start; }
+        .znz4e .combat-tab .stat-row .attr-value.prefixed .prefix {
+          flex-basis: 50%; }
+        .znz4e .combat-tab .stat-row .attr-value.prefixed input {
+          flex-basis: 50%; }
   .znz4e .combat-tab .rollinfo-block {
     padding: 5px;
     border: solid 1px black;
@@ -198,15 +244,6 @@
     .znz4e .combat-tab .skills .stat-row {
       padding: 5px 0;
       border-bottom: 2px groove #eeede0; }
-    .znz4e .combat-tab .skills .skill-controls {
-      font-size: 12px;
-      margin-left: 3px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex: 1; }
-      .znz4e .combat-tab .skills .skill-controls .item-edit {
-        margin-bottom: 15px; }
   .znz4e .combat-tab .ability-section {
     margin-bottom: 20px; }
     .znz4e .combat-tab .ability-section .abilities {
@@ -233,27 +270,34 @@
         .znz4e .combat-tab .ability-section .abilities .ability-block .ability-edit {
           text-align: right;
           align-self: flex-start; }
+  .znz4e .combat-tab .equipment-section .equipped {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3px; }
   .znz4e .combat-tab .equipment-section .equipped-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    border: 3px groove #f7f7f7; }
+    border: 3px groove #f7f7f7;
+    padding: 3px;
+    width: 200px; }
     .znz4e .combat-tab .equipment-section .equipped-item .equip-info {
+      display: flex;
+      margin-bottom: 3px;
       flex: 1; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-info.equip-name {
-        flex-basis: 25%;
-        display: flex;
-        align-items: center; }
-        .znz4e .combat-tab .equipment-section .equipped-item .equip-info.equip-name img {
-          width: 20%;
-          margin-right: 10px;
-          height: auto; }
-        .znz4e .combat-tab .equipment-section .equipped-item .equip-info.equip-name .name {
-          flex-basis: 60%; }
+      .znz4e .combat-tab .equipment-section .equipped-item .equip-info img {
+        width: 30%;
+        margin-right: 5px;
+        height: auto; }
+      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .equip-text {
+        flex-basis: 70%; }
     .znz4e .combat-tab .equipment-section .equipped-item .equip-actions {
       display: flex;
       align-items: center;
+      justify-content: start;
       flex-wrap: nowrap;
-      column-gap: 5px; }
+      column-gap: 10px;
+      width: 100%; }
       .znz4e .combat-tab .equipment-section .equipped-item .equip-actions .fas {
         font-size: 28px; }
 
@@ -344,10 +388,6 @@
   .znz4e .character-notes .editor {
     border: solid 1px black;
     margin: 20px; }
-
-.znz4e .rollable:focus, .znz4e .rollable:hover {
-  text-shadow: 0 0 10px red;
-  cursor: pointer; }
 
 .znz4e .bold {
   font-weight: 700; }

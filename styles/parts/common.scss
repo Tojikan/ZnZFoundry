@@ -25,6 +25,9 @@
             .tooltip-text {
                 left: 100%;
                 transform: none;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-left: 10px;
             }
         }
 
@@ -92,6 +95,66 @@
             background: rgba(0, 0, 0, 0.05);
             border: 2px groove #eeede0;
             font-weight: bold;
+        }
+    }
+
+    
+    .editable-text {
+        cursor: pointer;
+        padding-right: 10%;
+        position: relative;
+        display: block;
+
+        &:hover{
+            text-decoration: underline;
+
+            input {
+                cursor: pointer;
+                box-shadow: inset 0 0 10px red;
+            }
+
+            &:after {
+                content: '\f044';
+                font-family: 'Font Awesome 6 Pro';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .rollable {
+        &:focus,
+        &:hover {
+            cursor: pointer;
+
+            box-shadow: inset 0 0 10px red;
+
+            label {
+                cursor: pointer;
+            }
+
+            .tooltip-text {
+                text-shadow: initial;
+            }
+        }
+
+        &.roll-icon{
+            padding-right: 10px;
+            position: relative;
+            display: block;
+
+            &:hover {
+                &:after {
+                    content: '\f6cf';
+                    font-family: 'Font Awesome 6 Pro';
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    position: absolute;
+                }
+            }
         }
     }
 }

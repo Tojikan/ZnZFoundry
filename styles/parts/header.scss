@@ -72,6 +72,10 @@
                 flex-wrap: nowrap;
 
                 &.experience {
+                    justify-content: space-between;
+                    width: 100%;
+                    display: block;
+
                     .minmax-value-display {
                         label {
                             flex-basis: 50%;
