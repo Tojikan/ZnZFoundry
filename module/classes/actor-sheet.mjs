@@ -140,6 +140,8 @@ export class ZnZActorSheet extends ActorSheet {
     
     _createInventoryItem(){
 
+        let sheet = this;
+
         let d = new Dialog({
             title: "Create New Item",
             content: "<p>Select Item Type.</p>",
@@ -147,26 +149,25 @@ export class ZnZActorSheet extends ActorSheet {
                 one: {
                     label: "Item",
                     callback: () => {
-                        this._createItem("item");
+                        sheet._createItem("item");
                     }
                 },
                 two: {
                     label: "Melee",
                     callback: () => {
-                        this._createItem("melee_weapon");
-                        console.log(this);
+                        sheet._createItem("melee_weapon");
                     }
                 },
                 three: {
                     label: "Ranged",
                     callback: () => {
-                        this._createItem("ranged_weapon");
+                        sheet._createItem("ranged_weapon");
                     }
                 },
                 four: {
                     label: "Armor",
                     callback: () => {
-                        this._createItem("armor");
+                        sheet._createItem("armor");
                     }
                 }
             },
@@ -197,9 +198,11 @@ export class ZnZActorSheet extends ActorSheet {
             name: name,
             type: type
         };
-        
-        // Finally, create the item!
-        return await Item.create(itemData, {parent: this.actor});
+
+        let created = await Item.create(itemData, {parent: this.actor});
+
+        created.sheet.render(true);
+        return created;
     }
     
     /**
