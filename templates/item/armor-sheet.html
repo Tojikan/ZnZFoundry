@@ -1,7 +1,7 @@
 <form class="{{cssClass}} znz-item inventory-item" autocomplete="off">
     <header class="sheet-header">
         <div class="sheet-header-container">
-            <div class="pre-header">Armor</div>
+            <div class="pre-header">Wearable</div>
 			<div class="flexrow">
                 <h1 class="charname">
                     <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ZNZRPG.nameLabel'}}"/>
@@ -18,6 +18,14 @@
                         <label>{{localize data.quantity.label}}</label>
                         <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="Number"/>
                     </div>
+                    <div class="defense single-value-display block">
+                        <label>{{localize data.defense.label}}</label>
+                        <input type="text" name="data.defense.value" value="{{data.defense.value}}" data-dtype="Number"/>
+                    </div>
+                    <div class="equipslots single-value-display block">
+                        <label>{{localize data.equipslots.label}}</label>
+                        <input type="text" name="data.equipslots.value" value="{{data.equipslots.value}}" data-dtype="Number"/>
+                    </div>
                 </div>
 			</div>
 		</div>
@@ -26,6 +34,9 @@
 
     <section class="sheet-body">
         <h2>Description</h2>
+        <div class="flavor">
+            <input type="text" name="equip.system.flavor" value="{{equip.system.flavor}}"/>
+        </div>
         <div class="description">
             {{editor enrichedDescription target="system.description" button=true editable=editable}}
         </div>

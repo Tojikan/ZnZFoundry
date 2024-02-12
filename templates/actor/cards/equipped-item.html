@@ -1,0 +1,89 @@
+{{#*inline "melee_weapon"}}
+    <div class="equipped-item weapon item" data-item-id="{{equip._id}}">
+        <div class="equip-info">
+            <a class="attack-image">
+                <img class="rollable" data-roll="attack"  title="{{localize 'ZNZRPG.attackLabel'}}" src="{{equip.img}}" title="{{equip.name}}"/>
+            </a>
+            <div class="equip-text">
+                <a class="item-control item-edit">
+                    <div class="bold name editable-text">
+                        {{equip.name}}
+                    </div>
+                </a>
+                <div>{{localize 'ZNZRPG.meleeWeaponLabel'}}</div>
+                <div>{{localize 'ZNZRPG.damageLabel'}}:&nbsp;&nbsp;{{equip.system.damage.value}}</div>
+            </div>
+        </div>
+        <div class="equip-description">
+            <div class="flavor-text">{{equip.system.flavor}}</div>
+            <div>{{editor equip.system.description target="description" button=false editable=false}}</div>
+        </div>
+        <div class="equip-actions">
+            <div>{{localize 'ZNZRPG.durabilityLabel'}}:&nbsp;&nbsp;{{equip.system.durability.value}}%</div>
+            <a class="item-control item-unequip" title="{{localize 'ZNZRPG.inventoryUnequip'}}"><i class="fas fa-minus-square"></i></a>
+        </div>
+    </div>
+{{/inline}}
+
+
+{{#*inline "ranged_weapon"}}
+    <div class="equipped-item weapon item" data-item-id="{{equip._id}}">
+        <div class="equip-info">
+            <a class="attack-image">
+                <img class="rollable" data-roll="attack"  title="{{localize 'ZNZRPG.attackLabel'}}" src="{{equip.img}}" title="{{equip.name}}"/>
+            </a>
+            <div class="equip-text">
+                <div class="name-row">
+                    <a class="item-control item-edit">
+                        <div class="bold name editable-text">
+                            {{equip.name}}
+                        </div>
+                    </a>
+                </div>
+                <div>{{localize 'ZNZRPG.rangedWeaponLabel'}}</div>
+                <div>{{localize 'ZNZRPG.damageLabel'}}:&nbsp;&nbsp;{{equip.system.damage.value}}</div>
+                <div class="minmax-value-display small">
+                    <span>{{localize 'ZNZRPG.ammoLabel'}}:&nbsp;&nbsp;</span>
+                    <span>{{equip.system.ammo.current}}</span>
+                    <span class="divider">&nbsp;/&nbsp;</span>
+                    <span>{{equip.system.ammo.max}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="equip-description">
+            <div class="flavor-text">{{equip.system.flavor}}</div>
+            <div>{{editor equip.system.description target="description" button=false editable=false}}</div>
+        </div>
+        <div class="equip-actions">
+            <div>{{localize 'ZNZRPG.durabilityLabel'}}:&nbsp;&nbsp;{{equip.system.durability.value}}%</div>
+            <a class="item-control item-unequip" title="{{localize 'ZNZRPG.inventoryUnequip'}}"><i class="fas fa-minus-square"></i></a>
+        </div>
+    </div>
+{{/inline}}
+
+{{#*inline "wearable"}}
+    <div class="equipped-item weapon item" data-item-id="{{equip._id}}">
+        <div class="equip-info equip-name">
+            <img src="{{equip.img}}" title="{{equip.name}}"/>
+            <div class="name">
+                <div class="bold">{{equip.name}}</div>
+                <div>{{localize 'ZNZRPG.wearable'}}</div>
+            </div>
+        </div>
+        <div class="equip-info equip-stats">
+            <div>{{localize 'ZNZRPG.defenseLabel'}}:&nbsp;&nbsp;{{equip.system.defense.value}}</div>
+            <div>{{localize 'ZNZRPG.wearableSlots'}}:&nbsp;&nbsp;{{equip.system.equipslots.value}}</div>
+        </div>
+        <div class="equip-description">
+            <div class="flavor-text">{{equip.system.flavor}}</div>
+            <div>{{editor equip.system.description target="description" button=false editable=false}}</div>
+        </div>
+        <div class="equip-actions">
+            <div>{{localize 'ZNZRPG.durabilityLabel'}}:&nbsp;&nbsp;{{equip.system.durability.value}}%</div>
+            <a class="item-control item-unequip" title="{{localize 'ZNZRPG.inventoryUnequip'}}"><i class="fas fa-minus-square"></i></a>
+        </div>
+    </div>
+{{/inline}}
+
+
+{{> (lookup . "type" )}}

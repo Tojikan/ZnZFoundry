@@ -30,14 +30,13 @@ export class ZnZActorSheet extends ActorSheet {
         // enrichedDescription - enriches system.description for editor
         context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
         
+        
         // Use a safe clone of the actor data for further operations.
         const actorData = this.actor.toObject(false);
         
         // Add the actor's data to context.data for easier access, as well as flags.
         context.data = actorData.system;
         context.flags = actorData.flags;
-        
-        context.enrichedDescription = await TextEditor.enrichHTML(context.data.description, {async: true});
         
         if (actorData.type == 'character') {
             this._prepareCharacterData(context);
@@ -165,9 +164,9 @@ export class ZnZActorSheet extends ActorSheet {
                     }
                 },
                 four: {
-                    label: "Armor",
+                    label: "Wearable",
                     callback: () => {
-                        sheet._createItem("armor");
+                        sheet._createItem("wearable");
                     }
                 }
             },

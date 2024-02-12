@@ -92,9 +92,16 @@
     "ZNZRPG.noneLabel": "None",
     
     "ZNZRPG.equippedWeapons": "Equipped Weapons",
-    "ZNZRPG.equippedArmor": "Equipped Armor",
+    "ZNZRPG.equippedWearable": "Equipped Wearable",
     
-    "ZNZRPG.armor": "Armor",
+    "ZNZRPG.wearable": "Wearable",
+    "ZNZRPG.wearableSlots": "Equip Slots",
+    "ZNZRPG.wearableSlotsLong": "Equipment Slots Added",
+    "ZNZRPG.wearableWarmth": "Warmth",
+    "ZNZRPG.wearableDefense": "Defense",
+    "ZNZRPG.equipSlotsHint": "Number of items you can equip at the sametime. Wearables may add additional equipment slots",
+
+
     "ZNZRPG.item": "Item",
     "ZNZRPG.meleeWeaponLabel": "Melee Weapon",
     "ZNZRPG.rangedWeaponLabel": "Ranged Weapon",
@@ -111,5 +118,5 @@
     "ZNZRPG.baseWeightPerPenalty":"Weight Penalty",
     "ZNZRPG.baseMeleeDurabilityUsage":"Melee Durability Per Usage",
     "ZNZRPG.baseRangedDurabilityUsage":"Ranged Durability Per Usage",
-    "ZNZRPG.baseArmorDurabilityUsage":"Armor Durability Per Usage"
+    "ZNZRPG.baseWearableDurabilityUsage":"Wearable Durability Per Usage"
 }

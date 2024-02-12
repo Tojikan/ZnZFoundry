@@ -131,7 +131,7 @@ Hooks.on("preCreateItem", (itemData) => {
 		console.log(itemData);
 	} else if (itemData.type === 'ranged_weapon'){
 		itemData.updateSource({img:"systems/znz4e/icons/handgun.svg"});
-	} else if (itemData.type === 'armor'){
+	} else if (itemData.type === 'wearable'){
 		itemData.updateSource({img:"icons/svg/shield.svg"});
 	} else if (itemData.type === 'skill'){
 		itemData.updateSource({img:"icons/svg/book.svg"});

@@ -34,6 +34,11 @@
 				"max": 100,
 				"label": "ZNZRPG.morale"
 			},
+			"baseEquipmentSlots": {
+				"value": 2,
+				"hint": "ZNZRPG.equipSlotsHint",
+				"label": "Equipment Slots"
+			},
 			"attributes": {
 				"str": {
 					"value": 3,
@@ -151,9 +156,9 @@
 						"value": 4,
 						"label": "ZNZRPG.baseRangedDurabilityUsage"
 					},
-					"baseArmorDurabilityUsage": {
+					"baseWearableDurabilityUsage": {
 						"value": 10,
-						"label": "ZNZRPG.baseArmorDurabilityUsage"
+						"label": "ZNZRPG.baseWearableDurabilityUsage"
 					}
 				},
 				"penalty": {
@@ -200,10 +205,11 @@
 		}
 	},
 	"Item": {
-		"types": ["item", "melee_weapon", "ranged_weapon", "armor", "ability", "skill", "flaw"],
+		"types": ["item", "melee_weapon", "ranged_weapon", "wearable", "ability", "skill", "flaw"],
 		"templates": {
 			"base": {
-				"description": ""
+				"description": "",
+				"flavor": ""
 			},
 			"object": {
 				"weight": {
@@ -228,7 +234,7 @@
 			}
 		},
 		"item": {
-			"templates": ["base", "object"],
+			"templates": ["base", "object", "equippable"],
 			"quantity": {
 				"value": 1,
 				"label": "ZNZRPG.quantityLabel"
@@ -249,44 +255,19 @@
 				"value": "primary"
 			}
 		},
-		"weapon": {
-			"templates": ["base", "object", "equippable"],
-			"uses": {
-				"current": 10,
-				"max": 10,
-				"label": "ZNZRPG.usesLabel"
-			},
-			"weaponType": {
-				"label": "ZNZRPG.weaponTypeLabel",
-				"value": "melee",
-				"options": {
-					"melee": {
-						"value":"melee",
-						"label": "ZNZRPG.meleeLabel"
-					},
-					"ranged": {
-						"value":"ranged",
-						"label": "ZNZRPG.rangedLabel"
-					}
-				}
-			},
-			"ammoType": {
-				"label": "ZNZRPG.ammoType",
-				"value": "primary"
-			},
-			"damage": {
-				"value": 0
-			}
-		},
-		"armor": {
+		"wearable": {
 			"templates": ["base","object", "equippable"],
 			"defense": {
 				"value": 0,
-				"label": "ZNZRPG.armorDefense"
+				"label": "ZNZRPG.wearableDefense"
+			},
+			"equipslots": {
+				"value": 0,
+				"label": "ZNZRPG.wearableSlots"
 			},
 			"warmth": {
 				"value": 1,
-				"label": "ZNZRPG.armorWarmth"
+				"label": "ZNZRPG.wearableWarmth"
 			}
 		},
 		"skill": {

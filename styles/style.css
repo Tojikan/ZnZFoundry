@@ -104,6 +104,8 @@
       position: absolute; }
   .znz4e .item-control {
     cursor: pointer; }
+  .znz4e .flavor-text {
+    font-style: italic; }
 
 .znz4e header.sheet-header {
   flex: 0 auto;
@@ -297,7 +299,8 @@
       .znz4e .combat-tab .equipment-section .equipped-item .equip-info .equip-text {
         flex-basis: 70%; }
     .znz4e .combat-tab .equipment-section .equipped-item .equip-description {
-      margin: 5px 0; }
+      width: 100%;
+      text-align: left; }
     .znz4e .combat-tab .equipment-section .equipped-item .equip-actions {
       display: flex;
       align-items: center;

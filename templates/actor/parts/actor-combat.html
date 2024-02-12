@@ -100,68 +100,18 @@
             {{/ifCond}}
 
             <div class="equipped">
-                {{#each equipped.melee_weapon as |equip id|}}
-                    <div class="equipped-item weapon item" data-item-id="{{equip._id}}">
-                        <div class="equip-info">
-                            <a class="attack-image">
-                                <img class="rollable" data-roll="attack"  title="{{localize 'ZNZRPG.attackLabel'}}" src="{{equip.img}}" title="{{equip.name}}"/>
-                            </a>
-                            <div class="equip-text">
-                                <a class="item-control item-edit">
-                                    <div class="bold name editable-text">
-                                        {{equip.name}}
-                                    </div>
-                                </a>
-                                <div>{{localize 'ZNZRPG.meleeWeaponLabel'}}</div>
-                                <div>{{localize 'ZNZRPG.damageLabel'}}:&nbsp;&nbsp;{{equip.system.damage.value}}</div>
-                            </div>
-                        </div>
-                        <div class="equip-actions">
-                            <div>{{localize 'ZNZRPG.durabilityLabel'}}:&nbsp;&nbsp;{{equip.system.durability.value}}%</div>
-                            <a class="item-control item-unequip" title="{{localize 'ZNZRPG.inventoryUnequip'}}"><i class="fas fa-minus-square"></i></a>
-                        </div>
-                    </div>
+                {{#each equippedItems as |equip id|}}
+                    {{> "systems/znz4e/templates/actor/cards/equipped-item.html" equip=equip}}
                 {{/each}}
                 {{#each equipped.ranged_weapon as |equip id|}}
-                    <div class="equipped-item weapon item" data-item-id="{{equip._id}}">
-                        <div class="equip-info">
-                            <a class="attack-image">
-                                <img class="rollable" data-roll="attack"  title="{{localize 'ZNZRPG.attackLabel'}}" src="{{equip.img}}" title="{{equip.name}}"/>
-                            </a>
-                            <div class="equip-text">
-                                <div class="name-row">
-                                    <a class="item-control item-edit">
-                                        <div class="bold name editable-text">
-                                            {{equip.name}}
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>{{localize 'ZNZRPG.rangedWeaponLabel'}}</div>
-                                <div>{{localize 'ZNZRPG.damageLabel'}}:&nbsp;&nbsp;{{equip.system.damage.value}}</div>
-                                <div class="minmax-value-display small">
-                                    <span>{{localize 'ZNZRPG.ammoLabel'}}:&nbsp;&nbsp;</span>
-                                    <span>{{equip.system.ammo.current}}</span>
-                                    <span class="divider">&nbsp;/&nbsp;</span>
-                                    <span>{{equip.system.ammo.max}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="equip-info equip-description">
-                            {{editor ability.system.description target="description" button=false editable=false}}
-                        </div>
-                        <div class="equip-actions">
-                            <div>{{localize 'ZNZRPG.durabilityLabel'}}:&nbsp;&nbsp;{{equip.system.durability.value}}%</div>
-                            <a class="item-control item-unequip" title="{{localize 'ZNZRPG.inventoryUnequip'}}"><i class="fas fa-minus-square"></i></a>
-                        </div>
-                    </div>
+                    {{> "systems/znz4e/templates/actor/cards/equipped-item.html" equip=equip}}
                 {{/each}}
             </div>
-        </div>
-
+            
         <div class="equipment-section">
-            <div class="section-label">{{localize 'ZNZRPG.equippedArmor'}}</div>
+            <div class="section-label">{{localize 'ZNZRPG.equippedWearable'}}</div>
             <div class="equipped flexcol">
-                {{#each equipped.armor as |equip id|}}
+                {{#each equipped.wearable as |equip id|}}
                     <div class="equipped-item weapon item" data-item-id="{{equip._id}}">
                         <div class="equip-info equip-name">
                             <img src="{{equip.img}}" title="{{equip.name}}"/>

@@ -67,11 +67,7 @@ export class CharacterHelper {
         const rollAbilities = [];
         const flaws = [];
 
-        const equipped = {
-            melee_weapon: [],
-            ranged_weapon: [],
-            armor: []
-        };
+        const equippedItems = []
 
         for (let itm of context.items){
             itm.img = itm.img || DEFAULT_TOKEN;
@@ -85,7 +81,7 @@ export class CharacterHelper {
                 itm.equippable = true;
 
                 if (itm.system.equipped){
-                    equipped.melee_weapon.push(itm);
+                    equippedItems.push(itm);
                 } else {
                     inventory.push(itm);
                 }
@@ -95,17 +91,17 @@ export class CharacterHelper {
                 itm.equippable = true;
 
                 if (itm.system.equipped){
-                    equipped.ranged_weapon.push(itm);
+                    equippedItems.push(itm);
                 } else {
                     inventory.push(itm);
                 }
             }
-            else if (itm.type === "armor"){
+            else if (itm.type === "wearable"){
                 itm.info = game.i18n.localize("ZNZRPG.defenseLabel") + " " + NumberOrZero(itm.system.defense.value) + "   " + game.i18n.localize("ZNZRPG.durabilityLabel") + " " + NumberOrZero(itm.system.durability.value) + "%";
                 itm.equippable = true;
 
                 if (itm.system.equipped){
-                    equipped.armor.push(itm);
+                    equippedItems.push(itm);
                 } else {
                     inventory.push(itm);
                 }
@@ -130,11 +126,10 @@ export class CharacterHelper {
         context.skills = skills;
         context.abilities = abilities;
         context.inventory = inventory;
-        context.equipped = equipped;
+        context.equippedItems = equippedItems;
         context.rollAbilities = rollAbilities;
         context.flaws = flaws;
 
-        context.equippedWeaponCount = equipped.melee_weapon.length + equipped.ranged_weapon.length;
-        console.log(context.equippedWeaponCount);
+        context.equippedWeaponCount = equippedItems.length;
     }
 }
