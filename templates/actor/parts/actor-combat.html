@@ -101,10 +101,10 @@
 
             <div class="equipped">
                 {{#each equippedItems as |equip id|}}
-                    {{> "systems/znz4e/templates/actor/cards/equipped-item.html" equip=equip}}
+                    {{> "systems/znz4e/templates/actor/components/item-cards/smallcards.html" equip=equip}}
                 {{/each}}
                 {{#each equipped.ranged_weapon as |equip id|}}
-                    {{> "systems/znz4e/templates/actor/cards/equipped-item.html" equip=equip}}
+                    {{> "systems/znz4e/templates/actor/components/item-cards/smallcards.html" equip=equip}}
                 {{/each}}
             </div>
             

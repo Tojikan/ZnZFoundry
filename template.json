@@ -205,7 +205,7 @@
 		}
 	},
 	"Item": {
-		"types": ["item", "melee_weapon", "ranged_weapon", "wearable", "ability", "skill", "flaw"],
+		"types": ["consumable", "melee_weapon", "ranged_weapon", "wearable", "ability", "skill", "flaw"],
 		"templates": {
 			"base": {
 				"description": "",
@@ -233,7 +233,7 @@
 				}
 			}
 		},
-		"item": {
+		"consumable": {
 			"templates": ["base", "object", "equippable"],
 			"quantity": {
 				"value": 1,

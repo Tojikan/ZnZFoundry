@@ -60,13 +60,27 @@ export class CharacterHelper {
 
 
     static SheetPrepareItems(context){
+
+        
+
+
+        const sortedInventory = {
+            equipped: []
+        };
+
+        const itemTypes = function(){
+            return {
+                weapons: [],
+                wearables: [],
+                consumables: []
+            }
+        }
         
         const inventory = [];
         const skills = [];
         const abilities = [];
         const rollAbilities = [];
         const flaws = [];
-
         const equippedItems = []
 
         for (let itm of context.items){
