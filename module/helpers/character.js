@@ -13,15 +13,18 @@ export class CharacterHelper {
         };
 
         let result = {
-            health: calculate(context.system.health.value, context.system.config.penalty.threshold.value, context.system.config.penalty.intervals.health.value),
-            morale: calculate(context.system.morale.value, context.system.config.penalty.threshold.value, context.system.config.penalty.intervals.morale.value),
-            energy: calculate(context.system.energy.value, context.system.config.penalty.threshold.value, context.system.config.penalty.intervals.energy.value),
-            satiety: calculate(context.system.satiety.value, context.system.config.penalty.threshold.value, context.system.config.penalty.intervals.satiety.value),
+            health: calculate(context.system.health.value, context.system.config.penalty.thresholds.health.value, context.system.config.penalty.intervals.health.value),
+            morale: calculate(context.system.morale.value, context.system.config.penalty.thresholds.morale.value, context.system.config.penalty.intervals.morale.value),
+            energy: calculate(context.system.energy.value, context.system.config.penalty.thresholds.energy.value, context.system.config.penalty.intervals.energy.value),
+            satiety: calculate(context.system.satiety.value, context.system.config.penalty.thresholds.satiety.value, context.system.config.penalty.intervals.satiety.value),
         }
 
 
         context.calculatedPenaltyValues = result;
         context.totalRollPenalty = Math.max(result.health + result.morale + result.energy + result.satiety, 0);
+        context.calculatedDiceFace = context.system.config.baseDiceFace.value - context.totalRollPenalty;
+        context.calculatedDiceFace = Math.max(context.calculatedDiceFace, 1);
+        context.isNegativeDiceFace = context.calculatedDiceFace < context.system.config.baseDiceFace.value;
     }
 
     

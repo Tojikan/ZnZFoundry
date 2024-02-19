@@ -1,6 +1,5 @@
 import { CharacterHelper } from "../helpers/character.js";
 
-
 export class ZnZActorSheet extends ActorSheet {
     
     /** @override */
@@ -49,7 +48,7 @@ export class ZnZActorSheet extends ActorSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
-        
+
         // Render the item sheet for viewing/editing prior to the editable check.
         html.find('.item-edit').click(ev => {
             const parent = $(ev.currentTarget).parents(".item");
@@ -130,6 +129,13 @@ export class ZnZActorSheet extends ActorSheet {
         //Copy from Character
         context.carriedWeight = context.document.carriedWeight;
         context.calculatedPenaltyValues = context.document.calculatedPenaltyValues;
+
+        context.calculatedDiceFace = context.document.calculatedDiceFace;
+        context.isNegativeDiceFace = context.document.isNegativeDiceFace;
+
+        console.log(context.document.calculatedDiceFace);
+        console.log(context.document.isNegativeDiceFace);
+
         context.totalRollPenalty = context.document.totalRollPenalty
         context.actionCost = context.document.actionCost;
         

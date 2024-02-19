@@ -137,6 +137,10 @@
 				}
 			},
 			"config": {
+				"baseDiceFace": {
+					"value": 10,
+					"label": "ZNZRPG.baseDiceFace"
+				},
 				"cost": {
 					"baseActionCost": {
 						"value": 3,
@@ -160,9 +164,23 @@
 					}
 				},
 				"penalty": {
-					"threshold": {
-						"value": 40,
-						"label": "ZNZRPG.baseThresholdForRollPenalty"
+					"thresholds": {
+						"health": {
+							"value": 40,
+							"label": "ZNZRPG.baseHealthPenaltyThreshold"
+						},
+						"morale": {
+							"value": 40,
+							"label": "ZNZRPG.baseMoralePenaltyThreshold"
+						},
+						"energy": {
+							"value": 80,
+							"label": "ZNZRPG.baseEnergyPenaltyThreshold"
+						},
+						"satiety": {
+							"value": 40,
+							"label": "ZNZRPG.baseSatietyPenaltyThreshold"
+						}
 					},
 
 					"intervals": {
@@ -175,7 +193,7 @@
 							"label": "ZNZRPG.baseMoralePenaltyThreshold"
 						},
 						"energy": {
-							"value": 10,
+							"value": 20,
 							"label": "ZNZRPG.baseEnergyPenaltyThreshold"
 						},
 						"satiety": {

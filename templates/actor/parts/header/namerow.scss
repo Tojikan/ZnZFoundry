@@ -12,13 +12,19 @@
     }
     
     .name-input {
-        flex-basis: 60%;
+        flex-basis: 56%;
     }
     
     .status-input {
-        flex-basis: 40%;
+        flex-basis: 35%;
         column-count: 4;
         column-gap: 5px;
+    }
+
+    .is-red {
+        input {
+            color: red;
+        }
     }
     
     .status-input,

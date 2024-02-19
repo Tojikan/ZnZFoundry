@@ -165,4 +165,9 @@
     .flavor-text {
         font-style: italic;
     }
+
+    .has-tooltip {
+        cursor: pointer;
+        text-decoration: dotted underline;   
+    }
 }

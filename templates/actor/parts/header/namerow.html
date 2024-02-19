@@ -1,15 +1,7 @@
 {{#*inline "single-number"}}
     <div class="status-number single-number">
         {{#if label}}
-            <label>{{localize label}}</label>
-        {{/if}}
-        {{#if tooltip}}
-            <span class="tooltip">
-                <i class="fas fa-question-circle"></i>
-                <div class="tooltip-text">
-                    {{localize tooltip  input1=input1}}
-                </div>
-            </span>
+            <label {{#if tooltip}} class="has-tooltip" data-tooltip="{{localize tooltip input1=input1 input2=input2 input3=input3 input4=input4}}" {{/if}}>{{localize label}}</label>
         {{/if}}
         <input class="single-number-input" type="number" name="{{name}}" value="{{value}}"/>
     </div>
@@ -18,15 +10,7 @@
 {{#*inline "disabled"}}
     <div class="status-number disabled">
         {{#if label}}
-            <label>{{localize label}}</label>
-        {{/if}}
-        {{#if tooltip}}
-            <span class="tooltip">
-                <i class="fas fa-question-circle"></i>
-                <div class="tooltip-text">
-                    {{localize tooltip  input1=input1}}
-                </div>
-            </span>
+            <label {{#if tooltip}} class="has-tooltip" data-tooltip="{{localize tooltip input1=input1 input2=input2 input3=input3 input4=input4}}" {{/if}}>{{localize label}}</label>
         {{/if}}
         <input class="disabled-input" type="number" value="{{value}}" disabled/>
     </div>
@@ -43,22 +27,14 @@
         <div class="status-input">
             {{> single-number name="data.exp.value" value=data.exp.value label="ZNZRPG.experienceLabel" tooltip="ZNZRPG.experienceHint"}}
             {{> disabled value=carriedWeight label="ZNZRPG.carriedWeight" tooltip="ZNZRPG.carriedWeightHint" input1=data.config.cost.baseWeightPerActionCost.value}}
-            {{> disabled value=actionCost label="ZNZRPG.actionCost" tooltip="ZNZRPG.actionCostHint"}}
-            <div class="status-number single-number">
-                <label>{{localize 'ZNZRPG.rollPenalty'}}</label>
-                <span class="tooltip">
-                    <i class="fas fa-question-circle"></i>
-                    <div class="tooltip-text">
-                        {{localize 'ZNZRPG.rollPenaltyHint'}}
-                        <br/><br/>
-                        {{localize 'ZNZRPG.rollPenaltyHealth' input1=calculatedPenaltyValues.health}}<br/>
-                        {{localize 'ZNZRPG.rollPenaltyMorale' input1=calculatedPenaltyValues.morale}}<br/>
-                        {{localize 'ZNZRPG.rollPenaltyEnergy' input1=calculatedPenaltyValues.energy}}<br/>
-                        {{localize 'ZNZRPG.rollPenaltySatiety' input1=calculatedPenaltyValues.satiety}}<br/>
-                    </div>
-                </span>
-                <input class="disabled-input" type="number" value="{{totalRollPenalty}}" disabled/>
-            </div>
+            <div class="is-red">{{> disabled value=actionCost label="ZNZRPG.actionCost" tooltip="ZNZRPG.actionCostHint"}}</div>
+            <div {{#if isNegativeDiceFace}} class="is-red"{{/if}}>{{> disabled value=calculatedDiceFace label="ZNZRPG.diceFace" tooltip="ZNZRPG.diceFaceHint"
+                input1=calculatedPenaltyValues.health
+                input2=calculatedPenaltyValues.morale
+                input3=calculatedPenaltyValues.energy
+                input4=calculatedPenaltyValues.satiety
+            
+            }}</div>
         </div>
     </div>
 </div>

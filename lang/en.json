@@ -5,21 +5,23 @@
     "ZNZRPG.energylabel": "Energy",
     "ZNZRPG.morale": "Morale",
     
-    "ZNZRPG.experienceLabel": "EXP",
-    "ZNZRPG.experienceHint": "Spend to learn new skills and attributes",
+    "ZNZRPG.experienceLabel": "Exp",
+    "ZNZRPG.experienceHint": "Spend to learn new skills and abilities",
 
     "ZNZRPG.carriedWeight": "Bulk",
-    "ZNZRPG.carriedWeightHint": "Total weight of all items the character is holding. For every {input1} weight, increase action cost by 1.",
+    "ZNZRPG.carriedWeightHint": "Total weight being carried. Action Costs increases by 1 for every {input1} weight.",
 
-    "ZNZRPG.rollPenalty": "Cost",
-    "ZNZRPG.rollPenaltyHint": "Reduce the dice face on all rolls by this value. As you become more tired and injured, this value begins to increase.",
+    "ZNZRPG.actionCost": "Cost",
+    "ZNZRPG.actionCostHint": "Each action consumes this much Energy and Satiety. Reduce bulk to decrease this value.",
+
+    "ZNZRPG.diceFace": "Dice",
+    "ZNZRPG.diceFaceHint": "Dice face used for all rolls. This value decreases as your stats decrease. <br/>Health Penalty: {input1}<br/>Morale Penalty: {input2}<br/>Energy Penalty: {input3}<br/>Satiety Penalty: {input4}",
+    "ZNZRPG.rollPenaltyHint": "Reduce the dice face on rolls by this value. As you become more tired and injured, this value begins to increase.",
     "ZNZRPG.rollPenaltyHealth": "Penalty due to low Health: {input1}",
     "ZNZRPG.rollPenaltyMorale": "Penalty due to low Morale: {input1}",
     "ZNZRPG.rollPenaltyEnergy": "Penalty due to low Energy: {input1}",
     "ZNZRPG.rollPenaltySatiety": "Penalty due to low Satiety: {input1}",
 
-    "ZNZRPG.actionCost": "PENALTY",
-    "ZNZRPG.actionCostHint": "Each action will consume this much Satiety and Energy. Reduce Carried Weight to decrease this value.",
 
 
 
