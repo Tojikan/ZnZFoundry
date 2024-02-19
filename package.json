@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Tojikan/ZnZFoundry#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
     "node-sass": "^9.0.0"
   }

@@ -12,7 +12,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/znz4e/templates/actor/parts/actor-inventory.html",
       "systems/znz4e/templates/actor/parts/actor-abilities.html",
       "systems/znz4e/templates/actor/parts/actor-settings.html",
-      "systems/znz4e/templates/actor/components/item-cards/index.html"
+      "systems/znz4e/templates/actor/components/item-cards/smallcards.html"
     ];
   
     // Load the template parts
