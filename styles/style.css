@@ -1,3 +1,125 @@
+input[type="number"] {
+  width: calc(100% - 2px);
+  min-width: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 3px;
+  margin: 0;
+  user-select: text; }
+
+.single-number input[type=number] {
+  appearance: textfield; }
+
+.znz4e .combat-tab {
+  display: flex;
+  margin-top: 15px; }
+  .znz4e .combat-tab .side-bar {
+    flex-basis: 30%;
+    margin-right: 10px; }
+  .znz4e .combat-tab .main-area {
+    flex-basis: 70%; }
+  .znz4e .combat-tab .section-label {
+    font-size: 14px;
+    position: relative; }
+    .znz4e .combat-tab .section-label .section-btn {
+      font-size: 12px;
+      text-align: right;
+      position: absolute;
+      right: 0;
+      bottom: 0; }
+  .znz4e .combat-tab .stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px; }
+    .znz4e .combat-tab .stat-row:last-child {
+      margin: 0; }
+    .znz4e .combat-tab .stat-row .attr-label {
+      flex-basis: 70%; }
+      .znz4e .combat-tab .stat-row .attr-label label {
+        font-weight: 700; }
+    .znz4e .combat-tab .stat-row .attr-value {
+      flex-basis: 30%;
+      text-align: center; }
+      .znz4e .combat-tab .stat-row .attr-value input {
+        font-size: 14px; }
+      .znz4e .combat-tab .stat-row .attr-value.prefixed {
+        display: flex;
+        align-items: center;
+        justify-content: start; }
+        .znz4e .combat-tab .stat-row .attr-value.prefixed .prefix {
+          flex-basis: 50%; }
+        .znz4e .combat-tab .stat-row .attr-value.prefixed input {
+          flex-basis: 50%; }
+  .znz4e .combat-tab .rollinfo-block {
+    padding: 5px;
+    border: solid 1px black;
+    margin-bottom: 10px; }
+  .znz4e .combat-tab .skills {
+    min-height: 50px; }
+    .znz4e .combat-tab .skills .stat-row {
+      padding: 5px 0;
+      border-bottom: 2px groove #eeede0; }
+  .znz4e .combat-tab .ability-section {
+    margin-bottom: 20px; }
+    .znz4e .combat-tab .ability-section .abilities {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      column-gap: 10px;
+      row-gap: 10px; }
+      .znz4e .combat-tab .ability-section .abilities .ability-block {
+        flex-basis: 30%;
+        border: 2px groove #f7f7f7;
+        display: flex;
+        align-items: center; }
+        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-image {
+          flex-basis: 30%;
+          margin-right: 5px;
+          font-size: 0;
+          line-height: 0; }
+          .znz4e .combat-tab .ability-section .abilities .ability-block .ability-image img {
+            height: 100%;
+            width: auto; }
+        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-label {
+          flex-basis: 60%; }
+        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-edit {
+          text-align: right;
+          align-self: flex-start; }
+  .znz4e .combat-tab .equipment-section .equipped {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3px; }
+  .znz4e .combat-tab .equipment-section .equipped-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px groove #f7f7f7;
+    padding: 3px;
+    width: 225px;
+    position: relative; }
+    .znz4e .combat-tab .equipment-section .equipped-item .equip-info {
+      display: flex;
+      margin-bottom: 3px;
+      flex: 1; }
+      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .attack-image {
+        flex-basis: 30%;
+        margin-right: 5px; }
+        .znz4e .combat-tab .equipment-section .equipped-item .equip-info .attack-image img {
+          width: 100%;
+          height: auto; }
+      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .equip-text {
+        flex-basis: 70%; }
+    .znz4e .combat-tab .equipment-section .equipped-item .equip-description {
+      width: 100%;
+      text-align: left; }
+    .znz4e .combat-tab .equipment-section .equipped-item .equip-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      width: 100%; }
+      .znz4e .combat-tab .equipment-section .equipped-item .equip-actions .fas {
+        font-size: 18px; }
+
 .znz4e {
   /*** Tool Tip ****/
   /*** Single value display ***/
@@ -118,22 +240,6 @@
   overflow: visible; }
   .znz4e header.sheet-header .sheet-header-container {
     width: 100%; }
-  .znz4e header.sheet-header .profile-img {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100px;
-    flex: 0 0 100px;
-    height: 100px;
-    margin-right: 10px; }
-  .znz4e header.sheet-header .name-input {
-    flex-basis: 60%; }
-  .znz4e header.sheet-header .status-input {
-    flex-basis: 40%; }
-  .znz4e header.sheet-header .status-input input,
-  .znz4e header.sheet-header h1 input {
-    height: 36px;
-    line-height: 36px;
-    margin: 0;
-    margin-bottom: 10px; }
   .znz4e header.sheet-header .resources-section {
     width: 60%;
     margin-right: 25px; }
@@ -198,117 +304,6 @@
     margin-right: 20px; }
     .znz4e .znz-item .item-block-fields .block.roll {
       width: 200px; }
-
-.znz4e .combat-tab {
-  display: flex;
-  margin-top: 15px; }
-  .znz4e .combat-tab .side-bar {
-    flex-basis: 30%;
-    margin-right: 10px; }
-  .znz4e .combat-tab .main-area {
-    flex-basis: 70%; }
-  .znz4e .combat-tab .section-label {
-    font-size: 14px;
-    position: relative; }
-    .znz4e .combat-tab .section-label .section-btn {
-      font-size: 12px;
-      text-align: right;
-      position: absolute;
-      right: 0;
-      bottom: 0; }
-  .znz4e .combat-tab .stat-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2px; }
-    .znz4e .combat-tab .stat-row:last-child {
-      margin: 0; }
-    .znz4e .combat-tab .stat-row .attr-label {
-      flex-basis: 70%; }
-      .znz4e .combat-tab .stat-row .attr-label label {
-        font-weight: 700; }
-    .znz4e .combat-tab .stat-row .attr-value {
-      flex-basis: 30%;
-      text-align: center; }
-      .znz4e .combat-tab .stat-row .attr-value input {
-        font-size: 14px; }
-      .znz4e .combat-tab .stat-row .attr-value.prefixed {
-        display: flex;
-        align-items: center;
-        justify-content: start; }
-        .znz4e .combat-tab .stat-row .attr-value.prefixed .prefix {
-          flex-basis: 50%; }
-        .znz4e .combat-tab .stat-row .attr-value.prefixed input {
-          flex-basis: 50%; }
-  .znz4e .combat-tab .rollinfo-block {
-    padding: 5px;
-    border: solid 1px black;
-    margin-bottom: 10px; }
-  .znz4e .combat-tab .skills {
-    min-height: 50px; }
-    .znz4e .combat-tab .skills .stat-row {
-      padding: 5px 0;
-      border-bottom: 2px groove #eeede0; }
-  .znz4e .combat-tab .ability-section {
-    margin-bottom: 20px; }
-    .znz4e .combat-tab .ability-section .abilities {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      column-gap: 10px;
-      row-gap: 10px; }
-      .znz4e .combat-tab .ability-section .abilities .ability-block {
-        flex-basis: 30%;
-        border: 2px groove #f7f7f7;
-        display: flex;
-        align-items: center; }
-        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-image {
-          flex-basis: 30%;
-          margin-right: 5px;
-          font-size: 0;
-          line-height: 0; }
-          .znz4e .combat-tab .ability-section .abilities .ability-block .ability-image img {
-            height: 100%;
-            width: auto; }
-        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-label {
-          flex-basis: 60%; }
-        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-edit {
-          text-align: right;
-          align-self: flex-start; }
-  .znz4e .combat-tab .equipment-section .equipped {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 3px; }
-  .znz4e .combat-tab .equipment-section .equipped-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 3px groove #f7f7f7;
-    padding: 3px;
-    width: 225px;
-    position: relative; }
-    .znz4e .combat-tab .equipment-section .equipped-item .equip-info {
-      display: flex;
-      margin-bottom: 3px;
-      flex: 1; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .attack-image {
-        flex-basis: 30%;
-        margin-right: 5px; }
-        .znz4e .combat-tab .equipment-section .equipped-item .equip-info .attack-image img {
-          width: 100%;
-          height: auto; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .equip-text {
-        flex-basis: 70%; }
-    .znz4e .combat-tab .equipment-section .equipped-item .equip-description {
-      width: 100%;
-      text-align: left; }
-    .znz4e .combat-tab .equipment-section .equipped-item .equip-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      width: 100%; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-actions .fas {
-        font-size: 18px; }
 
 .znz4e .items-list {
   overflow: visible; }
@@ -402,3 +397,29 @@
 
 .znz4e .bold {
   font-weight: 700; }
+
+
+.name-row .status-number {
+  text-align: center; }
+
+.name-row .profile-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px; }
+
+.name-row .name-input {
+  flex-basis: 60%; }
+
+.name-row .status-input {
+  flex-basis: 40%;
+  column-count: 4;
+  column-gap: 5px; }
+
+.name-row .status-input input,
+.name-row h1 input {
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+  margin-bottom: 10px; }

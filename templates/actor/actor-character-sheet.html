@@ -4,20 +4,9 @@
 	<header class="sheet-header">
 		
 		<div class="sheet-header-container">
+
+			{{>  namerow }}
 			<div class="flexrow">
-				<div class="name-input">
-					<label>{{localize 'ZNZRPG.nameLabel'}}</label>
-					<h1 class="charname">
-						<input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ZNZRPG.nameLabel'}}"/>
-					</h1>
-				</div>
-				<div class="status-input">
-					<label>{{localize 'ZNZRPG.statusLabel'}}</label>
-					<input name="data.status" type="text" value="{{data.status}}" placeholder=""/>
-				</div>
-			</div>
-			<div class="flexrow">
-				<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
 				<div class="resources-section flexcol">
 					<div class="resource-content">
 						<label for="health-meter">{{localize data.health.label}}</label>
@@ -133,17 +122,17 @@
 		
 		{{!-- Combat Tab --}}
 		<div class="tab combat" data-group="primary" data-tab="combat">
-			{{> "systems/znz4e/templates/actor/parts/actor-combat.html"}}
+			{{> actor-combat }}
 		</div>
 		
 		{{!-- Inventory Tab --}}
 		<div class="tab inventory" data-group="primary" data-tab="inventory">
-			{{> "systems/znz4e/templates/actor/parts/actor-inventory.html"}}
+			{{> actor-inventory }}
 		</div>
 
 		{{!-- Abilities Tab --}}
 		<div class="tab abilities" data-group="primary" data-tab="abilities">
-			{{> "systems/znz4e/templates/actor/parts/actor-abilities.html"}}
+			{{> actor-abilities }}
 		</div>
 
 		{{!-- Notes Tab --}}

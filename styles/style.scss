@@ -1,43 +1,8 @@
-@import 'parts/common.scss';
-@import 'parts/header.scss';
-@import 'parts/item.scss';
-@import 'parts/combat.scss';
-@import 'parts/itemlist.scss';
-
-
-.znz4e {
-    .character-notes,
-    .description{
-        .editor {
-            height: 100%;
-        }
-    }
-    
-    &.sheet {
-        nav.sheet-tabs {
-            justify-content: flex-start;
-
-            .item {
-                flex: 1 1 100%;
-                border-right: solid 1px var(--color-border-light-primary);
-
-                &.small {
-                    flex-basis: 10%;
-                }
-            }
-        }
-    }
-
-    .character-notes {
-        height: 300px;
-
-        .editor {
-            border: solid 1px black;
-            margin: 20px;
-        }
-    }
-
-    .bold {
-        font-weight: 700;
-    }
+input[type="number"]{
+    width: calc(100% - 2px);
+    min-width: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 1px 3px;
+    margin: 0;
+    user-select: text;
 }

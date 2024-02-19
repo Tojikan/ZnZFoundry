@@ -1,0 +1,33 @@
+.name-row {
+    .status-number  {
+        text-align: center;
+    }
+    
+    .profile-img {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100px;
+        flex: 0 0 100px;
+        height: 100px;
+        margin-right: 10px;
+    }
+    
+    .name-input {
+        flex-basis: 60%;
+    }
+    
+    .status-input {
+        flex-basis: 40%;
+        column-count: 4;
+        column-gap: 5px;
+    }
+    
+    .status-input,
+    h1 {
+        input {
+            height: 36px;
+            line-height: 36px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+    }
+}

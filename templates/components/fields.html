@@ -1,0 +1,12 @@
+<!-- 
+
+{{#*inline "single-number"}}
+    <div class="single-number">
+        {{#if label}}
+            <label>{{localize label}}</label>
+        {{/if}}
+        <input class="single-number-input" type="number" name="{{name}}" value="{{value}}"/>
+    </div>
+{{/inline}} -->
+
+{{> (lookup . "type" )}}

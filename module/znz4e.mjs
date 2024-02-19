@@ -6,7 +6,6 @@ import { ZnZItem } from "./classes/item.mjs";
 import { ZnZItemSheet } from "./classes/item-sheet.mjs";
 import { NumberOrZero } from "./helpers/common.js";
 
-
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -114,7 +113,6 @@ Hooks.once('init', async function() {
 	Handlebars.registerHelper('json', function(context) {
 		return JSON.stringify(context);
 	});
-
 
 	// Preload template partials
 	await preloadHandlebarsTemplates();

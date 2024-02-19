@@ -8,15 +8,13 @@
 					"max": 100,
 					"label": "ZNZRPG.healthLabel"
 				},
-				"description": "",
-				"status": ""
+				"description": ""
 			}
 		},
 		"character": {
 			"templates": ["base"],
 			"exp": {
 				"value": 0,
-				"max": 0,
 				"label": "ZNZRPG.experienceLabel"
 			},
 			"satiety": {
@@ -25,8 +23,8 @@
 				"label": "ZNZRPG.satietylabel"
 			},
 			"energy": {
-				"value": 100,
-				"max": 100,
+				"value": 200,
+				"max": 200,
 				"label": "ZNZRPG.energylabel"
 			},
 			"morale": {
