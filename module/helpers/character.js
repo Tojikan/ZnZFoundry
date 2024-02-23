@@ -58,15 +58,12 @@ export class CharacterHelper {
         const cost = context.system.config.cost;
 
         context.carriedWeight = carriedWeight.value;
-        context.actionCost = NumberOrZero(cost.baseActionCost.value) + Math.floor(carriedWeight.value / cost.baseWeightPerActionCost.value);
+        context.satietyCost = NumberOrZero(cost.baseSatietyCost.value) + Math.floor(carriedWeight.value / cost.baseWeightPerActionCost.value);
+        context.energyCost = NumberOrZero(cost.baseEnergyCost.value) + Math.floor(carriedWeight.value / cost.baseWeightPerActionCost.value);
     }
 
 
     static SheetPrepareItems(context){
-
-        
-
-
         const sortedInventory = {
             equipped: []
         };

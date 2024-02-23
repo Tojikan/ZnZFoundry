@@ -32,11 +32,13 @@ export class ZnZActorSheet extends ActorSheet {
         
         // Use a safe clone of the actor data for further operations.
         const actorData = this.actor.toObject(false);
+
+        console.log(actorData.system.attributes);
         
         // Add the actor's data to context.data for easier access, as well as flags.
         context.data = actorData.system;
         context.flags = actorData.flags;
-        
+
         if (actorData.type == 'character') {
             this._prepareCharacterData(context);
         }
@@ -132,9 +134,6 @@ export class ZnZActorSheet extends ActorSheet {
 
         context.calculatedDiceFace = context.document.calculatedDiceFace;
         context.isNegativeDiceFace = context.document.isNegativeDiceFace;
-
-        console.log(context.document.calculatedDiceFace);
-        console.log(context.document.isNegativeDiceFace);
 
         context.totalRollPenalty = context.document.totalRollPenalty
         context.actionCost = context.document.actionCost;

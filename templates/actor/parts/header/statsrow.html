@@ -1,0 +1,74 @@
+<div class="flexrow character-stats">
+    <div class="resources-section flexcol stat-section">
+        <div class="resource-content">
+            <label for="health-meter" class="has-tooltip" data-tooltip="{{localize data.health.hint}}">{{localize data.health.label}}</label>
+            <meter id="health-meter" value="{{data.health.value}}" min="1" max="{{data.health.max}}"></meter>
+            <div class="minmax-value-display">
+                <input type="number" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                <span class="divider">&nbsp;/&nbsp;</span>
+                <input type="number" name="data.health.max" value="{{data.health.max}}" data-dtype="Number" step="1" min="1" max="10" />
+            </div>
+        </div>
+        <div class="resource-content">
+            <label for="morale-meter" class="has-tooltip" data-tooltip="{{localize data.morale.hint}}">{{localize data.morale.label}}</label>
+            <meter id="morale-meter" value="{{data.morale.value}}" min="1" max="{{data.morale.max}}"></meter>
+            <div class="minmax-value-display">
+                <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                <span class="divider">&nbsp;/&nbsp;</span>
+                <input type="number" name="data.morale.max" value="{{data.morale.max}}" data-dtype="Number" step="1" min="1" max="10" />
+            </div>
+        </div>
+        <div class="resource-content">
+            <label for="energy-meter" class="has-tooltip" data-tooltip="{{localize data.energy.hint}}">{{localize data.energy.label}}</label>
+            <meter id="energy-meter" value="{{data.energy.value}}" min="1" max="{{data.energy.max}}"></meter>
+            <div class="minmax-value-display">
+                <input type="number" name="data.energy.value" value="{{data.energy.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                <span class="divider">&nbsp;/&nbsp;</span>
+                <input type="number" name="data.energy.max" value="{{data.energy.max}}" data-dtype="Number" step="1" min="1" max="10" />
+            </div>
+        </div>
+        <div class="resource-content">
+            <label for="satiety-meter" class="has-tooltip" data-tooltip="{{localize data.satiety.hint}}">{{localize data.satiety.label}}</label>
+            <meter id="satiety-meter" value="{{data.satiety.value}}" min="1" max="{{data.satiety.max}}"></meter>
+            <div class="minmax-value-display">
+                <input type="number" name="data.satiety.value" value="{{data.satiety.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                <span class="divider">&nbsp;/&nbsp;</span>
+                <input type="number" name="data.satiety.max" value="{{data.satiety.max}}" data-dtype="Number" step="1" min="1" max="10" />
+            </div>
+        </div>
+    </div>
+
+    <div class="attribute-section flexcol stat-section rollable-stats">
+        <div class="attribute-layout">
+            {{#each data.attributes as |attr key|}}
+                <div class="attr-block">
+                    <div class="attr-label rollable roll-icon has-tooltip" data-roll="{{key}}" data-label="{{localize attr.label}}" data-tooltip="{{localize attr.hint}}">
+                        {{localize key}}
+                    </div>
+                    <div class="attr-value">
+                        <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                    </div>
+                    <div class="attr-under">
+                        {{localize attr.label}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="skills-layout">
+            {{#each data.combatskills as |skill key|}}
+                <div class="stat-row">
+                    <div class="attr-label rollable roll-icon has-tooltip" data-roll="{{key}}" data-label="{{localize skill.label}}">
+                        {{localize skill.label}}
+                    </div>
+                    <div class="attr-value prefixed">
+                        <div class="prefix">{{toUpperCase skill.defaultRoll}}+</div>
+                        <input type="number" name="data.combatskills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    
+
+
+</div>

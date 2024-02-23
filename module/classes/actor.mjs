@@ -32,8 +32,6 @@ export class ZnZActor extends Actor {
 	*/
 	prepareDerivedData() {
 		const actorData = this;
-		const data = actorData.system;
-		const flags = actorData.flags.znz4e || {};
 		
 		// Make separate methods for each Actor type (character, monster, etc.) to keep
 		// things organized.

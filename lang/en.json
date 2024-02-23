@@ -1,18 +1,19 @@
 {
     "ZNZRPG.nameLabel": "Name",
     "ZNZRPG.healthLabel": "Health",
+    "ZNZRPG.healthHint": "Measure of your character's physical state. <ul><li>Dice face decreases as this gets lower.</li>  <li>If it hits 0, you die.</li> <li>Restore with medical supplies.</li>",
     "ZNZRPG.satietylabel": "Satiety",
+    "ZNZRPG.satietyHint": "Measure of your character's hunger. <ul><li>Dice face decreases as this gets lower.</li>  <li>If it hits 0, begin losing health.</li> <li>Restore with food.</li>",
     "ZNZRPG.energylabel": "Energy",
-    "ZNZRPG.morale": "Morale",
+    "ZNZRPG.energyHint": "Measure of your character's stamina. <ul><li>Dice face decreases as this gets lower.</li>  <li>If it hits 0, begin losing morale.</li> <li>Restore with sleep.</li>",
+    "ZNZRPG.moraleLabel": "Morale",
+    "ZNZRPG.moraleHint": "Measure of your character's mental state. <ul><li>Dice face decreases as this gets lower.</li>  <li>If it hits 0, you goinsane.</li> <li>Restore with good times.</li>",
     
     "ZNZRPG.experienceLabel": "Exp",
     "ZNZRPG.experienceHint": "Spend to learn new skills and abilities",
 
     "ZNZRPG.carriedWeight": "Bulk",
     "ZNZRPG.carriedWeightHint": "Total weight being carried. Action Costs increases by 1 for every {input1} weight.",
-
-    "ZNZRPG.actionCost": "Cost",
-    "ZNZRPG.actionCostHint": "Each action consumes this much Energy and Satiety. Reduce bulk to decrease this value.",
 
     "ZNZRPG.diceFace": "Dice",
     "ZNZRPG.diceFaceHint": "Dice face used for all rolls. This value decreases as your stats decrease. <br/>Health Penalty: {input1}<br/>Morale Penalty: {input2}<br/>Energy Penalty: {input3}<br/>Satiety Penalty: {input4}",
@@ -23,20 +24,24 @@
     "ZNZRPG.rollPenaltySatiety": "Penalty due to low Satiety: {input1}",
 
 
-
+    "ZNZRPG.attrHint": "Number of dice rolled when performing an action.",
 
     "ZNZRPG.strLabel": "Strength",
-    "ZNZRPG.strHint": "Number of dice rolled for melee attacks, blocking, and physical feats of strength",
+    "ZNZRPG.strHint": "Number of dice rolled for melee attacks and physical feats of strength",
     "ZNZRPG.perLabel": "Perception",
-    "ZNZRPG.perHint": "Number of dice rolled for scouting, looting, and general feats of observation",
+    "ZNZRPG.perHint": "Number of dice rolled for scouting and stealth",
     "ZNZRPG.intLabel": "Intelligence",
-    "ZNZRPG.intHint": "Number of dice rolled for most non-combat skill rolls and learning new skills",
+    "ZNZRPG.intHint": "Number of dice rolled for most knowledge rolls, first aid, and learning skills.",
     "ZNZRPG.dexLabel": "Dexterity",
-    "ZNZRPG.dexHint": "Number of dice rolled for ranged attacks, dodging, and movement/acrobatic feats ",
+    "ZNZRPG.dexHint": "Number of dice rolled for ranged attacks and hand eye coordination",
     "ZNZRPG.endLabel": "Endurance",
-    "ZNZRPG.endHint": "Number of dice rolled when resisting damage, morale loss, environmental conditions, and adverse conditions",
-    "ZNZRPG.rizLabel": "Rizz",
-    "ZNZRPG.rizHint": "Number of dice rolled when interacting with NPCs, party interactions, and buffing party members",
+    "ZNZRPG.endHint": "Number of dice rolled when block, resisting damage, and grappling",
+    "ZNZRPG.rizLabel": "Charisma",
+    "ZNZRPG.rizHint": "Number of dice rolled when interacting with party members and NPCs",
+    "ZNZRPG.refLabel": "Reflex",
+    "ZNZRPG.refHint": "Number of dice rolled when dodging attacks. Determines initiative.",
+    "ZNZRPG.lckLabel": "Luck",
+    "ZNZRPG.lckHint": "Number of dice rolled when looting and in response to random events",
 
 
     "ZNZRPG.meleeSkillLabel": "Melee",
@@ -49,6 +54,8 @@
     "ZNZRPG.dodgeSkillHint": "Add this to your dice face when dodging attacks. Dodge actions avoids an attack altogether, but only if you exceed the base roll.",
     "ZNZRPG.stealthSkillLabel": "Stealth",
     "ZNZRPG.stealthSkillHint": "Add this to your dice face when performing stealth actions. Stealth reduces chance of detection when performing actions.",
+    "ZNZRPG.firstAidSkillLabel": "First Aid",
+    "ZNZRPG.firstAidSkillHint": "Add this to your dice face when performing actions to restore health.",
     
     "ZNZRPG.levelLabel": "Level",
     "ZNZRPG.weightLabel": "Weight",
@@ -120,7 +127,8 @@
     "ZNZRPG.tabNotes": "Notes",
 
 
-    "ZNZRPG.baseActionCost":"Cost Per Action",
+    "ZNZRPG.baseEnergyCost":"Energy Cost Per Action",
+    "ZNZRPG.baseSatietyCost":"Satiety Cost Per Action",
     "ZNZRPG.baseWeightPerPenalty":"Weight Penalty",
     "ZNZRPG.baseMeleeDurabilityUsage":"Melee Durability Per Usage",
     "ZNZRPG.baseRangedDurabilityUsage":"Ranged Durability Per Usage",

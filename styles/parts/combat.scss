@@ -24,48 +24,7 @@
                 bottom: 0;
             }
         }
-
-        .stat-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2px;
-
-            &:last-child{
-                margin: 0;
-            }
-
-            .attr-label {
-                flex-basis: 70%;
-
-                label {
-                    font-weight: 700;
-                }
-            }
-
-            .attr-value{
-                flex-basis: 30%;
-                text-align: center;
-                
-                input {
-                    font-size:14px;
-                }
-                
-                &.prefixed {
-                    display: flex;
-                    align-items: center;
-                    justify-content: start;
-
-                    .prefix {
-                        flex-basis: 50%;
-                    }
-
-                    input {
-                        flex-basis: 50%;
-                    }
-                }
-            }
-        }
-
+        
         .rollinfo-block {
             padding: 5px;
             border: solid 1px black;
