@@ -1,41 +1,27 @@
+{{#*inline "resource-meter"}}
+    <div class="resource-content">
+        <div>
+            <label for="{{key}}-meter" class="has-tooltip" data-tooltip="{{localize resource.hint}}">{{localize resource.label}}</label>
+            {{#if cost}}
+                <div class="cost-text">Action: -{{cost}}</div>
+            {{/if}}
+        </div>
+        <meter id="{{key}}-meter" value="{{resource.value}}" min="1" max="{{resource.max}}"></meter>
+        <div class="minmax-value-display">
+            <input type="number" name="data.{{key}}.value" value="{{resource.value}}" data-dtype="Number" step="1" min="1" max="10" />
+            <span class="divider">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.{{key}}.max" value="{{resource.max}}" data-dtype="Number" step="1" min="1" max="10" />
+        </div>
+    </div>
+{{/inline}}
+
+
 <div class="flexrow character-stats">
     <div class="resources-section flexcol stat-section">
-        <div class="resource-content">
-            <label for="health-meter" class="has-tooltip" data-tooltip="{{localize data.health.hint}}">{{localize data.health.label}}</label>
-            <meter id="health-meter" value="{{data.health.value}}" min="1" max="{{data.health.max}}"></meter>
-            <div class="minmax-value-display">
-                <input type="number" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" step="1" min="1" max="10" />
-                <span class="divider">&nbsp;/&nbsp;</span>
-                <input type="number" name="data.health.max" value="{{data.health.max}}" data-dtype="Number" step="1" min="1" max="10" />
-            </div>
-        </div>
-        <div class="resource-content">
-            <label for="morale-meter" class="has-tooltip" data-tooltip="{{localize data.morale.hint}}">{{localize data.morale.label}}</label>
-            <meter id="morale-meter" value="{{data.morale.value}}" min="1" max="{{data.morale.max}}"></meter>
-            <div class="minmax-value-display">
-                <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number" step="1" min="1" max="10" />
-                <span class="divider">&nbsp;/&nbsp;</span>
-                <input type="number" name="data.morale.max" value="{{data.morale.max}}" data-dtype="Number" step="1" min="1" max="10" />
-            </div>
-        </div>
-        <div class="resource-content">
-            <label for="energy-meter" class="has-tooltip" data-tooltip="{{localize data.energy.hint}}">{{localize data.energy.label}}</label>
-            <meter id="energy-meter" value="{{data.energy.value}}" min="1" max="{{data.energy.max}}"></meter>
-            <div class="minmax-value-display">
-                <input type="number" name="data.energy.value" value="{{data.energy.value}}" data-dtype="Number" step="1" min="1" max="10" />
-                <span class="divider">&nbsp;/&nbsp;</span>
-                <input type="number" name="data.energy.max" value="{{data.energy.max}}" data-dtype="Number" step="1" min="1" max="10" />
-            </div>
-        </div>
-        <div class="resource-content">
-            <label for="satiety-meter" class="has-tooltip" data-tooltip="{{localize data.satiety.hint}}">{{localize data.satiety.label}}</label>
-            <meter id="satiety-meter" value="{{data.satiety.value}}" min="1" max="{{data.satiety.max}}"></meter>
-            <div class="minmax-value-display">
-                <input type="number" name="data.satiety.value" value="{{data.satiety.value}}" data-dtype="Number" step="1" min="1" max="10" />
-                <span class="divider">&nbsp;/&nbsp;</span>
-                <input type="number" name="data.satiety.max" value="{{data.satiety.max}}" data-dtype="Number" step="1" min="1" max="10" />
-            </div>
-        </div>
+        {{> resource-meter resource=data.health key="health" }}
+        {{> resource-meter resource=data.morale key="morale" }}
+        {{> resource-meter resource=data.energy key="energy" cost=data.config.cost.baseEnergyCost.value}}
+        {{> resource-meter resource=data.satiety key="satiety" cost=data.config.cost.baseSatietyCost.value}}
     </div>
 
     <div class="attribute-section flexcol stat-section rollable-stats">
@@ -55,20 +41,20 @@
             {{/each}}
         </div>
         <div class="skills-layout">
-            {{#each data.combatskills as |skill key|}}
-                <div class="stat-row">
-                    <div class="attr-label rollable roll-icon has-tooltip" data-roll="{{key}}" data-label="{{localize skill.label}}">
-                        {{localize skill.label}}
+            <div class="base-skill-row">
+                {{#each data.baseSkills as |skill key|}}
+                    <div class="base-skill">
+                        <div class="skill-name has-tooltip" data-tooltip="{{localize skill.hint}}">
+                            {{localize skill.label}}
+                        </div>
+                        <div class="skill-level">
+                            <div>{{toUpperCase skill.defaultRoll}}</div>
+                            <div> + </div>
+                            <input type="number" name="data.baseSkills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="0" max="10" />
+                        </div>
                     </div>
-                    <div class="attr-value prefixed">
-                        <div class="prefix">{{toUpperCase skill.defaultRoll}}+</div>
-                        <input type="number" name="data.combatskills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="1" max="10" />
-                    </div>
-                </div>
-            {{/each}}
+                {{/each}}
+            </div>
         </div>
     </div>
-    
-
-
 </div>

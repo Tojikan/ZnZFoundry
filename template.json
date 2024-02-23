@@ -79,42 +79,55 @@
 					"hint": "ZNZRPG.refHint"
 				}
 			},
-			"combatskills":{
+			"baseSkills":{
 				"melee": {
 					"value": 0,
 					"label": "ZNZRPG.meleeSkillLabel",
 					"defaultRoll": "str",
-					"hint": "ZNZRPG.meleeSkillHint"
+					"hint": "ZNZRPG.meleeSkillHint",
+					"image": "icons/skills/melee/unarmed-punch-fist-blue.webp"
 				},
 				"range": {
 					"value": 0,
 					"label": "ZNZRPG.rangedSkillLabel",
 					"defaultRoll": "dex",
-					"hint": "ZNZRPG.rangedSkillHint"
+					"hint": "ZNZRPG.rangedSkillHint",
+					"image": "icons/skills/ranged/person-archery-bow-attack-gray.webp"
 				},
 				"block": {
 					"value": 0,
 					"label": "ZNZRPG.blockSkillLabel",
 					"defaultRoll": "end",
-					"hint": "ZNZRPG.blockSkillHint"
+					"hint": "ZNZRPG.blockSkillHint",
+					"image": "icons/skills/melee/shield-damaged-broken-brown.webp"
 				},
 				"dodge": {
 					"value": 0,
 					"label": "ZNZRPG.dodgeSkillLabel",
 					"defaultRoll": "ref",
-					"hint": "ZNZRPG.dodgeSkillHint"
+					"hint": "ZNZRPG.dodgeSkillHint",
+					"image": "icons/skills/movement/figure-running-gray.webp"
 				},
 				"stealth": {
 					"value": 0,
 					"label": "ZNZRPG.stealthSkillLabel",
 					"defaultRoll": "per",
-					"hint": "ZNZRPG.stealthSkillHint"
+					"hint": "ZNZRPG.stealthSkillHint",
+					"image": "icons/magic/perception/shadow-stealth-eyes-purple.webp"
 				},
 				"firstaid": {
 					"value": 0,
 					"label": "ZNZRPG.firstAidSkillLabel",
 					"defaultRoll": "int",
-					"hint": "ZNZRPG.firstAidSkillHint"
+					"hint": "ZNZRPG.firstAidSkillHint",
+					"image": "icons/magic/life/crosses-trio-red.webp"
+				},
+				"persuasion": {
+					"value": 0,
+					"label": "ZNZRPG.persuasionSkillLabel",
+					"defaultRoll": "riz",
+					"hint": "ZNZRPG.persuasionSkillHint",
+					"image": "icons/skills/social/diplomacy-handshake-blue.webp"
 				}
 			},
 			"inventory": {

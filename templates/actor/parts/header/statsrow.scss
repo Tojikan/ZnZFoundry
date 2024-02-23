@@ -14,87 +14,17 @@
         background: purple;
     }
     
+    .cost-text {
+        font-size: 11px;
+        color: #8B0000;
+    }
     .resources-section {
         flex-basis: 35%;
         row-gap: 10px;
 
-        .resource-content {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-    
-            &:last-child {
-                margin-bottom: 0;
-            }
-    
-            label {
-                text-align: right;
-                flex-basis: 10%;
-                margin-right: 8px;
-            }
-    
-            input {
-                border: solid gray 1px;
-                width: 36px;
-            }
-    
-            meter {
-                flex-basis: 60%;
-                margin-right: 8px;
-            }
-    
-            .minmax-value-display{
-                flex-basis: 30%;
-            }
-        }
     }
-
     .attribute-section {
         flex-basis: 65%;
-    }
-
-    .rollable-stats {
-
-        .stat-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2px;
-
-            &:last-child{
-                margin: 0;
-            }
-
-            .attr-label {
-                flex-basis: 70%;
-
-                label {
-                    font-weight: 700;
-                }
-            }
-
-            .attr-value{
-                flex-basis: 30%;
-                text-align: center;
-                
-                input {
-                    font-size:14px;
-                }
-                
-                &.prefixed {
-                    display: flex;
-                    align-items: center;
-                    justify-content: start;
-
-                    .prefix {
-                        flex-basis: 50%;
-                    }
-
-                    input {
-                        flex-basis: 50%;
-                    }
-                }
-            }
-        }
     }
 
     .attribute-layout {
@@ -104,35 +34,100 @@
         row-gap: 10px;
         justify-content: space-between;
     }
+}
 
-    .attr-block {
+
+.resource-content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    label {
+        text-align: right;
+        flex-basis: 10%;
+        margin-right: 8px;
+    }
+
+    input {
+        border: solid gray 1px;
+        width: 36px;
+    }
+
+    meter {
+        flex-basis: 60%;
+        margin-right: 8px;
+    }
+
+    .minmax-value-display{
+        flex-basis: 30%;
+    }
+}
+
+
+.attr-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .attr-label {
+        font-weight: 700;
+        width: 100%;
+    }
+
+    .attr-label, .attr-under {
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .attr-under {
+        font-size: 10px;
+        color: rgb(68, 55, 48);
+        opacity: 0.7;
+    }
+
+    input {
+        width: 50px;
+        height: 40px; 
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+
+
+.base-skill-row {
+    background-color: var(--color-text-dark-primary);
+    columns: 3;
+    margin-top: 5px;
+}
+
+.base-skill {
+    padding: 2px 3px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .skill-name {
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .skill-level {
         display: flex;
-        justify-content: center;
+        flex-wrap: nowrap;
         align-items: center;
-        flex-direction: column;
-
-        .attr-label {
-            font-weight: 700;
-            width: 100%;
-        }
-
-        .attr-label, .attr-under {
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .attr-under {
-            font-size: 10px;
-            color: rgb(68, 55, 48);
-            opacity: 0.7;
-        }
 
         input {
-            width: 50px;
-            height: 40px; 
+            width: 30px;
             text-align: center;
-            font-size: 20px;
-            font-weight: 700;
+            background-color: white;
         }
     }
 }
