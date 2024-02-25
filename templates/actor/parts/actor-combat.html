@@ -1,4 +1,11 @@
 <section class="combat-tab">
+    <div class="combat-container">
+        <div class="items-container">
+            {{#each equippedItems as |equip id|}}
+                {{> base-card card=equip}}
+            {{/each}}
+        </div>
+    </div>
 
 
 <!-- 

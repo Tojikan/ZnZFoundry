@@ -290,7 +290,7 @@
 			}
 		},
 		"melee_weapon": {
-			"templates": ["base", "object", "equippable", "weapon"]
+			"templates": ["base", "object", "equippable", "weapon"],
 		},
 		"ranged_weapon": {
 			"templates": ["base", "object", "equippable", "weapon"],

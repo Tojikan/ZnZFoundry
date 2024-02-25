@@ -458,3 +458,49 @@ header.sheet-header {
       text-align: center;
       background-color: white; }
 
+.znz-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease; }
+  .znz-card .card-header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%; }
+    .znz-card .card-header .card-title {
+      flex: 1 1 100%;
+      text-align: center;
+      border: solid 3px black;
+      border-radius: 5px;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      padding: 3px 0; }
+      .znz-card .card-header .card-title h3 {
+        border: none;
+        margin: 0; }
+    .znz-card .card-header .card-corner {
+      flex-basis: 20%; }
+      .znz-card .card-header .card-corner:first-child {
+        margin-right: 5px; }
+      .znz-card .card-header .card-corner:last-child {
+        margin-left: 5px; }
+      .znz-card .card-header .card-corner img {
+        width: 30px; }
+  .znz-card .card-image {
+    background-color: transparent; }
+    .znz-card .card-image img {
+      width: 180px;
+      height: auto; }
+
+.items-container .znz-card {
+  width: 225px; }
+

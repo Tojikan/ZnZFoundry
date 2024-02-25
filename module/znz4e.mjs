@@ -103,6 +103,12 @@ Hooks.once('init', async function() {
 		return str.charAt(0).toUpperCase() + str.substring(1);
 	});
 
+	Handlebars.registerHelper('unslugify', function(str) {
+		return str.split('_')
+			.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+			.join(' ');
+	});
+
 	/**
 	 * Slugify a string.
 	 */
@@ -113,6 +119,27 @@ Hooks.once('init', async function() {
 	Handlebars.registerHelper('json', function(context) {
 		return JSON.stringify(context);
 	});
+	
+
+	/**
+	 * Switch case 
+	 * https://stackoverflow.com/questions/53398408/switch-case-with-default-in-handlebars-js
+	 */
+	Handlebars.registerHelper('switch', function(value, options) {
+		this.switch_value = value;
+		return options.fn(this);
+	  });
+	  
+	  Handlebars.registerHelper('case', function(value, options) {
+		if (value == this.switch_value) {
+		  return options.fn(this);
+		}
+	  });
+	  
+	  Handlebars.registerHelper('default', function(value, options) {
+		  return true; ///We can add condition if needs
+	  });
+	  
 
 	// Preload template partials
 	await preloadHandlebarsTemplates();
