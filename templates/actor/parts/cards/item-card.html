@@ -12,19 +12,25 @@
 {{#*inline "actionRow"}}
     <div class="card-action-row">
         {{#if card.system.attackRoll}}
-            <div class="card-action-button rollable" data-roll="{{card.system.attackRoll}}">
-                {{localize "ZNZRPG.attackLabel"}}
-            </div>
+            {{#unless isInventory}}
+                <div class="card-action-button rollable" data-roll="{{card.system.attackRoll}}">
+                    {{localize "ZNZRPG.attackLabel"}}
+                </div>
+            {{/unless}}
         {{/if}}
         {{#if card.system.reloadRoll}}
-            <div class="card-action-button rollable" data-roll="{{card.system.reloadRoll}}">
-                {{localize "ZNZRPG.reloadLabel"}}
-            </div>
+            {{#unless isInventory}}
+                <div class="card-action-button rollable" data-roll="{{card.system.reloadRoll}}">
+                    {{localize "ZNZRPG.reloadLabel"}}
+                </div>
+            {{/unless}}
         {{/if}}
         {{#if card.system.blockRoll}}
-            <div class="card-action-button rollable" data-roll="{{card.system.blockRoll}}">
-                {{localize "ZNZRPG.blockLabel"}}
-            </div>
+            {{#unless isInventory}}
+                <div class="card-action-button rollable" data-roll="{{card.system.blockRoll}}">
+                    {{localize "ZNZRPG.blockLabel"}}
+                </div>
+            {{/unless}}
         {{/if}}
     </div>
 {{/inline}}
@@ -75,7 +81,9 @@
         </div>
     </div>
     <div class="card-image">
-        <img src="{{card.img}}" title="{{card.system.flavor}}" />
+        <a class="item-edit">
+            <img src="{{card.img}}" title="{{card.system.flavor}}" />
+        </a>
         {{#if card.system.durability }}
             <div class="card-durability card-image-control">
                 Durability: {{card.system.durability.value}}%

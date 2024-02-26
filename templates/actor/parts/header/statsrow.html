@@ -20,8 +20,8 @@
     <div class="resources-section flexcol stat-section">
         {{> resource-meter resource=data.health key="health" }}
         {{> resource-meter resource=data.morale key="morale" }}
-        {{> resource-meter resource=data.energy key="energy" cost=data.config.cost.baseEnergyCost.value}}
-        {{> resource-meter resource=data.satiety key="satiety" cost=data.config.cost.baseSatietyCost.value}}
+        {{> resource-meter resource=data.energy key="energy" cost=energyCost}}
+        {{> resource-meter resource=data.satiety key="satiety" cost=satietyCost}}
     </div>
 
     <div class="attribute-section flexcol stat-section rollable-stats">

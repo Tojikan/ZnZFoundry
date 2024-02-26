@@ -1,62 +1,7 @@
 <section class="inventory item-listing">
-
-    <ol class="items-list">
-        <li class="item flexrow items-header">
-            <div class="item-head item-name">{{localize 'ZNZRPG.nameLabel'}}</div>
-            <div class="item-head item-type">{{localize 'ZNZRPG.inventoryLabelType'}}</div>
-            <div class="item-head item-weight">{{localize 'ZNZRPG.inventoryLabelWeight'}}</div>
-            <div class="item-head item-info">{{localize 'ZNZRPG.infoLabel'}}</div>
-            <div class="item-controls">
-              <a class="item-control item-create" title="{{localize 'ZNZRPG.inventoryCreate'}}" data-type="inventory"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
-            </div>
-        </li>
-
-        {{#each inventory as |item id|}}
-            <li class="item flexrow items-listing" data-item-id="{{item._id}}">
-                <div class="item-name tooltip item-control item-edit" title="{{localize 'ZNZRPG.inventoryEdit'}}">
-                    <div class="item-image">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                    </div>
-                    <div>{{item.name}}</div>
-
-                    {{#ifCond item.system.description.length '>' 0}}
-                        <div class="tooltip-text">
-                            {{editor item.system.description target="description" button=false editable=false}}
-                        </div>
-                    {{/ifCond}}
-                </div>
-                <div class="item-type item-control item-edit" title="{{localize 'ZNZRPG.inventoryEdit'}}">
-                    <div class="item-content">
-                        {{#ifCond item.type '===' 'melee_weapon'}}
-                            {{localize 'ZNZRPG.meleeWeaponLabel'}}
-                        {{/ifCond}}
-                        {{#ifCond item.type '===' 'ranged_weapon'}}
-                            {{localize 'ZNZRPG.rangedWeaponLabel'}}
-                        {{/ifCond}}
-                        {{#ifCond item.type '===' 'item'}}
-                            {{localize 'ZNZRPG.item'}}
-                        {{/ifCond}}
-                        {{#ifCond item.type '===' 'wearable'}}
-                            {{localize 'ZNZRPG.wearable'}}
-                        {{/ifCond}}
-                    </div>
-                </div>
-                <div class="item-weight item-control item-edit" title="{{localize 'ZNZRPG.inventoryEdit'}}">
-                    <div class="item-content">{{numberOrZero item.system.weight.value}} lbs.</div>
-                </div>
-                <div class="item-info item-control item-edit" title="{{localize 'ZNZRPG.inventoryEdit'}}">
-                    <div class="item-content">
-                        {{item.info}}
-                    </div>
-                </div>
-                <div class="item-controls">
-                    {{#if item.equippable }}
-                        <a class="item-control item-equip" title="{{localize 'ZNZRPG.inventoryEquip'}}"><i class="fa-solid fa-person-carry-box"></i></i></a>
-                    {{/if}}
-                    <a class="item-control item-edit" title="{{localize 'ZNZRPG.inventoryEdit'}}"><i class="fas fa-edit"></i></a>
-                    <a class="item-control item-delete" title="{{localize 'ZNZRPG.inventoryDelete'}}"><i class="fas fa-trash"></i></a>
-                </div>
-            </li>
-      {{/each}}
-    </ol>
+    <div class="items-container">
+        {{#each inventory as |equip id|}}
+            {{> item-card card=equip isInventory=true}}
+        {{/each}}
+    </div>
 </section>

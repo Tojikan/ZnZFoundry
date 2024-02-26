@@ -51,94 +51,6 @@ aside#tooltip ul {
 .znz4e.sheet .item-sheet .item-body-section {
   margin-bottom: 20px; }
 
-.znz4e .combat-tab {
-  display: flex;
-  margin-top: 15px; }
-  .znz4e .combat-tab .side-bar {
-    flex-basis: 30%;
-    margin-right: 10px; }
-  .znz4e .combat-tab .main-area {
-    flex-basis: 70%; }
-  .znz4e .combat-tab .section-label {
-    font-size: 14px;
-    position: relative; }
-    .znz4e .combat-tab .section-label .section-btn {
-      font-size: 12px;
-      text-align: right;
-      position: absolute;
-      right: 0;
-      bottom: 0; }
-  .znz4e .combat-tab .rollinfo-block {
-    padding: 5px;
-    border: solid 1px black;
-    margin-bottom: 10px; }
-  .znz4e .combat-tab .skills {
-    min-height: 50px; }
-    .znz4e .combat-tab .skills .stat-row {
-      padding: 5px 0;
-      border-bottom: 2px groove #eeede0; }
-  .znz4e .combat-tab .ability-section {
-    margin-bottom: 20px; }
-    .znz4e .combat-tab .ability-section .abilities {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      column-gap: 10px;
-      row-gap: 10px; }
-      .znz4e .combat-tab .ability-section .abilities .ability-block {
-        flex-basis: 30%;
-        border: 2px groove #f7f7f7;
-        display: flex;
-        align-items: center; }
-        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-image {
-          flex-basis: 30%;
-          margin-right: 5px;
-          font-size: 0;
-          line-height: 0; }
-          .znz4e .combat-tab .ability-section .abilities .ability-block .ability-image img {
-            height: 100%;
-            width: auto; }
-        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-label {
-          flex-basis: 60%; }
-        .znz4e .combat-tab .ability-section .abilities .ability-block .ability-edit {
-          text-align: right;
-          align-self: flex-start; }
-  .znz4e .combat-tab .equipment-section .equipped {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 3px; }
-  .znz4e .combat-tab .equipment-section .equipped-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 3px groove #f7f7f7;
-    padding: 3px;
-    width: 225px;
-    position: relative; }
-    .znz4e .combat-tab .equipment-section .equipped-item .equip-info {
-      display: flex;
-      margin-bottom: 3px;
-      flex: 1; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .attack-image {
-        flex-basis: 30%;
-        margin-right: 5px; }
-        .znz4e .combat-tab .equipment-section .equipped-item .equip-info .attack-image img {
-          width: 100%;
-          height: auto; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-info .equip-text {
-        flex-basis: 70%; }
-    .znz4e .combat-tab .equipment-section .equipped-item .equip-description {
-      width: 100%;
-      text-align: left; }
-    .znz4e .combat-tab .equipment-section .equipped-item .equip-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      width: 100%; }
-      .znz4e .combat-tab .equipment-section .equipped-item .equip-actions .fas {
-        font-size: 18px; }
-
 .znz4e {
   /*** Tool Tip ****/
   /*** Single value display ***/
@@ -372,6 +284,153 @@ aside#tooltip ul {
   font-weight: 700; }
 
 
+.znz4e .combat-container .slot-listing {
+  width: 45%; }
+  .znz4e .combat-container .slot-listing h2 {
+    display: flex;
+    justify-content: space-between; }
+  .znz4e .combat-container .slot-listing .minmax-value-display .over-equipped {
+    color: red; }
+
+.znz-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease; }
+  .znz-card .card-header {
+    width: 100%; }
+    .znz-card .card-header .card-title {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 3px 0;
+      background-color: black;
+      color: white;
+      border-radius: 5px; }
+      .znz-card .card-header .card-title h3, .znz-card .card-header .card-title h4 {
+        border: none;
+        margin: 0; }
+      .znz-card .card-header .card-title h4 {
+        color: yellow; }
+    .znz-card .card-header .card-weight {
+      border-radius: 50%;
+      border: solid 3px black;
+      background-color: red;
+      color: white;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-weight: 500;
+      text-decoration: none;
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .znz-card .card-header .card-corner {
+      flex-basis: 20%; }
+      .znz-card .card-header .card-corner:first-child {
+        margin-right: 5px; }
+      .znz-card .card-header .card-corner:last-child {
+        margin-left: 5px; }
+      .znz-card .card-header .card-corner img {
+        width: 30px; }
+  .znz-card .card-info {
+    width: 100%;
+    padding: 4px;
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .znz-card .card-info .card-description {
+      text-align: left; }
+      .znz-card .card-info .card-description p {
+        margin-top: 0; }
+  .znz-card .card-image {
+    background-color: transparent;
+    position: relative;
+    background-color: black;
+    padding: 0 10%;
+    margin-top: -3px;
+    padding-bottom: 7.5%;
+    text-align: center; }
+    .znz-card .card-image img {
+      width: 90%;
+      height: auto; }
+    .znz-card .card-image .card-image-control {
+      color: white;
+      background-color: green;
+      border-top: solid 2px white; }
+    .znz-card .card-image .card-durability {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 2px 4px;
+      border-right: solid 2px white; }
+    .znz-card .card-image .card-equip-action {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 2px 4px;
+      border-left: solid 2px white;
+      transition: all 0.3s ease; }
+      .znz-card .card-image .card-equip-action:hover {
+        background-color: orange; }
+  .znz-card .card-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 3px 0; }
+    .znz-card .card-info-row .range-output {
+      overflow: hidden;
+      text-overflow: clip;
+      width: 30px;
+      display: inline-block;
+      vertical-align: bottom; }
+  .znz-card .card-action-row {
+    display: flex;
+    justify-content: start;
+    column-gap: 5px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 7px; }
+  .znz-card .card-action-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease; }
+    .znz-card .card-action-button:hover {
+      background-color: orange; }
+
+.znz-card.melee_weapon {
+  background-color: #992d2d; }
+
+.znz-card.ranged_weapon {
+  background-color: #1f3667; }
+
+.znz-card.consumable {
+  background-color: #add8e6; }
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  row-gap: 5px; }
+  .items-container .znz-card {
+    width: 225px; }
+
 header.sheet-header {
   flex: 0 auto;
   overflow: hidden;
@@ -501,136 +560,3 @@ header.sheet-header {
       width: 30px;
       text-align: center;
       background-color: white; }
-
-.znz-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 8px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease; }
-  .znz-card .card-header {
-    width: 100%; }
-    .znz-card .card-header .card-title {
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      padding: 3px 0;
-      background-color: black;
-      color: white;
-      border-radius: 5px; }
-      .znz-card .card-header .card-title h3, .znz-card .card-header .card-title h4 {
-        border: none;
-        margin: 0; }
-      .znz-card .card-header .card-title h4 {
-        color: yellow; }
-    .znz-card .card-header .card-weight {
-      border-radius: 50%;
-      border: solid 3px black;
-      background-color: red;
-      color: white;
-      font-size: 20px;
-      width: 40px;
-      height: 40px;
-      text-align: center;
-      font-weight: 500;
-      text-decoration: none;
-      margin-right: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-    .znz-card .card-header .card-corner {
-      flex-basis: 20%; }
-      .znz-card .card-header .card-corner:first-child {
-        margin-right: 5px; }
-      .znz-card .card-header .card-corner:last-child {
-        margin-left: 5px; }
-      .znz-card .card-header .card-corner img {
-        width: 30px; }
-  .znz-card .card-info {
-    width: 100%;
-    padding: 4px;
-    margin: 5px 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    flex: 1 1 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-    .znz-card .card-info .card-description {
-      text-align: left; }
-      .znz-card .card-info .card-description p {
-        margin-top: 0; }
-  .znz-card .card-image {
-    background-color: transparent;
-    position: relative;
-    background-color: black;
-    padding: 0 10%;
-    margin-top: -3px; }
-    .znz-card .card-image img {
-      width: 100%;
-      height: auto; }
-    .znz-card .card-image .card-image-control {
-      color: white;
-      background-color: green;
-      border-top: solid 2px white; }
-    .znz-card .card-image .card-durability {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      padding: 2px 4px;
-      border-right: solid 2px white; }
-    .znz-card .card-image .card-equip-action {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      padding: 2px 4px;
-      border-left: solid 2px white;
-      transition: all 0.3s ease; }
-      .znz-card .card-image .card-equip-action:hover {
-        background-color: orange; }
-  .znz-card .card-info-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 3px 0; }
-    .znz-card .card-info-row .range-output {
-      overflow: hidden;
-      text-overflow: clip;
-      width: 30px;
-      display: inline-block;
-      vertical-align: bottom; }
-  .znz-card .card-action-row {
-    display: flex;
-    justify-content: start;
-    column-gap: 5px;
-    row-gap: 5px;
-    flex-wrap: wrap;
-    margin-top: 7px; }
-  .znz-card .card-action-button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: green;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease; }
-    .znz-card .card-action-button:hover {
-      background-color: orange; }
-
-.znz-card.melee_weapon {
-  background-color: #FFCCCB; }
-
-.znz-card.ranged_weapon {
-  background-color: #afeeee; }
-
-.items-container {
-  display: flex;
-  flex-wrap: wrap; }
-  .items-container .znz-card {
-    width: 225px; }
-

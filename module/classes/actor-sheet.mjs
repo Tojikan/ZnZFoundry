@@ -1,4 +1,4 @@
-import { CharacterHelper } from "../helpers/character.js";
+import { ActorSheetHelper } from "../helpers/actor-sheet.js";
 
 export class ZnZActorSheet extends ActorSheet {
     
@@ -33,8 +33,6 @@ export class ZnZActorSheet extends ActorSheet {
         // Use a safe clone of the actor data for further operations.
         const actorData = this.actor.toObject(false);
 
-        console.log(actorData.system.attributes);
-        
         // Add the actor's data to context.data for easier access, as well as flags.
         context.data = actorData.system;
         context.flags = actorData.flags;
@@ -86,7 +84,6 @@ export class ZnZActorSheet extends ActorSheet {
         html.find('.item-equip').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            
 
             if ('equipped' in item.system){
                 item.update({"system.equipped": true});
@@ -128,17 +125,12 @@ export class ZnZActorSheet extends ActorSheet {
     * Prepare Character type specific data
     */
     _prepareCharacterData(context) {
-        //Copy from Character
-        context.carriedWeight = context.document.carriedWeight;
-        context.calculatedPenaltyValues = context.document.calculatedPenaltyValues;
-
-        context.calculatedDiceFace = context.document.calculatedDiceFace;
-        context.isNegativeDiceFace = context.document.isNegativeDiceFace;
-
-        context.totalRollPenalty = context.document.totalRollPenalty
-        context.actionCost = context.document.actionCost;
         
-        CharacterHelper.SheetPrepareItems(context);
+        //Copy Calculated Values into sheet context
+        for (let k in context.document.calculated){
+            context[k] = context.document.calculated[k];
+        }
+        ActorSheetHelper.SheetPrepareItems(context);
     }
     
     

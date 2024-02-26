@@ -275,10 +275,12 @@
 		},
 		"consumable": {
 			"templates": ["base", "object", "equippable", "customactions"],
-			"quantity": {
+			"uses": {
 				"value": 1,
-				"label": "ZNZRPG.quantityLabel"
-			}
+				"isMulti": false
+			},
+			"subtype": "",
+			"useRoll": ""
 		},
 		"melee_weapon": {
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
@@ -302,7 +304,7 @@
 				"label": "ZNZRPG.wearableDefense"
 			},
 			"equipslots": {
-				"value": 0,
+				"value": 2,
 				"label": "ZNZRPG.wearableSlots"
 			},
 			"warmth": {

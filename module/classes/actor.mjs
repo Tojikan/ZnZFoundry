@@ -1,4 +1,4 @@
-import { CharacterHelper } from "../helpers/character.js";
+import { CharacterHelper } from "../helpers/actor.js";
 
 /**
 * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -43,9 +43,12 @@ export class ZnZActor extends Actor {
 	*/
 	_prepareCharacterData(actorData) {
 		if (actorData.type !== 'character') return;
-		
+
+		actorData.calculated = {};
 		// Make modifications to data here. For example:
 		CharacterHelper.CalculateWeight(actorData);
+		CharacterHelper.CalculateCost(actorData);
 		CharacterHelper.CalculatePenalty(actorData);
+		CharacterHelper.CalculateSlots(actorData);
 	}
 }

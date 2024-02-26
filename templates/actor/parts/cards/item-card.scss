@@ -91,9 +91,11 @@
         background-color: black;
         padding: 0 10%;
         margin-top: -3px;
+        padding-bottom: 7.5%;
+        text-align: center;
         
         img {
-            width: 100%;
+            width: 90%;
             height: auto;
         }
 
@@ -169,17 +171,23 @@
 
 .znz-card {
     &.melee_weapon {
-        background-color: #FFCCCB;
+        background-color: #992d2d;
     }
 
     &.ranged_weapon {
-        background-color: #afeeee;
+        background-color: #1f3667;
+    }
+
+    &.consumable {
+        background-color: #add8e6
     }
 }
 
 .items-container {
     display: flex;
     flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 5px;
 
     .znz-card {
         width: 225px;
