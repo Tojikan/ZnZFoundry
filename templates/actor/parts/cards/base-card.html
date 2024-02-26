@@ -1,0 +1,106 @@
+{{#*inline "damageBlock"}}
+    <div class="card-info-row">
+        <div>
+            <strong>{{localize "ZNZRPG.damageLabel"}}</strong>: {{decimal card.system.damage.value}}x
+        </div>
+        <div>
+            <strong>{{localize "ZNZRPG.blockLabel"}}</strong>: {{decimal card.system.block.value}}x
+        </div>
+    </div>
+{{/inline}}
+
+{{#*inline "actionRow"}}
+    <div class="card-action-row">
+        {{#if card.system.attackRoll}}
+            <div class="card-action-button rollable" data-roll="{{card.system.attackRoll}}">
+                {{localize "ZNZRPG.attackLabel"}}
+            </div>
+        {{/if}}
+        {{#if card.system.reloadRoll}}
+            <div class="card-action-button rollable" data-roll="{{card.system.reloadRoll}}">
+                {{localize "ZNZRPG.reloadLabel"}}
+            </div>
+        {{/if}}
+        {{#if card.system.blockRoll}}
+            <div class="card-action-button rollable" data-roll="{{card.system.blockRoll}}">
+                {{localize "ZNZRPG.blockLabel"}}
+            </div>
+        {{/if}}
+    </div>
+{{/inline}}
+
+
+
+{{#*inline "melee_weapon"}}
+    {{> damageBlock}}
+    {{> actionRow}}
+{{/inline}}
+
+{{#*inline "ranged_weapon"}}
+    {{> damageBlock}}
+    <div class="card-info-row">
+        <div>
+            <strong>{{localize "ZNZRPG.ammoLabel"}}</strong>: {{card.system.ammo.current}} / {{card.system.ammo.max}}
+        </div>
+        <div  data-tooltip="{{card.system.rangeInfo}}">
+            <strong>{{localize "ZNZRPG.rangeLabel"}}</strong>: <span class="range-output">{{capitalize card.system.rangeInfo}}</span>
+        </div>
+    </div>
+    {{> actionRow}}
+{{/inline}}
+
+{{#*inline "consumable"}}
+    Consumable
+{{/inline}}
+
+{{#*inline "wearable"}}
+    Wearable
+{{/inline}}
+
+{{#*inline "ability"}}
+    Ability
+{{/inline}}
+
+
+<div class="znz-card item {{card.type}}" data-item-id="{{card._id}}">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="card-weight has-tooltip" data-tooltip="{{localize "ZNZRPG.carriedWeightAdded"}}">
+                {{card.system.weight.value}}
+            </div>
+            <a class="item-control item-edit" data-tooltip="{{card.system.flavor}}">
+                <h4>{{unslugify card.type}}</h4>
+                <h3>{{card.name}}</h3>
+            </a>
+        </div>
+    </div>
+    <div class="card-image">
+        <img src="{{card.img}}" title="{{card.system.flavor}}" />
+        {{#if card.system.durability }}
+            <div class="card-durability card-image-control">
+                Durability: {{card.system.durability.value}}%
+            </div>
+        {{/if}}
+        {{# if card.system.can_be_equipped}}
+            {{#if card.system.equipped}}
+                <div class="item-control item-unequip card-equip-action card-image-control">
+                    Unequip
+                </div>
+            {{else}}
+                <div class="item-control item-equip card-equip-action card-image-control">
+                    Equip
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+    <div class="card-info">
+        <div class="card-description">
+            {{editor card.system.description target="description" button=false editable=false}}
+        </div>
+        <div class="card-specifics">
+            {{> (lookup . "type" )}}
+        </div>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

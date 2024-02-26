@@ -120,6 +120,9 @@ Hooks.once('init', async function() {
 		return JSON.stringify(context);
 	});
 	
+	Handlebars.registerHelper('decimal', function(number) {
+		return number.toFixed(1);
+	});
 
 	/**
 	 * Switch case 
@@ -128,18 +131,18 @@ Hooks.once('init', async function() {
 	Handlebars.registerHelper('switch', function(value, options) {
 		this.switch_value = value;
 		return options.fn(this);
-	  });
+	});
 	  
-	  Handlebars.registerHelper('case', function(value, options) {
+	Handlebars.registerHelper('case', function(value, options) {
 		if (value == this.switch_value) {
-		  return options.fn(this);
+			return options.fn(this);
 		}
-	  });
+	});
 	  
-	  Handlebars.registerHelper('default', function(value, options) {
-		  return true; ///We can add condition if needs
-	  });
-	  
+	Handlebars.registerHelper('default', function(value, options) {
+		return true; ///We can add condition if needs
+	});
+
 
 	// Preload template partials
 	await preloadHandlebarsTemplates();

@@ -16,7 +16,7 @@ export class ZnZItemSheet extends ItemSheet {
     /** @override */
     get template() {
         const path = "systems/znz4e/templates/item";
-        return `${path}/${this.item.type}-sheet.html`;
+        return `${path}/itemSheet.html`;
     }
     
     /* -------------------------------------------- */

@@ -1,0 +1,73 @@
+.znz4e.sheet.item {
+    .sheet-header {
+
+    }
+
+}
+
+.znz4e.sheet .item-sheet {
+
+    .item-pre-header {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .item-name {
+        margin-bottom: 7px;
+
+        h1 {
+            input {
+                margin: 0!important;
+                width: 100%;
+            }
+        }
+    }
+
+    .item-info {
+        display: flex;
+        flex-wrap: nowrap;
+
+        .item-image {
+            flex-basis: 50%;
+            margin-right: 20px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .item-block-fields {
+            flex: 1 1 100%;
+
+            .item-block-row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 2px;
+
+                .row-label {
+                    text-align: right;
+                    flex-basis: 25%;
+                    margin-right: 20px;
+                }
+
+                .row-input {
+                    flex-basis: 50%;
+
+                    input {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    .item-body-section {
+        margin-bottom: 20px;
+    }
+}

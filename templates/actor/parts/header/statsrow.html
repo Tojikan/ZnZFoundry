@@ -48,7 +48,7 @@
                             {{localize skill.label}}
                         </div>
                         <div class="skill-level">
-                            <div>{{toUpperCase skill.defaultRoll}}</div>
+                            <div data-tooltip="{{localize "ZNZRPG.skillHint"}}">{{toUpperCase skill.defaultRoll}}</div>
                             <div> + </div>
                             <input type="number" name="data.baseSkills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="0" max="10" />
                         </div>

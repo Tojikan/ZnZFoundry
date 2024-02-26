@@ -13,6 +13,7 @@
     "ZNZRPG.experienceHint": "Spend to learn new skills and abilities",
 
     "ZNZRPG.carriedWeight": "Bulk",
+    "ZNZRPG.carriedWeightAdded": "Bulk Added",
     "ZNZRPG.carriedWeightHint": "Total weight being carried. Action Costs increases by 1 for every {input1} weight.",
 
     "ZNZRPG.diceFace": "Dice",
@@ -25,6 +26,7 @@
 
 
     "ZNZRPG.attrHint": "Number of dice rolled when performing an action.",
+    "ZNZRPG.skillHint": "Add this value to dice face and then rolls the number of dice in the specified attribute.",
 
     "ZNZRPG.strLabel": "Strength",
     "ZNZRPG.strHint": "Number of dice rolled for melee attacks and physical feats of strength",
@@ -45,19 +47,24 @@
 
 
     "ZNZRPG.meleeSkillLabel": "Melee",
-    "ZNZRPG.meleeSkillHint": "Add this to your dice face during melee combat",
+    "ZNZRPG.meleeSkillHint": "Skill with melee combat.",
     "ZNZRPG.rangedSkillLabel": "Ranged",
-    "ZNZRPG.rangedSkillHint": "Add this to your dice face during ranged combat",
+    "ZNZRPG.rangedSkillHint": "Skill with ranged combat.",
     "ZNZRPG.blockSkillLabel": "Block",
-    "ZNZRPG.blockSkillHint": "Add this to your dice face when blocking attacks. Blocking reduces damage taken from an attack.",
+    "ZNZRPG.blockSkillHint": "Reduce damage by blocking an attack. <br/>Blocking reduces damage dealt by an attack. <br/>Items multiply the result of the block roll.",
     "ZNZRPG.dodgeSkillLabel": "Dodge",
-    "ZNZRPG.dodgeSkillHint": "Add this to your dice face when dodging attacks. Dodging avoids attacks but only if you exceed the attacking roll.",
+    "ZNZRPG.dodgeSkillHint": "Avoid damage by dodging an attack. Dodging directly reduces the base roll of the attack but gains no benefit from items.",
     "ZNZRPG.stealthSkillLabel": "Stealth",
-    "ZNZRPG.stealthSkillHint": "Add this to your dice face when performing stealth actions. Stealth reduces chance of detection when performing actions.",
+    "ZNZRPG.stealthSkillHint": "Reduces chance of detection when performing actions.",
     "ZNZRPG.firstAidSkillLabel": "First Aid",
     "ZNZRPG.firstAidSkillHint": "Add this to your dice face when performing actions to restore health.",
     "ZNZRPG.persuasionSkillLabel": "Persuasion",
     "ZNZRPG.persuasionSkillHint": "Add this to your dice face when attempting to convince others of anything.",
+
+    "ZNZRPG.weightDetailedHint": "Amount of bulk this item adds to your carried weight. More bulk means your actions will cost more energy and satiety",
+    "ZNZRPG.durabilityDetailedHint": "When durability is reduced to 0, this item can no longer be used.",
+    "ZNZRPG.damageDetailedHint": "When attacking with this item, multiply the results of any attack roll by this value to get the final result.",
+    "ZNZRPG.blockDetailedHint": "When attacking with this item, multiply the results of any block roll by this value to get the final result.",
     
     "ZNZRPG.levelLabel": "Level",
     "ZNZRPG.weightLabel": "Weight",
@@ -66,6 +73,7 @@
     "ZNZRPG.rollLabel": "Roll",
     "ZNZRPG.infoLabel": "Info",
     "ZNZRPG.descriptionLabel": "Description",
+    "ZNZRPG.flavorLabel": "Flavor",
     "ZNZRPG.addLabel": "Add",
 
     "ZNZRPG.inventoryLabelType": "Type",
@@ -90,6 +98,7 @@
 
     "ZNZRPG.defenseLabel": "Defense",
     "ZNZRPG.damageLabel": "Damage",
+    "ZNZRPG.blockLabel": "Block",
     "ZNZRPG.weaponLabel": "Weapon",
     "ZNZRPG.durabilityLabel": "Durability",
     "ZNZRPG.weaponTypeLabel": "Weapon Type",
@@ -98,13 +107,13 @@
     "ZNZRPG.rangedLabel": "Ranged",
     "ZNZRPG.usesLabel": "Uses",
     "ZNZRPG.attackLabel": "Attack",
+    "ZNZRPG.attackRollLabel": "Attack Roll",
     "ZNZRPG.reloadLabel": "Reload",
+    "ZNZRPG.reloadRollLabel": "Reload Roll",
+    "ZNZRPG.blockRollLabel": "Block Roll",
     "ZNZRPG.ammoLabel": "Ammo",
-    "ZNZRPG.ammoTypeLabel": "Ammo Type",
-    "ZNZRPG.primaryAmmoLabel": "Primary",
-    "ZNZRPG.specialAmmoLabel": "Special",
-    "ZNZRPG.heavyAmmoLabel": "Heavy",
-    "ZNZRPG.noneLabel": "None",
+    "ZNZRPG.rangeLabel": "Range",
+    "ZNZRPG.actionsLabel": "Roll Actions",
     
     "ZNZRPG.equippedWeapons": "Equipped Weapons",
     "ZNZRPG.equippedWearable": "Equipped Wearable",

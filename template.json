@@ -140,29 +140,6 @@
 					"count": 0,
 					"weight": 1,
 					"label": "ZNZRPG.waterLabel"
-				},
-				"ammo": {
-					"none": {
-						"count": 0,
-						"weight": 0,
-						"label": "ZNZRPG.noneLabel",
-						"noList": true
-					},
-					"primary": {
-						"count": 0,
-						"weight": 0.1,
-						"label": "ZNZRPG.primaryAmmoLabel"
-					},
-					"heavy": {
-						"count": 0,
-						"weight": 0.2,
-						"label": "ZNZRPG.heavyAmmoLabel"
-					},
-					"special": {
-						"count": 0,
-						"weight": 0.5,
-						"label": "ZNZRPG.specialAmmoLabel"
-					}
 				}
 			},
 			"config": {
@@ -194,6 +171,10 @@
 					"baseWearableDurabilityUsage": {
 						"value": 10,
 						"label": "ZNZRPG.baseWearableDurabilityUsage"
+					},
+					"baseBlockDurabilityUsage": {
+						"value": 35,
+						"label": "ZNZRPG.baseBlockDurabilityUsage"
 					}
 				},
 				"penalty": {
@@ -266,8 +247,18 @@
 					"label": "ZNZRPG.weightLabel"
 				}
 			},
+			"blocker": {
+				"block":{
+					"value": 1.0
+				},
+				"blockRoll": "block"
+			},
+			"customactions": {
+				"actions": ""
+			},
 			"equippable": {
 				"equipped": false,
+				"can_be_equipped": true,
 				"durability": {
 					"value": 100,
 					"label": "ZNZRPG.durabilityLabel"
@@ -278,34 +269,34 @@
 			},
 			"weapon": {
 				"damage": {
-					"value": 0
+					"value": 1.0
 				}
 			}
 		},
 		"consumable": {
-			"templates": ["base", "object", "equippable"],
+			"templates": ["base", "object", "equippable", "customactions"],
 			"quantity": {
 				"value": 1,
 				"label": "ZNZRPG.quantityLabel"
 			}
 		},
 		"melee_weapon": {
-			"templates": ["base", "object", "equippable", "weapon"],
+			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
+			"attackRoll": "melee"
 		},
 		"ranged_weapon": {
-			"templates": ["base", "object", "equippable", "weapon"],
+			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
+			"attackRoll": "ranged",
+			"reloadRoll": "reload",
+			"rangeInfo": "medium",
 			"ammo": {
 				"current": 10,
 				"max": 10,
 				"label": "ZNZRPG.ammoLabel"
-			},
-			"ammoType": {
-				"label": "ZNZRPG.ammoType",
-				"value": "primary"
 			}
 		},
 		"wearable": {
-			"templates": ["base","object", "equippable"],
+			"templates": ["base","object", "equippable", "blocker", "customactions"],
 			"defense": {
 				"value": 0,
 				"label": "ZNZRPG.wearableDefense"
@@ -331,7 +322,7 @@
 			}
 		},
 		"ability": {
-			"templates": ["base", "rollable"],
+			"templates": ["base", "rollable", "customactions"],
 			"level": {
 				"value": 0,
 				"label": "ZNZRPG.levelLabel"

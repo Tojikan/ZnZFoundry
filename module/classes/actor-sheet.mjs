@@ -151,9 +151,9 @@ export class ZnZActorSheet extends ActorSheet {
             content: "<p>Select Item Type.</p>",
             buttons: {
                 one: {
-                    label: "Item",
+                    label: "Consumable",
                     callback: () => {
-                        sheet._createItem("item");
+                        sheet._createItem("consumable");
                     }
                 },
                 two: {
