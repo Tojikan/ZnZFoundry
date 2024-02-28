@@ -1,0 +1,33 @@
+.znz4e {
+    .bulk-listing,
+    .slot-listing {
+        width: 45%;
+        margin-bottom: 10px;
+
+        h2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .minmax-value-display {
+            .over-equipped {
+                color: red;
+            }
+        }
+    }
+
+    .inventory-listing {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        .bulk-listing {
+            flex-basis: 40%;
+        }
+
+        .add-item {
+            width: 10%;
+        }
+    }
+}

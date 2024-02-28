@@ -169,5 +169,11 @@
             </div>
         </div>
         {{> (concat (lookup (lookup this "document") "type") "_footer")}}
+
+        <div class="item-body-section">
+            <a class="item-control item-sheet-delete btn-red" title="{{localize "ZNZRPG.deleteItem"}}">
+                Delete Item
+            </a>
+        </div>
     </section>
 </form>

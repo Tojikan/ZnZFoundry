@@ -33,6 +33,7 @@
         }
 
         .card-weight {
+            min-width: 40px;
             border-radius: 50%;
             border: solid 3px black;
             background-color: red;
@@ -47,6 +48,17 @@
             display:flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .card-name {
+            flex: 1 1 100%;
+        }
+
+        .card-delete {
+            width: 20px;
+            color: red;
+            margin-right: 5px;
+            align-self: start;
         }
         
         .card-corner{
@@ -129,12 +141,17 @@
         }
     }
 
+    .card-details {
+        border-top: solid 1px var(--color-border-light-primary);
+        line-height: 1;
+        padding-top: 5px;
+    }
+
     .card-info-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        padding: 3px 0;
 
         .range-output {
             overflow: hidden;

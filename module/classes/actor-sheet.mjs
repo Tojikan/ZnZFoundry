@@ -76,8 +76,10 @@ export class ZnZActorSheet extends ActorSheet {
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            item.delete();
-            li.slideUp(200, () => this.render(false));
+            if (confirm("Are you sure you want to delete this item?")){
+                item.delete();
+                li.slideUp(200, () => this.render(false));
+            }
         });
 
         // Equip Inventory Item

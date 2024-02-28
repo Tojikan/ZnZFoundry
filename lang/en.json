@@ -81,7 +81,7 @@
     "ZNZRPG.inventoryCreate": "Create Item",
     "ZNZRPG.inventoryEdit": "Edit Item",
     "ZNZRPG.inventoryView": "View Item",
-    "ZNZRPG.inventoryDelete": "Delete Item",
+    "ZNZRPG.deleteItem": "Delete Item",
     "ZNZRPG.inventoryEquip": "Equip Item",
     "ZNZRPG.inventoryUnequip": "Unequip Item",
     "ZNZRPG.skillEdit": "Edit Skill",

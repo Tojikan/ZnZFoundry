@@ -38,25 +38,31 @@
 
 
 {{#*inline "melee_weapon"}}
-    {{> damageBlock}}
+    <div class="card-details">
+        {{> damageBlock}}
+    </div>
     {{> actionRow}}
 {{/inline}}
 
 {{#*inline "ranged_weapon"}}
-    {{> damageBlock}}
-    <div class="card-info-row">
-        <div>
-            <strong>{{localize "ZNZRPG.ammoLabel"}}</strong>: {{card.system.ammo.current}} / {{card.system.ammo.max}}
-        </div>
-        <div  data-tooltip="{{card.system.rangeInfo}}">
-            <strong>{{localize "ZNZRPG.rangeLabel"}}</strong>: <span class="range-output">{{capitalize card.system.rangeInfo}}</span>
+    <div class="card-details">
+        {{> damageBlock}}
+        <div class="card-info-row">
+            <div>
+                <strong>{{localize "ZNZRPG.ammoLabel"}}</strong>: {{card.system.ammo.current}} / {{card.system.ammo.max}}
+            </div>
+            <div  data-tooltip="{{card.system.rangeInfo}}">
+                <strong>{{localize "ZNZRPG.rangeLabel"}}</strong>: <span class="range-output">{{capitalize card.system.rangeInfo}}</span>
+            </div>
         </div>
     </div>
     {{> actionRow}}
 {{/inline}}
 
 {{#*inline "consumable"}}
-    Consumable
+    <div class="card-details">
+        {{> actionRow}}
+    </div>
 {{/inline}}
 
 {{#*inline "wearable"}}
@@ -74,10 +80,17 @@
             <div class="card-weight has-tooltip" data-tooltip="{{localize "ZNZRPG.carriedWeightAdded"}}">
                 {{card.system.weight.value}}
             </div>
-            <a class="item-control item-edit" data-tooltip="{{card.system.flavor}}">
-                <h4>{{unslugify card.type}}</h4>
-                <h3>{{card.name}}</h3>
-            </a>
+            <div class="card-name">
+                <a class="item-control item-edit" data-tooltip="{{card.system.flavor}}">
+                    <h4>{{unslugify card.type}}</h4>
+                    <h3>{{card.name}}</h3>
+                </a>
+            </div>
+            <div class="card-delete">
+                <a class="item-control item-delete" title="{{localize "ZNZRPG.deleteItem"}}">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
         </div>
     </div>
     <div class="card-image">

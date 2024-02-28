@@ -59,5 +59,12 @@ export class ZnZItemSheet extends ItemSheet {
         if (!this.isEditable) return;
         
         // Roll handlers, click handlers, etc. would go here.
+        
+        // Delete Inventory Item
+        html.find('.item-sheet-delete').click(ev => {
+            if (confirm("Are you sure you want to delete this item?")){
+                this.object.delete();
+            }
+        });
     }
 }

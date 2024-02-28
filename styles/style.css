@@ -51,6 +51,29 @@ aside#tooltip ul {
 .znz4e.sheet .item-sheet .item-body-section {
   margin-bottom: 20px; }
 
+.znz4e .bulk-listing,
+.znz4e .slot-listing {
+  width: 45%;
+  margin-bottom: 10px; }
+  .znz4e .bulk-listing h2,
+  .znz4e .slot-listing h2 {
+    display: flex;
+    justify-content: space-between; }
+  .znz4e .bulk-listing .minmax-value-display .over-equipped,
+  .znz4e .slot-listing .minmax-value-display .over-equipped {
+    color: red; }
+
+.znz4e .inventory-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; }
+  .znz4e .inventory-listing .bulk-listing {
+    flex-basis: 40%; }
+  .znz4e .inventory-listing .add-item {
+    width: 10%; }
+
+
 .znz4e {
   /*** Tool Tip ****/
   /*** Single value display ***/
@@ -167,6 +190,18 @@ aside#tooltip ul {
   .znz4e .has-tooltip {
     cursor: pointer;
     text-decoration: dotted underline; }
+  .znz4e .btn-red {
+    background-color: #8B0000;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s; }
+    .znz4e .btn-red:hover {
+      background-color: #3f0000; }
 
 .znz4e .znz-item .sheet-body {
   padding: 10px; }
@@ -283,15 +318,6 @@ aside#tooltip ul {
 .znz4e .bold {
   font-weight: 700; }
 
-
-.znz4e .combat-container .slot-listing {
-  width: 45%; }
-  .znz4e .combat-container .slot-listing h2 {
-    display: flex;
-    justify-content: space-between; }
-  .znz4e .combat-container .slot-listing .minmax-value-display .over-equipped {
-    color: red; }
-
 .znz-card {
   display: flex;
   flex-direction: column;
@@ -319,6 +345,7 @@ aside#tooltip ul {
       .znz-card .card-header .card-title h4 {
         color: yellow; }
     .znz-card .card-header .card-weight {
+      min-width: 40px;
       border-radius: 50%;
       border: solid 3px black;
       background-color: red;
@@ -333,6 +360,13 @@ aside#tooltip ul {
       display: flex;
       align-items: center;
       justify-content: center; }
+    .znz-card .card-header .card-name {
+      flex: 1 1 100%; }
+    .znz-card .card-header .card-delete {
+      width: 20px;
+      color: red;
+      margin-right: 5px;
+      align-self: start; }
     .znz-card .card-header .card-corner {
       flex-basis: 20%; }
       .znz-card .card-header .card-corner:first-child {
@@ -384,12 +418,15 @@ aside#tooltip ul {
       transition: all 0.3s ease; }
       .znz-card .card-image .card-equip-action:hover {
         background-color: orange; }
+  .znz-card .card-details {
+    border-top: solid 1px var(--color-border-light-primary);
+    line-height: 1;
+    padding-top: 5px; }
   .znz-card .card-info-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 3px 0; }
+    width: 100%; }
     .znz-card .card-info-row .range-output {
       overflow: hidden;
       text-overflow: clip;
