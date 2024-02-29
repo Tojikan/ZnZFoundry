@@ -51,29 +51,6 @@ aside#tooltip ul {
 .znz4e.sheet .item-sheet .item-body-section {
   margin-bottom: 20px; }
 
-.znz4e .bulk-listing,
-.znz4e .slot-listing {
-  width: 45%;
-  margin-bottom: 10px; }
-  .znz4e .bulk-listing h2,
-  .znz4e .slot-listing h2 {
-    display: flex;
-    justify-content: space-between; }
-  .znz4e .bulk-listing .minmax-value-display .over-equipped,
-  .znz4e .slot-listing .minmax-value-display .over-equipped {
-    color: red; }
-
-.znz4e .inventory-listing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap; }
-  .znz4e .inventory-listing .bulk-listing {
-    flex-basis: 40%; }
-  .znz4e .inventory-listing .add-item {
-    width: 10%; }
-
-
 .znz4e {
   /*** Tool Tip ****/
   /*** Single value display ***/
@@ -318,6 +295,29 @@ aside#tooltip ul {
 .znz4e .bold {
   font-weight: 700; }
 
+.znz4e .bulk-listing,
+.znz4e .slot-listing {
+  width: 45%;
+  margin-bottom: 10px; }
+  .znz4e .bulk-listing h2,
+  .znz4e .slot-listing h2 {
+    display: flex;
+    justify-content: space-between; }
+  .znz4e .bulk-listing .minmax-value-display .over-equipped,
+  .znz4e .slot-listing .minmax-value-display .over-equipped {
+    color: red; }
+
+.znz4e .inventory-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; }
+  .znz4e .inventory-listing .bulk-listing {
+    flex-basis: 40%; }
+  .znz4e .inventory-listing .add-item {
+    width: 10%; }
+
+
 .znz-card {
   display: flex;
   flex-direction: column;
@@ -462,11 +462,21 @@ aside#tooltip ul {
 
 .items-container {
   display: flex;
-  flex-wrap: wrap;
   column-gap: 5px;
-  row-gap: 5px; }
+  row-gap: 5px;
+  flex-wrap: wrap; }
   .items-container .znz-card {
-    width: 225px; }
+    width: 225px;
+    z-index: 3; }
+  .items-container.is-fixed-width {
+    flex-wrap: nowrap; }
+    .items-container.is-fixed-width .znz-card {
+      min-width: 225px;
+      position: relative;
+      transition: all 0.3s ease; }
+      .items-container.is-fixed-width .znz-card:hover {
+        z-index: 5;
+        transform: translateY(-10px) rotate(0deg) scale(1.1); }
 
 header.sheet-header {
   flex: 0 auto;

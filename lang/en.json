@@ -131,8 +131,8 @@
     
 
 
-    "ZNZRPG.tabCombat": "Combat",
-    "ZNZRPG.tabInventory": "Inventory",
+    "ZNZRPG.tabCombat": "Equipped",
+    "ZNZRPG.tabInventory": "Backpack",
     "ZNZRPG.tabAbility": "Abilities",
     "ZNZRPG.tabNotes": "Notes",
 

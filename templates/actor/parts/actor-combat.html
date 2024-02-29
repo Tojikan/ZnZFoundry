@@ -12,7 +12,7 @@
         </div>
 
         {{#if hasEquippedItems}}
-            <div class="items-container">
+            <div class="items-container fixed-width">
                 {{#each equippedItems as |equip id|}}
                     {{> item-card card=equip}}
                 {{/each}}

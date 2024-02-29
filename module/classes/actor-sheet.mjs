@@ -49,6 +49,44 @@ export class ZnZActorSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
+        function adjustCards(){
+            html.find('.items-container.fixed-width').each((i, el) => {
+                const cardWidth = 225;
+                const count = $(el).find('.znz-card').length;
+                const avail = el.clientWidth - 15;
+
+                let widthNeeded = count * cardWidth;
+                let diff = widthNeeded - avail;
+
+                // Calculate the margin dynamically based on the available space
+                let margin;
+                if (count > 1) {
+                    // Distribute the remaining space evenly among the cards
+                    margin = Math.min(diff / (count - 1), 185); // Limit the maximum margin
+                } else {
+                    margin = 0; // No margin needed for a single card
+                }
+
+                if (widthNeeded < avail) {
+                    $(el).removeClass('is-fixed-width');
+                    $(el).find('.znz-card:not(:first-child)').css('margin-left', '');
+                } else {
+                    $(el).addClass('is-fixed-width');
+                    $(el).find('.znz-card:not(:first-child)').css('margin-left', -margin + 'px');
+                }
+
+            });
+        }
+
+        setTimeout(adjustCards, 500);
+
+        html.find('.order-cards').click(ev => {
+            setTimeout(adjustCards, 500);
+        });
+
+
+
+
         // Render the item sheet for viewing/editing prior to the editable check.
         html.find('.item-edit').click(ev => {
             const parent = $(ev.currentTarget).parents(".item");
