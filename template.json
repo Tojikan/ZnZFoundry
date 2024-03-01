@@ -254,7 +254,7 @@
 				"blockRoll": "block"
 			},
 			"customactions": {
-				"actions": ""
+				"actions": []
 			},
 			"equippable": {
 				"equipped": false,

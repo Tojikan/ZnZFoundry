@@ -81,10 +81,8 @@ export class ZnZActorSheet extends ActorSheet {
         setTimeout(adjustCards, 500);
 
         html.find('.order-cards').click(ev => {
-            setTimeout(adjustCards, 500);
+            setTimeout(adjustCards, 100);
         });
-
-
 
 
         // Render the item sheet for viewing/editing prior to the editable check.

@@ -66,5 +66,19 @@ export class ZnZItemSheet extends ItemSheet {
                 this.object.delete();
             }
         });
+
+        html.find('.item-sheet-action-add').click(ev =>{
+            console.log(ev);
+            console.log(this);
+            console.log(this.document.system.actions);
+            let actions = this.document.system.actions;
+
+            actions.push({
+                label: "New Action",
+                command: ""
+            });
+
+            this.document.update({"system.actions": actions});
+        });
     }
 }

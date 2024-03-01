@@ -42,10 +42,26 @@
     </div>
 {{/inline}}
 {{#*inline "actions"}}
-    <div class="item-body-section">
-        <h2>{{localize "ZNZRPG.actionsLabel"}}</h2>
+    <div class="item-body-section  custom-actions">
+        <div class="flexrow">
+            <h2>{{localize "ZNZRPG.actionsLabel"}}</h2>
+            <div class="add-action">
+                <a class="item-control item-sheet-action-add" title="{{localize "ZNZRPG.addActionLabel"}}">
+                    Add<i class="fas fa-plus"></i>
+                </a>
+            </div>
+        </div>
         <div class="actions">
-            <input type="text" name="data.actions" value="{{data.actions}}"/>
+            {{#each data.actions as |act key|}}
+                <div class="flexrow custom-action-row">
+                    <div class="custom-action-name">
+                        <input type="text" name="{{key}}" value="{{act.label}}" placeholder="New Action Name"/>
+                    </div>
+                    <div class="custom-action-command">
+                        <input type="text" name="{{key}}" value="{{act.command}}" placeholder="Action Command"/>
+                    </div>
+                </div>
+            {{/each}}
         </div>
     </div>
 {{/inline}}
