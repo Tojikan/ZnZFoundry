@@ -32,6 +32,16 @@
                 </div>
             {{/unless}}
         {{/if}}
+
+        {{#each card.system.actions as |act key|}}
+            {{#if act.command}}
+                {{#if act.label}}
+                    <div class="card-action-button rollable" data-roll="{{act.command}}">
+                        {{act.label}}
+                    </div>
+                {{/if}}
+            {{/if}}
+        {{/each}}
     </div>
 {{/inline}}
 

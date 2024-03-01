@@ -130,12 +130,15 @@
     "ZNZRPG.rangedWeaponLabel": "Ranged Weapon",
     
 
+    "ZNZRPG.actionNamePlaceholder": "New Action Name",
+    "ZNZRPG.actionCommandPlaceholder": "Command",
+    "ZNZRPG.actionDelete": "Delete Action",
 
     "ZNZRPG.tabCombat": "Equipped",
     "ZNZRPG.tabInventory": "Backpack",
     "ZNZRPG.tabAbility": "Abilities",
     "ZNZRPG.tabNotes": "Notes",
-
+    
 
     "ZNZRPG.baseEnergyCost":"Energy Cost Per Action",
     "ZNZRPG.baseSatietyCost":"Satiety Cost Per Action",
@@ -143,4 +146,6 @@
     "ZNZRPG.baseMeleeDurabilityUsage":"Melee Durability Per Usage",
     "ZNZRPG.baseRangedDurabilityUsage":"Ranged Durability Per Usage",
     "ZNZRPG.baseWearableDurabilityUsage":"Wearable Durability Per Usage"
+
+
 }

@@ -68,16 +68,35 @@ export class ZnZItemSheet extends ItemSheet {
         });
 
         html.find('.item-sheet-action-add').click(ev =>{
-            console.log(ev);
-            console.log(this);
-            console.log(this.document.system.actions);
             let actions = this.document.system.actions;
 
             actions.push({
-                label: "New Action",
+                label: "",
                 command: ""
             });
 
+            this.document.update({"system.actions": actions});
+        });
+
+        html.find('.item-sheet-action-delete').click(ev =>{
+            let ind = $(ev.currentTarget).data('index');
+            let actions = this.document.system.actions;
+            actions.splice(ind, 1);
+            this.document.update({"system.actions": actions});
+
+        });
+
+        html.find('input.action-input-command').change(ev =>{       
+            let ind = $(ev.target).data('index');
+            let actions = this.document.system.actions;
+            actions[ind].command = ev.target.value;
+            this.document.update({"system.actions": actions});
+        });
+
+        html.find('input.action-input-label').change(ev =>{       
+            let ind = $(ev.target).data('index');
+            let actions = this.document.system.actions;
+            actions[ind].label = ev.target.value;
             this.document.update({"system.actions": actions});
         });
     }

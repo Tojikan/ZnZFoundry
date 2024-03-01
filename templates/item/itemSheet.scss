@@ -71,6 +71,21 @@
 
         .custom-action-row {
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+
+            .custom-action-name {
+                flex-basis: 50%;
+            }
+
+            .custom-action-command {
+                flex-basis: 40%;
+            }
+
+            .custom-action-delete {
+                flex-basis: 10%;
+            }
         }
+
     }
 }
