@@ -1,4 +1,5 @@
-import { ActorSheetHelper } from "../helpers/actor-sheet.js";
+import { ActorSheetHelper } from "../helpers/actor-sheet-helpers.js";
+import { CommandAction } from "../obj/command.js";
 
 export class ZnZActorSheet extends ActorSheet {
     
@@ -246,9 +247,16 @@ export class ZnZActorSheet extends ActorSheet {
     */
     _onRoll(event) {
         event.preventDefault();
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        console.log(event);
-        console.log(dataset);
+        const $el = $(event.currentTarget);
+        const command = $el.data("command");
+        const itemId = $el.data("itemId");
+        let item = null;
+
+        if (itemId.length){
+            item = this.actor.items.get(itemId);
+        }
+
+        const comAct = new CommandAction(command, this.actor, item);
+        comAct.execute();
     }
 }

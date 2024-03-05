@@ -13,21 +13,21 @@
     <div class="card-action-row">
         {{#if card.system.attackRoll}}
             {{#unless isInventory}}
-                <div class="card-action-button rollable" data-roll="{{card.system.attackRoll}}">
+                <div class="card-action-button rollable" data-command="skill:{{card.system.attackRoll}}" data-item-id="{{card._id}}">
                     {{localize "ZNZRPG.attackLabel"}}
                 </div>
             {{/unless}}
         {{/if}}
         {{#if card.system.reloadRoll}}
             {{#unless isInventory}}
-                <div class="card-action-button rollable" data-roll="{{card.system.reloadRoll}}">
+                <div class="card-action-button rollable" data-command="{{card.system.reloadRoll}}" data-item-id="{{card._id}}">
                     {{localize "ZNZRPG.reloadLabel"}}
                 </div>
             {{/unless}}
         {{/if}}
         {{#if card.system.blockRoll}}
             {{#unless isInventory}}
-                <div class="card-action-button rollable" data-roll="{{card.system.blockRoll}}">
+                <div class="card-action-button rollable" data-command="{{card.system.blockRoll}}" data-item-id="{{card._id}}">
                     {{localize "ZNZRPG.blockLabel"}}
                 </div>
             {{/unless}}
@@ -36,7 +36,7 @@
         {{#each card.system.actions as |act key|}}
             {{#if act.command}}
                 {{#if act.label}}
-                    <div class="card-action-button rollable" data-roll="{{act.command}}">
+                    <div class="card-action-button rollable" data-command="{{act.command}}"  data-item-id="{{card._id}}">
                         {{act.label}}
                     </div>
                 {{/if}}

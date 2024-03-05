@@ -145,7 +145,11 @@
     "ZNZRPG.baseWeightPerPenalty":"Weight Penalty",
     "ZNZRPG.baseMeleeDurabilityUsage":"Melee Durability Per Usage",
     "ZNZRPG.baseRangedDurabilityUsage":"Ranged Durability Per Usage",
-    "ZNZRPG.baseWearableDurabilityUsage":"Wearable Durability Per Usage"
+    "ZNZRPG.baseWearableDurabilityUsage":"Wearable Durability Per Usage",
+
+    "ZNZRPG.notEnoughResourcesText": "Your character does not have enough energy or stamina to perform this action!",
+    "ZNZRPG.skillNotFoundText": "Skill was not found.",
+    "ZNZRPG.attrNotFoundText": "Attribute was not found."
 
 
 }
