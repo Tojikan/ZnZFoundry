@@ -3,11 +3,11 @@ export class Character {
         this.actor = actor;
     }
 
-    roll(attr, diceFaceBonus){
+    async roll(attr, diceFaceBonus, item = null){
         if (!(attr in this.actor.system.attributes)){
             ui.notifications.warn(game.i18n.localize("ZNZRPG.attributeNotFoundText"));
             throw new Error("AttributeNotFound");
-        } 
+        }
 
         let attribute = this.actor.system.attributes[attr];
         let attrLabel = game.i18n.localize(attribute.label);
@@ -17,14 +17,39 @@ export class Character {
         let diceFace = baseDiceFace + diceFaceBonus;
 
         let formula = `${numOfDice}d${diceFace}`;
+
         const rollData = this.actor.getRollData();
 
         let roll = new Roll(formula, rollData);
+
+        //Item Roll - has multiplier
+        if (item){
+            let rollResult = await roll.roll();
+
+            let templateContext = {
+                roll: rollResult,
+                actor: this.actor,
+                item: item,
+            }
+
+            let messageData = {
+                user: game.user.id,
+                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                flavor: `Rolling ${attrLabel}`,
+                content: await renderTemplate("systems/znz4e/templates/chat/itemRoll.hbs", templateContext),
+                test: "test123"
+            };
+    
+            return ChatMessage.create(messageData);
+        }
+
+
+        //Basic roll - just roll attribute
         return roll.toMessage({
             user: game.user.id,
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: `Rolling ${attrLabel}`
-        })
+        });
     }
 
     spendResources(){
@@ -54,8 +79,8 @@ export class Character {
         let maxSatiety = this.actor.system.satiety.max;
         let maxEnergy = this.actor.system.energy.max;
 
-        let newSatiety = Math.max(sta + staCost, maxSatiety);
-        let newEnergy = Math.max(energy + energyCost, maxEnergy);
+        let newSatiety = Math.min(sta + staCost, maxSatiety);
+        let newEnergy = Math.min(energy + energyCost, maxEnergy);
 
         this.actor.update({
             "system.satiety.value": newSatiety, 

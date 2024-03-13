@@ -27,12 +27,15 @@ export class CommandAction {
 
         switch(comm){
             case "skill":
-                this.rollSkill(args);
+                this.rollSkill(args[0]);
                 break;
-            };
-        }
+            case "melee":
+                this.rollSkill("melee", this.item);
+                break;
+        };
+    }
         
-    rollSkill(args){
+    rollSkill(args, item=null){
         let spent = this.character.spendResources();
 
         if (!spent){
@@ -57,12 +60,12 @@ export class CommandAction {
         }
 
         try {
-            this.character.roll(rollAttr, diceBonus);
+            this.character.roll(rollAttr, diceBonus, item);
         } catch (error) {
             console.error(error);
             this.character.unspendResources();
         }
 
-        console.log(this.actor);
+        console.log(this.item);
     }
 }

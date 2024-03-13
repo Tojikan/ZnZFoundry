@@ -249,7 +249,8 @@
 			},
 			"blocker": {
 				"block":{
-					"value": 1.0
+					"value": 1.0,
+					"label": "ZNZRPG.blockLabel"
 				},
 				"blockRoll": "block"
 			},
@@ -269,7 +270,8 @@
 			},
 			"weapon": {
 				"damage": {
-					"value": 1.0
+					"value": 1.0,
+					"label": "ZNZRPG.damageLabel"
 				}
 			}
 		},

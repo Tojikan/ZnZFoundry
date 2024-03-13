@@ -149,7 +149,8 @@
 
     "ZNZRPG.notEnoughResourcesText": "Your character does not have enough energy or stamina to perform this action!",
     "ZNZRPG.skillNotFoundText": "Skill was not found.",
-    "ZNZRPG.attrNotFoundText": "Attribute was not found."
+    "ZNZRPG.attrNotFoundText": "Attribute was not found.",
+    "ZNZRPG.itemMultiNotFoundText": "Item Multiplier was not found."
 
 
 }

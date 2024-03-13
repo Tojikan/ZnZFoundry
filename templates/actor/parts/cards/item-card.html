@@ -13,7 +13,7 @@
     <div class="card-action-row">
         {{#if card.system.attackRoll}}
             {{#unless isInventory}}
-                <div class="card-action-button rollable" data-command="skill:{{card.system.attackRoll}}" data-item-id="{{card._id}}">
+                <div class="card-action-button rollable" data-command="skill:{{card.system.attackRoll}}"  data-item-id="{{card._id}}">
                     {{localize "ZNZRPG.attackLabel"}}
                 </div>
             {{/unless}}
