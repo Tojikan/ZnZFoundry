@@ -157,7 +157,12 @@
 <form class="{{cssClass}} znz-item inventory-item" autocomplete="off">
     <header class="sheet-header">
         <div class="sheet-header-container item-sheet">
-            <div class="item-pre-header">{{unslugify item.type}}</div>
+            <div class="item-pre-header">
+                <div>{{unslugify item.type}}</div>
+                <div class="item-subtype">
+                    Subtype: <input name="data.subtype" type="text" value="{{data.subtype}}" placeholder="Subtype"/>
+                </div>
+            </div>
             <div class="item-name">
                 <h1>
                     <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ZNZRPG.nameLabel'}}"/>

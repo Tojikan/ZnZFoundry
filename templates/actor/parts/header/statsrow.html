@@ -19,7 +19,7 @@
 <div class="flexrow character-stats">
     <div class="resources-section flexcol stat-section">
         {{> resource-meter resource=data.health key="health" }}
-        {{> resource-meter resource=data.morale key="morale" }}
+        {{> resource-meter resource=data.morale key="morale" cost=moraleCost}}
         {{> resource-meter resource=data.energy key="energy" cost=energyCost}}
         {{> resource-meter resource=data.satiety key="satiety" cost=satietyCost}}
     </div>
@@ -28,7 +28,7 @@
         <div class="attribute-layout">
             {{#each data.attributes as |attr key|}}
                 <div class="attr-block">
-                    <div class="attr-label rollable roll-icon has-tooltip" data-roll="{{key}}" data-label="{{localize attr.label}}" data-tooltip="{{localize attr.hint}}">
+                    <div class="attr-label rollable roll-icon has-tooltip" data-command="{{key}}" data-label="{{localize attr.label}}" data-tooltip="{{localize attr.hint}}">
                         {{localize key}}
                     </div>
                     <div class="attr-value">
@@ -44,11 +44,11 @@
             <div class="base-skill-row">
                 {{#each data.baseSkills as |skill key|}}
                     <div class="base-skill">
-                        <div class="skill-name has-tooltip" data-tooltip="{{localize skill.hint}}">
+                        <div class="skill-name has-tooltip rollable" data-tooltip="{{localize skill.hint}}" data-command="{{key}}">
                             {{localize skill.label}}
                         </div>
                         <div class="skill-level">
-                            <div data-tooltip="{{localize "ZNZRPG.skillHint"}}">{{toUpperCase skill.defaultRoll}}</div>
+                            <div data-tooltip="{{localize "ZNZRPG.skillHint"}}">{{toUpperCase skill.defaultAttr}}</div>
                             <div> + </div>
                             <input type="number" name="data.baseSkills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="0" max="10" />
                         </div>

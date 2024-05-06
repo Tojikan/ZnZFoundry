@@ -112,7 +112,8 @@
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+    line-break: anywhere;
 
     .skill-name {
         font-weight: 700;

@@ -48,7 +48,10 @@ export class ZnZActor extends Actor {
 		// Make modifications to data here. For example:
 		CharacterHelper.CalculateWeight(actorData);
 		CharacterHelper.CalculateCost(actorData);
-		CharacterHelper.CalculatePenalty(actorData);
 		CharacterHelper.CalculateSlots(actorData);
+		CharacterHelper.CalculatePenalty(actorData);
+
+		//This has to be called last
+		CharacterHelper.CalculateSlotCostPenalty(actorData);
 	}
 }

@@ -79,7 +79,7 @@ export class ZnZActorSheet extends ActorSheet {
             });
         }
 
-        setTimeout(adjustCards, 500);
+        setTimeout(adjustCards, 100);
 
         html.find('.order-cards').click(ev => {
             setTimeout(adjustCards, 100);
@@ -156,8 +156,6 @@ export class ZnZActorSheet extends ActorSheet {
             });
         }
     }
-    
-    
     
     
     /**
@@ -252,10 +250,10 @@ export class ZnZActorSheet extends ActorSheet {
         const itemId = $el.data("itemId");
         let item = null;
 
-        if (itemId.length){
+        if (itemId && itemId.length){
             item = this.actor.items.get(itemId);
         }
-
+        
         const comAct = new CommandAction(command, this.actor, item);
         comAct.execute();
     }

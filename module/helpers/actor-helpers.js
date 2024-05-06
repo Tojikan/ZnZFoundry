@@ -67,6 +67,7 @@ export class CharacterHelper {
         const cost = context.system.config.cost;
         context.calculated.satietyCost = NumberOrZero(cost.baseSatietyCost.value) + Math.floor(context.calculated.carriedWeight / cost.baseWeightPerActionCost.value);
         context.calculated.energyCost = NumberOrZero(cost.baseEnergyCost.value) + Math.floor(context.calculated.carriedWeight / cost.baseWeightPerActionCost.value);
+        context.calculated.moraleCost = NumberOrZero(cost.baseMoraleCost.value);
     }
 
     static CalculateSlots(context){
@@ -86,5 +87,18 @@ export class CharacterHelper {
         context.calculated.totalSlots = totalSlots;
         context.calculated.equippedItemCount = equippedItemCount;
         context.calculated.overEquipped = equippedItemCount > totalSlots;
+    }
+
+    //Has to be called after CalculateSlots and Calculate Cost
+    static CalculateSlotCostPenalty(context){
+        let penalty = 0;
+
+        if (context.calculated.overEquipped){
+            let total = context.calculated.equippedItemCount - context.calculated.totalSlots;
+
+            context.calculated.satietyCost += total;
+            context.calculated.energyCost += total;
+            context.calculated.moraleCost += total;
+        }
     }
 }

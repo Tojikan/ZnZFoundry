@@ -4,6 +4,7 @@ export class ActorSheetHelper {
     static SheetPrepareItems(context){
         const inventory = [];
         const equippedItems = [];
+        const equippedWearables = [];
 
         for (let itm of context.items){
             itm.img = itm.img || DEFAULT_TOKEN;

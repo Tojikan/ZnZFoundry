@@ -1,5 +1,37 @@
 <div class="chat-card" data-item-id="{{_id}}" data-owner-id="{{owner}}">
-    <h2>Hello</h2>
-    {{total}}
-    {{log this}}
+    {{#if actionName~}}
+        <strong>{{actionName}}</strong>
+    {{/if}}
+    {{#if itemName }}
+        <div>Using item <strong>{{itemName}}</strong> </div>
+    {{/if}}
+    {{#if healthSpend}}
+        <div style="color:red">{{actor}} is spending health to perform this action!</div>
+    {{/if}}
+
+    <br/>
+    <div class="dice-roll">
+        {{#if flavor~}}
+            <div class="dice-flavor" style="text-align:left">
+                {{flavor}}
+            </div>
+        {{~/if}}
+        <div class="dice-result">
+            <div class="dice-formula">{{formula}}</div>
+            {{{tooltip}}}
+            <h4 class="dice-total">{{total}}</h4>
+        </div>
+    </div>
+
+    {{#if hasItemMulti}}
+        <div style="margin-top:10px">
+            <div>Multiply result by <strong>{{itemName}}</strong>'s {{capitalize itemMultiplierStat}} ({{multiplier}}):</div>
+            <div class="dice-roll">
+                <div class="dice-result">
+                    <div class="dice-formula">{{total}} x {{multiplier}}</div>
+                    <h4 class="dice-total">{{totalMultiplied}}</h4>
+                </div>
+            </div>
+        </div>
+    {{/if}}
 </div>

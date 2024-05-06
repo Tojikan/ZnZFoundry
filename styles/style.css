@@ -193,6 +193,8 @@ aside#tooltip ul {
     transition: background-color 0.3s; }
     .znz4e .btn-red:hover {
       background-color: #3f0000; }
+  .znz4e .flex-row {
+    display: flex; }
 
 .znz4e .znz-item .sheet-body {
   padding: 10px; }
@@ -215,6 +217,19 @@ aside#tooltip ul {
     margin-right: 20px; }
     .znz4e .znz-item .item-block-fields .block.roll {
       width: 200px; }
+
+.znz4e .znz-item .item-pre-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px; }
+
+.znz4e .znz-item .item-subtype {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .znz4e .znz-item .item-subtype input {
+    margin-left: 5px; }
 
 .znz4e .items-list {
   overflow: visible; }
@@ -453,7 +468,7 @@ aside#tooltip ul {
     column-gap: 5px;
     row-gap: 5px;
     flex-wrap: wrap;
-    margin-top: 7px; }
+    margin-top: 16px; }
   .znz-card .card-action-button {
     padding: 5px 10px;
     border: none;
@@ -609,7 +624,8 @@ header.sheet-header {
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: baseline;
+  line-break: anywhere; }
   .base-skill .skill-name {
     font-weight: 700;
     margin-bottom: 5px; }

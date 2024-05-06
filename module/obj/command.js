@@ -1,4 +1,5 @@
-import { Character } from './character.js';
+import { CharacterWrapper } from './CharacterWrapper.js';
+import { ItemWrapper } from './ItemWrapper.js';
 
 export class CommandAction {
 
@@ -8,64 +9,112 @@ export class CommandAction {
         this.item = item;
         this.hasItem = !item ? false : true;
 
-        this.character = new Character(actor);
+        this.characterWrapper = new CharacterWrapper(actor);
+        this.itemWrapper = new ItemWrapper(item);
     }
 
     execute() {
-        this.mapCommand(this.command);
+        let parsed = this.parseCommand(this.command);
+        this.mapCommand(parsed);
     }
 
-    mapCommand(command){
-        let parsed = command.split(":");
+    parseCommand(command){
 
-        let comm = parsed[0];
-        let args = parsed[1] ?? null;
-
-        if (args) {
-            args = args.split(",");
-        }
-
-        switch(comm){
-            case "skill":
-                this.rollSkill(args[0]);
-                break;
-            case "melee":
-                this.rollSkill("melee", this.item);
-                break;
+        const result = {
+            command: ""
         };
+
+        let parsed = command.split("|");
+
+        result.command = parsed[0];
+
+        let modifiers = parsed[1] ?? null;
+
+        if (modifiers) {
+            let modType = modifiers.split("-")[0] ?? null;
+            result.multiplier = modifiers.split("-")[1] ?? null;
+
+            /**
+             * Item modifier:
+             * item-[stat]-[usageType]
+             * stat: the name of the stat on the item that will multiply result of roll
+             * usageType: what type of resource consumption to use on the item. See ItemWrapper for types.
+             */
+            if (modType == "item"){
+                result.multiplier = modifiers.split("-")[1] ?? null;
+                result.usageType = modifiers.split("-")[2] ?? "attack";
+                result.usesItem = true;
+            }
+        }
+
+        return result;
     }
-        
-    rollSkill(args, item=null){
-        let spent = this.character.spendResources();
-
-        if (!spent){
-            return ui.notifications.error(game.i18n.localize("ZNZRPG.notEnoughResourcesText"));
-        }
 
 
-        const skill = args[0].trim();
+    mapCommand(parsed){
+        let comm = parsed.command;
+
         const baseSkills = this.actor.system.baseSkills;
-        let diceBonus = 0;
-        let rollAttr = null;
+        const attributes = this.actor.system.attributes;
 
-        if (skill in baseSkills){
-            diceBonus = baseSkills[skill].value;
-            rollAttr = baseSkills[skill].defaultRoll;
+        if (comm in baseSkills || comm in attributes){
+            this.basicRoll(parsed);
+            return;
         }
 
-        if (!rollAttr){
-            ui.notifications.error(game.i18n.localize("ZNZRPG.skillNotFoundText"));
-            this.character.unspendResources();
-            throw new Error("SkillNotFound");
+        console.error("Unknown command: " + comm);
+    }
+
+
+    basicRoll(parsed){
+        const baseSkills = this.actor.system.baseSkills;
+        const attributes = this.actor.system.attributes;
+
+        let comm = parsed.command;
+        let name, attr, skill, multiplierStat = null;
+
+
+        if (comm in baseSkills){
+            attr = baseSkills[comm].defaultAttr;
+            name = game.i18n.localize(baseSkills[comm].label);
+            skill = comm;
+        } else if (comm in attributes){
+            attr = comm;
+            name = game.i18n.localize(attributes[comm].label);
+        } else {
+            console.error("Unknown basic roll: " + comm);
+            return false;
         }
 
-        try {
-            this.character.roll(rollAttr, diceBonus, item);
-        } catch (error) {
-            console.error(error);
-            this.character.unspendResources();
+        if (parsed.usesItem){
+            if (parsed.multiplier && parsed.multiplier in this.item.system){
+                multiplierStat = parsed.multiplier;
+            }
+
+            if (parsed.usageType == 'attack'){
+                name = name + " Attack";
+            }
+            
+            let itemTest = this.itemWrapper.testSpendResources(parsed.usageType);
+
+            if (itemTest.success == false){
+                return false;
+            }
         }
 
-        console.log(this.item);
+        let args = {
+            name: name + " Roll",
+            attribute: attr,
+            skill: skill,
+            item: this.item,
+            itemMultiplierStat: multiplierStat
+        };
+
+        let result = this.characterWrapper.attemptRoll(args);
+
+        if (result){
+            this.itemWrapper.spendResources(parsed.usageType);
+        }
+
     }
 }
