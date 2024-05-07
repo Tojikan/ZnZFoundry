@@ -1,5 +1,4 @@
 .znz4e.sheet .item-sheet {
-
     .item-pre-header {
         font-weight: bold;
         font-size: 16px;
@@ -30,28 +29,48 @@
             }
         }
 
-        .item-block-fields {
-            flex: 1 1 100%;
 
-            .item-block-row {
+        .fields-column {
+            flex: 1 1 100%;
+            flex-direction: column;
+
+            .field-row {
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
                 width: 100%;
-                margin-bottom: 2px;
+                margin-bottom: 5px;
 
                 .row-label {
-                    text-align: right;
-                    flex-basis: 25%;
-                    margin-right: 20px;
+                    text-align: left;
+                    flex-basis: 60%;
                 }
 
                 .row-input {
-                    flex-basis: 50%;
+                    flex-basis: 40%;
 
                     input {
                         text-align: center;
                     }
+                }
+            }
+        }
+
+        
+        .sub-image {
+            margin-top: 5px;
+
+            .field-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+
+                .row-label {
+                    flex-basis: 50%;
+                }
+
+                .row-input {
+                    flex-basis: 50%;
                 }
             }
         }

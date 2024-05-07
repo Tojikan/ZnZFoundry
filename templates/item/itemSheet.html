@@ -1,27 +1,67 @@
 {{#*inline "weight"}}
-    <div class="item-block-row">
+    <div class="field-row">
         <div class="row-label">{{localize data.weight.label}}</div>
         <div class="row-input"><input type="number" name="data.weight.value" value="{{data.weight.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "durability"}}
-    <div class="item-block-row">
+    <div class="field-row">
         <div class="row-label">{{localize data.durability.label}}</div>
         <div class="row-input"><input type="number" name="data.durability.value" value="{{data.durability.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "block"}}
-    <div class="item-block-row">
+    <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.blockLabel"}}</div>
         <div class="row-input"><input type="number" name="data.block.value" value="{{data.block.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "damage"}}
-    <div class="item-block-row">
+    <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.damageLabel"}}</div>
         <div class="row-input"><input type="number" name="data.damage.value" value="{{data.damage.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
+{{#*inline "durPerAttack"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerAttack"}}</div>
+        <div class="row-input"><input type="number" name="data.durabilityPerAttack.value" value="{{data.durabilityPerAttack.value}}" data-dtype="Number"/></div>
+    </div>
+{{/inline}}
+{{#*inline "durPerBlock"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerBlock"}}</div>
+        <div class="row-input"><input type="number" name="data.itemDurabilityPerBlock.value" value="{{data.itemDurabilityPerBlock.value}}" data-dtype="Number"/></div>
+    </div>
+{{/inline}}
+{{#*inline "durPerUse"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerUse"}}</div>
+        <div class="row-input"><input type="number" name="data.durabilityPerUse.value" value="{{data.durabilityPerUse.value}}" data-dtype="Number"/></div>
+    </div>
+{{/inline}}
+{{#*inline "weightPerUse"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemWeightPerUse"}}</div>
+        <div class="row-input"><input type="number" name="data.usesWeight.value" value="{{data.usesWeight.value}}" data-dtype="Number"/></div>
+    </div>
+{{/inline}}
+
+{{#*inline "uses"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemHasUses"}}</div>
+        <div class="row-input"><input type="checkbox" name="data.hasUses" {{checked data.hasUses}}/></div>
+    </div>
+    {{#if data.hasUses}}
+        <div class="field-row">
+            <div class="row-label">{{localize "ZNZRPG.itemUses"}}</div>
+            <div class="row-input"><input type="number" name="data.uses.value" value="{{data.uses.value}}" data-dtype="Number"/></div>
+        </div>
+        {{> durPerUse }}
+        {{> weightPerUse }}
+    {{/if}}
+{{/inline}}
+
 
 
 
@@ -74,10 +114,10 @@
 
 
 {{#*inline "melee_weapon"}}
-    {{> weight}}
-    {{> durability}}
     {{> damage}}
     {{> block}}
+    {{> durPerAttack}}
+    {{> durPerBlock}}
 {{/inline}}
 {{#*inline "melee_weapon_footer"}}
     {{> attackRoll}}
@@ -88,11 +128,7 @@
 
 
 {{#*inline "ranged_weapon"}}
-    {{> weight}}
-    {{> durability}}
-    {{> damage}}
-    {{> block}}
-    <div class="item-block-row">
+    <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.ammoLabel"}}</div>
         <div class="row-input">
             <div class="minmax-value-display">
@@ -102,10 +138,14 @@
             </div>
         </div>
     </div>
-    <div class="item-block-row">
+    <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.rangeLabel"}}</div>
         <div class="row-input"><input type="text" name="data.rangeInfo" value="{{data.rangeInfo}}"/></div>
     </div>
+    {{> damage}}
+    {{> block}}
+    {{> durPerAttack}}
+    {{> durPerBlock}}
 {{/inline}}
 {{#*inline "ranged_weapon_footer"}}
     {{> attackRoll}}
@@ -123,7 +163,7 @@
 
 
 {{#*inline "consumable"}}
-    Consumable
+    {{> uses}}
 {{/inline}}
 {{#*inline "consumable_footer"}}
     {{> actions}}
@@ -131,7 +171,15 @@
 
 
 {{#*inline "wearable"}}
-    Wearable
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemAddedSlots"}}</div>
+        <div class="row-input"><input type="text" name="data.equipslots.value" value="{{data.equipslots.value}}"/></div>
+    </div>
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemAddedDefense"}}</div>
+        <div class="row-input"><input type="text" name="data.defense.value" value="{{data.defense.value}}"/></div>
+    </div>
+    {{> uses }}
 {{/inline}}
 {{#*inline "wearable_footer"}}
     {{> actions}}
@@ -171,9 +219,12 @@
             <div class="item-info">
                 <div class="item-image">
                     <img class="profile-img editable-image" src="{{item.img}}" data-edit="img" title="{{item.name}}" width="100" height="100"/>
+                    <div class="sub-image fields-column">
+                        {{> weight}}
+                        {{> durability}}
+                    </div>
                 </div>
-    
-                <div class="header-fields item-block-fields">
+                <div class="header-fields fields-column">
                     {{> (lookup (lookup this "document") "type" )}}
                 </div>
             </div>

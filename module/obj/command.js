@@ -21,12 +21,15 @@ export class CommandAction {
     parseCommand(command){
 
         const result = {
-            command: ""
+            command: "",
+            commandMod: null
         };
 
         let parsed = command.split("|");
+        let comm = parsed[0].split(":");
 
-        result.command = parsed[0];
+        result.command = comm[0];
+        result.commandMod = comm[1] ?? null;
 
         let modifiers = parsed[1] ?? null;
 

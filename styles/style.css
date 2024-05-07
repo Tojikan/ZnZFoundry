@@ -31,22 +31,32 @@ aside#tooltip ul {
     .znz4e.sheet .item-sheet .item-info .item-image img {
       width: 100%;
       height: auto; }
-  .znz4e.sheet .item-sheet .item-info .item-block-fields {
-    flex: 1 1 100%; }
-    .znz4e.sheet .item-sheet .item-info .item-block-fields .item-block-row {
+  .znz4e.sheet .item-sheet .item-info .fields-column {
+    flex: 1 1 100%;
+    flex-direction: column; }
+    .znz4e.sheet .item-sheet .item-info .fields-column .field-row {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       width: 100%;
-      margin-bottom: 2px; }
-      .znz4e.sheet .item-sheet .item-info .item-block-fields .item-block-row .row-label {
-        text-align: right;
-        flex-basis: 25%;
-        margin-right: 20px; }
-      .znz4e.sheet .item-sheet .item-info .item-block-fields .item-block-row .row-input {
-        flex-basis: 50%; }
-        .znz4e.sheet .item-sheet .item-info .item-block-fields .item-block-row .row-input input {
+      margin-bottom: 5px; }
+      .znz4e.sheet .item-sheet .item-info .fields-column .field-row .row-label {
+        text-align: left;
+        flex-basis: 60%; }
+      .znz4e.sheet .item-sheet .item-info .fields-column .field-row .row-input {
+        flex-basis: 40%; }
+        .znz4e.sheet .item-sheet .item-info .fields-column .field-row .row-input input {
           text-align: center; }
+  .znz4e.sheet .item-sheet .item-info .sub-image {
+    margin-top: 5px; }
+    .znz4e.sheet .item-sheet .item-info .sub-image .field-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px; }
+      .znz4e.sheet .item-sheet .item-info .sub-image .field-row .row-label {
+        flex-basis: 50%; }
+      .znz4e.sheet .item-sheet .item-info .sub-image .field-row .row-input {
+        flex-basis: 50%; }
 
 .znz4e.sheet .item-sheet .item-body-section {
   margin-bottom: 20px; }
@@ -487,7 +497,10 @@ aside#tooltip ul {
   background-color: #1f3667; }
 
 .znz-card.consumable {
-  background-color: #add8e6; }
+  background-color: #1FD655; }
+
+.znz-card.wearable {
+  background-color: #c9c9c9; }
 
 .items-container {
   display: flex;

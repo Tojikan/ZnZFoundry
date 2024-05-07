@@ -284,7 +284,7 @@
 					"value": 1,
 					"isMulti": false
 				},
-				"hasUses": true,
+				"hasUses": false,
 				"usesWeight": {
 					"value": 1
 				}
@@ -303,7 +303,7 @@
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
 			"attackRoll": "ranged|item-damage-attack",
 			"reloadRoll": "reload|item",
-			"rangeInfo": "mid",
+			"rangeInfo": "Mid",
 			"ammo": {
 				"current": 10,
 				"max": 10,

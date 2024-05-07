@@ -155,6 +155,13 @@
     "ZNZRPG.itemDurabilityPerBlock":"Durability Per Block",
     "ZNZRPG.itemDurabilityPerAttack":"Durability Per Attack",
     "ZNZRPG.itemDurabilityPerUse":"Durability Per Use",
+    "ZNZRPG.itemWeightPerUse":"Added Weight Per Use",
+    "ZNZRPG.itemUses":"Uses",
+    "ZNZRPG.itemHasUses":"Has Uses",
+    "ZNZRPG.itemUsesWeight":"Has Uses",
+    "ZNZRPG.itemAddedSlots":"Added Equipment Slots",
+    "ZNZRPG.itemAddedDefense":"Added Defense",
+
 
     "ZNZRPG.notEnoughSatietyText": "Your character has ran out of Satiety and is spending health to perform this action!",
     "ZNZRPG.notEnoughEnergyText": "Your character has ran out of Energy and is spending health to perform this action!",
