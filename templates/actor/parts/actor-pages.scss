@@ -1,17 +1,32 @@
 .znz4e {
-    .bulk-listing,
+    .combat-controls {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
     .slot-listing {
-        width: 45%;
-        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 220px;
+        margin-right: 20px;
 
-        h2 {
-            display: flex;
-            justify-content: space-between;
+        .over-equipped {
+            color: red;
         }
+    }
 
-        .minmax-value-display {
-            .over-equipped {
-                color: red;
+    .equipment-filter {
+        .filter-button {
+            color: white;
+            background-color: green;
+
+            &.active {
+                pointer-events: none;
+                background-color: darkorange;
             }
         }
     }
@@ -23,7 +38,12 @@
         flex-wrap: nowrap;
 
         .bulk-listing {
-            flex-basis: 40%;
+            flex-basis: 50%;
+
+            h2 {
+                display: flex;
+                justify-content: space-between;
+            }
         }
 
         .add-item {

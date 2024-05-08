@@ -190,7 +190,8 @@ aside#tooltip ul {
     font-style: italic; }
   .znz4e .has-tooltip {
     cursor: pointer;
-    text-decoration: dotted underline; }
+    text-decoration: dotted underline;
+    text-underline-offset: 3px; }
   .znz4e .btn-red {
     background-color: #8B0000;
     color: #fff;
@@ -334,17 +335,28 @@ aside#tooltip ul {
 .znz4e .bold {
   font-weight: 700; }
 
-.znz4e .bulk-listing,
+.znz4e .combat-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 18px; }
+
 .znz4e .slot-listing {
-  width: 45%;
-  margin-bottom: 10px; }
-  .znz4e .bulk-listing h2,
-  .znz4e .slot-listing h2 {
-    display: flex;
-    justify-content: space-between; }
-  .znz4e .bulk-listing .minmax-value-display .over-equipped,
-  .znz4e .slot-listing .minmax-value-display .over-equipped {
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+  margin-right: 20px; }
+  .znz4e .slot-listing .over-equipped {
     color: red; }
+
+.znz4e .equipment-filter .filter-button {
+  color: white;
+  background-color: green; }
+  .znz4e .equipment-filter .filter-button.active {
+    pointer-events: none;
+    background-color: darkorange; }
 
 .znz4e .inventory-listing {
   display: flex;
@@ -352,7 +364,10 @@ aside#tooltip ul {
   align-items: center;
   flex-wrap: nowrap; }
   .znz4e .inventory-listing .bulk-listing {
-    flex-basis: 40%; }
+    flex-basis: 50%; }
+    .znz4e .inventory-listing .bulk-listing h2 {
+      display: flex;
+      justify-content: space-between; }
   .znz4e .inventory-listing .add-item {
     width: 10%; }
 
@@ -385,20 +400,20 @@ aside#tooltip ul {
         color: yellow; }
     .znz-card .card-header .card-weight {
       min-width: 40px;
-      border-radius: 50%;
+      border-radius: 20%;
       border: solid 3px black;
       background-color: red;
       color: white;
       font-size: 20px;
-      width: 40px;
-      height: 40px;
       text-align: center;
       font-weight: 500;
       text-decoration: none;
       margin-right: 5px;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      padding: 5px 10px;
+      align-self: flex-start; }
     .znz-card .card-header .card-name {
       flex: 1 1 100%; }
     .znz-card .card-header .card-delete {
@@ -480,7 +495,7 @@ aside#tooltip ul {
     flex-wrap: wrap;
     margin-top: 16px; }
   .znz-card .card-action-button {
-    padding: 5px 10px;
+    padding: 5px;
     border: none;
     border-radius: 5px;
     background-color: green;

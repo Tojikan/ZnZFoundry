@@ -31,7 +31,7 @@
 {{#*inline "durPerBlock"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerBlock"}}</div>
-        <div class="row-input"><input type="number" name="data.itemDurabilityPerBlock.value" value="{{data.itemDurabilityPerBlock.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="data.durabilityPerBlock.value" value="{{data.durabilityPerBlock.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "durPerUse"}}
@@ -55,10 +55,27 @@
     {{#if data.hasUses}}
         <div class="field-row">
             <div class="row-label">{{localize "ZNZRPG.itemUses"}}</div>
-            <div class="row-input"><input type="number" name="data.uses.value" value="{{data.uses.value}}" data-dtype="Number"/></div>
+            <div class="row-input">
+                <div class="minmax-value-display">
+                    <input type="number" name="data.uses.current" value="{{data.uses.current}}" data-dtype="Number"/>
+                    <span class="divider">/</span>
+                    <input type="number" name="data.uses.max" value="{{data.uses.max}}" data-dtype="Number"/>
+                </div>
+            </div>
         </div>
         {{> durPerUse }}
         {{> weightPerUse }}
+    {{/if}}
+{{/inline}}
+
+{{#*inline "toggleBlock"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemHasBlock"}}</div>
+        <div class="row-input"><input type="checkbox" name="data.hasBlock" {{checked data.hasBlock}}/></div>
+    </div>
+    {{#if data.hasBlock}}
+        {{> block }}
+        {{> durPerBlock }}
     {{/if}}
 {{/inline}}
 
@@ -81,6 +98,17 @@
         </div>
     </div>
 {{/inline}}
+{{#*inline "useRoll"}}
+    {{#if data.hasUses}}
+        <div class="item-body-section">
+            <h2>{{localize "ZNZRPG.useRollLabel"}}</h2>
+            <div class="actions">
+                <input type="text" name="data.useRoll" value="{{data.useRoll}}"/>
+            </div>
+        </div>
+    {{/if}}
+{{/inline}}
+
 {{#*inline "actions"}}
     <div class="item-body-section custom-actions">
         <div class="flexrow">
@@ -166,6 +194,7 @@
     {{> uses}}
 {{/inline}}
 {{#*inline "consumable_footer"}}
+    {{> useRoll}}
     {{> actions}}
 {{/inline}}
 
@@ -176,12 +205,17 @@
         <div class="row-input"><input type="text" name="data.equipslots.value" value="{{data.equipslots.value}}"/></div>
     </div>
     <div class="field-row">
-        <div class="row-label">{{localize "ZNZRPG.itemAddedDefense"}}</div>
-        <div class="row-input"><input type="text" name="data.defense.value" value="{{data.defense.value}}"/></div>
+        <div class="row-label">{{localize "ZNZRPG.itemDamageReduction"}}</div>
+        <div class="row-input"><input type="text" name="data.damageReduction.value" value="{{data.damageReduction.value}}"/></div>
     </div>
+    {{> toggleBlock }}
     {{> uses }}
 {{/inline}}
 {{#*inline "wearable_footer"}}
+    {{#if data.hasBlock}}
+        {{> blockRoll}}
+    {{/if}}
+    {{> useRoll}}
     {{> actions}}
 {{/inline}}
 

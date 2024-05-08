@@ -109,11 +109,15 @@
     "ZNZRPG.meleeLabel": "Melee",
     "ZNZRPG.rangedLabel": "Ranged",
     "ZNZRPG.usesLabel": "Uses",
+    "ZNZRPG.useLabel": "Use",
+    "ZNZRPG.useRollLabel": "Use Roll",
     "ZNZRPG.attackLabel": "Attack",
     "ZNZRPG.attackRollLabel": "Attack Roll",
     "ZNZRPG.reloadLabel": "Reload",
     "ZNZRPG.reloadRollLabel": "Reload Roll",
     "ZNZRPG.blockRollLabel": "Block Roll",
+    "ZNZRPG.calcDamageLabel": "Reduce Dmg",
+    "ZNZRPG.calcDamageRollLabel": "Calculate Damage Roll",
     "ZNZRPG.ammoLabel": "Ammo",
     "ZNZRPG.rangeLabel": "Range",
     "ZNZRPG.actionsLabel": "Custom Actions",
@@ -125,8 +129,9 @@
     "ZNZRPG.wearableSlots": "Equip Slots",
     "ZNZRPG.wearableSlotsLong": "Equipment Slots Added",
     "ZNZRPG.wearableWarmth": "Warmth",
-    "ZNZRPG.wearableDefense": "Defense",
+    "ZNZRPG.wearableDamageReduction": "Damage Reduction",
     "ZNZRPG.equipSlotsHint": "Number of items you can equip<br/> Wearables can add additional slots.<br/> Action costs increase if you carry too much.",
+    "ZNZRPG.maxDamageReduction": "Max Damage Reduction",
 
 
     "ZNZRPG.item": "Item",
@@ -158,9 +163,9 @@
     "ZNZRPG.itemWeightPerUse":"Added Weight Per Use",
     "ZNZRPG.itemUses":"Uses",
     "ZNZRPG.itemHasUses":"Has Uses",
-    "ZNZRPG.itemUsesWeight":"Has Uses",
+    "ZNZRPG.itemHasBlock":"Has Block",
     "ZNZRPG.itemAddedSlots":"Added Equipment Slots",
-    "ZNZRPG.itemAddedDefense":"Added Defense",
+    "ZNZRPG.itemDamageReduction":"Damage Reduction",
 
 
     "ZNZRPG.notEnoughSatietyText": "Your character has ran out of Satiety and is spending health to perform this action!",

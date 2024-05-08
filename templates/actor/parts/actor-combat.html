@@ -1,14 +1,32 @@
 <section class="combat-tab">
     <div class="combat-container">
-        <div class="slot-listing flexrow">
-            <h2>
-                <span class="has-tooltip" data-tooltip="{{localize 'ZNZRPG.equipSlotsHint'}}">Equipment Slots</span>
+        <div class="combat-controls">
+            <div class="slot-listing">
+                <div class="has-tooltip" data-tooltip="{{localize 'ZNZRPG.equipSlotsHint'}}">Equipment Slots</div>
                 <div class="minmax-value-display">
                     <div {{#if overEquipped}}class="over-equipped"{{/if}}>{{equippedItemCount}}</div>
                     <span class="divider">&nbsp;/&nbsp;</span>
                     <div {{#if overEquipped}}class="over-equipped"{{/if}}>{{totalSlots}}</div>
                 </div>
-            </h2>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="all">All</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="equipment">Equipment</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="weapon">Weapon</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="consumable">Consumable</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="wearable">Wearable</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="ability">Ability</button>
+            </div>
         </div>
 
         {{#if hasEquippedItems}}

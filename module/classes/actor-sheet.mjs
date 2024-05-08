@@ -51,7 +51,7 @@ export class ZnZActorSheet extends ActorSheet {
         super.activateListeners(html);
 
         function adjustCards(){
-            html.find('.items-container.fixed-width').each((i, el) => {
+            html.find('.items-container.fixed-width:visible').each((i, el) => {
                 const cardWidth = 225;
                 const count = $(el).find('.znz-card').length;
                 const avail = el.clientWidth - 15;
@@ -75,7 +75,6 @@ export class ZnZActorSheet extends ActorSheet {
                     $(el).addClass('is-fixed-width');
                     $(el).find('.znz-card:not(:first-child)').css('margin-left', -margin + 'px');
                 }
-
             });
         }
 
@@ -92,6 +91,47 @@ export class ZnZActorSheet extends ActorSheet {
             const item = this.actor.items.get(parent.data("itemId"));
             item.sheet.render(true);
         });
+
+        html.find('.filter-button').click(ev => {
+            const filter = $(ev.currentTarget).data("filter");
+            const items = html.find('.znz-card.item');
+
+            $('.filter-button').removeClass('active');
+            $(ev.currentTarget).addClass('active');
+
+            if (filter === 'all'){
+                items.show();
+            } else {
+                items.hide();
+            }
+
+            for (let itm of items){
+                if (filter === 'equipment'){
+                    if( itm.classList.contains('melee_weapon') || itm.classList.contains('ranged_weapon') || itm.classList.contains('consumable')){
+                        $(itm).show();
+                    }
+                } else if (filter === 'weapon'){
+                    if( itm.classList.contains('melee_weapon') || itm.classList.contains('ranged_weapon')){
+                        $(itm).show();
+                    }
+                } else if (filter === 'consumable'){
+                    if( itm.classList.contains('consumable')){
+                        $(itm).show();
+                    }
+                } else if (filter === 'wearable'){
+                    if( itm.classList.contains('wearable')){
+                        $(itm).show();
+                    }
+                } else if (filter === 'ability'){
+                    if( itm.classList.contains('ability')){
+                        $(itm).show();
+                    }
+                }
+
+            }
+        });
+
+
         
         // -------------------------------------------------------------
         // Everything below here is only needed if the sheet is editable

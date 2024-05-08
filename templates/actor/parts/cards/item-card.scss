@@ -34,13 +34,11 @@
 
         .card-weight {
             min-width: 40px;
-            border-radius: 50%;
+            border-radius: 20%;
             border: solid 3px black;
             background-color: red;
             color: white;
             font-size: 20px;
-            width: 40px;
-            height: 40px;
             text-align: center;
             font-weight: 500;
             text-decoration: none;
@@ -48,6 +46,8 @@
             display:flex;
             align-items: center;
             justify-content: center;
+            padding: 5px 10px;
+            align-self: flex-start
         }
         
         .card-name {
@@ -172,7 +172,7 @@
     }
 
     .card-action-button {
-        padding: 5px 10px;
+        padding: 5px;
         border: none;
         border-radius: 5px;
         background-color: green;
