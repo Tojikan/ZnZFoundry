@@ -130,6 +130,7 @@
     "ZNZRPG.wearableSlotsLong": "Equipment Slots Added",
     "ZNZRPG.wearableWarmth": "Warmth",
     "ZNZRPG.wearableDamageReduction": "Damage Reduction",
+    "ZNZRPG.durabilityPerReduce": "Durability Per Dmg Reduce",
     "ZNZRPG.equipSlotsHint": "Number of items you can equip<br/> Wearables can add additional slots.<br/> Action costs increase if you carry too much.",
     "ZNZRPG.maxDamageReduction": "Max Damage Reduction",
 

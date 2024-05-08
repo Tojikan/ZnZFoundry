@@ -101,7 +101,7 @@ export class ItemWrapper {
         ChatMessage.create({
             user: game.user.id,
             speaker: ChatMessage.getSpeaker({ actor: this.item.actor }),
-            content: `<div style='color:red'>${msg}</div>`,
+            content: `<div style='color:red; background-color:#ffd7b5'>${msg}</div>`,
         });
     }
 

@@ -51,9 +51,9 @@ export class ZnZActorSheet extends ActorSheet {
         super.activateListeners(html);
 
         function adjustCards(){
-            html.find('.items-container.fixed-width:visible').each((i, el) => {
+            html.find('.items-container.fixed-width').each((i, el) => {
                 const cardWidth = 225;
-                const count = $(el).find('.znz-card').length;
+                const count = $(el).find('.znz-card:visible').length;
                 const avail = el.clientWidth - 15;
 
                 let widthNeeded = count * cardWidth;
@@ -127,8 +127,8 @@ export class ZnZActorSheet extends ActorSheet {
                         $(itm).show();
                     }
                 }
-
             }
+            adjustCards();
         });
 
 

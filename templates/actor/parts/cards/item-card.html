@@ -137,7 +137,8 @@
     <div class="card-header">
         <div class="card-title">
             <div class="card-weight has-tooltip" data-tooltip="{{localize "ZNZRPG.carriedWeightAdded"}}">
-                {{card.system.weight.value}}
+                {{card.calculated.weight}}
+                {{log card}}
             </div>
             <div class="card-name">
                 <a class="item-control item-edit" data-tooltip="{{card.system.flavor}}">

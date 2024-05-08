@@ -1,4 +1,4 @@
-import { NumberOrZero } from "./common.js";
+import { NumberOrZero, WeightCalculator, ItemUsesWeightCalculator } from "./common.js";
 
 export class CharacterHelper {
     static CalculatePenalty(context){
@@ -32,23 +32,8 @@ export class CharacterHelper {
         context.calculated.isNegativeDiceFace = isNegativeDiceFace;
     }
 
-    
     static CalculateWeight(context){
-        let carriedWeight = {
-            "value": 0,
-            _addWeight (weight, quantity) {
-                // check we have a valid weight, and do nothing if we do not
-                if (!weight || weight == '' || Number.isNaN(weight) || weight <= 0){
-                    return;
-                }
-
-                // check we have a valid quantity, and do nothing if we do not
-                if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
-                    return; 
-                }
-                this.value += weight * quantity;
-            }
-        };
+        let carriedWeight = WeightCalculator();
 
         for (let i of context.items) {
             i.img = i.img || DEFAULT_TOKEN;
@@ -58,6 +43,8 @@ export class CharacterHelper {
             let quantity = (i.system.quantity) ? i.system.quantity.value : 1;
             
             carriedWeight._addWeight(weight, quantity)
+
+            ItemUsesWeightCalculator(i, carriedWeight);
         }
         
         context.calculated.carriedWeight = carriedWeight.value;
@@ -75,8 +62,8 @@ export class CharacterHelper {
         let equippedItemCount = 0;
 
         for (let itm of context.items) {
-            if (itm.equipslots){
-                totalSlots += NumberOrZero(itm.equipslots.value);
+            if (itm.system.equipslots){
+                totalSlots += NumberOrZero(itm.system.equipslots.value);
             }
 
             if (itm.system.equipped){

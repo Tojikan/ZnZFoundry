@@ -1,4 +1,5 @@
 
+import { AddItemCalculated } from "./common.js";
 
 export class ActorSheetHelper {
     static SheetPrepareItems(context){
@@ -8,6 +9,9 @@ export class ActorSheetHelper {
 
         for (let itm of context.items){
             itm.img = itm.img || DEFAULT_TOKEN;
+
+            //calculate use weight
+            AddItemCalculated(itm);
             
             if (itm.system.can_be_equipped){
                 itm.equippable = true;
