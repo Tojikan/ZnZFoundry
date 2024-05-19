@@ -185,7 +185,6 @@ export class ItemWrapper {
     }
 
 
-
     isRanged(){
         return this.weaponType == "ranged_weapon";
     }

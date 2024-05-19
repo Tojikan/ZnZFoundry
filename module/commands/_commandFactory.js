@@ -1,6 +1,7 @@
 import { BasicRollCommand } from "./basicRoll.js";
 import { UseAndConsumeCommand } from "./useAndConsume.js";
 import { ReloadCommand } from "./reload.js";
+import { ResourceCommand } from "./resource.js";
 
 
 
@@ -9,7 +10,8 @@ export class CommandFactory {
         "basic": BasicRollCommand,
         "consume": UseAndConsumeCommand,
         "use": UseAndConsumeCommand,
-        "reload": ReloadCommand
+        "reload": ReloadCommand,
+        "resource": ResourceCommand
     };
 
     constructor(command, actor, item){
@@ -18,6 +20,11 @@ export class CommandFactory {
         this.item = item;
     }
 
+    //[commands]|[args]
+    //commands and args can be comma separated for multiple
+    //args can be key:value pairs
+    //Example: basic,consume|type:full
+    //In multiple commands, any execute() that returns false will stop execution of the rest of the chain.    
     parseCommand(){
         let parsed = this.command.split("|");
         let comm = parsed[0].split(",");

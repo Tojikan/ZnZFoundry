@@ -266,4 +266,23 @@ export class CharacterWrapper {
 
         return result;
     }
+
+    addResources(vals){
+        let satiety = this.actor.system.satiety.value;
+        let energy = this.actor.system.energy.value;
+        let morale = this.actor.system.morale.value;
+        let health = this.actor.system.health.value;
+
+        let newSatiety = Math.min(satiety + vals.satiety, this.actor.system.satiety.max);
+        let newEnergy = Math.min(energy + vals.energy, this.actor.system.energy.max);
+        let newMorale = Math.min(morale + vals.morale, this.actor.system.morale.max);
+        let newHealth = Math.min(health + vals.health, this.actor.system.health.max);
+
+        this.actor.update({
+            "system.satiety.value": newSatiety,
+            "system.energy.value": newEnergy,
+            "system.morale.value": newMorale,
+            "system.health.value": newHealth
+        });
+    }
 }
