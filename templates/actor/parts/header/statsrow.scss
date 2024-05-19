@@ -77,6 +77,10 @@
     .attr-label {
         font-weight: 700;
         width: 100%;
+
+        &.rollable.roll-icon{
+            padding-right: 0;
+        }
     }
 
     .attr-label, .attr-under {

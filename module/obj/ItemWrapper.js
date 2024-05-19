@@ -1,3 +1,6 @@
+/**
+ * Functionality involving Items
+ */
 export class ItemWrapper {
     constructor(item){
         this.item = item;
@@ -164,5 +167,41 @@ export class ItemWrapper {
 
     isMelee(){
         return this.weaponType == "melee_weapon";
+    }
+
+    getUsedAttrAndSkill(usageType){
+        if (usageType == this.useType.DEF){
+            return {
+                attr: "end",
+                skill: "defend",
+                multi: "block"
+            }
+
+        }
+        else if (usageType == this.useType.ATK && this.isRanged()){
+            return {
+                attr: "dex",
+                skill: "ranged",
+                multi: "damage"
+            }
+        } else if (usageType == this.useType.ATK && this.isMelee()){
+            return {
+                attr: "str",
+                skill: "melee",
+                multi: "damage"
+            }
+        }
+        
+        throw("Unknown weapon combination!");
+    }
+
+    getRollName(usageType){
+        if (usageType == this.useType.DEF){
+            return `Defend with ${this.item.name}`;
+        } else if (usageType == this.useType.ATK){
+            return `Attack with ${this.item.name}`;
+        } else {
+            return `Use ${this.item.name}`;
+        }
     }
 }

@@ -1,5 +1,5 @@
 import { ActorSheetHelper } from "../helpers/actor-sheet-helpers.js";
-import { CommandAction } from "../obj/command.js";
+import { CommandFactory } from "../commands/_commandFactory.js";
 
 export class ZnZActorSheet extends ActorSheet {
     
@@ -293,8 +293,12 @@ export class ZnZActorSheet extends ActorSheet {
         if (itemId && itemId.length){
             item = this.actor.items.get(itemId);
         }
-        
-        const comAct = new CommandAction(command, this.actor, item);
-        comAct.execute();
+
+        this.runCommand(command, item);
+    }
+
+    runCommand(command, item){
+        const commandFactory = new CommandFactory(command, this.actor, item);
+        commandFactory.run();
     }
 }

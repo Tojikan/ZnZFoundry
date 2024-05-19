@@ -1,3 +1,6 @@
+/**
+ * Functionality involving Characters
+ */
 export class CharacterWrapper {
     constructor(actor){
         this.actor = actor;
@@ -126,7 +129,7 @@ export class CharacterWrapper {
                 value: baseSkills[skill].value
             }
         }
-
+        console.error("Unknown skill: " + skill);
         return null;
     
     }

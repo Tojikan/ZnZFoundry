@@ -156,7 +156,6 @@ Hooks.once('init', async function() {
 Hooks.on("preCreateItem", (itemData) => {
 	if (itemData.type === 'melee_weapon'){
 		itemData.updateSource({img:"icons/svg/sword.svg"});
-		console.log(itemData);
 	} else if (itemData.type === 'ranged_weapon'){
 		itemData.updateSource({img:"systems/znz4e/icons/handgun.svg"});
 	} else if (itemData.type === 'wearable'){

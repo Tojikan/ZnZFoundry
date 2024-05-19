@@ -628,6 +628,8 @@ header.sheet-header {
   .attr-block .attr-label {
     font-weight: 700;
     width: 100%; }
+    .attr-block .attr-label.rollable.roll-icon {
+      padding-right: 0; }
   .attr-block .attr-label, .attr-block .attr-under {
     text-transform: uppercase;
     text-align: center; }

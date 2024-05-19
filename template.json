@@ -250,7 +250,7 @@
 					"label": "ZNZRPG.blockLabel"
 				},
 				"hasBlock": true,
-				"blockRoll": "defend|item-block-defend",
+				"blockRoll": "basic|item:defend",
 				"durabilityPerBlock": {
 					"value": 25,
 					"label": "ZNZRPG.itemDurabilityPerBlock"
@@ -304,11 +304,11 @@
 		},
 		"melee_weapon": {
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
-			"attackRoll": "melee|item-damage-attack"
+			"attackRoll": "basic|item:attack"
 		},
 		"ranged_weapon": {
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
-			"attackRoll": "ranged|item-damage-attack",
+			"attackRoll": "basic|item:attack",
 			"reloadRoll": "reload|item",
 			"rangeInfo": "Mid",
 			"ammo": {
