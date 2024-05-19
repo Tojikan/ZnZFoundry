@@ -20,9 +20,9 @@
         </div>
     </div>
 
-    {{#if hasItemMulti}}
+    {{#if hasMulti}}
         <div style="margin-top:10px">
-            <div>Multiply result by <strong>{{itemName}}</strong>'s {{capitalize itemMultiplierStat}} ({{multiplier}}):</div>
+            <div>{{multiText}}</div>
             <div class="dice-roll">
                 <div class="dice-result">
                     <div class="dice-formula">{{total}} x {{multiplier}}</div>

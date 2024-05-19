@@ -37,9 +37,10 @@ export class BasicRollCommand extends CommandAction {
         //Determine skill to roll. Has name prio over attribute
         if ('skill' in this.args){
             if (this.args.skill in baseSkills){
-                rollArgs.skill = baseSkills[this.args.skill];
-                rollArgs.name = game.i18n.localize(rollSkill.label) + " Roll";
-                rollArgs.attribute = !rollArgs.attribute ? baseSkills[attr].defaultAttr : rollArgs.attribute; //If no attribute was set, use default attribute
+                let rollSkill = baseSkills[this.args.skill];
+                rollArgs.skill = this.args.skill;
+                rollArgs.name = game.i18n.localize(rollSkill.label) + " Roll"; // skill has name prio over attribute
+                rollArgs.attribute = !rollArgs.attribute ? rollSkill.defaultAttr : rollArgs.attribute; //If no attribute was set, use default attribute
             }
         }
 
@@ -72,6 +73,12 @@ export class BasicRollCommand extends CommandAction {
                 return false;
             }
         }
+
+        //Override Name
+        if ('name' in this.args){
+            rollArgs.name = this.args.name;
+        }
+
         
         //The only required parameter for a roll is the attribute.
         if (!rollArgs.attribute){
@@ -84,5 +91,7 @@ export class BasicRollCommand extends CommandAction {
         if (result && usesItem && itemUsageType){
             this.itemWrapper.spendResources(itemUsageType);
         }
+
+        return true;
     }
 }

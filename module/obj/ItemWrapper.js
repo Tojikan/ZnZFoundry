@@ -157,8 +157,33 @@ export class ItemWrapper {
         }
 
         this.item.update(update);
-    
     }
+
+    subtractUses(){
+        if (!("uses" in this.item.system)){
+            console.error("Item does not have any uses!");
+            return -1;
+        }
+
+        let uses = this.item.system.uses.current;
+        if (uses <= 0){
+            return 0;
+        }
+
+        let newUses = Math.max(0, uses - 1);
+        this.item.update({"system.uses.current": newUses});
+
+        if (newUses == 0){
+            return 2;
+        }
+
+        return 1;
+    }
+
+    consumeItem(){
+        this.item.delete();
+    }
+
 
 
     isRanged(){

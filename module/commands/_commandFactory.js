@@ -1,10 +1,13 @@
 import { BasicRollCommand } from "./basicRoll.js";
+import { UseAndConsumeCommand } from "./useAndConsume.js";
 
 
 
 export class CommandFactory {
     commandList = {
-        "basic": BasicRollCommand
+        "basic": BasicRollCommand,
+        "consume": UseAndConsumeCommand,
+        "use": UseAndConsumeCommand
     };
 
     constructor(command, actor, item){
@@ -15,8 +18,8 @@ export class CommandFactory {
 
     parseCommand(){
         let parsed = this.command.split("|");
-        let comm = parsed[0];
-        let argsRaw = parsed[1].split(",");
+        let comm = parsed[0].split(",");
+        let argsRaw = parsed[1] ? parsed[1].split(",") : [];
 
         let args = {};
 
@@ -26,7 +29,7 @@ export class CommandFactory {
         }
 
         let result = {
-            command: comm,
+            commands: comm,
             args: args
         };
         
@@ -36,16 +39,22 @@ export class CommandFactory {
 
     run(){
         let parsed = this.parseCommand();
-        let CommandAct = this.commandList[parsed.command];
+        let prevResult = true;
 
-        if (!CommandAct){
-            console.log("No Command Found for: " + parsed.command);
-            return false;
+        for (let c of parsed.commands){
+            let CommandAct = this.commandList[c];
+
+            if (!CommandAct){
+                console.log("No Command Found for: " + parsed.command);
+            }
+
+            if (!prevResult){
+                console.log("Previous Command Failed. Skipping: " + c);
+                continue;
+            }
+
+            let command = new CommandAct(c, parsed.args, this.actor, this.item);
+            prevResult = command.execute();
         }
-
-        let command = new CommandAct(parsed.command, parsed.args, this.actor, this.item);
-        command.execute();
-
-        return true;
     }
 }

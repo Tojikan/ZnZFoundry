@@ -38,6 +38,7 @@ export class CharacterWrapper {
      *  skill: skill to use
      *  item: Using an item, if applicable
      *  itemMultiplierStat: item stat to multiply roll by, if there is an item
+     *  multi: Multiplier for roll, overrides all.
      */
     async roll(args){
         const actionName = args.name ?? "Roll";
@@ -46,6 +47,7 @@ export class CharacterWrapper {
         const item = args.item;
         const itemMultiplierStat = args.itemMultiplierStat;
         const spend = args.spend;
+        const multi = args.multi;
 
         if (!(attr in this.actor.system.attributes)){
             ui.notifications.warn(game.i18n.localize("ZNZRPG.attrNotFoundText"));
@@ -93,16 +95,23 @@ export class CharacterWrapper {
         };
 
 
-        //Item Roll - has multiplier
-        if (item && itemMultiplierStat && (itemMultiplierStat in item.system)){
+        //Multiplier 
+        if (multi && !isNaN(multi)){
+            templateContext.hasMulti = true;
+            templateContext.multiplier = multi;
+            templateContext.totalMultiplied = multi * rollResult._total;
+            templateContext.multiplierText = `Multiply result of roll by ${multi}`;
+        }
+
+        //Item Multiplier if no othe rmultiplier
+        if (!templateContext.hasMulti && item && itemMultiplierStat && (itemMultiplierStat in item.system)){
             let multiplier = item.system[itemMultiplierStat].value;
             multiplier = Math.max(multiplier, 0);
 
-            templateContext.hasItemMulti = true;
-            templateContext.itemName = item.name;
+            templateContext.hasMulti = true;
             templateContext.multiplier = multiplier;
-            templateContext.itemMultiplierStat = itemMultiplierStat;
             templateContext.totalMultiplied = multiplier * rollResult._total;
+            templateContext.multiplierText = `Multiply result of roll by <strong>${item.name}</strong>'s ${itemMultiplierStat} stat (${multiplier}):`;
         }
 
         let messageData = {

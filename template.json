@@ -116,6 +116,20 @@
 					"defaultAttr": "str",
 					"hint": "ZNZRPG.grappleSkillHint",
 					"image": "icons/skills/melee/unarmed-punch-fist.webp"
+				},
+				"medicine":{
+					"value": 0,
+					"label": "ZNZRPG.medicineSkillLabel",
+					"defaultAttr": "int",
+					"hint": "ZNZRPG.medicineSkillHint",
+					"image": "icons/skills/medical/first-aid-kit-red.webp"
+				},
+				"persuasion":{
+					"value": 0,
+					"label": "ZNZRPG.persuasionSkillLabel",
+					"defaultAttr": "riz",
+					"hint": "ZNZRPG.persuasionSkillHint",
+					"image": "icons/skills/social/charisma-smile-happy.webp"
 				}
 			},
 			"inventory": {
@@ -294,13 +308,12 @@
 				"usesWeight": {
 					"value": 1
 				},
-				"useRoll": "use|item"
+				"useRoll": "use"
 			}
 		},
 		"consumable": {
 			"templates": ["base", "object", "equippable", "customactions", "uses"],
-			"subtype": "",
-			"useRoll": ""
+			"subtype": ""
 		},
 		"melee_weapon": {
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
