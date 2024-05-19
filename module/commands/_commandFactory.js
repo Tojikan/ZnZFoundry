@@ -1,5 +1,6 @@
 import { BasicRollCommand } from "./basicRoll.js";
 import { UseAndConsumeCommand } from "./useAndConsume.js";
+import { ReloadCommand } from "./reload.js";
 
 
 
@@ -7,7 +8,8 @@ export class CommandFactory {
     commandList = {
         "basic": BasicRollCommand,
         "consume": UseAndConsumeCommand,
-        "use": UseAndConsumeCommand
+        "use": UseAndConsumeCommand,
+        "reload": ReloadCommand
     };
 
     constructor(command, actor, item){
@@ -45,12 +47,13 @@ export class CommandFactory {
             let CommandAct = this.commandList[c];
 
             if (!CommandAct){
-                console.log("No Command Found for: " + parsed.command);
+                console.log("No Command Found for: " + c);
+                continue;
             }
 
             if (!prevResult){
                 console.log("Previous Command Failed. Skipping: " + c);
-                continue;
+                return;
             }
 
             let command = new CommandAct(c, parsed.args, this.actor, this.item);

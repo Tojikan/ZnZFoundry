@@ -322,7 +322,7 @@
 		"ranged_weapon": {
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
 			"attackRoll": "basic|item:attack",
-			"reloadRoll": "reload|item",
+			"reloadRoll": "reloadfind",
 			"rangeInfo": "Mid",
 			"ammo": {
 				"current": 10,

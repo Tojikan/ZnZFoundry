@@ -36,7 +36,7 @@
                 {{/ifCond}}
             {{/unless}}
         {{/if}}
-        {{#if card.system.reloadRoll}}
+        <!-- {{#if card.system.reloadRoll}}
             {{#unless isInventory}}
                 {{#ifCond card.system.reloadRoll.length ">" 0}}
                     <div class="card-action-button rollable" data-command="{{card.system.reloadRoll}}" data-item-id="{{card._id}}">
@@ -44,7 +44,7 @@
                     </div>
                 {{/ifCond}}
             {{/unless}}
-        {{/if}}
+        {{/if}} -->
         {{#if card.system.hasBlock}}
             {{#if card.system.blockRoll}}
                 {{#unless isInventory}}
@@ -79,7 +79,7 @@
         {{#each card.system.actions as |act key|}}
             {{#if act.command}}
                 {{#if act.label}}
-                    <div class="card-action-button rollable" data-command="{{act.command}}"  data-item-id="{{card._id}}">
+                    <div class="card-action-button rollable" data-command="{{act.command}}"  data-item-id="{{../card._id}}">
                         {{act.label}}
                     </div>
                 {{/if}}

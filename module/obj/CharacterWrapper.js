@@ -244,4 +244,26 @@ export class CharacterWrapper {
             "system.morale.value": newMorale
         });
     }
+
+
+
+    getItems(type = '', equippedOnly = true){
+        let result = [];
+
+        for (let itm of this.actor.items){
+            if (type.length){
+                if (itm.type != type){
+                    continue;
+                }
+            }
+
+            if (equippedOnly && !itm.system.equipped){
+                continue;
+            }
+
+            result.push(itm);
+        }
+
+        return result;
+    }
 }
