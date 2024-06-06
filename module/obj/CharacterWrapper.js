@@ -103,7 +103,7 @@ export class CharacterWrapper {
             templateContext.multiplierText = `Multiply result of roll by ${multi}`;
         }
 
-        //Item Multiplier if no othe rmultiplier
+        //Item Multiplier if no other multiplier
         if (!templateContext.hasMulti && item && itemMultiplierStat && (itemMultiplierStat in item.system)){
             let multiplier = item.system[itemMultiplierStat].value;
             multiplier = Math.max(multiplier, 0);

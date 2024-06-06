@@ -5,7 +5,14 @@ import { sendGreenMessage } from '../helpers/messageHelper.js';
  * Add/Subtract resources
  */
 export class ResourceCommand extends CommandAction {
+    static command = "resource";
+
     execute(){
+        if (!this.actor){
+            console.error("No actor found for reload command");
+            return false;
+        }
+
         let restores = {};
         let acceptedVals = ["health", "satiety", "energy", "morale"];
 

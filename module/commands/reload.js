@@ -5,7 +5,14 @@ import { sendGreenMessage } from '../helpers/messageHelper.js';
  * Reload a weapon
  */
 export class ReloadCommand extends CommandAction {
+    static command = "reload";
+
     execute(){
+
+        if (!this.actor){
+            console.error("No actor found for reload command");
+            return false;
+        }
 
         let rangedWeapons = this.characterWrapper.getItems("ranged_weapon");
 

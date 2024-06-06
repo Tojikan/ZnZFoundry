@@ -4,7 +4,8 @@ import { ZnZActorSheet } from "./classes/actor-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/hbsTemplates.js";
 import { ZnZItem } from "./classes/item.mjs";
 import { ZnZItemSheet } from "./classes/item-sheet.mjs";
-import { NumberOrZero } from "./helpers/common.js";
+import { findItem, NumberOrZero } from "./helpers/common.js";
+import { runCommand } from "./commands/_commandInterpreter.js";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -15,7 +16,8 @@ Hooks.once('init', async function() {
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
 	game.znz4e = {
-		ZnZActor
+		ZnZActor,
+		runCommand
 	};
 
 	/**
@@ -116,6 +118,7 @@ Hooks.once('init', async function() {
 		return value.slugify({strict: true});
 	});
 
+	
 	Handlebars.registerHelper('json', function(context) {
 		return JSON.stringify(context);
 	});
@@ -147,6 +150,46 @@ Hooks.once('init', async function() {
 	// Preload template partials
 	await preloadHandlebarsTemplates();
 });
+
+
+/* -------------------------------------------- */
+/*  Ready Hook                                  */
+/* -------------------------------------------- */
+
+Hooks.once("ready", async function() {
+	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
+	Hooks.on("hotbarDrop", (bar, data, slot) => {
+		if (data.type === "zmacro"){
+			createZMacro(data, slot);
+			return false;
+		}
+	});
+});
+
+async function createZMacro(data, slot){
+	if (data.type !== "zmacro") return;
+	let item = findItem(data.itemId);
+
+	
+	
+	let img = item ? item.img : "icons/svg/book.svg";
+	let itemName = item ? item.name : "";
+
+	data.name = data.name.replace(/\$/g, itemName)
+
+	const command = `game.znz4e.runCommand("${data.command}", "${data.actorId ?? ''}", "${data.itemId ?? ''}")`;
+	let macro = game.macros.contents.find(m => m.name === data.name && m.data.command === command);
+	if (macro) return macro;
+	
+	macro = await Macro.create({
+		name: data.name,
+		type: "script",
+		img: img,
+		command: command
+	});
+	game.user.assignHotbarMacro(macro, slot);
+	return false;
+}
 
 
 /* -------------------------------------------- */

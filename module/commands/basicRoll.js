@@ -6,7 +6,14 @@ import { CommandAction } from './_commandAction.js';
  * Also can utilize an Item.
  */
 export class BasicRollCommand extends CommandAction {
+    static command = "basic";
+
     execute(){
+        if (!this.actor){
+            console.error("No actor found for roll command");
+            return false;
+        }
+
         const baseSkills = this.actor.system.baseSkills;
         const attributes = this.actor.system.attributes;
         let usesItem = false;

@@ -1,5 +1,5 @@
 import { ActorSheetHelper } from "../helpers/actor-sheet-helpers.js";
-import { CommandFactory } from "../commands/_commandFactory.js";
+import { CommandInterpreter } from "../commands/_commandInterpreter.js";
 
 export class ZnZActorSheet extends ActorSheet {
     
@@ -188,9 +188,32 @@ export class ZnZActorSheet extends ActorSheet {
         
         // Drag events for macros.
         if (this.actor.isOwner) {
-            let handler = ev => this._onDragStart(ev);
-            html.find('li.item').each((i, li) => {
-                if (li.classList.contains("inventory-header")) return;
+            let handler = ev => {
+
+                const el = ev.currentTarget;
+
+                if (el.hasAttribute("data-zmacro")){
+                    const itemId = el.getAttribute("data-item-id");
+                    const command = el.getAttribute("data-command");
+                    const macroName = el.getAttribute("data-zmacro") ?? "New Macro";
+
+                    let data = {
+                        type: "zmacro",
+                        name: macroName
+                    };
+
+                    if (itemId) data.itemId = itemId;
+                    if (command) data.command = command;
+                    data.actorId = this.actor.id;
+
+                    ev.dataTransfer.setData("text/plain", JSON.stringify(data));
+                    return;
+                }
+
+                this._onDragStart(ev);
+            };
+
+            html.find('.rollable').each((i, li) => {
                 li.setAttribute("draggable", true);
                 li.addEventListener("dragstart", handler, false);
             });
@@ -298,7 +321,7 @@ export class ZnZActorSheet extends ActorSheet {
     }
 
     runCommand(command, item){
-        const commandFactory = new CommandFactory(command, this.actor, item);
-        commandFactory.run();
+        const interpreter = new CommandInterpreter(command, this.actor, item);
+        interpreter.run();
     }
 }

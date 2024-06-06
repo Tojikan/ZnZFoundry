@@ -43,3 +43,15 @@ export function AddItemCalculated(itemContext){
         itemContext.calculated.weight += usesWeight.value;
     }
 }
+
+export function findItem(itemId){
+    let item = game.items.get(itemId);
+    if (item) return item;
+
+    for (let actor of game.actors.contents) {
+        item = actor.items.get(itemId);
+        if (item) return item;
+    }
+
+    return null;
+}

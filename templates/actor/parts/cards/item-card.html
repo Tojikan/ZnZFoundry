@@ -30,7 +30,7 @@
         {{#if card.system.attackRoll}}
             {{#unless isInventory}}
                 {{#ifCond card.system.attackRoll.length ">" 0}}
-                    <div class="card-action-button rollable" data-command="{{card.system.attackRoll}}"  data-item-id="{{card._id}}">
+                    <div class="card-action-button rollable" data-zmacro="Attack with $" data-command="{{card.system.attackRoll}}"  data-item-id="{{card._id}}">
                         {{localize "ZNZRPG.attackLabel"}}
                     </div>
                 {{/ifCond}}
@@ -39,7 +39,7 @@
         <!-- {{#if card.system.reloadRoll}}
             {{#unless isInventory}}
                 {{#ifCond card.system.reloadRoll.length ">" 0}}
-                    <div class="card-action-button rollable" data-command="{{card.system.reloadRoll}}" data-item-id="{{card._id}}">
+                    <div class="card-action-button rollable" data-zmacro="Reload" data-command="{{card.system.reloadRoll}}" data-item-id="{{card._id}}">
                         {{localize "ZNZRPG.reloadLabel"}}
                     </div>
                 {{/ifCond}}
@@ -49,7 +49,7 @@
             {{#if card.system.blockRoll}}
                 {{#unless isInventory}}
                     {{#ifCond card.system.blockRoll.length ">" 0}}
-                        <div class="card-action-button rollable" data-command="{{card.system.blockRoll}}" data-item-id="{{card._id}}">
+                        <div class="card-action-button rollable" data-zmacro="Block with $" data-command="{{card.system.blockRoll}}" data-item-id="{{card._id}}">
                             {{localize "ZNZRPG.blockLabel"}}
                         </div>
                     {{/ifCond}}
@@ -59,7 +59,7 @@
         {{#if card.system.hasUses}}
             {{#if card.system.useRoll}}
                 {{#ifCond card.system.useRoll.length ">" 0}}
-                    <div class="card-action-button rollable" data-command="{{card.system.useRoll}}" data-item-id="{{card._id}}">
+                    <div class="card-action-button rollable" data-zmacro="Use $" data-command="{{card.system.useRoll}}" data-item-id="{{card._id}}">
                         {{localize "ZNZRPG.useLabel"}}
                     </div>
                 {{/ifCond}}
@@ -68,7 +68,7 @@
         {{#if card.system.calculateDamageRoll}}
             {{#unless isInventory}}
                 {{#ifCond card.system.calculateDamageRoll.length ">" 0}}
-                    <div class="card-action-button rollable" data-command="{{card.system.calculateDamageRoll}}" data-item-id="{{card._id}}">
+                    <div class="card-action-button rollable" data-zmacro="Calculate Damage" data-command="{{card.system.calculateDamageRoll}}" data-item-id="{{card._id}}">
                         {{localize "ZNZRPG.calcDamageLabel"}}
                     </div>
                 {{/ifCond}}
@@ -79,7 +79,7 @@
         {{#each card.system.actions as |act key|}}
             {{#if act.command}}
                 {{#if act.label}}
-                    <div class="card-action-button rollable" data-command="{{act.command}}"  data-item-id="{{../card._id}}">
+                    <div class="card-action-button rollable" data-zmacro="{{act.label}} $" data-command="{{act.command}}"  data-item-id="{{../card._id}}">
                         {{act.label}}
                     </div>
                 {{/if}}

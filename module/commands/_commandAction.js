@@ -3,7 +3,8 @@ import { ItemWrapper } from '../obj/ItemWrapper.js';
 
 //Base class for all commands
 export class CommandAction {
-    name = "CommandAction";
+    static command = "commandName";
+    args = [];
 
     constructor(name, args, actor, item){
         this.name = name;
@@ -19,5 +20,9 @@ export class CommandAction {
     //Meant to be overwritten
     execute(){
         console.log(`Command Action: no execute method defined for ${this.name}`);
+    }
+
+    static getName(){
+        return this.command;
     }
 }

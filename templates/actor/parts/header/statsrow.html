@@ -28,13 +28,13 @@
         <div class="attribute-layout">
             {{#each data.attributes as |attr key|}}
                 <div class="attr-block">
-                    <div class="attr-label rollable roll-icon has-tooltip" data-command="basic|attr:{{key}}" data-label="{{localize attr.label}}" data-tooltip="{{localize attr.hint}}">
+                    <div class="attr-label rollable roll-icon has-tooltip" data-zmacro="{{localize attr.label}} Attribute Roll" data-command="basic:attr={{key}}|" data-label="{{localize attr.label}}" data-tooltip="{{localize attr.hint}}">
                         {{localize key}}
                     </div>
                     <div class="attr-value">
                         <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number" step="1" min="1" max="10" />
                     </div>
-                    <div class="attr-under rollable" data-command="basic|attr:{{key}}">
+                    <div class="attr-under rollable" data-zmacro="{{localize attr.label}} Attribute Roll" data-command="basic:attr={{key}}|">
                         {{localize attr.label}}
                     </div>
                 </div>
@@ -44,7 +44,7 @@
             <div class="base-skill-row">
                 {{#each data.baseSkills as |skill key|}}
                     <div class="base-skill">
-                        <div class="skill-name has-tooltip rollable" data-tooltip="{{localize skill.hint}}" data-command="basic|skill:{{key}}">
+                        <div class="skill-name has-tooltip rollable" data-zmacro="{{localize skill.label}} Skill Roll" data-tooltip="{{localize skill.hint}}" data-command="basic:skill={{key}}|">
                             {{localize skill.label}}
                         </div>
                         <div class="skill-level">
