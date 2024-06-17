@@ -266,8 +266,10 @@
 				"useRoll": "use"
 			},
 			"level": {
-				"value": 0,
-				"label": "ZNZRPG.levelLabel"
+				"level": {
+					"value": 0,
+					"label": "ZNZRPG.levelLabel"
+				}
 			}
 		},
 		"consumable": {
@@ -327,7 +329,6 @@
 		},
 		"flaw": {
 			"templates": ["base", "level"]
-
 		}
 	}
 }

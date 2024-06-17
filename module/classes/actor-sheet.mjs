@@ -122,8 +122,16 @@ export class ZnZActorSheet extends ActorSheet {
                     if( itm.classList.contains('wearable')){
                         $(itm).show();
                     }
-                } else if (filter === 'ability'){
-                    if( itm.classList.contains('ability')){
+                } else if (filter === 'skill'){
+                    if( itm.classList.contains('skill')){
+                        $(itm).show();
+                    }
+                } else if (filter === 'flaw'){
+                    if( itm.classList.contains('flaw')){
+                        $(itm).show();
+                    }
+                } else if (filter === 'trait'){
+                    if( itm.classList.contains('skill') || itm.classList.contains('flaw')){
                         $(itm).show();
                     }
                 }

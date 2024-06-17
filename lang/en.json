@@ -84,12 +84,10 @@
     "ZNZRPG.deleteItem": "Delete Item",
     "ZNZRPG.inventoryEquip": "Equip Item",
     "ZNZRPG.inventoryUnequip": "Unequip Item",
+    
+    "ZNZRPG.skillLabel": "Skills",
     "ZNZRPG.skillEdit": "Edit Skill",
     "ZNZRPG.skillDelete": "Delete Skill",
-
-    "ZNZRPG.abilityLabel": "Abilities",
-    "ZNZRPG.abilityEdit": "Edit Ability",
-    "ZNZRPG.abilityDelete": "Delete Ability",
 
     "ZNZRPG.flawLabel": "Flaws",
     "ZNZRPG.flawEdit": "Edit Flaw",
@@ -142,7 +140,7 @@
 
     "ZNZRPG.tabCombat": "Equipped",
     "ZNZRPG.tabInventory": "Backpack",
-    "ZNZRPG.tabTraits": "Skills & Traits",
+    "ZNZRPG.tabTraits": "Skills & Flaws",
     "ZNZRPG.tabNotes": "Notes",
     
 
@@ -187,5 +185,9 @@
     "ZNZRPG.baseHealthPenaltyInterval": "Health Loss Dice Penalty Interval",
     "ZNZRPG.baseMoralePenaltyInterval": "Morale Loss Dice Penalty Interval",
     "ZNZRPG.baseEnergyPenaltyInterval": "Energy Loss Dice Penalty Interval",
-    "ZNZRPG.baseSatietyPenaltyInterval": "Satiety Loss Dice Penalty Interval"
+    "ZNZRPG.baseSatietyPenaltyInterval": "Satiety Loss Dice Penalty Interval",
+
+    "ZNZRPG.noSkills": "No Skills",
+    "ZNZRPG.noFlaws": "No Flaws",
+    "ZNZRPG.noEquippedItems": "No Equipped Items"
 }

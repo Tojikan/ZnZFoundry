@@ -25,7 +25,13 @@
                 <button type="button" class="filter-button" data-filter="wearable">Wearable</button>
             </div>
             <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="ability">Ability</button>
+                <button type="button" class="filter-button" data-filter="trait">Traits</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="skill">Skill</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="flaw">Flaw</button>
             </div>
         </div>
 
@@ -34,6 +40,18 @@
                 {{#each equippedItems as |equip id|}}
                     {{> item-card card=equip}}
                 {{/each}}
+
+                {{#each skills as |skill id|}}
+                    {{> item-card card=skill}}
+                {{/each}}
+
+                {{#each flaws as |flaw id|}}
+                    {{> item-card card=flaw}}
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="section-spacer">
+                <p>{{localize 'ZNZRPG.noEquippedItems'}}</p>
             </div>
         {{/if}}
     </div>

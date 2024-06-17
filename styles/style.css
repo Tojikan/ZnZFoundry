@@ -9,9 +9,6 @@ input[type="number"] {
 aside#tooltip ul {
   text-align: left; }
 
-.single-number input[type=number] {
-  appearance: textfield; }
-
 .znz4e.sheet .item-sheet .item-pre-header {
   font-weight: bold;
   font-size: 16px; }
@@ -301,10 +298,6 @@ aside#tooltip ul {
 .znz4e .items-list.abilities-list .item-controls {
   flex-basis: 10%; }
 
-.znz4e .abilities h2 {
-  margin-top: 30px;
-  border-bottom: none; }
-
 .znz4e .flaws-list {
   margin-bottom: 50px; }
   .znz4e .flaws-list .item-name {
@@ -334,6 +327,17 @@ aside#tooltip ul {
 
 .znz4e .bold {
   font-weight: 700; }
+
+.znz4e .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; }
+  .znz4e .section-heading.spaced {
+    margin-top: 30px; }
+
+.znz4e .section-spacer {
+  height: 80px; }
 
 .znz4e .combat-controls {
   display: flex;
@@ -395,7 +399,6 @@ aside#tooltip ul {
   gap: 10px;
   margin-bottom: 10px; }
 
-
 .znz-card {
   display: flex;
   flex-direction: column;
@@ -422,11 +425,9 @@ aside#tooltip ul {
         margin: 0; }
       .znz-card .card-header .card-title h4 {
         color: yellow; }
-    .znz-card .card-header .card-weight {
+    .znz-card .card-header .card-value-corner {
       min-width: 40px;
       border-radius: 20%;
-      border: solid 3px black;
-      background-color: red;
       color: white;
       font-size: 20px;
       text-align: center;
@@ -437,7 +438,23 @@ aside#tooltip ul {
       align-items: center;
       justify-content: center;
       padding: 5px 10px;
-      align-self: flex-start; }
+      align-self: flex-start;
+      position: relative; }
+      .znz-card .card-header .card-value-corner.card-weight {
+        border: solid 3px black;
+        background-color: red; }
+      .znz-card .card-header .card-value-corner.card-level {
+        border: solid 3px black; }
+      .znz-card .card-header .card-value-corner .overtitle {
+        display: block;
+        top: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        font-size: 12px;
+        text-align: center; }
+    .znz-card .card-header .no-card-weight {
+      min-width: 40px; }
     .znz-card .card-header .card-name {
       flex: 1 1 100%; }
     .znz-card .card-header .card-delete {
@@ -540,6 +557,12 @@ aside#tooltip ul {
 
 .znz-card.wearable {
   background-color: #c9c9c9; }
+
+.znz-card.skill {
+  background-color: #FFAC1C; }
+
+.znz-card.flaw {
+  background-color: #414a4c; }
 
 .items-container {
   display: flex;

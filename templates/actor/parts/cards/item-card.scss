@@ -32,11 +32,9 @@
             }
         }
 
-        .card-weight {
+        .card-value-corner {
             min-width: 40px;
             border-radius: 20%;
-            border: solid 3px black;
-            background-color: red;
             color: white;
             font-size: 20px;
             text-align: center;
@@ -47,7 +45,32 @@
             align-items: center;
             justify-content: center;
             padding: 5px 10px;
-            align-self: flex-start
+            align-self: flex-start;
+            position: relative;
+
+            &.card-weight {
+                border: solid 3px black;
+                background-color: red;
+            }
+
+            &.card-level {
+                border: solid 3px black;
+            }
+
+            .overtitle {
+                display: block;
+                top: -3px;
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+
+
+        .no-card-weight {
+            min-width: 40px;
         }
         
         .card-name {
@@ -201,6 +224,14 @@
 
     &.wearable {
         background-color: #c9c9c9
+    }
+
+    &.skill {
+        background-color: #FFAC1C
+    }
+
+    &.flaw {
+        background-color: #414a4c;
     }
 }
 

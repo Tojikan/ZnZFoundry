@@ -126,7 +126,13 @@
     {{> actionRow}}
 {{/inline}}
 
-{{#*inline "ability"}}
+{{#*inline "skill"}}
+    <div class="card-details">
+    </div>
+    {{> actionRow}}
+{{/inline}}
+
+{{#*inline "flaw"}}
     <div class="card-details">
     </div>
     {{> actionRow}}
@@ -135,10 +141,20 @@
 
 <div class="znz-card item {{card.type}}" data-item-id="{{card._id}}">
     <div class="card-header">
+        {{log card}}
         <div class="card-title">
-            <div class="card-weight has-tooltip" data-tooltip="{{localize "ZNZRPG.carriedWeightAdded"}}">
-                {{card.calculated.weight}}
-            </div>
+            {{#if card.calculated.weight}}
+                <div class="card-value-corner card-weight has-tooltip" data-tooltip="{{localize "ZNZRPG.carriedWeightAdded"}}">
+                    {{card.calculated.weight}}
+                </div>
+            {{else if card.system.level}}
+                <div class="card-value-corner card-level has-tooltip" data-tooltip="{{localize "ZNZRPG.level"}}">
+                    <span class="overtitle">LVL</span>
+                    {{card.system.level.value}}
+                </div>
+            {{else}}
+                <div class="no-card-weight"></div>
+            {{/if}}
             <div class="card-name">
                 <a class="item-control item-edit" data-tooltip="{{card.system.flavor}}">
                     <h4>{{unslugify card.type}}</h4>
@@ -156,7 +172,7 @@
         <a class="item-edit">
             <img src="{{card.img}}" title="{{card.system.flavor}}" />
         </a>
-        {{#if card.system.durability }}
+        {{#if card.system.durability.value }}
             <div class="card-durability card-image-control">
                 Durability: {{card.system.durability.value}}%
             </div>

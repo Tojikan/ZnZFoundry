@@ -37,6 +37,11 @@ export function ItemUsesWeightCalculator(item, weightCalc = null){
 
 export function AddItemCalculated(itemContext){
     itemContext.calculated = {};
+
+    if (!itemContext.system.weight){
+        return;
+    }
+
     itemContext.calculated.weight = itemContext.system.weight.value;
     let usesWeight = ItemUsesWeightCalculator(itemContext);
     if (usesWeight.value > 0){
