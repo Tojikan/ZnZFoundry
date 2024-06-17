@@ -47,23 +47,17 @@
 
 
     "ZNZRPG.meleeSkillLabel": "Melee",
-    "ZNZRPG.meleeSkillHint": "Skill with melee combat.",
+    "ZNZRPG.meleeSkillHint": "Add this value to your diceface when performing melee combat.",
     "ZNZRPG.rangedSkillLabel": "Ranged",
-    "ZNZRPG.rangedSkillHint": "Skill with ranged combat.",
+    "ZNZRPG.rangedSkillHint": "Add this value to your diceface when performing ranged combat",
     "ZNZRPG.defendSkillLabel": "Defend",
-    "ZNZRPG.defendSkillHint": "Reduce damage dealt by attack by defending. <br/>Items multiply the result of the defend roll.",
-    "ZNZRPG.dodgeSkillLabel": "Dodge",
-    "ZNZRPG.dodgeSkillHint": "Avoid damage by dodging an attack. Dodging directly reduces the base roll of the attack but gains no benefit from items.",
+    "ZNZRPG.defendSkillHint": "Reduce damage from incoming attack. Add this value to your diceface. <br/>Items multiply the result of the defend roll.",
     "ZNZRPG.stealthSkillLabel": "Stealth",
-    "ZNZRPG.stealthSkillHint": "Reduces chance of detection when performing actions.",
-    "ZNZRPG.medicineSkillLabel": "Medicine",
-    "ZNZRPG.medicineSkillHint": "Add this to your dice face when performing actions to restore health.",
-    "ZNZRPG.persuasionSkillLabel": "Persuasion",
-    "ZNZRPG.persuasionSkillHint": "Add this to your dice face when attempting to convince others of anything.",
+    "ZNZRPG.stealthSkillHint": "Reduces chance of detection when performing actions. Add this value to your diceface.",
     "ZNZRPG.throwSkillLabel": "Throw",
-    "ZNZRPG.throwSkillHint": "Add this to your dice face when throwing objects.",
-    "ZNZRPG.grappleSkillLabel": "Grapple",
-    "ZNZRPG.grappleSkillHint": "Add this to your dice face when grabbing enemies or breaking out of enemy grabs.",
+    "ZNZRPG.throwSkillHint": "Add this value to your dice face when throwing objects.",
+    "ZNZRPG.athleticSkillLabel": "Athletics",
+    "ZNZRPG.athleticSkillHint": "Overcome physical obstacles through climbing, jumping, swimming, etc. Add this value to your dice face.",
 
     "ZNZRPG.weightDetailedHint": "Amount of bulk this item adds to your carried weight. More bulk means your actions will cost more energy and satiety",
     "ZNZRPG.durabilityDetailedHint": "When durability is reduced to 0, this item can no longer be used.",
@@ -72,7 +66,9 @@
     
     "ZNZRPG.levelLabel": "Level",
     "ZNZRPG.weightLabel": "Weight",
+    "ZNZRPG.hasAttributeRollLabel": "Has Attribute Roll",
     "ZNZRPG.attributeUsedLabel": "Attribute Used",
+    "ZNZRPG.attributeBonusLabel": "Dice Face Bonus",
     "ZNZRPG.rollLabel": "Roll",
     "ZNZRPG.infoLabel": "Info",
     "ZNZRPG.descriptionLabel": "Description",
@@ -146,14 +142,14 @@
 
     "ZNZRPG.tabCombat": "Equipped",
     "ZNZRPG.tabInventory": "Backpack",
-    "ZNZRPG.tabAbility": "Abilities",
+    "ZNZRPG.tabTraits": "Skills & Traits",
     "ZNZRPG.tabNotes": "Notes",
     
 
     "ZNZRPG.baseEnergyCost":"Energy Cost Per Action",
     "ZNZRPG.baseSatietyCost":"Satiety Cost Per Action",
     "ZNZRPG.baseMoraleCost":"Morale Cost Per Action",
-    "ZNZRPG.baseWeightPerPenalty":"Weight Penalty",
+    "ZNZRPG.baseWeightPerPenalty":"Weight Per Cost Penalty Increase",
     "ZNZRPG.baseMeleeDurabilityUsage":"Melee Durability Per Usage",
     "ZNZRPG.baseRangedDurabilityUsage":"Ranged Durability Per Usage",
     "ZNZRPG.baseWearableDurabilityUsage":"Wearable Durability Per Usage",
@@ -179,5 +175,17 @@
     "ZNZRPG.noAmmoYouText": "Your weapon is out of ammo!",
     "ZNZRPG.noDurabilityYouText": "Your weapon is broken!",
     "ZNZRPG.noAmmoText": "Attempted to use a weapon but is out of ammo!",
-    "ZNZRPG.noDurabilityText": "Attempted to use a weapon but it is broken!"
+    "ZNZRPG.noDurabilityText": "Attempted to use a weapon but it is broken!",
+
+
+    "ZNZRPG.baseDiceFace": "Base Dice Face",
+    "ZNZRPG.baseBlockDurabilityUsage": "Base Durability Usage Per Block",
+    "ZNZRPG.baseHealthPenaltyThreshold": "Health Threshold Before Dice Penalty",
+    "ZNZRPG.baseMoralePenaltyThreshold": "Morale Threshold Before Dice Penalty",
+    "ZNZRPG.baseEnergyPenaltyThreshold": "Energy Threshold Before Dice Penalty",
+    "ZNZRPG.baseSatietyPenaltyThreshold": "Satiety Threshold Before Dice Penalty",
+    "ZNZRPG.baseHealthPenaltyInterval": "Health Loss Dice Penalty Interval",
+    "ZNZRPG.baseMoralePenaltyInterval": "Morale Loss Dice Penalty Interval",
+    "ZNZRPG.baseEnergyPenaltyInterval": "Energy Loss Dice Penalty Interval",
+    "ZNZRPG.baseSatietyPenaltyInterval": "Satiety Loss Dice Penalty Interval"
 }

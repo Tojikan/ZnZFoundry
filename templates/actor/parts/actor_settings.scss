@@ -1,0 +1,28 @@
+.settings-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     
+    label {
+        margin-right: 10px;
+        width: 70%;
+    }
+
+    input {
+        width: 100px;
+        text-align: center;
+    }
+}
+
+.settings-tab {
+    margin: 30px 0;
+    margin-left: 20px;
+}
+
+.settings-group {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}

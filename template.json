@@ -82,19 +82,19 @@
 					"hint": "ZNZRPG.meleeSkillHint",
 					"image": "icons/skills/melee/unarmed-punch-fist-blue.webp"
 				},
-				"ranged": {
-					"value": 0,
-					"label": "ZNZRPG.rangedSkillLabel",
-					"defaultAttr": "dex",
-					"hint": "ZNZRPG.rangedSkillHint",
-					"image": "icons/skills/ranged/person-archery-bow-attack-gray.webp"
-				},
 				"defend": {
 					"value": 0,
 					"label": "ZNZRPG.defendSkillLabel",
 					"defaultAttr": "end",
 					"hint": "ZNZRPG.defendSkillHint",
 					"image": "icons/skills/melee/shield-damaged-broken-brown.webp"
+				},
+				"ranged": {
+					"value": 0,
+					"label": "ZNZRPG.rangedSkillLabel",
+					"defaultAttr": "dex",
+					"hint": "ZNZRPG.rangedSkillHint",
+					"image": "icons/skills/ranged/person-archery-bow-attack-gray.webp"
 				},
 				"stealth": {
 					"value": 0,
@@ -110,44 +110,19 @@
 					"hint": "ZNZRPG.throwSkillHint",
 					"image": "icons/skills/ranged/shuriken-thrown-orange.webp"
 				},
-				"grapple": {
+				"athletics": {
 					"value": 0,
-					"label": "ZNZRPG.grappleSkillLabel",
+					"label": "ZNZRPG.athleticSkillLabel",
 					"defaultAttr": "str",
-					"hint": "ZNZRPG.grappleSkillHint",
+					"hint": "ZNZRPG.athleticSkillHint",
 					"image": "icons/skills/melee/unarmed-punch-fist.webp"
-				},
-				"medicine":{
-					"value": 0,
-					"label": "ZNZRPG.medicineSkillLabel",
-					"defaultAttr": "int",
-					"hint": "ZNZRPG.medicineSkillHint",
-					"image": "icons/skills/medical/first-aid-kit-red.webp"
-				},
-				"persuasion":{
-					"value": 0,
-					"label": "ZNZRPG.persuasionSkillLabel",
-					"defaultAttr": "riz",
-					"hint": "ZNZRPG.persuasionSkillHint",
-					"image": "icons/skills/social/charisma-smile-happy.webp"
-				}
-			},
-			"inventory": {
-				"water": {
-					"count": 0,
-					"weight": 1,
-					"label": "ZNZRPG.waterLabel"
-				},
-				"food": {
-					"count": 0,
-					"weight": 1,
-					"label": "ZNZRPG.waterLabel"
 				}
 			},
 			"config": {
 				"baseDiceFace": {
 					"value": 10,
-					"label": "ZNZRPG.baseDiceFace"
+					"label": "ZNZRPG.baseDiceFace",
+					"hint": "ZNZRPG.baseDiceFaceHint"
 				},
 				"maxDamageReduction":{
 					"value": 60,
@@ -169,22 +144,6 @@
 					"baseWeightPerActionCost": {
 						"value": 10,
 						"label": "ZNZRPG.baseWeightPerPenalty"
-					},
-					"baseMeleeDurabilityUsage": {
-						"value": 8,
-						"label": "ZNZRPG.baseMeleeDurabilityUsage"
-					},
-					"baseRangedDurabilityUsage": {
-						"value": 4,
-						"label": "ZNZRPG.baseRangedDurabilityUsage"
-					},
-					"baseWearableDurabilityUsage": {
-						"value": 10,
-						"label": "ZNZRPG.baseWearableDurabilityUsage"
-					},
-					"baseBlockDurabilityUsage": {
-						"value": 35,
-						"label": "ZNZRPG.baseBlockDurabilityUsage"
 					}
 				},
 				"penalty": {
@@ -210,19 +169,19 @@
 					"intervals": {
 						"health": {
 							"value": 10,
-							"label": "ZNZRPG.baseHealthPenaltyThreshold"
+							"label": "ZNZRPG.baseHealthPenaltyInterval"
 						},
 						"morale": {
 							"value": 10,
-							"label": "ZNZRPG.baseMoralePenaltyThreshold"
+							"label": "ZNZRPG.baseMoralePenaltyInterval"
 						},
 						"energy": {
 							"value": 20,
-							"label": "ZNZRPG.baseEnergyPenaltyThreshold"
+							"label": "ZNZRPG.baseEnergyPenaltyInterval"
 						},
 						"satiety": {
 							"value": 10,
-							"label": "ZNZRPG.baseSatietyPenaltyThreshold"
+							"label": "ZNZRPG.baseSatietyPenaltyInterval"
 						}
 					}
 				}
@@ -234,10 +193,6 @@
 			"notes": {
 				"value": "",
 				"label": "ZNZRPG.Description"
-			},
-			"initBonus": {
-				"value": 0,
-				"label": "ZNZRPG.InitiativeBonus"
 			}
 		},
 		"enemy": {
@@ -245,7 +200,7 @@
 		}
 	},
 	"Item": {
-		"types": ["consumable", "melee_weapon", "ranged_weapon", "wearable", "ability", "skill", "flaw"],
+		"types": ["consumable", "melee_weapon", "ranged_weapon", "wearable", "skill", "flaw"],
 		"templates": {
 			"base": {
 				"description": "",
@@ -309,6 +264,10 @@
 					"value": 1
 				},
 				"useRoll": "use"
+			},
+			"level": {
+				"value": 0,
+				"label": "ZNZRPG.levelLabel"
 			}
 		},
 		"consumable": {
@@ -352,29 +311,23 @@
 			"calculateDamageRoll": "calcdamage|"
 		},
 		"skill": {
-			"templates": ["base"],
-			"level": {
-				"value": 0,
-				"label": "ZNZRPG.levelLabel"
+			"templates": ["base", "rollable", "customactions", "uses", "level"],
+			"hasAttributeRoll": {
+				"value": false,
+				"label": "ZNZRPG.hasAttributeRollLabel"
 			},
 			"attributeUsed": {
 				"value": "int",
 				"label": "ZNZRPG.attributeUsedLabel"
-			}
-		},
-		"ability": {
-			"templates": ["base", "rollable", "customactions", "uses"],
-			"level": {
+			},
+			"attributeBonus": {
 				"value": 0,
-				"label": "ZNZRPG.levelLabel"
+				"label": "ZNZRPG.attributeBonusLabel"
 			}
 		},
 		"flaw": {
-			"templates": ["base"],
-			"level": {
-				"value": 0,
-				"label": "ZNZRPG.levelLabel"
-			}
+			"templates": ["base", "level"]
+
 		}
 	}
 }
