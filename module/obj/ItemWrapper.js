@@ -117,7 +117,7 @@ export class ItemWrapper {
             return this.item.system.durabilityPerBlock.value;
         }
 
-        if ("durabilityPerUse" in this.item.system){
+        if (type == "use" && durabilityPerUse in this.item.system){
             return this.item.system.durabilityPerUse.value;
         }
 

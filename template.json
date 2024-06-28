@@ -240,8 +240,18 @@
 					"label": "ZNZRPG.itemDurabilityPerUse"
 				}
 			},
+			"showequipped": {
+				"equipped": false,
+				"can_be_equipped": true,
+				"not_physical_equip": true 
+			},
 			"rollable": {
-				"roll": ""
+				"rollable": {
+					"hasRoll": false,
+					"attribute": "int",
+					"bonus": 0,
+					"bonusPerLevel": 1
+				}
 			},
 			"weapon": {
 				"damage": {
@@ -267,9 +277,10 @@
 			},
 			"level": {
 				"level": {
-					"value": 0,
+					"value": 1,
 					"label": "ZNZRPG.levelLabel"
-				}
+				},
+				"costPerLevel": "50"
 			}
 		},
 		"consumable": {
@@ -299,7 +310,7 @@
 				"label": "ZNZRPG.wearableDamageReduction"
 			},
 			"durabilityPerReduce": {
-				"value": 10,
+				"value": 50,
 				"label": "ZNZRPG.wearableDamageReduction"
 			},
 			"equipslots": {
@@ -310,25 +321,17 @@
 				"value": 1,
 				"label": "ZNZRPG.wearableWarmth"
 			},
-			"calculateDamageRoll": "calcdamage|"
+			"calculateDamageRoll": "calcdamage|",
+			"blockOptional": true
 		},
 		"skill": {
-			"templates": ["base", "rollable", "customactions", "uses", "level"],
-			"hasAttributeRoll": {
-				"value": false,
-				"label": "ZNZRPG.hasAttributeRollLabel"
-			},
-			"attributeUsed": {
-				"value": "int",
-				"label": "ZNZRPG.attributeUsedLabel"
-			},
-			"attributeBonus": {
-				"value": 0,
-				"label": "ZNZRPG.attributeBonusLabel"
+			"templates": ["base", "rollable", "customactions", "uses", "level", "attributeRoll", "showequipped"],
+			"xpCost": {
+				"value": 100
 			}
 		},
 		"flaw": {
-			"templates": ["base", "level"]
+			"templates": ["base", "level", "uses", "customactions", "showequipped"]
 		}
 	}
 }

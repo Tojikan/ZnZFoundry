@@ -1,29 +1,61 @@
-{{#*inline "damageBlock"}}
-    <div class="card-info-row">
-        <div>
-            <strong>{{localize "ZNZRPG.damageLabel"}}</strong>: {{decimal card.system.damage.value}}x
-        </div>
-        <div>
+{{#*inline "block"}}
+    {{#if card.system.hasBlock}}
+        <div class="card-details-item">
             <strong>{{localize "ZNZRPG.blockLabel"}}</strong>: {{decimal card.system.block.value}}x
         </div>
-    </div>
+    {{/if}}
+{{/inline}}
+    
+{{#*inline "damage"}}
+    {{#if card.system.damage}}
+        <div class="card-details-item">
+            <strong>{{localize "ZNZRPG.damageLabel"}}</strong>: {{decimal card.system.damage.value}}x
+        </div>
+    {{/if}}
 {{/inline}}
 
-{{#*inline "usesDefendBlock"}}
-    <div class="card-info-row">
-        {{#if card.system.hasUses}}
-            <div>
-                <strong>{{localize "ZNZRPG.usesLabel"}}</strong>: {{card.system.uses.current}} / {{card.system.uses.max}}
-            </div>
-        {{/if}}
-        {{#if card.system.hasBlock}}
-            <div>
-                <strong>{{localize "ZNZRPG.blockLabel"}}</strong>: {{card.system.block.value}}x
-            </div>
-        {{/if}}
+{{#*inline "xpcost"}}
+    {{#if card.system.xpCost}}
+    <div class="card-details-item">
+        <strong>{{localize "ZNZRPG.xpCost"}}</strong>: {{card.system.xpCost.value}}
     </div>
+    {{/if}}
 {{/inline}}
 
+{{#*inline "uses"}}
+    {{#if card.system.hasUses}}
+        <div class="card-details-item">
+            <strong>{{localize "ZNZRPG.usesLabel"}}</strong>: {{card.system.uses.current}} / {{card.system.uses.max}}
+        </div>
+    {{/if}}
+{{/inline}}
+
+{{#*inline "rollable"}}
+    {{#if card.system.rollable.hasRoll}}
+        <div class="card-details-item">
+            <strong>Attribute Used</strong>: {{toUpperCase card.system.rollable.attribute}}
+        </div>
+        <div class="card-details-item">
+            <strong>Skill Bonus</strong>: {{card.system.rollable.bonus}}
+        </div>
+    {{/if}}
+{{/inline}}
+
+{{#*inline "slots"}}
+    {{#if card.system.equipslots}}
+        <div class="card-details-item">
+            <strong>{{localize "ZNZRPG.slotsAdded"}}</strong>: {{ card.system.equipslots.value}}
+        </div>
+    {{/if}}
+{{/inline}}
+
+{{#*inline "dmgReduce"}}
+    {{#if card.system.damageReduction}}
+        <div class="card-details-item">
+            <strong>{{localize "ZNZRPG.dmgReduceShort"}}</strong>: {{ card.system.damageReduction.value}}%
+        </div>
+    {{/if}}
+{{/inline}}
 
 {{#*inline "actionRow"}}
     <div class="card-action-row">
@@ -36,7 +68,7 @@
                 {{/ifCond}}
             {{/unless}}
         {{/if}}
-        <!-- {{#if card.system.reloadRoll}}
+        {{#if card.system.reloadRoll}}
             {{#unless isInventory}}
                 {{#ifCond card.system.reloadRoll.length ">" 0}}
                     <div class="card-action-button rollable" data-zmacro="Reload" data-command="{{card.system.reloadRoll}}" data-item-id="{{card._id}}">
@@ -44,7 +76,7 @@
                     </div>
                 {{/ifCond}}
             {{/unless}}
-        {{/if}} -->
+        {{/if}}
         {{#if card.system.hasBlock}}
             {{#if card.system.blockRoll}}
                 {{#unless isInventory}}
@@ -75,6 +107,12 @@
             {{/unless}}
         {{/if}}
 
+        {{#if card.system.rollable.hasRoll}}
+            <div class="card-action-button rollable" data-zmacro="Roll Skill {{card.name}}" data-command="basic:skillitem" data-item-id="{{card._id}}">
+                {{localize "ZNZRPG.rollAttrLabel"}} {{toUpperCase card.system.rollable.attribute}}
+            </div>
+        {{/if}}
+
 
         {{#each card.system.actions as |act key|}}
             {{#if act.command}}
@@ -92,21 +130,21 @@
 
 {{#*inline "melee_weapon"}}
     <div class="card-details">
-        {{> damageBlock}}
+        {{> damage}}
+        {{> block}}
     </div>
     {{> actionRow}}
 {{/inline}}
 
 {{#*inline "ranged_weapon"}}
     <div class="card-details">
-        {{> damageBlock}}
-        <div class="card-info-row">
-            <div>
-                <strong>{{localize "ZNZRPG.ammoLabel"}}</strong>: {{card.system.ammo.current}} / {{card.system.ammo.max}}
-            </div>
-            <div  data-tooltip="{{card.system.rangeInfo}}">
-                <strong>{{localize "ZNZRPG.rangeLabel"}}</strong>: <span class="range-output">{{capitalize card.system.rangeInfo}}</span>
-            </div>
+        {{> damage}}
+        {{> block}}
+        <div class="card-details-item">
+            <strong>{{localize "ZNZRPG.ammoLabel"}}</strong>: {{card.system.ammo.current}} / {{card.system.ammo.max}}
+        </div>
+        <div  class="card-details-item" data-tooltip="{{card.system.rangeInfo}}">
+            <strong>{{localize "ZNZRPG.rangeLabel"}}</strong>: <span class="range-output">{{capitalize card.system.rangeInfo}}</span>
         </div>
     </div>
     {{> actionRow}}
@@ -114,34 +152,47 @@
 
 {{#*inline "consumable"}}
     <div class="card-details">
-        {{> usesDefendBlock}}
+        {{> uses}}
+        {{> block}}
     </div>
     {{> actionRow}}
 {{/inline}}
 
 {{#*inline "wearable"}}
     <div class="card-details">
-        {{> usesDefendBlock}}
+        {{> uses}}
+        {{> block}}
+        {{> slots}}
+        {{> dmgReduce}}
     </div>
     {{> actionRow}}
 {{/inline}}
 
 {{#*inline "skill"}}
     <div class="card-details">
+        {{> uses}}
+        {{> rollable}}
+        {{> xpcost}}
     </div>
     {{> actionRow}}
 {{/inline}}
 
 {{#*inline "flaw"}}
     <div class="card-details">
+        {{> uses}}
     </div>
     {{> actionRow}}
 {{/inline}}
 
 
-<div class="znz-card item {{card.type}}" data-item-id="{{card._id}}">
+<div data-item-id="{{card._id}}" class="znz-card item {{card.type}}
+    {{#if isInventory}}
+        {{#if card.system.equipped}}
+            inventory-equipped
+        {{/if}}
+    {{/if}}
+">
     <div class="card-header">
-        {{log card}}
         <div class="card-title">
             {{#if card.calculated.weight}}
                 <div class="card-value-corner card-weight has-tooltip" data-tooltip="{{localize "ZNZRPG.carriedWeightAdded"}}">

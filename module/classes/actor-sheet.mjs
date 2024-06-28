@@ -1,5 +1,6 @@
 import { ActorSheetHelper } from "../helpers/actor-sheet-helpers.js";
 import { CommandInterpreter } from "../commands/_commandInterpreter.js";
+import { manageToggleEffect } from "../helpers/effects.js";
 
 export class ZnZActorSheet extends ActorSheet {
     
@@ -37,6 +38,7 @@ export class ZnZActorSheet extends ActorSheet {
         // Add the actor's data to context.data for easier access, as well as flags.
         context.data = actorData.system;
         context.flags = actorData.flags;
+        context.effects = actorData.effects;
 
         if (actorData.type == 'character') {
             this._prepareCharacterData(context);
@@ -52,7 +54,7 @@ export class ZnZActorSheet extends ActorSheet {
 
         function adjustCards(){
             html.find('.items-container.fixed-width').each((i, el) => {
-                const cardWidth = 225;
+                const cardWidth = 250;
                 const count = $(el).find('.znz-card:visible').length;
                 const avail = el.clientWidth - 15;
 
@@ -193,6 +195,10 @@ export class ZnZActorSheet extends ActorSheet {
         
         // Rollable abilities.
         html.find('.rollable').click(this._onRoll.bind(this));
+
+        html.find('.toggle-effect').click(ev => {
+            manageToggleEffect(ev, this.actor);
+        });
         
         // Drag events for macros.
         if (this.actor.isOwner) {
@@ -239,6 +245,7 @@ export class ZnZActorSheet extends ActorSheet {
             context[k] = context.document.calculated[k];
         }
         ActorSheetHelper.SheetPrepareItems(context);
+        ActorSheetHelper.SheetPrepareEffects(context);
     }
     
     

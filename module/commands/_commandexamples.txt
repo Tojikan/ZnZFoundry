@@ -1,0 +1,5 @@
+basic:skill=melee
+basic:item=attack
+basic:item=defend
+basic:attr=str
+reloadfind

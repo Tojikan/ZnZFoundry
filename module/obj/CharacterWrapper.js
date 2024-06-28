@@ -39,6 +39,7 @@ export class CharacterWrapper {
      *  item: Using an item, if applicable
      *  itemMultiplierStat: item stat to multiply roll by, if there is an item
      *  multi: Multiplier for roll, overrides all.
+     *  bonus: Add to diceface
      */
     async roll(args){
         const actionName = args.name ?? "Roll";
@@ -48,13 +49,14 @@ export class CharacterWrapper {
         const itemMultiplierStat = args.itemMultiplierStat;
         const spend = args.spend;
         const multi = args.multi;
+        const bonus = args.bonus;
 
         if (!(attr in this.actor.system.attributes)){
             ui.notifications.warn(game.i18n.localize("ZNZRPG.attrNotFoundText"));
             throw new Error(`Character does not have the attribute ${attr}!`);
         }
 
-        let diceFaceBonus = 0;
+        let diceFaceBonus = bonus ?? 0;
         if (skill){
             diceFaceBonus = skill.value;
         }
@@ -71,7 +73,7 @@ export class CharacterWrapper {
         let attrLabel = game.i18n.localize(attribute.label);
         let rollText = `Rolling ${attrLabel} (${numOfDice})`
         if (skill) {
-            rollText += ` against ${skill.name} skill  (${baseDiceFace}+${diceFaceBonus})`
+            rollText += ` against ${skill.name} skill  (${diceFaceBonus >= 0 ? '+' : '-'}${diceFaceBonus} Bonus)`
         }
 
         //Calculate Roll
@@ -92,6 +94,7 @@ export class CharacterWrapper {
             actionName: actionName,
             flavor: rollText,
             healthSpend: spend == 0,
+            bonus: diceFaceBonus
         };
 
 
@@ -137,7 +140,17 @@ export class CharacterWrapper {
                 name: game.i18n.localize(baseSkills[skill].label),
                 value: baseSkills[skill].value
             }
+        } else {
+            let result = this.actor.items.get(skill)
+            if (result && result.type == "skill" && result.system.rollable && result.system.rollable.hasRoll){
+                return {
+                    name: result.name,
+                    value: result.system.rollable.bonus
+                }
+            }
         }
+
+
         console.error("Unknown skill: " + skill);
         return null;
     

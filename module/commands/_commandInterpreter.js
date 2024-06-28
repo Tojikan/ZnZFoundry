@@ -24,6 +24,7 @@ export class CommandInterpreter {
     //Each command is separated by a pipe |
     //Each command can have arguments separated by a colon :
     //Each argument can have a value with =
+    //Multiple args are separated by a comma ,
     //Example: basic:type=attack|reload|consume:item=max,arg2=test
     //[commands]|[args]
     parseCommand(command){

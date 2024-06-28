@@ -10,6 +10,10 @@
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
 
+    &.inventory-equipped {
+        box-shadow: 0 0 8px 4px rgba(red, 0.8);
+    }
+
     .card-header {
         width: 100%;
 
@@ -168,20 +172,22 @@
         border-top: solid 1px var(--color-border-light-primary);
         line-height: 1;
         padding-top: 5px;
-    }
-
-    .card-info-row {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
 
-        .range-output {
-            overflow: hidden;
-            text-overflow: clip;
-            width: 30px;
-            display:inline-block;
-            vertical-align: bottom;
+        .card-details-item {
+            flex-basis: 1 1 50%;
+            box-sizing: border-box;
+
+            .range-output {
+                overflow: hidden;
+                text-overflow: clip;
+                width: 30px;
+                display:inline-block;
+                vertical-align: bottom;
+            }
         }
     }
 
@@ -237,12 +243,12 @@
 
 .items-container {
     display: flex;
-    column-gap: 5px;
-    row-gap: 5px;
+    column-gap: 10px;
+    row-gap: 10px;
     flex-wrap: wrap;
 
     .znz-card {
-        width: 225px;
+        width: 250px;
         z-index: 3;
     }
 

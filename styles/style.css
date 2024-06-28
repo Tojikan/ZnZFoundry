@@ -9,15 +9,43 @@ input[type="number"] {
 aside#tooltip ul {
   text-align: left; }
 
+.effect-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: purple;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer; }
+
 .znz4e.sheet .item-sheet .item-pre-header {
   font-weight: bold;
   font-size: 16px; }
+
+.znz4e.sheet .item-sheet .item-type {
+  font-size: 18px; }
 
 .znz4e.sheet .item-sheet .item-name {
   margin-bottom: 7px; }
   .znz4e.sheet .item-sheet .item-name h1 input {
     margin: 0 !important;
     width: 100%; }
+
+.znz4e.sheet .item-sheet .item-option-bar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 300; }
+  .znz4e.sheet .item-sheet .item-option-bar input[type="checkbox"] {
+    width: 16px;
+    height: 16px; }
+
+.znz4e.sheet .item-sheet .field-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
 
 .znz4e.sheet .item-sheet .item-info {
   display: flex;
@@ -32,9 +60,6 @@ aside#tooltip ul {
     flex: 1 1 100%;
     flex-direction: column; }
     .znz4e.sheet .item-sheet .item-info .fields-column .field-row {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
       width: 100%;
       margin-bottom: 5px; }
       .znz4e.sheet .item-sheet .item-info .fields-column .field-row .row-label {
@@ -344,9 +369,11 @@ aside#tooltip ul {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  margin: 10px 0;
   font-size: 18px;
   margin-bottom: 20px; }
+
+.znz4e .combat-container {
+  margin: 10px 0; }
 
 .znz4e .slot-listing {
   display: flex;
@@ -410,6 +437,8 @@ aside#tooltip ul {
   background-color: #fff;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease; }
+  .znz-card.inventory-equipped {
+    box-shadow: 0 0 4px 2px rgba(255, 0, 0, 0.8); }
   .znz-card .card-header {
     width: 100%; }
     .znz-card .card-header .card-title {
@@ -516,18 +545,20 @@ aside#tooltip ul {
   .znz-card .card-details {
     border-top: solid 1px var(--color-border-light-primary);
     line-height: 1;
-    padding-top: 5px; }
-  .znz-card .card-info-row {
+    padding-top: 5px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    width: 100%; }
-    .znz-card .card-info-row .range-output {
-      overflow: hidden;
-      text-overflow: clip;
-      width: 30px;
-      display: inline-block;
-      vertical-align: bottom; }
+    align-items: center; }
+    .znz-card .card-details .card-details-item {
+      flex-basis: 1 1 50%;
+      box-sizing: border-box; }
+      .znz-card .card-details .card-details-item .range-output {
+        overflow: hidden;
+        text-overflow: clip;
+        width: 30px;
+        display: inline-block;
+        vertical-align: bottom; }
   .znz-card .card-action-row {
     display: flex;
     justify-content: start;
@@ -570,7 +601,7 @@ aside#tooltip ul {
   row-gap: 5px;
   flex-wrap: wrap; }
   .items-container .znz-card {
-    width: 225px;
+    width: 250px;
     z-index: 3; }
   .items-container.is-fixed-width {
     flex-wrap: nowrap; }

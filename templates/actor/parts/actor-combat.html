@@ -1,5 +1,12 @@
 <section class="combat-tab">
     <div class="combat-container">
+        <div class="toggle-effect effect-btn" data-effect="toggleCardGrd">
+            {{#if toggleEffects.toggleCardGrd}}
+                Show as Single Row 
+            {{else}}
+                Show as Grid
+            {{/if}}
+        </div>
         <div class="combat-controls">
             <div class="slot-listing">
                 <div class="has-tooltip" data-tooltip="{{localize 'ZNZRPG.equipSlotsHint'}}">Equipment Slots</div>
@@ -36,17 +43,9 @@
         </div>
 
         {{#if hasEquippedItems}}
-            <div class="items-container fixed-width">
+            <div class="items-container {{#unless toggleEffects.toggleCardGrd}}fixed-width{{/unless}}">
                 {{#each equippedItems as |equip id|}}
                     {{> item-card card=equip}}
-                {{/each}}
-
-                {{#each skills as |skill id|}}
-                    {{> item-card card=skill}}
-                {{/each}}
-
-                {{#each flaws as |flaw id|}}
-                    {{> item-card card=flaw}}
                 {{/each}}
             </div>
         {{else}}

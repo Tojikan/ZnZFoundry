@@ -4,6 +4,10 @@
         font-size: 16px;
     }
 
+    .item-type {
+        font-size: 18px;
+    }
+
     .item-name {
         margin-bottom: 7px;
 
@@ -13,6 +17,26 @@
                 width: 100%;
             }
         }
+    }
+
+    .item-option-bar {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        font-size: 10px;
+        font-weight: 300;
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .field-row {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     .item-info {
@@ -35,9 +59,6 @@
             flex-direction: column;
 
             .field-row {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
                 width: 100%;
                 margin-bottom: 5px;
 
@@ -45,10 +66,10 @@
                     text-align: left;
                     flex-basis: 60%;
                 }
-
+        
                 .row-input {
                     flex-basis: 40%;
-
+        
                     input {
                         text-align: center;
                     }

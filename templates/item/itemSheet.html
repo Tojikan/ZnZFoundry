@@ -10,6 +10,12 @@
         <div class="row-input"><input type="number" name="data.durability.value" value="{{data.durability.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
+{{#*inline "level"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.levelLabel"}}</div>
+        <div class="row-input"><input type="number" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/></div>
+    </div>
+{{/inline}}
 {{#*inline "block"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.blockLabel"}}</div>
@@ -46,12 +52,20 @@
         <div class="row-input"><input type="number" name="data.usesWeight.value" value="{{data.usesWeight.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
-
-{{#*inline "uses"}}
+{{#*inline "xpcost"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.xpCost"}}</div>
+        <div class="row-input"><input type="number" name="data.xpCost.value" value="{{data.xpCost.value}}" data-dtype="Number"/></div>
+    </div>
+{{/inline}}
+{{#* inline "use-enable"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemHasUses"}}</div>
         <div class="row-input"><input type="checkbox" name="data.hasUses" {{checked data.hasUses}}/></div>
     </div>
+{{/inline}}
+
+{{#*inline "uses"}}
     {{#if data.hasUses}}
         <div class="field-row">
             <div class="row-label">{{localize "ZNZRPG.itemUses"}}</div>
@@ -63,16 +77,49 @@
                 </div>
             </div>
         </div>
-        {{> durPerUse }}
-        {{> weightPerUse }}
+        {{!-- {{#if data.durability}}{{> durPerUse }}{{/if}} --}}
+        {{#if data.weight}}{{> weightPerUse }}{{/if}}
     {{/if}}
 {{/inline}}
 
-{{#*inline "toggleBlock"}}
+
+{{#*inline "rollable-enable"}}
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.itemHasRoll"}}</div>
+        <div class="row-input"><input type="checkbox" name="data.rollable.hasRoll" {{checked data.rollable.hasRoll}}/></div>
+    </div>
+{{/inline}}
+
+{{#*inline "rollable"}}
+    {{#if data.rollable.hasRoll}}
+        <div class="field-row">
+            <div class="row-label">{{localize "ZNZRPG.attributeUsedLabel"}}</div>
+            <div class="row-input">
+                {{log data}}
+                <select class="field-select" name="data.rollable.attribute" >
+                    {{#select data.rollable.attribute}}
+                        {{#each ActorAttributes as |attr a|}}
+                            <option value="{{a}}">{{localize attr.label}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="row-label">{{localize "ZNZRPG.attributeBonusLabel"}}</div>
+            <div class="row-input"><input type="number" name="data.rollable.bonus" value="{{data.rollable.bonus}}" data-dtype="Number"/></div>
+        </div>
+    {{/if}}
+{{/inline}}
+
+{{#*inline "block-enable"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemHasBlock"}}</div>
         <div class="row-input"><input type="checkbox" name="data.hasBlock" {{checked data.hasBlock}}/></div>
     </div>
+{{/inline}}
+
+{{#*inline "blockoptions"}}
     {{#if data.hasBlock}}
         {{> block }}
         {{> durPerBlock }}
@@ -212,7 +259,7 @@
         <div class="row-label">{{localize "ZNZRPG.durabilityPerReduce"}}</div>
         <div class="row-input"><input type="text" name="data.durabilityPerReduce.value" value="{{data.durabilityPerReduce.value}}"/></div>
     </div>
-    {{> toggleBlock }}
+    {{> blockoptions }}
     {{> uses }}
 {{/inline}}
 {{#*inline "wearable_footer"}}
@@ -226,18 +273,18 @@
 
 
 {{#*inline "flaw"}}
-    Flaw
 {{/inline}}
 {{#*inline "flaw_footer"}}
     {{> actions}}
 {{/inline}}
 
 
-
 {{#*inline "skill"}}
-    Skill
+    {{> rollable}}
+    {{> uses}}
 {{/inline}}
 {{#*inline "skill_footer"}}
+    {{> useRoll}}
     {{> actions}}
 {{/inline}}
 
@@ -245,7 +292,12 @@
     <header class="sheet-header">
         <div class="sheet-header-container item-sheet">
             <div class="item-pre-header">
-                <div>{{unslugify item.type}}</div>
+                <div class="item-type">{{unslugify item.type}}</div>
+                <div class="item-option-bar">
+                    {{#if data.rollable}}{{> rollable-enable}}{{/if}}
+                    {{#if data.uses}}{{> use-enable}}{{/if}}
+                    {{#if data.blockOptional}}{{> block-enable}}{{/if}}
+                </div>
                 <div class="item-subtype">
                     Subtype: <input name="data.subtype" type="text" value="{{data.subtype}}" placeholder="Subtype"/>
                 </div>
@@ -259,8 +311,10 @@
                 <div class="item-image">
                     <img class="profile-img editable-image" src="{{item.img}}" data-edit="img" title="{{item.name}}" width="100" height="100"/>
                     <div class="sub-image fields-column">
-                        {{> weight}}
-                        {{> durability}}
+                        {{#if data.level}}{{> level}}{{/if}}
+                        {{#if data.weight}}{{> weight}}{{/if}}
+                        {{#if data.durability}}{{> durability}}{{/if}}
+                        {{#if data.xpCost}}{{> xpcost}}{{/if}}
                     </div>
                 </div>
                 <div class="header-fields fields-column">

@@ -24,7 +24,9 @@ export class BasicRollCommand extends CommandAction {
             attribute: null,
             skill: null,
             item: null,
-            itemMultiplierStat: null
+            skillitem: null,
+            itemMultiplierStat: null,
+            bonus: 0
         };
 
 
@@ -49,6 +51,19 @@ export class BasicRollCommand extends CommandAction {
                 rollArgs.name = game.i18n.localize(rollSkill.label) + " Roll"; // skill has name prio over attribute
                 rollArgs.attribute = !rollArgs.attribute ? rollSkill.defaultAttr : rollArgs.attribute; //If no attribute was set, use default attribute
             }
+        }
+
+        if ('skillitem' in this.args && this.hasItem && this.item && this.item.type === "skill"){
+
+
+            if (!this.item.system.rollable || !this.item.system.rollable.hasRoll){
+                console.error("Item is not rollable");
+                return false;
+            }
+
+            rollArgs.name = this.item.name + " Skill Roll";
+            rollArgs.attribute = this.item.system.rollable.attribute;
+            rollArgs.skill = this.item.id
         }
 
         //Determine how Item affects the roll

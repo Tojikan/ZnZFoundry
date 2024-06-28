@@ -8,6 +8,7 @@
     "ZNZRPG.energyHint": "Measure of your character's stamina. <ul><li>Each Action consumes a some Energy</li><li>Dice face decreases as this gets lower.</li>  <li>If it hits 0, spend health instead.</li> <li>Restore with sleep.</li>",
     "ZNZRPG.moraleLabel": "Morale",
     "ZNZRPG.moraleHint": "Measure of your character's mental state. <ul><li>Each Action consumes a some Morale</li><li>Dice face decreases as this gets lower.</li>  <li>If it hits 0, spend health instead.</li> <li>Restore with morale boosts and good times</li>",
+    "ZNZRPG.level": "Level",
     
     "ZNZRPG.experienceLabel": "Exp",
     "ZNZRPG.experienceHint": "Spend to learn new skills and abilities",
@@ -115,6 +116,7 @@
     "ZNZRPG.ammoLabel": "Ammo",
     "ZNZRPG.rangeLabel": "Range",
     "ZNZRPG.actionsLabel": "Custom Actions",
+    "ZNZRPG.rollAttrLabel": "Roll",
     
     "ZNZRPG.equippedWeapons": "Equipped Weapons",
     "ZNZRPG.equippedWearable": "Equipped Wearable",
@@ -122,8 +124,10 @@
     "ZNZRPG.wearable": "Wearable",
     "ZNZRPG.wearableSlots": "Equip Slots",
     "ZNZRPG.wearableSlotsLong": "Equipment Slots Added",
+    "ZNZRPG.slotsAdded": "Slots Added",
     "ZNZRPG.wearableWarmth": "Warmth",
     "ZNZRPG.wearableDamageReduction": "Damage Reduction",
+    "ZNZRPG.dmgReduceShort": "Dmg Reduce",
     "ZNZRPG.durabilityPerReduce": "Durability Per Dmg Reduce",
     "ZNZRPG.equipSlotsHint": "Number of items you can equip<br/> Wearables can add additional slots.<br/> Action costs increase if you carry too much.",
     "ZNZRPG.maxDamageReduction": "Max Damage Reduction",
@@ -161,6 +165,9 @@
     "ZNZRPG.itemHasBlock":"Has Block",
     "ZNZRPG.itemAddedSlots":"Added Equipment Slots",
     "ZNZRPG.itemDamageReduction":"Damage Reduction",
+    "ZNZRPG.itemHasRoll":"Has Roll",
+    "ZNZRPG.xpCost": "Exp Cost",
+
 
 
     "ZNZRPG.notEnoughSatietyText": "Your character has ran out of Satiety and is spending health to perform this action!",
