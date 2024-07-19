@@ -228,4 +228,39 @@ export class ItemWrapper {
             return `Use ${this.item.name}`;
         }
     }
+
+
+    getAmountToReload(){
+        if (!this.isRanged()){
+            return 0;
+        }
+
+        let ammo = this.item.system.ammo.current;
+        let ammoMax = this.item.system.ammo.max;
+
+        return Math.max(ammoMax - ammo, 0);
+    }
+
+    reloadAmmo(amount){
+        if (!this.isRanged()){
+            return false;
+        }
+
+        let ammo = this.item.system.ammo.current;
+        let ammoMax = this.item.system.ammo.max;
+
+        let newAmmo = Math.min(ammoMax, ammo + amount);
+        this.item.update({"system.ammo.current": newAmmo});
+
+        return true;
+    }
+
+
+    getAmmoType(){
+        if (!this.isRanged()){
+            return null;
+        }
+
+        return this.item.system.ammoType;
+    }
 }

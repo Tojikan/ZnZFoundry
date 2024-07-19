@@ -320,4 +320,27 @@ export class CharacterWrapper {
             "system.health.value": newHealth
         });
     }
+
+
+    useAmmo(type, amount){
+        let store = this.actor.system.ammoStore;
+
+        if (!(type in store)){
+            ui.notifications.warn("Character does not have ammo type ${type}");
+            console.error(`Character does not have ammo type ${type}`);
+            return 0;
+        }
+
+
+        let ammo = store[type].value;
+
+        let ammoReceived = Math.min(ammo, amount);
+        let newAmmo = Math.max(ammo - amount, 0);
+
+        this.actor.update({
+            [`system.ammoStore.${type}.value`]: newAmmo
+        });
+
+        return ammoReceived;
+    }
 }
