@@ -147,7 +147,6 @@ export class ZnZActorSheet extends ActorSheet {
             adjustCards();
         });
 
-
         
         // -------------------------------------------------------------
         // Everything below here is only needed if the sheet is editable

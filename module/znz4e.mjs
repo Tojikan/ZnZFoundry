@@ -105,6 +105,10 @@ Hooks.once('init', async function() {
 		return str.charAt(0).toUpperCase() + str.substring(1);
 	});
 
+	Handlebars.registerHelper('firstLetter', function(str) {
+		return str.charAt(0).toUpperCase();
+	});
+
 	Handlebars.registerHelper('unslugify', function(str) {
 		return str.split('_')
 			.map(word => word.charAt(0).toUpperCase() + word.slice(1))

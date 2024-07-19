@@ -42,6 +42,20 @@
 				"hint": "ZNZRPG.equipSlotsHint",
 				"label": "Equipment Slots"
 			},
+			"ammoStore": {
+				"light": {
+					"value": 0,
+					"abbr": "L"
+				},
+				"medium": {
+					"value": 0,
+					"abbr": "M"
+				},
+				"heavy": {
+					"value": 0,
+					"abbr": "H"
+				}
+			},
 			"attributes": {
 				"str": {
 					"value": 3,
@@ -132,6 +146,20 @@
 				"maxDamageReduction":{
 					"value": 60,
 					"label": "ZNZRPG.maxDamageReduction"
+				},
+				"ammoWeight": {
+					"light": {
+						"value": 0.5,
+						"label": "ZNZRPG.ammoWeightLight"
+					},
+					"medium": {
+						"value": 1,
+						"label": "ZNZRPG.ammoWeightMedium"
+					},
+					"heavy": {
+						"value": 2,
+						"label": "ZNZRPG.ammoWeightHeavy"
+					}
 				},
 				"cost": {
 					"baseMoraleCost": {
@@ -299,13 +327,14 @@
 		"ranged_weapon": {
 			"templates": ["base", "object", "equippable", "weapon", "blocker", "customactions"],
 			"attackRoll": "basic:item=attack|",
-			"reloadRoll": "reloadfind",
+			"reloadRoll": "reload",
 			"rangeInfo": "Mid",
 			"ammo": {
 				"current": 10,
 				"max": 10,
 				"label": "ZNZRPG.ammoLabel"
-			}
+			},
+			"ammoType": "medium"
 		},
 		"wearable": {
 			"templates": ["base","object", "equippable", "blocker", "customactions", "uses"],

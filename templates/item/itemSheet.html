@@ -95,13 +95,8 @@
         <div class="field-row">
             <div class="row-label">{{localize "ZNZRPG.attributeUsedLabel"}}</div>
             <div class="row-input">
-                {{log data}}
-                <select class="field-select" name="system.rollable.attribute" >
-                    {{#select data.rollable.attribute}}
-                        {{#each ActorAttributes as |attr a|}}
-                            <option value="{{a}}">{{localize attr.label}}</option>
-                        {{/each}}
-                    {{/select}}
+                <select class="field-select"  name="system.rollable.attribute" >
+                    {{selectOptions ActorAttributes selected=data.rollable.attribute localize=true}}
                 </select>
             </div>
         </div>
@@ -213,9 +208,17 @@
             </div>
         </div>
     </div>
-    <div class="field-row">
+    <!-- <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.rangeLabel"}}</div>
         <div class="row-input"><input type="text" name="system.rangeInfo" value="{{data.rangeInfo}}"/></div>
+    </div> -->
+    <div class="field-row">
+        <div class="row-label">{{localize "ZNZRPG.ammoTypeLabel"}}</div>
+        <div class="row-input">
+            <select class="field-select"  name="system.ammoType" >
+                {{selectOptions AmmoTypes selected=data.ammoType localize=true}}
+            </select>
+        </div>
     </div>
     {{> damage}}
     {{> block}}
@@ -225,12 +228,12 @@
 {{#*inline "ranged_weapon_footer"}}
     {{> attackRoll}}
     {{> blockRoll}}
-    <!-- <div class="item-body-section">
+    <div class="item-body-section">
         <h2>{{localize "ZNZRPG.reloadRollLabel"}}</h2>
         <div class="actions">
             <input type="text" name="system.reloadRoll" value="{{data.reloadRoll}}"/>
         </div>
-    </div> -->
+    </div>
     {{> actions}}
 {{/inline}}
 

@@ -1,0 +1,111 @@
+.under-row {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 14px;
+    margin-top: 5px;
+
+    .character-commands {
+        flex-basis: 35%;
+    }
+
+    .ammo-counter {
+        flex-basis: 65%;
+    }
+}
+
+
+.character-commands {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    height: min-content;
+
+    .command-btn {
+        height: 17px;
+        button {
+            font-size: 11px;
+            padding: 3px 6px;
+            border: none;
+            line-height: 11px;
+        }
+    }
+}
+
+.character-action-button {
+    color: white;
+    background-color: red;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+
+.character-toggle-button {
+    color: white;
+    background-color: green;
+
+    &:hover {
+        background-color: darkgreen;
+    }
+
+    &.active {
+        background-color: purple;
+
+        &:hover {
+            background-color: darkpurple;
+        }
+    }
+}
+
+.ammo-counter {
+    margin-top: -5px;
+    border: solid 1px var(--color-border-light-primary);
+    position: relative;
+
+    .ammo-counter-label {
+        margin-right: 10px;
+        font-weight: 700;
+        border: solid 1px #000;
+        padding: 3px 5px;
+        background-color: black;
+        color: white;
+    }
+    
+    .ammo-counter-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        .ammo-counter-block {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .ammo-value {
+            margin-left: 15px;
+
+            input {
+                background-color: white;
+                width: 50px;
+                text-align: center;   
+            }
+        }
+
+        .ammo-value-label {
+            &.light {
+                color: darkgreen;
+            }
+
+            &.medium {
+                color: darkblue;
+            }
+
+            &.heavy {
+                color: darkred;
+            }
+        }
+    }
+}

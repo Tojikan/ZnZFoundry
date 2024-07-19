@@ -15,7 +15,7 @@
 
     "ZNZRPG.carriedWeight": "Bulk",
     "ZNZRPG.carriedWeightAdded": "Bulk Added",
-    "ZNZRPG.carriedWeightHint": "Total weight being carried. Satiety and Energy cost per Action increases by 1 for every {input1} weight.",
+    "ZNZRPG.carriedWeightHint": "Total bulk of items being carried. Satiety and Energy cost per Action increases by 1 for every {input1} bulk.",
 
     "ZNZRPG.diceFace": "Dice",
     "ZNZRPG.diceFaceHint": "Dice face used for all rolls. This value decreases as your stats decrease. <br/>Health Penalty: {input1}<br/>Morale Penalty: {input2}<br/>Energy Penalty: {input3}<br/>Satiety Penalty: {input4}",
@@ -201,5 +201,14 @@
 
     "ZNZRPG.noSkills": "No Skills or Flaws",
     "ZNZRPG.noFlaws": "No Flaws",
-    "ZNZRPG.noEquippedItems": "No Equipped Items"
+    "ZNZRPG.noEquippedItems": "No Equipped Items",
+
+
+    "ZNZRPG.ammoTypeLabel": "Ammo Type",
+    "ZNZRPG.ammoLight": "Light",
+    "ZNZRPG.ammoMedium": "Medium",
+    "ZNZRPG.ammoHeavy": "Heavy",
+    "ZNZRPG.ammoWeightLight": "Light Ammo Bulk Per",
+    "ZNZRPG.ammoWeightMedium": "Medium Ammo Bulk Per",
+    "ZNZRPG.ammoWeightHeavy": "Heavy Ammo Bulk Per"
 }

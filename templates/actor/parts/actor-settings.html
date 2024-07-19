@@ -29,5 +29,10 @@
             {{> field label=penalty.label name=(concat "data.config.penalty.intervals." key ".value") value=penalty.value}}
         {{/each}}
     </div>
-
+    <h2>Weight</h2>
+    <div class="settings-group">
+        {{#each data.config.ammoWeight as |weight key|}}
+            {{> field label=weight.label name=(concat "data.config.cost." key ".value") value=weight.value}}
+        {{/each}}
+    </div>
 </div>

@@ -144,7 +144,7 @@
             <strong>{{localize "ZNZRPG.ammoLabel"}}</strong>: {{card.system.ammo.current}} / {{card.system.ammo.max}}
         </div>
         <div  class="card-details-item" data-tooltip="{{card.system.rangeInfo}}">
-            <strong>{{localize "ZNZRPG.rangeLabel"}}</strong>: <span class="range-output">{{capitalize card.system.rangeInfo}}</span>
+            <strong>{{localize "ZNZRPG.ammoTypeLabel"}}</strong>: <span class="ammotext {{card.system.ammoType}}">{{firstLetter card.system.ammoType}}</span>
         </div>
     </div>
     {{> actionRow}}

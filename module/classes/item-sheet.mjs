@@ -43,8 +43,20 @@ export class ZnZItemSheet extends ItemSheet {
         context.data = itemData.system;
         context.flags = itemData.flags;
 
-        context.ActorAttributes = game.model.Actor.character.attributes;
+
+        context.ActorAttributes = {};
+        context.AmmoTypes = {};
+
+        for (let attr in game.model.Actor.character.attributes){
+            context.ActorAttributes[attr] = game.model.Actor.character.attributes[attr].label;
+        }
+
+        for (let ammo in game.model.Actor.character.ammoStore){
+            context.AmmoTypes[ammo] = ammo.charAt(0).toUpperCase() + ammo.slice(1);
+        }
         return context;
+
+        this.object.migrateSystemData();
     }
     
     /* -------------------------------------------- */

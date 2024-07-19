@@ -180,6 +180,7 @@
         .card-details-item {
             flex-basis: 1 1 50%;
             box-sizing: border-box;
+            margin-bottom: 2px;
 
             .range-output {
                 overflow: hidden;
@@ -187,6 +188,27 @@
                 width: 30px;
                 display:inline-block;
                 vertical-align: bottom;
+            }
+
+            .ammotext {
+                background-color: black;
+                color: white;
+                padding: 1px 3px;
+                font-weight: 700;
+                display: inline-block;
+                margin-top: -1px;
+
+                &.light {
+                    background-color: darkgreen;  
+                }
+
+                &.medium {
+                    background-color: darkblue;  
+                }
+
+                &.heavy {
+                    background-color: darkred;  
+                }
             }
         }
     }
