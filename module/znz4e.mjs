@@ -170,15 +170,13 @@ async function createZMacro(data, slot){
 	if (data.type !== "zmacro") return;
 	let item = findItem(data.itemId);
 
-	
-	
 	let img = item ? item.img : "icons/svg/book.svg";
 	let itemName = item ? item.name : "";
 
 	data.name = data.name.replace(/\$/g, itemName)
 
 	const command = `game.znz4e.runCommand("${data.command}", "${data.actorId ?? ''}", "${data.itemId ?? ''}")`;
-	let macro = game.macros.contents.find(m => m.name === data.name && m.data.command === command);
+	let macro = game.macros.contents.find(m => m.name === data.name && m.data && m.data.command === command);
 	if (macro) return macro;
 	
 	macro = await Macro.create({

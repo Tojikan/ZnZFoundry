@@ -24,6 +24,19 @@ export class ResourceCommand extends CommandAction {
             }
         }
 
+        let restoreMsg = "";
+        for (let key in restores){
+            let verb = "Gain";
+
+            if (restores[key] < 0){
+                verb = "Lose";
+            }
+
+            restoreMsg += `<div>${verb} ${Math.abs(restores[key])} ${key.charAt(0).toUpperCase() + key.slice(1)}</div> `;
+        }
+
+        let msg = "";
+
 
         if (this.hasItem){
             if (this.item.system.hasUses){
@@ -36,16 +49,20 @@ export class ResourceCommand extends CommandAction {
                     sendGreenMessage(`No uses left for <strong>${this.item.name}</strong>`, true, this.actor);
                     return false;
                 } else if (result == 2){
-                    sendGreenMessage(`Using <strong>${this.item.name}</strong>. <strong>${this.item.name}</strong> has no more uses!`, false, this.actor);
+                    msg += `Using <strong>${this.item.name}</strong>. <strong>${this.item.name}</strong> has no more uses left!`
                 } else {
-                    sendGreenMessage(`Using <strong>${this.item.name}</strong>`, false, this.actor);
+                    msg += `Using <strong>${this.item.name}</strong>.`;
                 }
             } else {
                 this.itemWrapper.consumeItem();
-                sendGreenMessage(`Using <strong>${this.item.name}</strong> and discarding!`, false, this.actor);
+                msg += `Using <strong>${this.item.name}</strong> and discarding!`;
             }
         }
 
+        msg += "<br/>";
+        msg += restoreMsg;
+
+        sendGreenMessage(msg, false, this.actor);
         this.characterWrapper.addResources(restores);
 
         return true;

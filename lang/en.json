@@ -85,6 +85,7 @@
     "ZNZRPG.deleteItem": "Delete Item",
     "ZNZRPG.inventoryEquip": "Equip Item",
     "ZNZRPG.inventoryUnequip": "Unequip Item",
+    "ZNZRPG.copyItem": "Copy Item",
     
     "ZNZRPG.skillLabel": "Skills",
     "ZNZRPG.skillEdit": "Edit Skill",

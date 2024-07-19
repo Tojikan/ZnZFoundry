@@ -65,6 +65,13 @@ export class ZnZItemSheet extends ItemSheet {
             }
         });
 
+        html.find('.item-sheet-copy').click(ev => {
+            let cloned = this.object.clone();
+
+            Item.create(cloned, {parent: cloned.actor});
+        });
+
+
         html.find('.item-sheet-action-add').click(ev =>{
             let actions = this.document.system.actions;
 

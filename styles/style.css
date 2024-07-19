@@ -97,6 +97,12 @@ aside#tooltip ul {
   .znz4e.sheet .item-sheet .custom-actions .custom-action-row .custom-action-delete {
     flex-basis: 10%; }
 
+.znz4e.sheet .item-sheet .control-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center; }
+
 .znz4e {
   /*** Tool Tip ****/
   /*** Single value display ***/
@@ -226,6 +232,18 @@ aside#tooltip ul {
     transition: background-color 0.3s; }
     .znz4e .btn-red:hover {
       background-color: #3f0000; }
+  .znz4e .btn-green {
+    background-color: green;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s; }
+    .znz4e .btn-green:hover {
+      background-color: #006400; }
   .znz4e .flex-row {
     display: flex; }
 

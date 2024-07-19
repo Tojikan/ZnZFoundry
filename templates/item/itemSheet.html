@@ -340,9 +340,12 @@
         </div>
         {{> (concat (lookup (lookup this "document") "type") "_footer")}}
 
-        <div class="item-body-section">
+        <div class="item-body-section control-row">
             <a class="item-control item-sheet-delete btn-red" title="{{localize "ZNZRPG.deleteItem"}}">
                 Delete Item
+            </a>
+            <a class="item-control item-sheet-copy btn-green" title="{{localize "ZNZRPG.copyItem"}}">
+                Copy Item
             </a>
         </div>
     </section>
