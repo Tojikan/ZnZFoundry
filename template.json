@@ -124,6 +124,11 @@
 					"label": "ZNZRPG.baseDiceFace",
 					"hint": "ZNZRPG.baseDiceFaceHint"
 				},
+				"adrenalineBonus": {
+					"value": 2,
+					"label": "ZNZRPG.adrenalineBonus",
+					"hint": "ZNZRPG.adrenalineBonusHint"
+				},
 				"maxDamageReduction":{
 					"value": 60,
 					"label": "ZNZRPG.maxDamageReduction"
@@ -259,7 +264,7 @@
 					"label": "ZNZRPG.damageLabel"
 				},
 				"durabilityPerAttack": {
-					"value": 4,
+					"value": 5,
 					"label": "ZNZRPG.itemDurabilityPerAttack"
 				}
 			},

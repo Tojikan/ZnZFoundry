@@ -64,24 +64,41 @@ export class CharacterWrapper {
         //Calculate Roll Formula
         let numOfDice = this.actor.system.attributes[attr].value;
         let baseDiceFace = this.actor.calculated.calculatedDiceFace;
-        let diceFace = baseDiceFace + diceFaceBonus;
+
+        //Check adrenaline rush
+        let isAdrenaline = false;
+        let adrenalineBonus = 0;
+        for (let effect of this.actor.effects){
+            if (effect.name == "toggleAdrenaline" && !effect.disabled){
+                adrenalineBonus = this.actor.system.config.adrenalineBonus.value;
+                baseDiceFace = this.actor.system.config.baseDiceFace.value;
+                isAdrenaline = true;
+            }
+        }
+
+
+        let diceFace = baseDiceFace + diceFaceBonus + adrenalineBonus;
         diceFace = Math.max(diceFace, 1);
         let formula = `${numOfDice}d${diceFace}`;
         
         // Roll Text
         let attribute = this.actor.system.attributes[attr];
         let attrLabel = game.i18n.localize(attribute.label);
-        let rollText = `Rolling ${attrLabel} (${numOfDice})`
+        let rollText = `Rolling ${attrLabel} (${numOfDice}) with dice (d${baseDiceFace})`;
         if (skill) {
-            rollText += ` against ${skill.name} skill  (${diceFaceBonus >= 0 ? '+' : '-'}${diceFaceBonus} Bonus)`
+            rollText += ` with ${skill.name} skill bonus  (${diceFaceBonus >= 0 ? '+' : '-'}${diceFaceBonus} )`
         }
+        if (isAdrenaline){
+            rollText += ` with Adrenaline bonus (+${this.actor.system.config.adrenalineBonus.value})`
+        }
+
+
+
 
         //Calculate Roll
         const rollData = this.actor.getRollData();
         let roll = new Roll(formula, rollData);
-        let rollResult = await roll.roll({
-            async:true
-        });
+        let rollResult = await roll.roll();
         let tooltip = await roll.getTooltip();
         
         //Data to pass to template
@@ -94,7 +111,8 @@ export class CharacterWrapper {
             actionName: actionName,
             flavor: rollText,
             healthSpend: spend == 0,
-            bonus: diceFaceBonus
+            freeRoll: spend == 2,
+            isAdrenaline: isAdrenaline
         };
 
 
@@ -162,6 +180,13 @@ export class CharacterWrapper {
         if (health <= 0){
             ui.notifications.error(game.i18n.localize("ZNZRPG.yourCharacterIsDead"));
             return -1;
+        }
+
+        for (let effect of this.actor.effects){
+            //No spend on free rolls.
+            if(effect.name == "toggleFreeRolls" && !effect.disabled){
+                return 2;
+            }
         }
 
         let staCost = this.actor.calculated.satietyCost;

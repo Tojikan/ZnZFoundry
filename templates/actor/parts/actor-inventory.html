@@ -40,7 +40,7 @@
                 </h2>
             </div>
         </div>
-        <div class="inventory-items items-container {{#unless toggleEffects.toggleCombatCardGrd}}fixed-width{{/unless}}">
+        <div class="inventory-items items-container {{#unless toggleEffects.toggleInventoryCardGrd}}fixed-width{{/unless}}">
             {{#each inventory as |equip id|}}
                 {{> item-card card=equip isInventory=true}}
             {{/each}}

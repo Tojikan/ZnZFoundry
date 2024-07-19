@@ -1,0 +1,47 @@
+{{#*inline "commandBtn"}}
+    <div class="command-btn">
+        <button class="character-action-button rollable" draggable 
+        {{#if command}}
+            data-command="{{command}}"
+        {{/if}}
+        {{#if macroName}}
+            data-zmacro="{{macroName}}"
+            draggable
+        {{/if}}
+        >
+            {{name}}
+        </button>
+    </div>
+{{/inline}}
+
+{{#*inline "toggleBtn"}}
+    <div class="command-btn"
+        {{#if tooltip}}
+            data-tooltip="{{tooltip}}"
+        {{/if}}
+    
+    >
+        <button class="character-toggle-button toggle-effect
+        {{#if toggleCondition}}
+            active
+        {{/if}}
+        " draggable 
+            data-effect="{{toggleEffect}}"
+        >
+            {{#if toggleCondition}}
+                {{untoggleText}}
+            {{else}}
+                {{toggleText}}
+            {{/if}}
+        </button>
+    </div>
+{{/inline}}
+
+
+
+<div class="character-commands">
+    {{> commandBtn name="Spend Resources" command="spend" zmacro="Resources" }}
+    {{> commandBtn name="Unspend Resources" command="spend:undo" zmacro="Unspend Resources" }}
+    {{> toggleBtn toggleText="Turn on Free Rolls" untoggleText="Turn off Free Rolls" toggleEffect="toggleFreeRolls" toggleCondition=toggleEffects.toggleFreeRolls tooltip="Free Rolls will allow you to roll without spending resources."}}
+    {{> toggleBtn toggleText="Turn on Adrenaline" untoggleText="Turn off Adrenaline" toggleEffect="toggleAdrenaline" toggleCondition=toggleEffects.toggleAdrenaline tooltip="Adrenaline gives you a diceface bonus and rolls do not have any exhaustion penalties."}}
+</div>

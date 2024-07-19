@@ -1,0 +1,44 @@
+.character-commands {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    flex-wrap: nowrap;
+    margin-top: 6px;
+
+    .command-btn {
+        button {
+            font-size: 11px;
+            padding: 3px 6px;
+            border: none;
+            line-height: 11px;
+        }
+    }
+}
+
+.character-action-button {
+    color: white;
+    background-color: red;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+
+.character-toggle-button {
+    color: white;
+    background-color: green;
+
+    &:hover {
+        background-color: darkgreen;
+    }
+
+    &.active {
+        background-color: purple;
+
+        &:hover {
+            background-color: darkpurple;
+        }
+    }
+}

@@ -5,6 +5,12 @@
     {{#if healthSpend}}
         <div style="color:red">{{actor}} is spending health to perform this action!</div>
     {{/if}}
+    {{#if freeRoll}}
+        <div style="color:green">Free Roll: No resource cost</div>
+    {{/if}}
+    {{#if isAdrenaline}}
+        <div style="color:green">Adrenaline: Diceface Bonus & No Penalties!</div>
+    {{/if}}
 
     <br/>
     <div class="dice-roll">

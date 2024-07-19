@@ -133,6 +133,8 @@
     "ZNZRPG.durabilityPerReduce": "Durability Per Dmg Reduce",
     "ZNZRPG.equipSlotsHint": "Number of items you can equip<br/> Wearables can add additional slots.<br/> Action costs increase if you carry too much.",
     "ZNZRPG.maxDamageReduction": "Max Damage Reduction",
+    "ZNZRPG.adrenalineBonus": "Adrenaline Dice Bonus",
+    "ZNZRPG.adrenalineBonusHint": "This is the number to add to your dice face when Adrenaline is active.",
 
 
     "ZNZRPG.item": "Item",
@@ -145,7 +147,7 @@
     "ZNZRPG.actionDelete": "Delete Action",
 
     "ZNZRPG.tabCombat": "Equipped",
-    "ZNZRPG.tabInventory": "Backpack",
+    "ZNZRPG.tabInventory": "Inventory",
     "ZNZRPG.tabTraits": "Skills",
     "ZNZRPG.tabNotes": "Notes",
     
