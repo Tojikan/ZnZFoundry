@@ -1,46 +1,45 @@
 <section class="abilities item-listing">
-    <div class="section-heading">
-        <h2>{{localize 'ZNZRPG.skillLabel'}}</h2>
-        <div class="add-item">
-            <h2>
-                <a class="item-control item-create" title="{{localize 'ZNZRPG.addLabel'}}" data-type="skill"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
-            </h2>
-        </div>
-    </div>
+    <div class="tab-container">
 
-    {{#if skills.length}}
-        <div class="items-container">
-            {{#each skills as |equip id|}}
-                {{> item-card card=equip isInventory=true}}
-            {{/each}}
-        </div>
-    {{else}}
-        <div class="section-spacer">
-            <p>{{localize 'ZNZRPG.noSkills'}}</p>
-        </div>
-    {{/if}}
+        <div class="item-controls">
+            <div class="toggle-effect toggle-grid-btn effect-btn" data-effect="toggleTraitCardGrd">
+                {{#if toggleEffects.toggleTraitCardGrd}}
+                    Show as Single Row 
+                {{else}}
+                    Show as Grid
+                {{/if}}
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="all" data-filter-target="traits-container">All</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="skill" data-filter-target="traits-container">Skill</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="flaw" data-filter-target="traits-container">Flaw</button>
+            </div>
 
+        </div>
 
+        <div class="section-heading">
+            <h2>{{localize 'ZNZRPG.traitLabel'}}</h2>
+            <div class="add-item">
+                <h2>
+                    <a class="item-control item-create" title="{{localize 'ZNZRPG.addLabel'}}" data-type="trait"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
+                </h2>
+            </div>
+        </div>
     
-    <div class="section-heading spaced">
-        <h2>{{localize 'ZNZRPG.flawLabel'}}</h2>
-        <div class="add-item">
-            <h2>
-                <a class="item-control item-create" title="{{localize 'ZNZRPG.addLabel'}}" data-type="flaw"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
-            </h2>
-        </div>
+        {{#if traits.length}}
+            <div class="items-container traits-container {{#unless toggleEffects.toggleTraitCardGrd}}fixed-width{{/unless}}"">
+                {{#each traits as |equip id|}}
+                    {{> item-card card=equip isInventory=true}}
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="section-spacer">
+                <p>{{localize 'ZNZRPG.noSkills'}}</p>
+            </div>
+        {{/if}}
     </div>
-
-    {{#if flaws.length}}
-        <div class="items-container">
-            {{#each flaws as |equip id|}}
-                {{> item-card card=equip isInventory=true}}
-            {{/each}}
-        </div>
-    {{else}}
-        <div class="section-spacer">
-            <p>{{localize 'ZNZRPG.noFlaws'}}</p>
-        </div>
-    {{/if}}
-
 </section>

@@ -6,7 +6,7 @@ export class ZnZItemSheet extends ItemSheet {
     
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["znz4e", "sheet", "item"],
             width: 520,
             height: 480
@@ -43,7 +43,7 @@ export class ZnZItemSheet extends ItemSheet {
         context.data = itemData.system;
         context.flags = itemData.flags;
 
-        context.ActorAttributes = game.template.Actor.character.attributes;
+        context.ActorAttributes = game.model.Actor.character.attributes;
         return context;
     }
     

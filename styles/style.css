@@ -357,28 +357,30 @@ aside#tooltip ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px; }
+  margin: 7px 12px; }
   .znz4e .section-heading.spaced {
     margin-top: 30px; }
+  .znz4e .section-heading .minmax-value-display {
+    font-size: 18px; }
 
 .znz4e .section-spacer {
   height: 80px; }
 
-.znz4e .combat-controls {
+.znz4e .item-controls {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
-  margin-bottom: 20px; }
+  font-size: 18px; }
 
-.znz4e .combat-container {
+.znz4e .tab-container {
   margin: 10px 0; }
 
 .znz4e .slot-listing {
   display: flex;
   justify-content: space-between;
-  width: 220px;
+  align-items: center;
+  width: 250px;
   margin-right: 20px; }
   .znz4e .slot-listing .over-equipped {
     color: red; }
@@ -394,8 +396,7 @@ aside#tooltip ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
-  margin-bottom: 15px; }
+  flex-wrap: nowrap; }
   .znz4e .inventory-listing .bulk-listing {
     flex-basis: 50%; }
     .znz4e .inventory-listing .bulk-listing h2 {
@@ -438,7 +439,7 @@ aside#tooltip ul {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease; }
   .znz-card.inventory-equipped {
-    box-shadow: 0 0 4px 2px rgba(255, 0, 0, 0.8); }
+    box-shadow: 0 0 10px 6px rgba(255, 0, 0, 0.8); }
   .znz-card .card-header {
     width: 100%; }
     .znz-card .card-header .card-title {
@@ -597,8 +598,8 @@ aside#tooltip ul {
 
 .items-container {
   display: flex;
-  column-gap: 5px;
-  row-gap: 5px;
+  column-gap: 10px;
+  row-gap: 10px;
   flex-wrap: wrap; }
   .items-container .znz-card {
     width: 250px;

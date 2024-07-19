@@ -1,22 +1,49 @@
 <section class="inventory item-listing">
-    <div class="inventory-listing">
-        <div class="bulk-listing flexrow">
-            <h2>
-                Total Bulk Carried
-                <div>
-                    {{carriedWeight}}
-                </div>
-            </h2>
+    <div class="tab-container">
+        <div class="item-controls">
+            <div class="toggle-effect toggle-grid-btn effect-btn" data-effect="toggleInventoryCardGrd">
+                {{#if toggleEffects.toggleInventoryCardGrd}}
+                    Show as Single Row 
+                {{else}}
+                    Show as Grid
+                {{/if}}
+            </div>
+
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="all" data-filter-target="inventory-items">All</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="equipment" data-filter-target="inventory-items">Equipment</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="weapon" data-filter-target="inventory-items">Weapon</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="consumable" data-filter-target="inventory-items">Consumable</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="wearable" data-filter-target="inventory-items">Wearable</button>
+            </div>
         </div>
-        <div class="add-item">
-            <h2>
-                <a class="item-control item-create" title="{{localize 'ZNZRPG.addLabel'}}" data-type="inventory"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
-            </h2>
+        <div class="inventory-listing section-heading">
+            <div class="bulk-listing flexrow">
+                <h2>
+                    Total Bulk Carried
+                    <div>
+                        {{carriedWeight}}
+                    </div>
+                </h2>
+            </div>
+            <div class="add-item">
+                <h2>
+                    <a class="item-control item-create" title="{{localize 'ZNZRPG.addLabel'}}" data-type="inventory"><i class="fas fa-plus"></i> {{localize 'ZNZRPG.addLabel'}}</a>
+                </h2>
+            </div>
         </div>
-    </div>
-    <div class="items-container">
-        {{#each inventory as |equip id|}}
-            {{> item-card card=equip isInventory=true}}
-        {{/each}}
+        <div class="inventory-items items-container {{#unless toggleEffects.toggleCombatCardGrd}}fixed-width{{/unless}}">
+            {{#each inventory as |equip id|}}
+                {{> item-card card=equip isInventory=true}}
+            {{/each}}
+        </div>
     </div>
 </section>

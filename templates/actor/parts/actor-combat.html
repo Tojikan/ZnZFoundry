@@ -1,49 +1,53 @@
 <section class="combat-tab">
-    <div class="combat-container">
-        <div class="toggle-effect effect-btn" data-effect="toggleCardGrd">
-            {{#if toggleEffects.toggleCardGrd}}
-                Show as Single Row 
-            {{else}}
-                Show as Grid
-            {{/if}}
+    <div class="tab-container">
+        <div class="item-controls">
+            <div class="toggle-effect effect-btn" data-effect="toggleCombatCardGrd">
+                {{#if toggleEffects.toggleCombatCardGrd}}
+                    Show as Single Row 
+                {{else}}
+                    Show as Grid
+                {{/if}}
+            </div>
+
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="all" data-filter-target="combat-items">All</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="equipment" data-filter-target="combat-items">Equipment</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="weapon" data-filter-target="combat-items">Weapon</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="consumable" data-filter-target="combat-items">Consumable</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="wearable" data-filter-target="combat-items">Wearable</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="trait" data-filter-target="combat-items">Traits</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="skill" data-filter-target="combat-items">Skill</button>
+            </div>
+            <div class="equipment-filter">
+                <button type="button" class="filter-button" data-filter="flaw" data-filter-target="combat-items">Flaw</button>
+            </div>
+
         </div>
-        <div class="combat-controls">
+        <div class="section-heading">
             <div class="slot-listing">
-                <div class="has-tooltip" data-tooltip="{{localize 'ZNZRPG.equipSlotsHint'}}">Equipment Slots</div>
+                <h2 data-tooltip="{{localize 'ZNZRPG.equipSlotsHint'}}">Equipment Slots</h2>
                 <div class="minmax-value-display">
                     <div {{#if overEquipped}}class="over-equipped"{{/if}}>{{equippedItemCount}}</div>
                     <span class="divider">&nbsp;/&nbsp;</span>
                     <div {{#if overEquipped}}class="over-equipped"{{/if}}>{{totalSlots}}</div>
                 </div>
             </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="all">All</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="equipment">Equipment</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="weapon">Weapon</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="consumable">Consumable</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="wearable">Wearable</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="trait">Traits</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="skill">Skill</button>
-            </div>
-            <div class="equipment-filter">
-                <button type="button" class="filter-button" data-filter="flaw">Flaw</button>
-            </div>
         </div>
 
         {{#if hasEquippedItems}}
-            <div class="items-container {{#unless toggleEffects.toggleCardGrd}}fixed-width{{/unless}}">
+            <div class="combat-items items-container {{#unless toggleEffects.toggleCombatCardGrd}}fixed-width{{/unless}}">
                 {{#each equippedItems as |equip id|}}
                     {{> item-card card=equip}}
                 {{/each}}

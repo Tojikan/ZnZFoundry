@@ -6,7 +6,7 @@ export class ZnZActorSheet extends ActorSheet {
     
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["znz4e", "sheet", "actor"],
             template: "systems/znz4e/templates/actor/actor-sheet.html",
             width: 800,
@@ -96,9 +96,15 @@ export class ZnZActorSheet extends ActorSheet {
 
         html.find('.filter-button').click(ev => {
             const filter = $(ev.currentTarget).data("filter");
-            const items = html.find('.znz-card.item');
+            let filterTarget = $(ev.currentTarget).data("filter-target") ?? "";
 
-            $('.filter-button').removeClass('active');
+            if (filterTarget.length){
+                filterTarget = '.' + filterTarget;
+            }
+
+            const items = html.find(filterTarget + ' .znz-card.item');
+
+            $(ev.currentTarget).parent('.equipment-filter').siblings('.equipment-filter').find('.filter-button').removeClass('active');
             $(ev.currentTarget).addClass('active');
 
             if (filter === 'all'){
@@ -153,6 +159,8 @@ export class ZnZActorSheet extends ActorSheet {
 
             if (type === 'inventory'){
                 this._createInventoryItem(this);
+            } else if (type === 'trait'){
+                this._createTraitItem(this);
             } else {
                 this._createItem(type);
             }
@@ -246,6 +254,31 @@ export class ZnZActorSheet extends ActorSheet {
         }
         ActorSheetHelper.SheetPrepareItems(context);
         ActorSheetHelper.SheetPrepareEffects(context);
+    }
+
+    _createTraitItem(){
+        let sheet = this;
+
+        let d = new Dialog({
+            title: "Create New Trait",
+            content: "<p>Select Trait Type.</p>",
+            buttons: {
+                one: {
+                    label: "Skill",
+                    callback: () => {
+                        sheet._createItem("skill");
+                    }
+                },
+                two: {
+                    label: "Flaw",
+                    callback: () => {
+                        sheet._createItem("flaw");
+                    }
+                }
+            },
+            default: "one",
+        });
+        d.render(true);
     }
     
     

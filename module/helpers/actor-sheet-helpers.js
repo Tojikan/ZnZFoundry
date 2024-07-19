@@ -5,8 +5,7 @@ export class ActorSheetHelper {
     static SheetPrepareItems(context){
         const inventory = [];
         const equippedItems = [];
-        const skills = [];
-        const flaws = [];
+        const traits = [];
 
         for (let itm of context.items){
             itm.img = itm.img || DEFAULT_TOKEN;
@@ -18,11 +17,8 @@ export class ActorSheetHelper {
                 itm.equippable = true;
             }
 
-            if (itm.type === "skill"){
-                skills.push(itm);
-                
-            } else if (itm.type === "flaw"){
-                flaws.push(itm);
+            if (itm.type === "skill" || itm.type === "flaw"){
+                traits.push(itm);
             } else {
                 inventory.push(itm);
             }
@@ -31,12 +27,11 @@ export class ActorSheetHelper {
                 equippedItems.push(itm);
             }
         }
-        
-        context.skills = skills;
-        context.flaws = flaws;
+
+        context.traits = traits;
         context.inventory = inventory;
         context.equippedItems = equippedItems;
-        context.hasEquippedItems = equippedItems.length > 0 || flaws.length > 0 || skills.length > 0;
+        context.hasEquippedItems = equippedItems.length > 0;
     }
 
     static SheetPrepareEffects(context){
@@ -44,8 +39,8 @@ export class ActorSheetHelper {
         let toggleEffects = {};
 
         for (let effect of context.effects){
-            if (effect.label.startsWith('toggle')) {
-                toggleEffects[effect.label] = effect.disabled ? false : true;
+            if (effect.name.startsWith('toggle')) {
+                toggleEffects[effect.name] = effect.disabled ? false : true;
             }
         }
 

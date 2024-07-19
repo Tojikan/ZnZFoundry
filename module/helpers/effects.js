@@ -5,7 +5,7 @@ export function manageToggleEffect(event, owner){
     const effectName = $toggle.data("effect");
 
     for (let effect of owner.effects){
-        if (effect.label === effectName){
+        if (effect.name === effectName){
             effect.update({disabled: !effect.disabled});
             return;
         }
