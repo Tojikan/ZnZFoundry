@@ -29,6 +29,12 @@
             {{> field label=penalty.label name=(concat "data.config.penalty.intervals." key ".value") value=penalty.value}}
         {{/each}}
     </div>
+    <h2>Rest</h2>
+    <div class="settings-group">
+        {{> field label=data.config.energyPerShortRestHour.label name="system.config.energyPerShortRestHour.value" value=data.config.energyPerShortRestHour.value}}
+        {{> field label=data.config.energyPerLongRestHour.label name="system.config.energyPerLongRestHour.value" value=data.config.energyPerLongRestHour.value}}
+        {{> field label=data.config.hoursForLongRest.label name="system.config.hoursForLongRest.value" value=data.config.hoursForLongRest.value}}
+    </div>
     <h2>Weight</h2>
     <div class="settings-group">
         {{#each data.config.ammoWeight as |weight key|}}

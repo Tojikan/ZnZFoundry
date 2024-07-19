@@ -80,7 +80,7 @@ export class CharacterWrapper {
         }
 
 
-        let diceFace = baseDiceFace + diceFaceBonus + adrenalineBonus;
+        let diceFace = parseInt(baseDiceFace + diceFaceBonus + adrenalineBonus);
         diceFace = Math.max(diceFace, 1);
         let formula = `${numOfDice}d${diceFace}`;
         

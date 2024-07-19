@@ -210,5 +210,9 @@
     "ZNZRPG.ammoHeavy": "Heavy",
     "ZNZRPG.ammoWeightLight": "Light Ammo Bulk Per",
     "ZNZRPG.ammoWeightMedium": "Medium Ammo Bulk Per",
-    "ZNZRPG.ammoWeightHeavy": "Heavy Ammo Bulk Per"
+    "ZNZRPG.ammoWeightHeavy": "Heavy Ammo Bulk Per",
+
+    "ZNZRPG.energyPerShortRestHour": "Energy Per Hour of Short Rest",
+    "ZNZRPG.energyPerLongRestHour": "Energy Per Hour of Long Rest", 
+    "ZNZRPG.hoursForLongRest": "Hours to Reach Long Rest"
 }

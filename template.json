@@ -147,6 +147,18 @@
 					"value": 60,
 					"label": "ZNZRPG.maxDamageReduction"
 				},
+				"energyPerShortRestHour":{
+					"value": 6,
+					"label": "ZNZRPG.energyPerShortRestHour"
+				},
+				"energyPerLongRestHour":{
+					"value": 10,
+					"label": "ZNZRPG.energyPerLongRestHour"
+				},
+				"hoursForLongRest":{
+					"value": 7,
+					"label": "ZNZRPG.hoursForLongRest"
+				},
 				"ammoWeight": {
 					"light": {
 						"value": 0.5,
