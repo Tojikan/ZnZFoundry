@@ -3,6 +3,7 @@ import { UseCommand } from "./use.js";
 import { ReloadCommand } from "./reload.js";
 import { ResourceCommand } from "./resource.js";
 import { findItem } from "../helpers/common.js";
+import { SpendCommand } from "./spend.js";
 
 
 
@@ -11,7 +12,8 @@ export class CommandInterpreter {
         BasicRollCommand,
         UseCommand,
         ReloadCommand,
-        ResourceCommand
+        ResourceCommand,
+        SpendCommand
     ];
 
     constructor(command, actor, item){
@@ -68,11 +70,18 @@ export class CommandInterpreter {
                 return;
             }
 
+            let found = false;
+
             for (let Comm of this.commandList){
                 if (Comm.getName() == p.command){
                     let commandAct = new Comm(p.command, p.args, this.actor, this.item);
                     prevResult = commandAct.execute();
+                    found = true;
                 }
+            }
+
+            if (!found){
+                console.log("Command not found: " + p.command);
             }
         }
     }

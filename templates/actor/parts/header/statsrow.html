@@ -18,7 +18,7 @@
 
 <div class="flexrow character-stats">
     <div class="resources-section flexcol stat-section">
-        {{> resource-meter resource=data.health key="health" }}
+        {{> resource-meter resource=data.health key="health" cost=healthCost }}
         {{> resource-meter resource=data.morale key="morale" cost=moraleCost}}
         {{> resource-meter resource=data.energy key="energy" cost=energyCost}}
         {{> resource-meter resource=data.satiety key="satiety" cost=satietyCost}}

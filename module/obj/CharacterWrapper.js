@@ -1,6 +1,9 @@
 /**
  * Functionality involving Characters
  */
+import { sendRedMessage } from "../helpers/messageHelper.js";
+
+
 export class CharacterWrapper {
     constructor(actor){
         this.actor = actor;
@@ -174,17 +177,18 @@ export class CharacterWrapper {
     
     }
 
-    spendResources(){
+    spendResources(force = false){
         let health = this.actor.system.health.value;
 
         if (health <= 0){
             ui.notifications.error(game.i18n.localize("ZNZRPG.yourCharacterIsDead"));
+            sendRedMessage(`${this.actor.name} is dead!`, this.actor);
             return -1;
         }
 
         for (let effect of this.actor.effects){
             //No spend on free rolls.
-            if(effect.name == "toggleFreeRolls" && !effect.disabled){
+            if(!force && effect.name == "toggleFreeRolls" && !effect.disabled){
                 return 2;
             }
         }
@@ -192,23 +196,11 @@ export class CharacterWrapper {
         let staCost = this.actor.calculated.satietyCost;
         let energyCost = this.actor.calculated.energyCost;
         let moraleCost = this.actor.calculated.moraleCost;
+        let healthCost = this.actor.calculated.healthCost;
         
         let sta = this.actor.system.satiety.value;
         let energy = this.actor.system.energy.value;
         let mor = this.actor.system.morale.value;
-    
-        
-        //Spend health if we don't have enough of any resource
-        let healthCost = 0;
-        if (sta < staCost){
-            healthCost += staCost - sta;
-        }
-        if (energy < energyCost){
-            healthCost += energyCost - energy;
-        }
-        if (mor < moraleCost){
-            healthCost += moraleCost - mor;
-        }
 
         //Calculate new resource values and update
         let newSatiety = Math.max(sta - staCost, 0);
@@ -315,6 +307,11 @@ export class CharacterWrapper {
         let newEnergy = Math.min(energy + vals.energy, this.actor.system.energy.max);
         let newMorale = Math.min(morale + vals.morale, this.actor.system.morale.max);
         let newHealth = Math.min(health + vals.health, this.actor.system.health.max);
+
+        newSatiety = Math.max(newSatiety, 0);
+        newEnergy = Math.max(newEnergy, 0);
+        newMorale = Math.max(newMorale, 0);
+        newHealth = Math.max(newHealth, 0);
 
         this.actor.update({
             "system.satiety.value": newSatiety,

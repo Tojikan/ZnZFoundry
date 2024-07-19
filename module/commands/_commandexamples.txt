@@ -3,3 +3,9 @@ basic:item=attack
 basic:item=defend
 basic:attr=str
 reloadfind
+resource:satiety=20
+resource:health=10,energy=5
+resource:health=15,energy=10,satiety=5,morale=5
+resource:health=-5,energy=5,satiety=5,morale=-10
+spend
+spend:undo

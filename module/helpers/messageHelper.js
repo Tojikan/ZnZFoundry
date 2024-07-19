@@ -9,3 +9,19 @@ export function sendGreenMessage(msg, isError, actor){
         content: `<div style='background-color:${color}'>${msg}</div>`,
     });
 }
+
+export function sendYellowMessage(msg, actor){
+    ChatMessage.create({
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker({ actor: actor }),
+        content: `<div style='background-color:#f7f9ab'>${msg}</div>`,
+    });
+}
+
+export function sendRedMessage(msg, actor){
+    ChatMessage.create({
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker({ actor: actor }),
+        content: `<div style='background-color:#ff9e9e'>${msg}</div>`,
+    });
+}

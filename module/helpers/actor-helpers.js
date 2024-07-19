@@ -52,9 +52,30 @@ export class CharacterHelper {
     
     static CalculateCost(context){
         const cost = context.system.config.cost;
+        context.calculated.healthCost = 0;
         context.calculated.satietyCost = NumberOrZero(cost.baseSatietyCost.value) + Math.floor(context.calculated.carriedWeight / cost.baseWeightPerActionCost.value);
         context.calculated.energyCost = NumberOrZero(cost.baseEnergyCost.value) + Math.floor(context.calculated.carriedWeight / cost.baseWeightPerActionCost.value);
         context.calculated.moraleCost = NumberOrZero(cost.baseMoraleCost.value);
+
+  
+        let staCost = context.calculated.satietyCost;
+        let energyCost = context.calculated.energyCost;
+        let moraleCost = context.calculated.moraleCost;
+        let sta = context.system.satiety.value;
+        let energy = context.system.energy.value;
+        let mor = context.system.morale.value;
+
+
+        //Spend health if we don't have enough of any resource
+        if (sta < staCost){
+            context.calculated.healthCost += staCost - sta;
+        }
+        if (energy < energyCost){
+            context.calculated.healthCost += energyCost - energy;
+        }
+        if (mor < moraleCost){
+            context.calculated.healthCost += moraleCost - mor;
+        }
     }
 
     static CalculateSlots(context){
