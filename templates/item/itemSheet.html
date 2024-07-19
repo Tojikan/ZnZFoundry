@@ -1,67 +1,67 @@
 {{#*inline "weight"}}
     <div class="field-row">
         <div class="row-label">{{localize data.weight.label}}</div>
-        <div class="row-input"><input type="number" name="data.weight.value" value="{{data.weight.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.weight.value" value="{{data.weight.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "durability"}}
     <div class="field-row">
         <div class="row-label">{{localize data.durability.label}}</div>
-        <div class="row-input"><input type="number" name="data.durability.value" value="{{data.durability.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.durability.value" value="{{data.durability.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "level"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.levelLabel"}}</div>
-        <div class="row-input"><input type="number" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.level.value" value="{{data.level.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "block"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.blockLabel"}}</div>
-        <div class="row-input"><input type="number" name="data.block.value" value="{{data.block.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.block.value" value="{{data.block.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "damage"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.damageLabel"}}</div>
-        <div class="row-input"><input type="number" name="data.damage.value" value="{{data.damage.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.damage.value" value="{{data.damage.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "durPerAttack"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerAttack"}}</div>
-        <div class="row-input"><input type="number" name="data.durabilityPerAttack.value" value="{{data.durabilityPerAttack.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.durabilityPerAttack.value" value="{{data.durabilityPerAttack.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "durPerBlock"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerBlock"}}</div>
-        <div class="row-input"><input type="number" name="data.durabilityPerBlock.value" value="{{data.durabilityPerBlock.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.durabilityPerBlock.value" value="{{data.durabilityPerBlock.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "durPerUse"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemDurabilityPerUse"}}</div>
-        <div class="row-input"><input type="number" name="data.durabilityPerUse.value" value="{{data.durabilityPerUse.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.durabilityPerUse.value" value="{{data.durabilityPerUse.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "weightPerUse"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemWeightPerUse"}}</div>
-        <div class="row-input"><input type="number" name="data.usesWeight.value" value="{{data.usesWeight.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.usesWeight.value" value="{{data.usesWeight.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#*inline "xpcost"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.xpCost"}}</div>
-        <div class="row-input"><input type="number" name="data.xpCost.value" value="{{data.xpCost.value}}" data-dtype="Number"/></div>
+        <div class="row-input"><input type="number" name="system.xpCost.value" value="{{data.xpCost.value}}" data-dtype="Number"/></div>
     </div>
 {{/inline}}
 {{#* inline "use-enable"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemHasUses"}}</div>
-        <div class="row-input"><input type="checkbox" name="data.hasUses" {{checked data.hasUses}}/></div>
+        <div class="row-input"><input type="checkbox" name="system.hasUses" {{checked data.hasUses}}/></div>
     </div>
 {{/inline}}
 
@@ -71,9 +71,9 @@
             <div class="row-label">{{localize "ZNZRPG.itemUses"}}</div>
             <div class="row-input">
                 <div class="minmax-value-display">
-                    <input type="number" name="data.uses.current" value="{{data.uses.current}}" data-dtype="Number"/>
+                    <input type="number" name="system.uses.current" value="{{data.uses.current}}" data-dtype="Number"/>
                     <span class="divider">/</span>
-                    <input type="number" name="data.uses.max" value="{{data.uses.max}}" data-dtype="Number"/>
+                    <input type="number" name="system.uses.max" value="{{data.uses.max}}" data-dtype="Number"/>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
 {{#*inline "rollable-enable"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemHasRoll"}}</div>
-        <div class="row-input"><input type="checkbox" name="data.rollable.hasRoll" {{checked data.rollable.hasRoll}}/></div>
+        <div class="row-input"><input type="checkbox" name="system.rollable.hasRoll" {{checked data.rollable.hasRoll}}/></div>
     </div>
 {{/inline}}
 
@@ -96,7 +96,7 @@
             <div class="row-label">{{localize "ZNZRPG.attributeUsedLabel"}}</div>
             <div class="row-input">
                 {{log data}}
-                <select class="field-select" name="data.rollable.attribute" >
+                <select class="field-select" name="system.rollable.attribute" >
                     {{#select data.rollable.attribute}}
                         {{#each ActorAttributes as |attr a|}}
                             <option value="{{a}}">{{localize attr.label}}</option>
@@ -107,7 +107,7 @@
         </div>
         <div class="field-row">
             <div class="row-label">{{localize "ZNZRPG.attributeBonusLabel"}}</div>
-            <div class="row-input"><input type="number" name="data.rollable.bonus" value="{{data.rollable.bonus}}" data-dtype="Number"/></div>
+            <div class="row-input"><input type="number" name="system.rollable.bonus" value="{{data.rollable.bonus}}" data-dtype="Number"/></div>
         </div>
     {{/if}}
 {{/inline}}
@@ -115,7 +115,7 @@
 {{#*inline "block-enable"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemHasBlock"}}</div>
-        <div class="row-input"><input type="checkbox" name="data.hasBlock" {{checked data.hasBlock}}/></div>
+        <div class="row-input"><input type="checkbox" name="system.hasBlock" {{checked data.hasBlock}}/></div>
     </div>
 {{/inline}}
 
@@ -133,7 +133,7 @@
 <div class="item-body-section">
     <h2>{{localize "ZNZRPG.attackRollLabel"}}</h2>
     <div class="actions">
-        <input type="text" name="data.attackRoll" value="{{data.attackRoll}}"/>
+        <input type="text" name="system.attackRoll" value="{{data.attackRoll}}"/>
     </div>
 </div>
 {{/inline}}
@@ -141,7 +141,7 @@
     <div class="item-body-section">
         <h2>{{localize "ZNZRPG.blockRollLabel"}}</h2>
         <div class="actions">
-            <input type="text" name="data.blockRoll" value="{{data.blockRoll}}"/>
+            <input type="text" name="system.blockRoll" value="{{data.blockRoll}}"/>
         </div>
     </div>
 {{/inline}}
@@ -150,7 +150,7 @@
         <div class="item-body-section">
             <h2>{{localize "ZNZRPG.useRollLabel"}}</h2>
             <div class="actions">
-                <input type="text" name="data.useRoll" value="{{data.useRoll}}"/>
+                <input type="text" name="system.useRoll" value="{{data.useRoll}}"/>
             </div>
         </div>
     {{/if}}
@@ -207,15 +207,15 @@
         <div class="row-label">{{localize "ZNZRPG.ammoLabel"}}</div>
         <div class="row-input">
             <div class="minmax-value-display">
-                <input type="number" name="data.ammo.current" value="{{data.ammo.current}}" data-dtype="Number"/>
+                <input type="number" name="system.ammo.current" value="{{data.ammo.current}}" data-dtype="Number"/>
                 <span class="divider">/</span>
-                <input type="number" name="data.ammo.max" value="{{data.ammo.max}}" data-dtype="Number"/>
+                <input type="number" name="system.ammo.max" value="{{data.ammo.max}}" data-dtype="Number"/>
             </div>
         </div>
     </div>
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.rangeLabel"}}</div>
-        <div class="row-input"><input type="text" name="data.rangeInfo" value="{{data.rangeInfo}}"/></div>
+        <div class="row-input"><input type="text" name="system.rangeInfo" value="{{data.rangeInfo}}"/></div>
     </div>
     {{> damage}}
     {{> block}}
@@ -228,7 +228,7 @@
     <!-- <div class="item-body-section">
         <h2>{{localize "ZNZRPG.reloadRollLabel"}}</h2>
         <div class="actions">
-            <input type="text" name="data.reloadRoll" value="{{data.reloadRoll}}"/>
+            <input type="text" name="system.reloadRoll" value="{{data.reloadRoll}}"/>
         </div>
     </div> -->
     {{> actions}}
@@ -249,15 +249,15 @@
 {{#*inline "wearable"}}
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemAddedSlots"}}</div>
-        <div class="row-input"><input type="text" name="data.equipslots.value" value="{{data.equipslots.value}}"/></div>
+        <div class="row-input"><input type="text" name="system.equipslots.value" value="{{data.equipslots.value}}"/></div>
     </div>
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.itemDamageReduction"}}</div>
-        <div class="row-input"><input type="text" name="data.damageReduction.value" value="{{data.damageReduction.value}}"/></div>
+        <div class="row-input"><input type="text" name="system.damageReduction.value" value="{{data.damageReduction.value}}"/></div>
     </div>
     <div class="field-row">
         <div class="row-label">{{localize "ZNZRPG.durabilityPerReduce"}}</div>
-        <div class="row-input"><input type="text" name="data.durabilityPerReduce.value" value="{{data.durabilityPerReduce.value}}"/></div>
+        <div class="row-input"><input type="text" name="system.durabilityPerReduce.value" value="{{data.durabilityPerReduce.value}}"/></div>
     </div>
     {{> blockoptions }}
     {{> uses }}
@@ -299,7 +299,7 @@
                     {{#if data.blockOptional}}{{> block-enable}}{{/if}}
                 </div>
                 <div class="item-subtype">
-                    Subtype: <input name="data.subtype" type="text" value="{{data.subtype}}" placeholder="Subtype"/>
+                    Subtype: <input name="system.subtype" type="text" value="{{data.subtype}}" placeholder="Subtype"/>
                 </div>
             </div>
             <div class="item-name">
@@ -329,7 +329,7 @@
         <div class="item-body-section">
             <h2>{{localize "ZNZRPG.flavorLabel"}}</h2>
             <div class="flavor">
-                <input type="text" name="data.flavor" value="{{data.flavor}}"/>
+                <input type="text" name="system.flavor" value="{{data.flavor}}"/>
             </div>
         </div>
         <div class="item-body-section">

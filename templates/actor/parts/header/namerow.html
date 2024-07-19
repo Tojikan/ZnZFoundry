@@ -25,7 +25,7 @@
             </h1>
         </div>
         <div class="status-input">
-            {{> single-number name="data.exp.value" value=data.exp.value label="ZNZRPG.experienceLabel" tooltip="ZNZRPG.experienceHint"}}
+            {{> single-number name="system.exp.value" value=data.exp.value label="ZNZRPG.experienceLabel" tooltip="ZNZRPG.experienceHint"}}
             {{> disabled value=carriedWeight label="ZNZRPG.carriedWeight" tooltip="ZNZRPG.carriedWeightHint" input1=data.config.cost.baseWeightPerActionCost.value}}
             <div {{#if isNegativeDiceFace}} class="is-red"{{/if}}>{{> disabled value=calculatedDiceFace label="ZNZRPG.diceFace" tooltip="ZNZRPG.diceFaceHint"
                 input1=calculatedPenaltyValues.health

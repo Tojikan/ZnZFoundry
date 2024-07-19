@@ -8,9 +8,9 @@
         </div>
         <meter id="{{key}}-meter" value="{{resource.value}}" min="1" max="{{resource.max}}"></meter>
         <div class="minmax-value-display">
-            <input type="number" name="data.{{key}}.value" value="{{resource.value}}" data-dtype="Number" step="1" min="1" max="10" />
+            <input type="number" name="system.{{key}}.value" value="{{resource.value}}" data-dtype="Number" step="1" min="1" max="10" />
             <span class="divider">&nbsp;/&nbsp;</span>
-            <input type="number" name="data.{{key}}.max" value="{{resource.max}}" data-dtype="Number" step="1" min="1" max="10" />
+            <input type="number" name="system.{{key}}.max" value="{{resource.max}}" data-dtype="Number" step="1" min="1" max="10" />
         </div>
     </div>
 {{/inline}}
@@ -32,7 +32,7 @@
                         {{localize key}}
                     </div>
                     <div class="attr-value">
-                        <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number" step="1" min="1" max="10" />
+                        <input type="text" name="system.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number" step="1" min="1" max="10" />
                     </div>
                     <div class="attr-under rollable" data-zmacro="{{localize attr.label}} Attribute Roll" data-command="basic:attr={{key}}|">
                         {{localize attr.label}}
@@ -50,7 +50,7 @@
                         <div class="skill-level">
                             <div data-tooltip="{{localize "ZNZRPG.skillHint"}}">{{toUpperCase skill.defaultAttr}}</div>
                             <div> + </div>
-                            <input type="number" name="data.baseSkills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="0" max="10" />
+                            <input type="number" name="system.baseSkills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" step="1" min="0" max="10" />
                         </div>
                     </div>
                 {{/each}}
