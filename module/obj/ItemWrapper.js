@@ -159,6 +159,20 @@ export class ItemWrapper {
         this.item.update(update);
     }
 
+    testUses(){
+        if (!("uses" in this.item.system)){
+            console.error("Item does not have any uses!");
+            return -1;
+        }
+
+        let uses = this.item.system.uses.current;
+        if (uses <= 0){
+            return 0;
+        }
+
+        return 1;
+    }
+
     subtractUses(){
         if (!("uses" in this.item.system)){
             console.error("Item does not have any uses!");
@@ -182,6 +196,18 @@ export class ItemWrapper {
 
     consumeItem(){
         this.item.delete();
+    }
+
+
+    useOrConsume(){
+        if ("hasUses" in this.item.system && this.item.system.hasUses){
+            let uses = this.subtractUses();
+            if (uses <= 0){
+                console.error("Item has no uses left!");
+            }
+        } else {
+            this.consumeItem();
+        }
     }
 
 

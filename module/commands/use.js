@@ -29,11 +29,8 @@ export class UseCommand extends CommandAction {
         //Base Use
         let result = this.itemWrapper.subtractUses();
 
-        if (result <= -1){
+        if (result <= 0){
             sendGreenMessage(`Item <strong>${this.item.name}</strong> does not have any uses!`, true, this.actor);
-            return false;
-        } else if (result == 0){
-            sendGreenMessage(`No uses left for <strong>${this.item.name}</strong>`, true, this.actor);
             return false;
         } else if (result == 2){
             sendGreenMessage(`Using <strong>${this.item.name}</strong>. <strong>${this.item.name}</strong> has no more uses!`, false, this.actor);

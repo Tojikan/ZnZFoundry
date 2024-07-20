@@ -343,4 +343,43 @@ export class CharacterWrapper {
 
         return ammoReceived;
     }
+
+
+    rest(hours){
+        let hoursForLong = this.actor.system.config.hoursForLongRest.value;
+        
+        if (isNaN(hours) || hours < 0){
+            ui.notifications.error("Invalid hours for Rest!");
+            return null;
+        }
+        
+        if (isNaN(hoursForLong) || hoursForLong <= 0){
+            ui.notifications.error("Invalid value for hoursForLongRest!");
+            return null;
+        }
+
+        let isLongRest = hours >= hoursForLong;
+        let energyPerHour = (isLongRest) ? this.actor.system.config.energyPerLongRestHour.value : this.actor.system.config.energyPerShortRestHour.value;
+
+        if (isNaN(energyPerHour) || energyPerHour < 0){
+            ui.notifications.error("Invalid value for energyPerHour!");
+            return null;
+        }
+
+
+        let energy = this.actor.system.energy.value;
+        let energyAdded = hours * energyPerHour;
+
+        let newEnergy = Math.min(energy + (energyAdded), this.actor.system.energy.max);
+
+        this.actor.update({
+            "system.energy.value": newEnergy
+        });
+
+        return {
+            newEnergy: newEnergy,
+            energyAdded: energyAdded,
+
+        }
+    }
 }

@@ -13,6 +13,11 @@ export class RestCommand extends CommandAction {
             return false;
         }
 
+        let result = this.itemWrapper.testUses();
+        if (result <= 0){
+            sendGreenMessage(`Item <strong>${this.item.name}</strong> does not have any uses!`, true, this.actor);
+            return false;
+        }
 
         this.restDialog();
 
@@ -25,7 +30,17 @@ export class RestCommand extends CommandAction {
         }
 
         let hrs = Math.max(parseInt(hours), 0);
-        console.log("resting for " + hrs + " hours");
+
+        let restResult = this.characterWrapper.rest(hrs);
+
+        if (!restResult || !restResult.energyAdded){
+            ui.notifications.error("Error resting");
+            return;
+        }
+
+        let msg = `Rested for ${hrs} hours to restore ${restResult.energyAdded} energy! <br/>`;
+        sendGreenMessage(msg, false, this.actor);
+        this.itemWrapper.useOrConsume();
     }
 
     restDialog(){
