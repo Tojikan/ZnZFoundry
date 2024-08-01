@@ -97,15 +97,6 @@
                 {{/ifCond}}
             {{/if}}
         {{/if}}
-        {{#if card.system.calculateDamageRoll}}
-            {{#unless isInventory}}
-                {{#ifCond card.system.calculateDamageRoll.length ">" 0}}
-                    <div class="card-action-button rollable" data-zmacro="Calculate Damage" data-command="{{card.system.calculateDamageRoll}}" data-item-id="{{card._id}}">
-                        {{localize "ZNZRPG.calcDamageLabel"}}
-                    </div>
-                {{/ifCond}}
-            {{/unless}}
-        {{/if}}
 
         {{#if card.system.rollable.hasRoll}}
             <div class="card-action-button rollable" data-zmacro="Roll Skill {{card.name}}" data-command="basic:skillitem" data-item-id="{{card._id}}">

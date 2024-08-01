@@ -120,6 +120,7 @@
     "ZNZRPG.rangeLabel": "Range",
     "ZNZRPG.actionsLabel": "Custom Actions",
     "ZNZRPG.rollAttrLabel": "Roll",
+    "ZNZRPG.damageReductionLabel": "Total Damage Reduction",
     
     "ZNZRPG.equippedWeapons": "Equipped Weapons",
     "ZNZRPG.equippedWearable": "Equipped Wearable",
@@ -186,6 +187,7 @@
     "ZNZRPG.noDurabilityYouText": "Your weapon is broken!",
     "ZNZRPG.noAmmoText": "Attempted to use a weapon but is out of ammo!",
     "ZNZRPG.noDurabilityText": "Attempted to use a weapon but it is broken!",
+    "ZNZRPG.noUsesText": "Attempted to use an item but it is out of uses!",
 
 
     "ZNZRPG.baseDiceFace": "Base Dice Face",

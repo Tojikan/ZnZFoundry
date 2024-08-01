@@ -161,15 +161,15 @@
 				},
 				"ammoWeight": {
 					"light": {
-						"value": 0.5,
+						"value": 0.2,
 						"label": "ZNZRPG.ammoWeightLight"
 					},
 					"medium": {
-						"value": 1,
+						"value": 0.6,
 						"label": "ZNZRPG.ammoWeightMedium"
 					},
 					"heavy": {
-						"value": 2,
+						"value": 1.2,
 						"label": "ZNZRPG.ammoWeightHeavy"
 					}
 				},

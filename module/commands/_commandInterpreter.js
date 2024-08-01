@@ -5,6 +5,7 @@ import { ResourceCommand } from "./resource.js";
 import { findItem } from "../helpers/common.js";
 import { SpendCommand } from "./spend.js";
 import { RestCommand } from "./rest.js";
+import { CalculateDamageCommand } from "./calculateDamage.js";
 
 
 
@@ -15,7 +16,8 @@ export class CommandInterpreter {
         ReloadCommand,
         ResourceCommand,
         SpendCommand,
-        RestCommand
+        RestCommand,
+        CalculateDamageCommand
     ];
 
     constructor(command, actor, item){

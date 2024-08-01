@@ -50,6 +50,7 @@ export class ZnZActor extends Actor {
 		CharacterHelper.CalculateCost(actorData);
 		CharacterHelper.CalculateSlots(actorData);
 		CharacterHelper.CalculatePenalty(actorData);
+		CharacterHelper.CalculateDamageReduction(actorData);
 
 		//This has to be called last
 		CharacterHelper.CalculateSlotCostPenalty(actorData);

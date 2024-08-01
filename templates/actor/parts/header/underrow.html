@@ -47,22 +47,28 @@
         {{> toggleBtn toggleText="Turn on Adrenaline" untoggleText="Turn off Adrenaline" toggleEffect="toggleAdrenaline" toggleCondition=toggleEffects.toggleAdrenaline tooltip="Adrenaline gives you a diceface bonus and rolls do not have any exhaustion penalties."}}
     </div>
     
-    
-    <div class="ammo-counter">
-        <div class="ammo-counter-row">
-            <div class="ammo-counter-label">{{localize "ZNZRPG.ammoLabel"}}</div>
-            <div class="ammo-counter-block">
-                <div class="ammo-value-label light">{{localize 'ZNZRPG.ammoLight'}}</div>
-                <div class="ammo-value"><input type="number" name="system.ammoStore.light.value" value="{{data.ammoStore.light.value}}" data-dtype="Number" step="1" min="0"/></div>
+    <div class="other-info">
+        <div class="ammo-counter">
+            <div class="ammo-counter-row">
+                <div class="ammo-counter-label">{{localize "ZNZRPG.ammoLabel"}}</div>
+                <div class="ammo-counter-block">
+                    <div class="ammo-value-label light" data-tooltip="Bulk Per Light Ammo: {{data.config.ammoWeight.light.value}}">{{localize 'ZNZRPG.ammoLight'}}</div>
+                    <div class="ammo-value"><input type="number" name="system.ammoStore.light.value" value="{{data.ammoStore.light.value}}" data-dtype="Number" step="1" min="0"/></div>
+                </div>
+                <div class="ammo-counter-block">
+                    <div class="ammo-value-label medium" data-tooltip="Bulk Per Light Ammo: {{data.config.ammoWeight.medium.value}}">{{localize 'ZNZRPG.ammoMedium'}}</div>
+                    <div class="ammo-value"><input type="number" name="system.ammoStore.medium.value" value="{{data.ammoStore.medium.value}}" data-dtype="Number" step="1" min="0"/></div>
+                </div>
+                <div class="ammo-counter-block">
+                    <div class="ammo-value-label heavy" data-tooltip="Bulk Per Heavy Ammo: {{data.config.ammoWeight.heavy.value}}">{{localize 'ZNZRPG.ammoHeavy'}}</div>
+                    <div class="ammo-value"><input type="number" name="system.ammoStore.heavy.value" value="{{data.ammoStore.heavy.value}}" data-dtype="Number" step="1" min="0"/></div>
+                </div>
             </div>
-            <div class="ammo-counter-block">
-                <div class="ammo-value-label medium">{{localize 'ZNZRPG.ammoMedium'}}</div>
-                <div class="ammo-value"><input type="number" name="system.ammoStore.medium.value" value="{{data.ammoStore.medium.value}}" data-dtype="Number" step="1" min="0"/></div>
-            </div>
-            <div class="ammo-counter-block">
-                <div class="ammo-value-label heavy">{{localize 'ZNZRPG.ammoHeavy'}}</div>
-                <div class="ammo-value"><input type="number" name="system.ammoStore.heavy.value" value="{{data.ammoStore.heavy.value}}" data-dtype="Number" step="1" min="0"/></div>
-            </div>
+        </div>
+        <div class="armor-reduction-row">
+            <div class="armor-reduction-label">{{localize "ZNZRPG.damageReductionLabel"}}</div>
+            <div class="armor-reduction-block">{{totalDamageReduction}}%</div>
+            <div class="armor-reduction-button"><button class="character-action-button rollable" draggable type="button" data-command="calculateDamage" data-zmacro="calculateDamage" data-actorId="{{actor.id}}">Calculate</button></div>
         </div>
     </div>
 </div>

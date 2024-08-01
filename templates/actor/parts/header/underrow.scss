@@ -8,8 +8,9 @@
         flex-basis: 35%;
     }
 
-    .ammo-counter {
+    .other-info {
         flex-basis: 65%;
+        margin-top: -5px;
     }
 }
 
@@ -58,7 +59,6 @@
 }
 
 .ammo-counter {
-    margin-top: -5px;
     border: solid 1px var(--color-border-light-primary);
     position: relative;
 
@@ -107,5 +107,35 @@
                 color: darkred;
             }
         }
+    }
+}
+
+.armor-reduction-row {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+
+    .armor-reduction-label {
+        font-weight: 700;
+        border: solid 1px #000;
+        background-color: black;
+        padding: 2px 5px;
+        color: white;
+    }
+
+    .armor-reduction-block {
+        border: solid 1px var(--color-border-light-primary);
+        padding: 0px 5px;
+        font-size: 18px;
+    }
+
+    button {
+        background-color:#0763e5;
+        padding: 0px 5px;
+        font-size: 10px;
+        border: none;
+        height: 24px;
+        line-height: 24px;
+
     }
 }

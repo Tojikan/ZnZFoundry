@@ -1,3 +1,5 @@
+import { sendRedMessage } from "../helpers/messageHelper.js";
+
 /**
  * Functionality involving Items
  */
@@ -95,8 +97,11 @@ export class ItemWrapper {
             let durabilityCost = this.getDurabilityCost(type);
             let newDurability = Math.max(0, durability - durabilityCost);
             this.item.update({"system.durability.value": newDurability});
-        }
 
+            if (newDurability == 0){
+                sendRedMessage(`Item '${this.item.name}' has broken!`);
+            }
+        }
         return true;
     }
 

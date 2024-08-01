@@ -46,6 +46,13 @@ export class CharacterHelper {
 
             ItemUsesWeightCalculator(i, carriedWeight);
         }
+
+        let ammoStore = context.system.ammoStore;
+        let ammoWeight = context.system.config.ammoWeight;
+
+        carriedWeight._addWeight(ammoWeight.light.value, ammoStore.light.value);
+        carriedWeight._addWeight(ammoWeight.medium.value, ammoStore.medium.value);
+        carriedWeight._addWeight(ammoWeight.heavy.value, ammoStore.heavy.value);
         
         context.calculated.carriedWeight = carriedWeight.value;
     }
@@ -102,8 +109,6 @@ export class CharacterHelper {
 
     //Has to be called after CalculateSlots and Calculate Cost
     static CalculateSlotCostPenalty(context){
-        let penalty = 0;
-
         if (context.calculated.overEquipped){
             let total = context.calculated.equippedItemCount - context.calculated.totalSlots;
 
@@ -111,5 +116,19 @@ export class CharacterHelper {
             context.calculated.energyCost += total;
             context.calculated.moraleCost += total;
         }
+    }
+
+    static CalculateDamageReduction(context){
+        let totalReduction = 0;
+
+        for (let itm of context.items) {
+
+            if (itm.system.equipped && itm.system.damageReduction && itm.system.durability.value > 0){
+                totalReduction += itm.system.damageReduction.value;
+            }
+        }
+
+        totalReduction = Math.max(totalReduction, 0);
+        context.calculated.totalDamageReduction = Math.min(totalReduction, context.system.config.maxDamageReduction.value);
     }
 }

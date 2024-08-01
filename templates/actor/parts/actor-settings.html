@@ -38,7 +38,7 @@
     <h2>Weight</h2>
     <div class="settings-group">
         {{#each data.config.ammoWeight as |weight key|}}
-            {{> field label=weight.label name=(concat "data.config.cost." key ".value") value=weight.value}}
+            {{> field label=weight.label name=(concat "system.config.ammoWeight." key ".value") value=weight.value}}
         {{/each}}
     </div>
 </div>

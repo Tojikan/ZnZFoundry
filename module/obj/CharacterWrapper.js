@@ -123,7 +123,7 @@ export class CharacterWrapper {
         if (multi && !isNaN(multi)){
             templateContext.hasMulti = true;
             templateContext.multiplier = multi;
-            templateContext.totalMultiplied = multi * rollResult._total;
+            templateContext.totalMultiplied = Math.floor(multi * rollResult._total);
             templateContext.multiplierText = `Multiply result of roll by ${multi}`;
         }
 
@@ -317,6 +317,18 @@ export class CharacterWrapper {
             "system.satiety.value": newSatiety,
             "system.energy.value": newEnergy,
             "system.morale.value": newMorale,
+            "system.health.value": newHealth
+        });
+    }
+
+    takeDamage(damage){
+        if (isNaN(damage) || damage < 0) return;
+
+        let health = this.actor.system.health.value;
+        let newHealth = Math.max(health - damage, 0);
+        newHealth = Math.min(newHealth, this.actor.system.health.max);
+
+        this.actor.update({
             "system.health.value": newHealth
         });
     }

@@ -107,80 +107,6 @@ aside#tooltip ul {
   width: 100%;
   text-align: center; }
 
-.znz4e .section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 7px 12px; }
-  .znz4e .section-heading.spaced {
-    margin-top: 30px; }
-  .znz4e .section-heading .minmax-value-display {
-    font-size: 18px; }
-
-.znz4e .section-spacer {
-  height: 80px; }
-
-.znz4e .item-controls {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  font-size: 18px; }
-
-.znz4e .tab-container {
-  margin: 10px 0; }
-
-.znz4e .slot-listing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 250px;
-  margin-right: 20px; }
-  .znz4e .slot-listing .over-equipped {
-    color: red; }
-
-.znz4e .equipment-filter .filter-button {
-  color: white;
-  background-color: green; }
-  .znz4e .equipment-filter .filter-button.active {
-    pointer-events: none;
-    background-color: darkorange; }
-
-.znz4e .inventory-listing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap; }
-  .znz4e .inventory-listing .bulk-listing {
-    flex-basis: 50%; }
-    .znz4e .inventory-listing .bulk-listing h2 {
-      display: flex;
-      justify-content: space-between; }
-  .znz4e .inventory-listing .add-item {
-    width: 10%; }
-
-.settings-field {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; }
-  .settings-field label {
-    margin-right: 10px;
-    width: 70%; }
-  .settings-field input {
-    width: 100px;
-    text-align: center; }
-
-.settings-tab {
-  margin: 30px 0;
-  margin-left: 20px; }
-
-.settings-group {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px; }
-
 .znz4e {
   /*** Tool Tip ****/
   /*** Single value display ***/
@@ -449,212 +375,79 @@ aside#tooltip ul {
 .znz4e .bold {
   font-weight: 700; }
 
-header.sheet-header {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex;
-  align-items: start;
-  margin-bottom: 10px;
-  padding: 10px;
-  flex-wrap: nowrap;
-  overflow: visible; }
-  header.sheet-header .sheet-header-container {
-    width: 100%;
-    max-width: 1000px; }
-
-.name-row .status-number {
-  text-align: center; }
-
-.name-row .profile-img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px; }
-
-.name-row .name-input {
-  flex-basis: 56%; }
-
-.name-row .status-input {
-  flex-basis: 35%;
-  column-count: 3;
-  column-gap: 5px; }
-
-.name-row .is-red input {
-  color: red; }
-
-.name-row .status-input input,
-.name-row h1 input {
-  height: 36px;
-  line-height: 36px;
-  margin: 0;
-  margin-bottom: 10px; }
-
-.character-stats {
-  justify-content: start;
-  flex-wrap: nowrap;
-  column-gap: 15px;
-  align-items: flex-start; }
-  .character-stats meter#energy-meter::-webkit-meter-optimum-value {
-    background: #0763e5; }
-  .character-stats meter#satiety-meter::-webkit-meter-optimum-value {
-    background: red; }
-  .character-stats meter#morale-meter::-webkit-meter-optimum-value {
-    background: purple; }
-  .character-stats .cost-text {
-    font-size: 11px;
-    color: #8B0000; }
-  .character-stats .resources-section {
-    flex-basis: 35%;
-    row-gap: 10px; }
-  .character-stats .attribute-section {
-    flex-basis: 65%; }
-  .character-stats .attribute-layout {
-    display: flex;
-    flex-wrap: nowrap;
-    column-gap: 10px;
-    row-gap: 10px;
-    justify-content: space-between; }
-
-.resource-content {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center; }
-  .resource-content:last-child {
-    margin-bottom: 0; }
-  .resource-content label {
-    text-align: right;
-    flex-basis: 10%;
-    margin-right: 8px; }
-  .resource-content input {
-    border: solid gray 1px;
-    width: 36px; }
-  .resource-content meter {
-    flex-basis: 60%;
-    margin-right: 8px; }
-  .resource-content .minmax-value-display {
-    flex-basis: 30%; }
-
-.attr-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
-  .attr-block .attr-label {
-    font-weight: 700;
-    width: 100%; }
-    .attr-block .attr-label.rollable.roll-icon {
-      padding-right: 0; }
-  .attr-block .attr-label, .attr-block .attr-under {
-    text-transform: uppercase;
-    text-align: center; }
-  .attr-block .attr-under {
-    font-size: 10px;
-    color: #443730;
-    opacity: 0.7; }
-  .attr-block input {
-    width: 50px;
-    height: 40px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700; }
-
-.base-skill-row {
-  background-color: var(--color-text-dark-primary);
-  columns: 3;
-  margin-top: 5px; }
-
-.base-skill {
-  padding: 2px 3px;
-  color: white;
+.znz4e .section-heading {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  line-break: anywhere; }
-  .base-skill .skill-name {
-    font-weight: 700;
-    margin-bottom: 5px; }
-  .base-skill .skill-level {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center; }
-    .base-skill .skill-level input {
-      width: 30px;
-      text-align: center;
-      background-color: white; }
+  align-items: center;
+  margin: 7px 12px; }
+  .znz4e .section-heading.spaced {
+    margin-top: 30px; }
+  .znz4e .section-heading .minmax-value-display {
+    font-size: 18px; }
 
-.under-row {
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  gap: 14px;
-  margin-top: 5px; }
-  .under-row .character-commands {
-    flex-basis: 35%; }
-  .under-row .ammo-counter {
-    flex-basis: 65%; }
+.znz4e .section-spacer {
+  height: 80px; }
 
-.character-commands {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
-  height: min-content; }
-  .character-commands .command-btn {
-    height: 17px; }
-    .character-commands .command-btn button {
-      font-size: 11px;
-      padding: 3px 6px;
-      border: none;
-      line-height: 11px; }
+.znz4e .item-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px; }
 
-.character-action-button {
-  color: white;
-  background-color: red; }
-  .character-action-button:hover {
-    background-color: darkred; }
+.znz4e .tab-container {
+  margin: 10px 0; }
 
-.character-toggle-button {
+.znz4e .slot-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  margin-right: 20px; }
+  .znz4e .slot-listing .over-equipped {
+    color: red; }
+
+.znz4e .equipment-filter .filter-button {
   color: white;
   background-color: green; }
-  .character-toggle-button:hover {
-    background-color: darkgreen; }
-  .character-toggle-button.active {
-    background-color: purple; }
-    .character-toggle-button.active:hover {
-      background-color: darkpurple; }
+  .znz4e .equipment-filter .filter-button.active {
+    pointer-events: none;
+    background-color: darkorange; }
 
-.ammo-counter {
-  margin-top: -5px;
-  border: solid 1px var(--color-border-light-primary);
-  position: relative; }
-  .ammo-counter .ammo-counter-label {
-    margin-right: 10px;
-    font-weight: 700;
-    border: solid 1px #000;
-    padding: 3px 5px;
-    background-color: black;
-    color: white; }
-  .ammo-counter .ammo-counter-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px; }
-    .ammo-counter .ammo-counter-row .ammo-counter-block {
+.znz4e .inventory-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; }
+  .znz4e .inventory-listing .bulk-listing {
+    flex-basis: 50%; }
+    .znz4e .inventory-listing .bulk-listing h2 {
       display: flex;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-items: center; }
-    .ammo-counter .ammo-counter-row .ammo-value {
-      margin-left: 15px; }
-      .ammo-counter .ammo-counter-row .ammo-value input {
-        background-color: white;
-        width: 50px;
-        text-align: center; }
-    .ammo-counter .ammo-counter-row .ammo-value-label.light {
-      color: darkgreen; }
-    .ammo-counter .ammo-counter-row .ammo-value-label.medium {
-      color: darkblue; }
-    .ammo-counter .ammo-counter-row .ammo-value-label.heavy {
-      color: darkred; }
+      justify-content: space-between; }
+  .znz4e .inventory-listing .add-item {
+    width: 10%; }
+
+.settings-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .settings-field label {
+    margin-right: 10px;
+    width: 70%; }
+  .settings-field input {
+    width: 100px;
+    text-align: center; }
+
+.settings-tab {
+  margin: 30px 0;
+  margin-left: 20px; }
+
+.settings-group {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px; }
 
 .znz-card {
   display: flex;
@@ -856,3 +649,232 @@ header.sheet-header {
       .items-container.is-fixed-width .znz-card:hover {
         z-index: 5;
         transform: translateY(-10px) rotate(0deg) scale(1.1); }
+
+header.sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  margin-bottom: 10px;
+  padding: 10px;
+  flex-wrap: nowrap;
+  overflow: visible; }
+  header.sheet-header .sheet-header-container {
+    width: 100%;
+    max-width: 1000px; }
+
+.name-row .status-number {
+  text-align: center; }
+
+.name-row .profile-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px; }
+
+.name-row .name-input {
+  flex-basis: 56%; }
+
+.name-row .status-input {
+  flex-basis: 35%;
+  column-count: 3;
+  column-gap: 5px; }
+
+.name-row .is-red input {
+  color: red; }
+
+.name-row .status-input input,
+.name-row h1 input {
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+  margin-bottom: 10px; }
+
+.character-stats {
+  justify-content: start;
+  flex-wrap: nowrap;
+  column-gap: 15px;
+  align-items: flex-start; }
+  .character-stats meter#energy-meter::-webkit-meter-optimum-value {
+    background: #0763e5; }
+  .character-stats meter#satiety-meter::-webkit-meter-optimum-value {
+    background: red; }
+  .character-stats meter#morale-meter::-webkit-meter-optimum-value {
+    background: purple; }
+  .character-stats .cost-text {
+    font-size: 11px;
+    color: #8B0000; }
+  .character-stats .resources-section {
+    flex-basis: 35%;
+    row-gap: 10px; }
+  .character-stats .attribute-section {
+    flex-basis: 65%; }
+  .character-stats .attribute-layout {
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: space-between; }
+
+.resource-content {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center; }
+  .resource-content:last-child {
+    margin-bottom: 0; }
+  .resource-content label {
+    text-align: right;
+    flex-basis: 10%;
+    margin-right: 8px; }
+  .resource-content input {
+    border: solid gray 1px;
+    width: 36px; }
+  .resource-content meter {
+    flex-basis: 60%;
+    margin-right: 8px; }
+  .resource-content .minmax-value-display {
+    flex-basis: 30%; }
+
+.attr-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .attr-block .attr-label {
+    font-weight: 700;
+    width: 100%; }
+    .attr-block .attr-label.rollable.roll-icon {
+      padding-right: 0; }
+  .attr-block .attr-label, .attr-block .attr-under {
+    text-transform: uppercase;
+    text-align: center; }
+  .attr-block .attr-under {
+    font-size: 10px;
+    color: #443730;
+    opacity: 0.7; }
+  .attr-block input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700; }
+
+.base-skill-row {
+  background-color: var(--color-text-dark-primary);
+  columns: 3;
+  margin-top: 5px; }
+
+.base-skill {
+  padding: 2px 3px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  line-break: anywhere; }
+  .base-skill .skill-name {
+    font-weight: 700;
+    margin-bottom: 5px; }
+  .base-skill .skill-level {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center; }
+    .base-skill .skill-level input {
+      width: 30px;
+      text-align: center;
+      background-color: white; }
+
+.under-row {
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 14px;
+  margin-top: 5px; }
+  .under-row .character-commands {
+    flex-basis: 35%; }
+  .under-row .other-info {
+    flex-basis: 65%;
+    margin-top: -5px; }
+
+.character-commands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  height: min-content; }
+  .character-commands .command-btn {
+    height: 17px; }
+    .character-commands .command-btn button {
+      font-size: 11px;
+      padding: 3px 6px;
+      border: none;
+      line-height: 11px; }
+
+.character-action-button {
+  color: white;
+  background-color: red; }
+  .character-action-button:hover {
+    background-color: darkred; }
+
+.character-toggle-button {
+  color: white;
+  background-color: green; }
+  .character-toggle-button:hover {
+    background-color: darkgreen; }
+  .character-toggle-button.active {
+    background-color: purple; }
+    .character-toggle-button.active:hover {
+      background-color: darkpurple; }
+
+.ammo-counter {
+  border: solid 1px var(--color-border-light-primary);
+  position: relative; }
+  .ammo-counter .ammo-counter-label {
+    margin-right: 10px;
+    font-weight: 700;
+    border: solid 1px #000;
+    padding: 3px 5px;
+    background-color: black;
+    color: white; }
+  .ammo-counter .ammo-counter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px; }
+    .ammo-counter .ammo-counter-row .ammo-counter-block {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center; }
+    .ammo-counter .ammo-counter-row .ammo-value {
+      margin-left: 15px; }
+      .ammo-counter .ammo-counter-row .ammo-value input {
+        background-color: white;
+        width: 50px;
+        text-align: center; }
+    .ammo-counter .ammo-counter-row .ammo-value-label.light {
+      color: darkgreen; }
+    .ammo-counter .ammo-counter-row .ammo-value-label.medium {
+      color: darkblue; }
+    .ammo-counter .ammo-counter-row .ammo-value-label.heavy {
+      color: darkred; }
+
+.armor-reduction-row {
+  display: flex;
+  align-items: center;
+  margin-top: 2px; }
+  .armor-reduction-row .armor-reduction-label {
+    font-weight: 700;
+    border: solid 1px #000;
+    background-color: black;
+    padding: 2px 5px;
+    color: white; }
+  .armor-reduction-row .armor-reduction-block {
+    border: solid 1px var(--color-border-light-primary);
+    padding: 0px 5px;
+    font-size: 18px; }
+  .armor-reduction-row button {
+    background-color: #0763e5;
+    padding: 0px 5px;
+    font-size: 10px;
+    border: none;
+    height: 24px;
+    line-height: 24px; }
