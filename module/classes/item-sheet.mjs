@@ -55,8 +55,6 @@ export class ZnZItemSheet extends ItemSheet {
             context.AmmoTypes[ammo] = ammo.charAt(0).toUpperCase() + ammo.slice(1);
         }
         return context;
-
-        this.object.migrateSystemData();
     }
     
     /* -------------------------------------------- */

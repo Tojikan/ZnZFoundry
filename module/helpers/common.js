@@ -19,6 +19,9 @@ export function WeightCalculator(){
                 return; 
             }
             this.value += weight * quantity;
+            if (!Number.isInteger(this.value)) {
+                this.value = Math.round(this.value * 10) / 10;
+            }
         }
     };
 }

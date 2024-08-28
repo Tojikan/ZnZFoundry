@@ -8,14 +8,10 @@ export class RestCommand extends CommandAction {
     static command = "rest";
 
     execute(){
-        if (!this.actor || !this.item){
-            console.error("No actor/item found for rest command");
-            return false;
-        }
+        console.log(this);
 
-        let result = this.itemWrapper.testUses();
-        if (result <= 0){
-            sendGreenMessage(`Item <strong>${this.item.name}</strong> does not have any uses!`, true, this.actor);
+        if (!this.actor){
+            console.error("No actor found for rest command");
             return false;
         }
 
@@ -40,7 +36,6 @@ export class RestCommand extends CommandAction {
 
         let msg = `Rested for ${hrs} hours to restore ${restResult.energyAdded} energy! <br/>`;
         sendGreenMessage(msg, false, this.actor);
-        this.itemWrapper.useOrConsume();
     }
 
     restDialog(){

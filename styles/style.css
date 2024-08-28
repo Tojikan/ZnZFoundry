@@ -878,3 +878,5 @@ header.sheet-header {
     border: none;
     height: 24px;
     line-height: 24px; }
+  .armor-reduction-row .rest-action {
+    margin-left: 25px; }

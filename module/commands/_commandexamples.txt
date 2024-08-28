@@ -2,6 +2,7 @@ basic:skill=melee
 basic:item=attack
 basic:item=defend
 basic:attr=str
+basic:item=attack,skill=throw
 reloadfind
 resource:satiety=20
 resource:health=10,energy=5

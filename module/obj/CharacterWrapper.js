@@ -303,16 +303,17 @@ export class CharacterWrapper {
         let morale = this.actor.system.morale.value;
         let health = this.actor.system.health.value;
 
-        let newSatiety = Math.min(satiety + vals.satiety, this.actor.system.satiety.max);
-        let newEnergy = Math.min(energy + vals.energy, this.actor.system.energy.max);
-        let newMorale = Math.min(morale + vals.morale, this.actor.system.morale.max);
-        let newHealth = Math.min(health + vals.health, this.actor.system.health.max);
-
+        
+        let newSatiety = Math.min(satiety +  (vals.satiety ?? 0), this.actor.system.satiety.max);
+        let newEnergy = Math.min(energy +  (vals.energy ?? 0), this.actor.system.energy.max);
+        let newMorale = Math.min(morale +  (vals.morale ?? 0), this.actor.system.morale.max);
+        let newHealth = Math.min(health +  (vals.health ?? 0), this.actor.system.health.max);
+        
         newSatiety = Math.max(newSatiety, 0);
         newEnergy = Math.max(newEnergy, 0);
         newMorale = Math.max(newMorale, 0);
         newHealth = Math.max(newHealth, 0);
-
+        
         this.actor.update({
             "system.satiety.value": newSatiety,
             "system.energy.value": newEnergy,
