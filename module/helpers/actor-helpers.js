@@ -36,6 +36,7 @@ export class CharacterHelper {
         let carriedWeight = WeightCalculator();
 
         for (let i of context.items) {
+            if (i.type === "flaw" || i.type === "skill" || i.skill === "ability") continue;
             i.img = i.img || DEFAULT_TOKEN;
 
 

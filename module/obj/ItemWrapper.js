@@ -199,6 +199,17 @@ export class ItemWrapper {
         return 1;
     }
 
+    restoreUses(){
+        if (!("uses" in this.item.system)){
+            console.error("Item does not have any uses!");
+            return;
+        }
+
+        let uses = this.item.system.uses.max;
+        this.item.update({"system.uses.current": uses});
+        return 1
+    }
+
     consumeItem(){
         this.item.delete();
     }

@@ -25,6 +25,12 @@ export class UseCommand extends CommandAction {
             return true;
         }
 
+        if("restore" in this.args){
+            this.itemWrapper.restoreUses();
+            sendGreenMessage(`Restoring all uses of <strong>${this.item.name}</strong>`, false, this.actor);
+            return true;
+        }
+
 
         //Base Use
         let result = this.itemWrapper.subtractUses();

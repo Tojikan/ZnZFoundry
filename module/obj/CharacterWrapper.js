@@ -79,6 +79,15 @@ export class CharacterWrapper {
             }
         }
 
+        let isSickness = false;
+
+        for (let effect of this.actor.effects){
+            if (effect.name == "toggleSickness" && !effect.disabled){
+                isSickness = true;
+                break;
+            }
+        }
+
 
         let diceFace = parseInt(baseDiceFace + diceFaceBonus + adrenalineBonus);
         diceFace = Math.max(diceFace, 1);
@@ -93,6 +102,9 @@ export class CharacterWrapper {
         }
         if (isAdrenaline){
             rollText += ` with Adrenaline bonus (+${this.actor.system.config.adrenalineBonus.value})`
+        }
+        if (isSickness){
+            rollText += ` with Sickness penalty (x2 resource spent)`
         }
 
 
@@ -197,6 +209,17 @@ export class CharacterWrapper {
         let energyCost = this.actor.calculated.energyCost;
         let moraleCost = this.actor.calculated.moraleCost;
         let healthCost = this.actor.calculated.healthCost;
+
+        //Check sickness
+        for (let effect of this.actor.effects){
+            if (effect.name == "toggleSickness" && !effect.disabled){
+                staCost = staCost * 2;
+                energyCost = energyCost * 2;
+                moraleCost = moraleCost * 2;
+                healthCost = healthCost * 2;
+                break;
+            }
+        }
         
         let sta = this.actor.system.satiety.value;
         let energy = this.actor.system.energy.value;

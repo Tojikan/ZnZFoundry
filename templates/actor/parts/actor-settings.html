@@ -17,16 +17,16 @@
     <h2>Costs</h2>
     <div class="settings-group">
         {{#each data.config.cost as |cost key|}}
-            {{> field label=cost.label name=(concat "data.config.cost." key ".value") value=cost.value}}
+            {{> field label=cost.label name=(concat "system.config.cost." key ".value") value=cost.value}}
         {{/each}}
     </div>
     <h2>Penalty</h2>
     <div class="settings-group">
         {{#each data.config.penalty.thresholds as |penalty key|}}
-            {{> field label=penalty.label name=(concat "data.config.penalty.thresholds." key ".value") value=penalty.value}}
+            {{> field label=penalty.label name=(concat "system.config.penalty.thresholds." key ".value") value=penalty.value}}
         {{/each}}
         {{#each data.config.penalty.intervals as |penalty key|}}
-            {{> field label=penalty.label name=(concat "data.config.penalty.intervals." key ".value") value=penalty.value}}
+            {{> field label=penalty.label name=(concat "system.config.penalty.intervals." key ".value") value=penalty.value}}
         {{/each}}
     </div>
     <h2>Rest</h2>

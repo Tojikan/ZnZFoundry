@@ -128,7 +128,7 @@ Hooks.once('init', async function() {
 	});
 	
 	Handlebars.registerHelper('decimal', function(number) {
-		return number.toFixed(1);
+		return number.toFixed(2);
 	});
 
 	/**
@@ -199,6 +199,11 @@ async function createZMacro(data, slot){
 /* -------------------------------------------- */
 
 Hooks.on("preCreateItem", (itemData) => {
+
+	if (itemData.img != 'icons/svg/item-bag.svg'){
+		return;
+	}
+
 	if (itemData.type === 'melee_weapon'){
 		itemData.updateSource({img:"icons/svg/sword.svg"});
 	} else if (itemData.type === 'ranged_weapon'){
