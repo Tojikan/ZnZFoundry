@@ -97,7 +97,7 @@ export class CharacterHelper {
 
             if (itm.system.equipped){
 
-                if (itm.type === "flaw" || itm.type === "skill") continue;
+                if (itm.type === "flaw" || itm.type === "skill" || itm.type === "wearable") continue;
                 
                 equippedItemCount++;
             }

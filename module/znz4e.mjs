@@ -25,7 +25,7 @@ Hooks.once('init', async function() {
 	 * @type {String}
 	 */
 	CONFIG.Combat.initiative = {
-		formula: "1d20 + @initBonus.value)",
+		formula: "1d20 + @initBonus.value",
 		decimals: 0
 	};
 
